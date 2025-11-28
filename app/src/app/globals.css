@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Retro color palette */
+  --retro-cyan: #00fff2;
+  --retro-magenta: #ff00ff;
+  --retro-orange: #ff6b35;
+  --retro-green: #00ff00;
+  --retro-yellow: #ffff00;
+  --retro-red: #ff3366;
+  --retro-blue: #0066ff;
+
+  /* Background colors */
+  --bg-deep: #0a0a1a;
+  --bg-dark: #0f0f2a;
+  --bg-card: #1a1a3a;
+  --bg-hover: #252550;
+
+  /* Text colors - improved contrast for accessibility */
+  --text-primary: #f0f0f0;
+  --text-secondary: #b8b8d8;
+  --text-muted: #8888a8;
+
+  /* Glow effects */
+  --glow-cyan: 0 0 10px #00fff2, 0 0 20px #00fff280, 0 0 30px #00fff240;
+  --glow-magenta: 0 0 10px #ff00ff, 0 0 20px #ff00ff80, 0 0 30px #ff00ff40;
+  --glow-green: 0 0 10px #00ff00, 0 0 20px #00ff0080;
+}
+
+@theme inline {
+  --color-retro-cyan: var(--retro-cyan);
+  --color-retro-magenta: var(--retro-magenta);
+  --color-retro-orange: var(--retro-orange);
+  --color-retro-green: var(--retro-green);
+  --color-retro-yellow: var(--retro-yellow);
+  --color-retro-red: var(--retro-red);
+  --color-retro-blue: var(--retro-blue);
+
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-card: var(--bg-card);
+  --color-bg-hover: var(--bg-hover);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-terminal: 'VT323', monospace;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* Base styles */
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+}
+
+/* Grid background */
+.retro-grid {
+  background-image:
+    linear-gradient(rgba(0, 255, 242, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 242, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Scanline effect */
+.scanlines::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.3;
+}
+
+/* CRT screen flicker */
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.97; }
+  15% { opacity: 0.94; }
+  20% { opacity: 0.98; }
+  100% { opacity: 0.97; }
+}
+
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+/* Glow text */
+.glow-cyan {
+  text-shadow: var(--glow-cyan);
+}
+
+.glow-magenta {
+  text-shadow: var(--glow-magenta);
+}
+
+.glow-green {
+  text-shadow: var(--glow-green);
+}
+
+.glow-cyan-subtle {
+  text-shadow: 0 0 5px #00fff280;
+}
+
+/* Retro button base */
+.retro-btn {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--retro-cyan);
+  background: transparent;
+  color: var(--retro-cyan);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.retro-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 242, 0.2), transparent);
+  transition: left 0.4s ease;
+}
+
+.retro-btn:hover {
+  background: rgba(0, 255, 242, 0.1);
+  box-shadow: var(--glow-cyan);
+}
+
+.retro-btn:hover::before {
+  left: 100%;
+}
+
+.retro-btn:active {
+  transform: scale(0.98);
+}
+
+.retro-btn-magenta {
+  border-color: var(--retro-magenta);
+  color: var(--retro-magenta);
+}
+
+.retro-btn-magenta:hover {
+  background: rgba(255, 0, 255, 0.1);
+  box-shadow: var(--glow-magenta);
+}
+
+/* Retro card */
+.retro-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 255, 242, 0.2);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.retro-card:hover {
+  border-color: var(--retro-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 242, 0.1);
+}
+
+/* Score bar animation */
+@keyframes score-fill {
+  from { width: 0; }
+}
+
+.score-bar {
+  animation: score-fill 0.8s ease-out;
+}
+
+/* Pixel border */
+.pixel-border {
+  box-shadow:
+    0 -4px 0 0 var(--retro-cyan),
+    0 4px 0 0 var(--retro-cyan),
+    -4px 0 0 0 var(--retro-cyan),
+    4px 0 0 0 var(--retro-cyan);
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--retro-cyan);
+  animation:
+    typing 2s steps(30, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Month heatmap colors */
+.month-good {
+  background: var(--retro-green);
+  box-shadow: 0 0 8px var(--retro-green);
+}
+
+.month-bad {
+  background: var(--bg-hover);
+}
+
+/* Badge styles */
+.badge-new {
+  background: var(--retro-magenta);
+  color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--retro-cyan);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--retro-magenta);
+}
+
+/* Input styling */
+.retro-input {
+  background: var(--bg-dark);
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  font-family: 'Space Mono', monospace;
+  transition: all 0.2s ease;
+}
+
+.retro-input:focus {
+  outline: none;
+  border-color: var(--retro-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 242, 0.2);
+}
+
+.retro-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Select dropdown */
+.retro-select {
+  background: var(--bg-dark);
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  color: var(--text-primary);
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  font-family: 'Space Mono', monospace;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300fff2' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  cursor: pointer;
+}
+
+.retro-select:focus {
+  outline: none;
+  border-color: var(--retro-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 242, 0.2);
+}
+
+/* Checkbox styling */
+.retro-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--retro-cyan);
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.retro-checkbox:checked {
+  background: var(--retro-cyan);
+}
+
+.retro-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--bg-deep);
+  font-weight: bold;
+}
+
+/* Slider */
+.retro-slider {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--bg-dark);
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  border-radius: 4px;
+}
+
+.retro-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--retro-cyan);
+  cursor: pointer;
+  box-shadow: var(--glow-cyan);
+}
+
+/* Tooltip */
+.retro-tooltip {
+  position: relative;
+}
+
+.retro-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--retro-cyan);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.retro-tooltip:hover::after {
+  opacity: 1;
+}
+
+/* Loading animation */
+@keyframes loading-bar {
+  0% { width: 0; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.loading-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--retro-cyan), var(--retro-magenta));
+  animation: loading-bar 1.5s ease-in-out infinite;
+}
+
+/* Boot animation */
+@keyframes boot-glow {
+  0% { opacity: 0; filter: blur(10px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+
+.boot-animation {
+  animation: boot-glow 0.5s ease-out;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .crt-flicker {
+    animation: none;
+  }
+
+  .scanlines::after {
+    display: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--retro-cyan);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--retro-cyan);
+  color: var(--bg-deep);
+  padding: 0.5rem 1rem;
+  z-index: 10000;
+  font-family: 'Space Mono', monospace;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Search input with icon */
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-input-wrapper .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input-wrapper input {
+  padding-left: 2.5rem;
+}
+
+/* Favorite button */
+.favorite-btn {
+  transition: all 0.2s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  color: var(--retro-yellow);
+  text-shadow: 0 0 10px var(--retro-yellow);
+}
+
+/* Compare checkbox */
+.compare-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--retro-magenta);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 0 10px var(--retro-magenta);
+}
+
+/* Keyboard shortcut hints */
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem 0.375rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.625rem;
+  background: var(--bg-dark);
+  border: 1px solid var(--text-muted);
+  border-radius: 3px;
+  color: var(--text-secondary);
+}
+
+/* Comparison panel slide-in */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.compare-panel {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Onboarding tooltip */
+.onboarding-tooltip {
+  position: absolute;
+  z-index: 1000;
+  background: var(--bg-card);
+  border: 2px solid var(--retro-cyan);
+  border-radius: 4px;
+  padding: 1rem;
+  max-width: 280px;
+  box-shadow: 0 0 20px rgba(0, 255, 242, 0.3);
+}
+
+.onboarding-tooltip::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--bg-card);
+  border-left: 2px solid var(--retro-cyan);
+  border-top: 2px solid var(--retro-cyan);
+  transform: rotate(45deg);
+}
+
+.onboarding-tooltip.bottom::before {
+  top: -7px;
+  left: 50%;
+  margin-left: -6px;
+}
+
+.onboarding-tooltip.top::before {
+  bottom: -7px;
+  left: 50%;
+  margin-left: -6px;
+  transform: rotate(225deg);
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
