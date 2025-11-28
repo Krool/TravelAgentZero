@@ -14,7 +14,14 @@
       "Bash(gh repo create:*)",
       "Bash(git add:*)",
       "Bash(if exist \".git\" rmdir /s /q .git)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial release: Travel Agent Zero\n\nA retro-futuristic travel planning companion with:\n- 77 destinations with scoring algorithm\n- Traveler tracking with child detection\n- Search, filtering by region/budget/flight time\n- Historical flight price estimates\n- Responsive retro-themed UI\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(gh api:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run watch:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

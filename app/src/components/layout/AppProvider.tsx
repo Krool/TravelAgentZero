@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import { Destination, Traveler } from '@/types';
 
+// Get base path for asset URLs
+const basePath = process.env.NODE_ENV === 'production' ? '/TravelAgentZero' : '';
+
 interface AppProviderProps {
   children: React.ReactNode;
 }
@@ -24,14 +27,14 @@ export function AppProvider({ children }: AppProviderProps) {
     async function loadData() {
       try {
         // Load destinations
-        const destResponse = await fetch('/data/destinations.json');
+        const destResponse = await fetch(`${basePath}/data/destinations.json`);
         const destinations: Destination[] = await destResponse.json();
         setDestinations(destinations);
 
         // Load travelers if not already in localStorage
         const currentTravelers = useAppStore.getState().travelers;
         if (currentTravelers.length === 0) {
-          const travelerResponse = await fetch('/data/travelers.json');
+          const travelerResponse = await fetch(`${basePath}/data/travelers.json`);
           const defaultTravelers: Traveler[] = await travelerResponse.json();
           setTravelers(defaultTravelers);
 
