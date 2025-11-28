@@ -85,6 +85,12 @@ export function RetroDualSlider({
   valueSuffix = '',
   className,
 }: DualSliderProps) {
+  // Calculate percentage positions for z-index logic
+  const minPercent = ((minValue - min) / (max - min)) * 100;
+  const maxPercent = ((maxValue - min) / (max - min)) * 100;
+  // When thumbs are close or min is being dragged near max, bring min slider on top
+  const minOnTop = maxPercent - minPercent < 20;
+
   return (
     <div className={cn('w-full', className)}>
       {label && (
@@ -97,16 +103,16 @@ export function RetroDualSlider({
           </span>
         </div>
       )}
-      <div className="relative pt-1">
+      <div className="relative h-6">
         {/* Track background */}
-        <div className="h-2 bg-bg-dark border border-retro-cyan/30 rounded" />
+        <div className="absolute top-2 left-0 right-0 h-2 bg-bg-dark border border-retro-cyan/30 rounded" />
 
         {/* Active range indicator */}
         <div
-          className="absolute top-1 h-2 bg-retro-cyan/30 rounded"
+          className="absolute top-2 h-2 bg-retro-cyan/30 rounded pointer-events-none"
           style={{
-            left: `${((minValue - min) / (max - min)) * 100}%`,
-            width: `${((maxValue - minValue) / (max - min)) * 100}%`,
+            left: `${minPercent}%`,
+            width: `${maxPercent - minPercent}%`,
           }}
         />
 
@@ -122,13 +128,19 @@ export function RetroDualSlider({
             if (value < maxValue) onMinChange(value);
           }}
           className={cn(
-            'absolute top-0 w-full h-2 appearance-none bg-transparent cursor-pointer',
+            'absolute top-1 w-full h-4 appearance-none bg-transparent cursor-pointer',
+            'pointer-events-none',
             '[&::-webkit-slider-thumb]:appearance-none',
             '[&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4',
             '[&::-webkit-slider-thumb]:rounded-sm [&::-webkit-slider-thumb]:bg-retro-cyan',
             '[&::-webkit-slider-thumb]:cursor-pointer',
             '[&::-webkit-slider-thumb]:shadow-[0_0_10px_var(--retro-cyan)]',
-            'pointer-events-auto'
+            '[&::-webkit-slider-thumb]:pointer-events-auto',
+            '[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4',
+            '[&::-moz-range-thumb]:rounded-sm [&::-moz-range-thumb]:bg-retro-cyan',
+            '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
+            '[&::-moz-range-thumb]:pointer-events-auto',
+            minOnTop ? 'z-20' : 'z-10'
           )}
         />
 
@@ -144,13 +156,19 @@ export function RetroDualSlider({
             if (value > minValue) onMaxChange(value);
           }}
           className={cn(
-            'absolute top-0 w-full h-2 appearance-none bg-transparent cursor-pointer',
+            'absolute top-1 w-full h-4 appearance-none bg-transparent cursor-pointer',
+            'pointer-events-none',
             '[&::-webkit-slider-thumb]:appearance-none',
             '[&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4',
             '[&::-webkit-slider-thumb]:rounded-sm [&::-webkit-slider-thumb]:bg-retro-magenta',
             '[&::-webkit-slider-thumb]:cursor-pointer',
             '[&::-webkit-slider-thumb]:shadow-[0_0_10px_var(--retro-magenta)]',
-            'pointer-events-auto'
+            '[&::-webkit-slider-thumb]:pointer-events-auto',
+            '[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4',
+            '[&::-moz-range-thumb]:rounded-sm [&::-moz-range-thumb]:bg-retro-magenta',
+            '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
+            '[&::-moz-range-thumb]:pointer-events-auto',
+            minOnTop ? 'z-10' : 'z-20'
           )}
         />
       </div>

@@ -15,7 +15,6 @@ import { useAppStore } from '@/lib/store';
 interface DestinationCardProps {
   destination: Destination;
   score: ScoreBreakdown;
-  isNew: boolean;
   preferences: UserPreferences;
   travelers: Traveler[];
   className?: string;
@@ -24,7 +23,6 @@ interface DestinationCardProps {
 export function DestinationCard({
   destination,
   score,
-  isNew,
   preferences,
   className,
 }: DestinationCardProps) {
@@ -129,13 +127,6 @@ export function DestinationCard({
             >
               {isFavorite ? '★' : '☆'}
             </button>
-
-            {/* NEW badge */}
-            {isNew && (
-              <div className="badge-new rounded-sm">
-                NEW
-              </div>
-            )}
           </div>
         </div>
 
@@ -244,7 +235,6 @@ function StatBar({
 export function DestinationCardCompact({
   destination,
   score,
-  isNew,
   preferences,
   className,
 }: DestinationCardProps) {
@@ -294,16 +284,13 @@ export function DestinationCardCompact({
         </div>
 
         {/* Image */}
-        <div className="w-16 h-16 shrink-0 rounded overflow-hidden bg-bg-dark relative">
+        <div className="w-16 h-16 shrink-0 rounded overflow-hidden bg-bg-dark">
           <img
             src={imageUrl}
             alt={destination.name}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
             loading="lazy"
           />
-          {isNew && (
-            <span className="absolute top-1 right-1 badge-new text-[6px] rounded-sm">NEW</span>
-          )}
         </div>
 
         {/* Info */}

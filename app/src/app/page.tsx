@@ -86,18 +86,6 @@ export default function HomePage() {
     setSearchQuery('');
   }, [setSearchQuery]);
 
-  // Check if destination is new to selected travelers
-  const isNewDestination = (destinationId: string) => {
-    if (preferences.selectedTravelers.length === 0) return true;
-
-    return preferences.selectedTravelers.every((travelerId) => {
-      const traveler = travelers.find((t) => t.id === travelerId);
-      if (!traveler) return true;
-      const destData = traveler.destinations[destinationId];
-      return !destData?.hasVisited;
-    });
-  };
-
   // Determine which destinations to show
   const displayDestinations = viewMode === 'favorites' ? favoriteDestinations : sortedDestinations;
 
@@ -315,7 +303,6 @@ export default function HomePage() {
                   key={destination.id}
                   destination={destination}
                   score={score}
-                  isNew={isNewDestination(destination.id)}
                   preferences={preferences}
                   travelers={travelers}
                 />
@@ -332,7 +319,6 @@ export default function HomePage() {
                   key={destination.id}
                   destination={destination}
                   score={score}
-                  isNew={isNewDestination(destination.id)}
                   preferences={preferences}
                   travelers={travelers}
                 />
