@@ -1,0 +1,5 @@
+# Robots.txt for TravelAgentZero
+User-agent: *
+Allow: /
+
+Sitemap: https://krool.github.io/TravelAgentZero/sitemap.xml
