@@ -7,9 +7,22 @@ import { AppProvider } from "@/components/layout/AppProvider";
 
 export const metadata: Metadata = {
   title: "Travel Agent Zero",
-  description: "Your retro-futuristic travel planning companion",
+  description: "A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries with vintage-inspired aesthetics.",
+  metadataBase: new URL("https://krool.github.io/TravelAgentZero"),
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://krool.github.io/TravelAgentZero/",
+    title: "Travel Agent Zero",
+    description: "A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries with vintage-inspired aesthetics.",
+    images: [{ url: "/og-preview.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Travel Agent Zero",
+    description: "A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries with vintage-inspired aesthetics.",
   },
 };
 
