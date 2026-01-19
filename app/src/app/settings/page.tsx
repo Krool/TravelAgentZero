@@ -8,6 +8,7 @@ import { RetroSlider } from '@/components/ui/RetroSlider';
 import { RetroSelect } from '@/components/ui/RetroSelect';
 import { AIRPORT_HUBS, AirportCode } from '@/types';
 import { useSound } from '@/hooks/useSound';
+import { useToast } from '@/hooks/useToast';
 
 export default function SettingsPage() {
   const {
@@ -23,6 +24,7 @@ export default function SettingsPage() {
   } = useAppStore();
 
   const { play } = useSound();
+  const toast = useToast();
 
   const handleExportData = () => {
     const data = {
@@ -39,7 +41,7 @@ export default function SettingsPage() {
     a.download = 'travel-agent-zero-backup.json';
     a.click();
     URL.revokeObjectURL(url);
-    play('success');
+    toast.success('Data exported successfully!');
   };
 
   const handleImportData = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,15 +58,12 @@ export default function SettingsPage() {
             travelers: data.travelers,
             preferences: data.preferences,
           });
-          play('success');
-          alert('Data imported successfully!');
+          toast.success('Data imported successfully!');
         } else {
-          play('error');
-          alert('Invalid backup file format');
+          toast.error('Invalid backup file format');
         }
       } catch {
-        play('error');
-        alert('Failed to parse backup file');
+        toast.error('Failed to parse backup file');
       }
     };
     reader.readAsText(file);
@@ -73,7 +72,8 @@ export default function SettingsPage() {
   const handleClearData = () => {
     if (confirm('Are you sure you want to clear all data? This cannot be undone.')) {
       localStorage.removeItem('travel-agent-zero-storage');
-      window.location.reload();
+      toast.info('Data cleared. Reloading...');
+      setTimeout(() => window.location.reload(), 500);
     }
   };
 

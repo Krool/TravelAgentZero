@@ -11,6 +11,9 @@ import { SearchInput } from '@/components/ui/SearchInput';
 import { ComparePanel } from '@/components/ComparePanel';
 import { Onboarding, HelpModal } from '@/components/Onboarding';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { ActiveFilterChips, FilterCountBadge } from '@/components/ui/ActiveFilterChips';
+import { SurpriseButton } from '@/components/ui/SurpriseButton';
+import { getActiveFilterCount } from '@/lib/filterUtils';
 import { MONTH_NAMES, AIRPORT_HUBS, hasChildTraveler } from '@/types';
 
 type ViewMode = 'grid' | 'list' | 'favorites';
@@ -43,6 +46,9 @@ export default function HomePage() {
       preferences.favorites.includes(destination.id)
     );
   }, [sortedDestinations, preferences.favorites, isLoaded]);
+
+  // Get active filter count
+  const activeFilterCount = getActiveFilterCount(preferences);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -179,6 +185,10 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2 flex-wrap">
+                  <SurpriseButton
+                    destinationIds={displayDestinations.map(({ destination }) => destination.id)}
+                    disabled={displayDestinations.length === 0}
+                  />
                   <RetroButton
                     variant={viewMode === 'grid' ? 'primary' : 'ghost'}
                     size="sm"
@@ -220,11 +230,12 @@ export default function HomePage() {
                     variant={showFilters ? 'secondary' : 'ghost'}
                     size="sm"
                     onClick={() => setShowFilters(!showFilters)}
-                    className="lg:hidden"
+                    className="lg:hidden relative"
                     aria-label="Toggle filters"
                     title="Filters (F)"
                   >
                     Filters
+                    <FilterCountBadge count={activeFilterCount} />
                   </RetroButton>
                 </div>
               </div>
@@ -236,6 +247,9 @@ export default function HomePage() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onClear={handleClearSearch}
               />
+
+              {/* Active filter chips */}
+              <ActiveFilterChips />
             </div>
           </RetroCard>
         </div>

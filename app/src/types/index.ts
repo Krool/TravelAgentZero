@@ -161,6 +161,35 @@ export interface Traveler {
 // DESTINATION TYPES
 // ============================================================================
 
+// Neighborhood information
+export interface Neighborhood {
+  name: string;
+  description: string;
+  bestFor: string[];
+}
+
+// Transportation option
+export interface TransportOption {
+  type: string;
+  description: string;
+  cost?: string;
+}
+
+// Getting around information
+export interface GettingAround {
+  summary: string;
+  options: TransportOption[];
+}
+
+// Cost breakdown by category
+export interface CostBreakdown {
+  accommodation: { budget: string; mid: string; luxury: string };
+  meals: { budget: string; mid: string; luxury: string };
+  activities: string;
+  transport: string;
+  tips?: string[];
+}
+
 export interface Destination {
   id: string;
   name: string;
@@ -183,6 +212,11 @@ export interface Destination {
   avgFlightPrices?: Partial<Record<AirportCode, MonthlyPricing>>;
   tags?: string[]; // searchable tags
   imageUrl?: string; // Optional: custom image URL for the destination
+  // NEW: Enriched content fields
+  neighborhoods?: Neighborhood[];
+  gettingAround?: GettingAround;
+  costBreakdown?: CostBreakdown;
+  highlights?: string[]; // "Why you'll love it"
 }
 
 // Curated Unsplash images for destinations featuring major attractions

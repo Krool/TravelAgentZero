@@ -11,6 +11,7 @@ import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
 import { getMaxPossibleScore } from '@/lib/scoring';
 import { useButtonSound, useSound } from '@/hooks/useSound';
 import { useAppStore } from '@/lib/store';
+import { useToast } from '@/hooks/useToast';
 
 interface DestinationCardProps {
   destination: Destination;
@@ -29,6 +30,7 @@ export function DestinationCard({
   const buttonSound = useButtonSound();
   const { play } = useSound();
   const { toggleFavorite, toggleCompare } = useAppStore();
+  const toast = useToast();
   const maxScore = getMaxPossibleScore();
 
   const isFavorite = preferences.favorites.includes(destination.id);
@@ -39,18 +41,26 @@ export function DestinationCard({
     e.preventDefault();
     e.stopPropagation();
     toggleFavorite(destination.id);
-    play(isFavorite ? 'click' : 'success');
+    if (isFavorite) {
+      toast.info(`Removed ${destination.name} from favorites`);
+    } else {
+      toast.success(`Added ${destination.name} to favorites`);
+    }
   };
 
   const handleCompare = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (!isInCompare && preferences.compareList.length >= 3) {
-      play('error');
+      toast.warning('Compare list full. Remove a destination to add more.');
       return;
     }
     toggleCompare(destination.id);
-    play('click');
+    if (isInCompare) {
+      toast.info(`Removed ${destination.name} from comparison`);
+    } else {
+      toast.success(`Added ${destination.name} to comparison`);
+    }
   };
 
   // Get climate icon
@@ -241,6 +251,7 @@ export function DestinationCardCompact({
   const buttonSound = useButtonSound();
   const { play } = useSound();
   const { toggleFavorite, toggleCompare } = useAppStore();
+  const toast = useToast();
   const maxScore = getMaxPossibleScore();
 
   const isFavorite = preferences.favorites.includes(destination.id);
@@ -250,18 +261,26 @@ export function DestinationCardCompact({
     e.preventDefault();
     e.stopPropagation();
     toggleFavorite(destination.id);
-    play(isFavorite ? 'click' : 'success');
+    if (isFavorite) {
+      toast.info(`Removed ${destination.name} from favorites`);
+    } else {
+      toast.success(`Added ${destination.name} to favorites`);
+    }
   };
 
   const handleCompare = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (!isInCompare && preferences.compareList.length >= 3) {
-      play('error');
+      toast.warning('Compare list full. Remove a destination to add more.');
       return;
     }
     toggleCompare(destination.id);
-    play('click');
+    if (isInCompare) {
+      toast.info(`Removed ${destination.name} from comparison`);
+    } else {
+      toast.success(`Added ${destination.name} to comparison`);
+    }
   };
 
   const imageUrl = getDestinationImageUrl(destination);

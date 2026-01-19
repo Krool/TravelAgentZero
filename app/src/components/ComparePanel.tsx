@@ -7,6 +7,7 @@ import { calculateScore, getMaxPossibleScore } from '@/lib/scoring';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { ScoreGauge } from '@/components/ui/ScoreGauge';
 import { MonthHeatmap } from '@/components/ui/MonthHeatmap';
+import { CompareTable } from '@/components/CompareTable';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
 import { AIRPORT_HUBS } from '@/types';
 
@@ -17,6 +18,8 @@ export function ComparePanel() {
     travelers,
     clearCompareList,
     toggleCompare,
+    compareViewExpanded,
+    setCompareViewExpanded,
   } = useAppStore();
 
   const compareDestinations = useMemo(() => {
@@ -47,13 +50,21 @@ export function ComparePanel() {
               <span className="font-mono font-bold text-sm text-retro-magenta uppercase">
                 Comparing {preferences.compareList.length} Destinations
               </span>
-              <span className="text-text-muted text-sm font-mono">
-                (max 3)
-              </span>
+              {/* Slot indicator */}
+              <CompareSlotIndicator count={preferences.compareList.length} max={3} />
             </div>
-            <RetroButton variant="ghost" size="sm" onClick={clearCompareList}>
-              Clear All
-            </RetroButton>
+            <div className="flex items-center gap-2">
+              <RetroButton
+                variant="secondary"
+                size="sm"
+                onClick={() => setCompareViewExpanded(true)}
+              >
+                Expand
+              </RetroButton>
+              <RetroButton variant="ghost" size="sm" onClick={clearCompareList}>
+                Clear All
+              </RetroButton>
+            </div>
           </div>
 
           {/* Comparison Grid */}
@@ -148,6 +159,41 @@ export function ComparePanel() {
           </div>
         </div>
       </div>
+
+      {/* Expanded table view */}
+      <CompareTable
+        isOpen={compareViewExpanded}
+        onClose={() => setCompareViewExpanded(false)}
+      />
+    </div>
+  );
+}
+
+// Slot indicator showing filled/empty circles
+function CompareSlotIndicator({ count, max }: { count: number; max: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      {Array.from({ length: max }).map((_, i) => {
+        const isFilled = i < count;
+        const isWarning = count === 2;
+        const isFull = count === 3;
+
+        return (
+          <div
+            key={i}
+            className={cn(
+              'w-3 h-3 rounded-full border-2 transition-all',
+              isFilled
+                ? isFull
+                  ? 'bg-retro-red border-retro-red shadow-[0_0_8px_rgba(255,51,102,0.5)]'
+                  : isWarning
+                  ? 'bg-retro-orange border-retro-orange shadow-[0_0_8px_rgba(255,107,53,0.5)]'
+                  : 'bg-retro-magenta border-retro-magenta'
+                : 'border-text-muted/50 bg-transparent'
+            )}
+          />
+        );
+      })}
     </div>
   );
 }

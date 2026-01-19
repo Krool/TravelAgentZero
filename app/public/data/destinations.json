@@ -2555,7 +2555,70 @@
       "culture",
       "museums",
       "food"
-    ]
+    ],
+    "highlights": [
+      "2,000+ years of history in one walkable city",
+      "World's best pasta, pizza, and gelato",
+      "The Vatican and Sistine Chapel",
+      "Iconic landmarks at every corner"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Trastevere",
+        "description": "Charming cobblestone streets, authentic trattorias, and vibrant nightlife across the Tiber.",
+        "bestFor": ["food", "nightlife", "local atmosphere"]
+      },
+      {
+        "name": "Centro Storico",
+        "description": "Historic center with the Pantheon, Piazza Navona, and countless gelaterias.",
+        "bestFor": ["sightseeing", "first-timers", "walking"]
+      },
+      {
+        "name": "Monti",
+        "description": "Hip neighborhood with vintage shops, wine bars, and a young creative scene.",
+        "bestFor": ["shopping", "hipsters", "aperitivo"]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Rome is best explored on foot. Metro covers major sites, taxis for convenience.",
+      "options": [
+        {
+          "type": "Walking",
+          "description": "Most historic sites are within walking distance. Wear comfortable shoes on cobblestones.",
+          "cost": "Free"
+        },
+        {
+          "type": "Metro",
+          "description": "Two main lines connect major attractions. Buy Roma Pass for unlimited travel.",
+          "cost": "$2/ride or $35 Roma Pass"
+        },
+        {
+          "type": "Taxi",
+          "description": "Official white taxis only. Fixed rates from airports.",
+          "cost": "$15-50/ride"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$60-100",
+        "mid": "$150-250",
+        "luxury": "$400+"
+      },
+      "meals": {
+        "budget": "$25-40",
+        "mid": "$60-100",
+        "luxury": "$200+"
+      },
+      "activities": "$20-40/museum",
+      "transport": "$35 Roma Pass or $5-10/day",
+      "tips": [
+        "Book Colosseum and Vatican tickets weeks in advance",
+        "Eat where locals eat - avoid tourist traps near attractions",
+        "Free water from public fountains (nasoni) everywhere",
+        "Many churches are free and contain incredible art"
+      ]
+    }
   },
   {
     "id": "egypt-pyramids",
@@ -3572,7 +3635,70 @@
       "diverse",
       "religious",
       "temples"
-    ]
+    ],
+    "highlights": [
+      "World-class cuisine from ramen to kaiseki",
+      "Ancient temples alongside neon-lit cities",
+      "The legendary cherry blossom season",
+      "Incredibly efficient and scenic rail travel"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Shinjuku (Tokyo)",
+        "description": "Bustling hub with towering skyscrapers, incredible nightlife, and the famous Golden Gai bar district.",
+        "bestFor": ["nightlife", "shopping", "first-timers"]
+      },
+      {
+        "name": "Gion (Kyoto)",
+        "description": "Historic geisha district with traditional wooden machiya houses, temples, and tea houses.",
+        "bestFor": ["culture", "photography", "traditional Japan"]
+      },
+      {
+        "name": "Shibuya (Tokyo)",
+        "description": "Youth culture center featuring the famous scramble crossing, trendy shops, and vibrant energy.",
+        "bestFor": ["shopping", "pop culture", "young travelers"]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Japan Rail Pass is essential for intercity travel. Local transit is world-class.",
+      "options": [
+        {
+          "type": "JR Pass",
+          "description": "Unlimited rail travel including Shinkansen. Must buy before arriving.",
+          "cost": "$470/14 days"
+        },
+        {
+          "type": "Metro/Subway",
+          "description": "Extensive networks in major cities. Get an IC card (Suica/Pasmo) for convenience.",
+          "cost": "$2-5/ride"
+        },
+        {
+          "type": "Taxi",
+          "description": "Clean and reliable but expensive. Doors open automatically.",
+          "cost": "$7-20+/ride"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$40-80",
+        "mid": "$100-200",
+        "luxury": "$300+"
+      },
+      "meals": {
+        "budget": "$20-35",
+        "mid": "$50-80",
+        "luxury": "$150+"
+      },
+      "activities": "$20-50/attraction",
+      "transport": "$470 JR Pass + $10-20/day local",
+      "tips": [
+        "Buy JR Pass before arrival - it's not sold in Japan",
+        "Convenience store food is excellent and affordable",
+        "Many temples and shrines are free to enter",
+        "Visit during shoulder season for lower prices"
+      ]
+    }
   },
   {
     "id": "disneyland",
@@ -5322,7 +5448,70 @@
       "outdoors",
       "wildlife",
       "adventure"
-    ]
+    ],
+    "highlights": [
+      "Dramatic landscapes unlike anywhere on Earth",
+      "Northern Lights viewing (Sep-Mar)",
+      "Natural hot springs and geothermal pools",
+      "Midnight sun in summer months"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Downtown Reykjavik",
+        "description": "Colorful streets with cafes, design shops, and the iconic Hallgrimskirkja church.",
+        "bestFor": ["dining", "nightlife", "culture"]
+      },
+      {
+        "name": "Golden Circle Area",
+        "description": "Day-trip region with Thingvellir, Geysir, and Gullfoss waterfall.",
+        "bestFor": ["sightseeing", "nature", "photography"]
+      },
+      {
+        "name": "South Coast",
+        "description": "Black sand beaches, glaciers, and waterfalls like Seljalandsfoss and Skogafoss.",
+        "bestFor": ["adventure", "hiking", "glaciers"]
+      }
+    ],
+    "gettingAround": {
+      "summary": "A rental car is essential for exploring. No trains exist in Iceland.",
+      "options": [
+        {
+          "type": "Rental Car",
+          "description": "Essential for Ring Road and F-roads. Get 4WD for highland roads.",
+          "cost": "$60-150/day"
+        },
+        {
+          "type": "Guided Tours",
+          "description": "Day trips from Reykjavik to major attractions. Good for non-drivers.",
+          "cost": "$100-300/tour"
+        },
+        {
+          "type": "Domestic Flights",
+          "description": "Quick way to reach Akureyri or Westfjords. Limited schedules.",
+          "cost": "$100-200/flight"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$80-150",
+        "mid": "$200-350",
+        "luxury": "$500+"
+      },
+      "meals": {
+        "budget": "$30-50",
+        "mid": "$70-120",
+        "luxury": "$200+"
+      },
+      "activities": "$50-200/tour",
+      "transport": "$60-150/day car rental",
+      "tips": [
+        "Book accommodations months in advance for summer",
+        "Gas stations have surprisingly good food",
+        "Free camping is restricted - use designated sites",
+        "Credit cards accepted everywhere - no cash needed"
+      ]
+    }
   },
   {
     "id": "inca-trail",

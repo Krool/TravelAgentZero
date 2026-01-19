@@ -28,6 +28,7 @@ interface AppStore {
 
   // UI state
   hasSeenOnboarding: boolean;
+  compareViewExpanded: boolean;
 
   // Computed - check if any selected traveler is a child
   hasChildrenSelected: () => boolean;
@@ -77,6 +78,9 @@ interface AppStore {
 
   // Actions - Onboarding
   setHasSeenOnboarding: (seen: boolean) => void;
+
+  // Actions - Compare view
+  setCompareViewExpanded: (expanded: boolean) => void;
 }
 
 export const useAppStore = create<AppStore>()(
@@ -90,6 +94,7 @@ export const useAppStore = create<AppStore>()(
       soundEnabled: true,
       soundVolume: 0.08, // Reduced default volume
       hasSeenOnboarding: false,
+      compareViewExpanded: false,
 
       // Computed - check if any selected traveler is a child
       hasChildrenSelected: () => {
@@ -288,6 +293,9 @@ export const useAppStore = create<AppStore>()(
 
       // Onboarding
       setHasSeenOnboarding: (seen) => set({ hasSeenOnboarding: seen }),
+
+      // Compare view
+      setCompareViewExpanded: (expanded) => set({ compareViewExpanded: expanded }),
     }),
     {
       name: 'travel-agent-zero-storage',

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import { Destination, Traveler } from '@/types';
+import { ToastContainer } from '@/components/ui/Toast';
 
 // Get base path for asset URLs
 const basePath = process.env.NODE_ENV === 'production' ? '/TravelAgentZero' : '';
@@ -57,7 +58,12 @@ export function AppProvider({ children }: AppProviderProps) {
     return <LoadingScreen />;
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <ToastContainer />
+    </>
+  );
 }
 
 function LoadingScreen() {
