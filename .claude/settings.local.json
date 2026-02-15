@@ -21,7 +21,11 @@
       "Bash(gh api:*)",
       "Bash(gh run list:*)",
       "Bash(gh run watch:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git -C \"C:\\\\Users\\\\junk7\\\\KroolWorld\\\\TravelAgentZero\" log --oneline -10)",
+      "Bash(git -C \"C:\\\\Users\\\\junk7\\\\KroolWorld\\\\TravelAgentZero\" log --all --oneline)",
+      "Bash(xargs cat:*)",
+      "Skill(a11y-audit)"
     ],
     "deny": [],
     "ask": []

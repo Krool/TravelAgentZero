@@ -29,6 +29,10 @@ interface AppStore {
   // UI state
   hasSeenOnboarding: boolean;
   compareViewExpanded: boolean;
+  reduceEffects: boolean;
+
+  // Personal notes per destination
+  destinationNotes: Record<string, string>;
 
   // Computed - check if any selected traveler is a child
   hasChildrenSelected: () => boolean;
@@ -81,6 +85,12 @@ interface AppStore {
 
   // Actions - Compare view
   setCompareViewExpanded: (expanded: boolean) => void;
+
+  // Actions - Reduce effects
+  setReduceEffects: (reduce: boolean) => void;
+
+  // Actions - Notes
+  setDestinationNote: (destinationId: string, note: string) => void;
 }
 
 export const useAppStore = create<AppStore>()(
@@ -95,6 +105,8 @@ export const useAppStore = create<AppStore>()(
       soundVolume: 0.08, // Reduced default volume
       hasSeenOnboarding: false,
       compareViewExpanded: false,
+      reduceEffects: false,
+      destinationNotes: {},
 
       // Computed - check if any selected traveler is a child
       hasChildrenSelected: () => {
@@ -296,6 +308,18 @@ export const useAppStore = create<AppStore>()(
 
       // Compare view
       setCompareViewExpanded: (expanded) => set({ compareViewExpanded: expanded }),
+
+      // Reduce effects
+      setReduceEffects: (reduce) => set({ reduceEffects: reduce }),
+
+      // Notes
+      setDestinationNote: (destinationId, note) =>
+        set((state) => ({
+          destinationNotes: {
+            ...state.destinationNotes,
+            [destinationId]: note,
+          },
+        })),
     }),
     {
       name: 'travel-agent-zero-storage',
@@ -306,6 +330,8 @@ export const useAppStore = create<AppStore>()(
         soundEnabled: state.soundEnabled,
         soundVolume: state.soundVolume,
         hasSeenOnboarding: state.hasSeenOnboarding,
+        reduceEffects: state.reduceEffects,
+        destinationNotes: state.destinationNotes,
       }),
       // Migrate old stored data to new format
       migrate: (persistedState: unknown, version: number) => {

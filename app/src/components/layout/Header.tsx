@@ -1,6 +1,8 @@
 'use client';
 
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useAppStore } from '@/lib/store';
 import { useSound } from '@/hooks/useSound';
 import { RetroButton } from '@/components/ui/RetroButton';
@@ -9,14 +11,42 @@ import { cn } from '@/lib/utils';
 export function Header() {
   const { soundEnabled, setSoundEnabled, soundVolume, setSoundVolume } = useAppStore();
   const { play } = useSound();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  // Trap focus inside mobile menu when open
+  useEffect(() => {
+    if (!mobileMenuOpen || !menuRef.current) return;
+    const focusable = menuRef.current.querySelectorAll<HTMLElement>(
+      'a, button, input, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length > 0) focusable[0].focus();
+  }, [mobileMenuOpen]);
 
   const toggleSound = () => {
     setSoundEnabled(!soundEnabled);
     if (!soundEnabled) {
-      // Will play after state updates
       setTimeout(() => play('success'), 50);
     }
   };
+
+  const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
   return (
     <header className="border-b border-retro-cyan/20 bg-bg-dark/80 backdrop-blur-sm sticky top-0 z-50">
@@ -34,11 +64,11 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Nav */}
+          {/* Nav - Desktop */}
           <nav className="hidden md:flex items-center gap-4">
-            <NavLink href="/">Destinations</NavLink>
-            <NavLink href="/travelers">Travelers</NavLink>
-            <NavLink href="/settings">Settings</NavLink>
+            <NavLink href="/" active={pathname === '/'}>Destinations</NavLink>
+            <NavLink href="/travelers" active={pathname === '/travelers'}>Travelers</NavLink>
+            <NavLink href="/settings" active={pathname === '/settings'}>Settings</NavLink>
           </nav>
 
           {/* Actions */}
@@ -53,6 +83,7 @@ export function Header() {
                   : 'border-text-muted text-text-muted hover:border-retro-cyan'
               )}
               title={soundEnabled ? 'Sound On' : 'Sound Off'}
+              aria-label={soundEnabled ? 'Mute sound' : 'Enable sound'}
             >
               {soundEnabled ? (
                 <SoundOnIcon className="w-4 h-4" />
@@ -70,7 +101,8 @@ export function Header() {
                 step="0.05"
                 value={soundVolume}
                 onChange={(e) => setSoundVolume(Number(e.target.value))}
-                className="w-16 h-1 bg-bg-dark rounded appearance-none cursor-pointer
+                aria-label="Volume"
+                className="w-16 h-1 bg-bg-dark rounded appearance-none cursor-pointer hidden sm:block
                   [&::-webkit-slider-thumb]:appearance-none
                   [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3
                   [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-retro-cyan"
@@ -82,21 +114,86 @@ export function Header() {
               variant="ghost"
               size="sm"
               className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
             >
-              ☰
+              {mobileMenuOpen ? '✕' : '☰'}
             </RetroButton>
           </div>
         </div>
       </div>
+
+      {/* Mobile Nav Drawer */}
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-bg-deep/80 z-40 md:hidden animate-fade-in"
+            onClick={closeMobileMenu}
+            aria-hidden="true"
+          />
+          {/* Drawer */}
+          <div
+            ref={menuRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            className="fixed top-0 right-0 h-full w-64 bg-bg-card border-l border-retro-cyan/30 z-50 md:hidden animate-slide-in-left shadow-[0_0_30px_rgba(0,255,242,0.1)]"
+          >
+            <div className="flex items-center justify-between p-4 border-b border-retro-cyan/20">
+              <span className="font-pixel text-sm text-retro-cyan">NAVIGATE</span>
+              <button
+                onClick={closeMobileMenu}
+                className="p-1 text-text-muted hover:text-retro-cyan transition-colors"
+                aria-label="Close menu"
+              >
+                ✕
+              </button>
+            </div>
+            <nav className="p-4 space-y-1">
+              <MobileNavLink href="/" active={pathname === '/'} onClick={closeMobileMenu}>
+                Destinations
+              </MobileNavLink>
+              <MobileNavLink href="/travelers" active={pathname === '/travelers'} onClick={closeMobileMenu}>
+                Travelers
+              </MobileNavLink>
+              <MobileNavLink href="/settings" active={pathname === '/settings'} onClick={closeMobileMenu}>
+                Settings
+              </MobileNavLink>
+            </nav>
+          </div>
+        </>
+      )}
     </header>
   );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({ href, children, active }: { href: string; children: React.ReactNode; active?: boolean }) {
   return (
     <Link
       href={href}
-      className="font-mono text-sm font-medium text-text-secondary hover:text-retro-cyan transition-colors uppercase tracking-wider"
+      className={cn(
+        'font-mono text-sm font-medium transition-colors uppercase tracking-wider',
+        active ? 'text-retro-cyan glow-cyan-subtle' : 'text-text-secondary hover:text-retro-cyan'
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function MobileNavLink({ href, children, active, onClick }: { href: string; children: React.ReactNode; active?: boolean; onClick: () => void }) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(
+        'block px-4 py-3 rounded font-mono text-sm font-medium uppercase tracking-wider transition-all',
+        active
+          ? 'text-retro-cyan bg-retro-cyan/10 border border-retro-cyan/30'
+          : 'text-text-secondary hover:text-retro-cyan hover:bg-bg-hover'
+      )}
     >
       {children}
     </Link>
