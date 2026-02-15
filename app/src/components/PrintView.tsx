@@ -3,7 +3,6 @@
 import { useCallback } from 'react';
 import { Destination, UserPreferences, MONTH_NAMES, MONTHS_ORDERED } from '@/types';
 import { formatDuration } from '@/lib/utils';
-import { RetroButton } from '@/components/ui/RetroButton';
 import { useToast } from '@/hooks/useToast';
 
 interface PrintButtonProps {

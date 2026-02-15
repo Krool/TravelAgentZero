@@ -80,7 +80,7 @@ export function ActiveFilterChips() {
       {activeFilters.length >= 2 && (
         <button
           onClick={handleClearAll}
-          className="px-2 py-1 text-xs font-mono uppercase rounded border border-retro-red/50 text-retro-red hover:bg-retro-red/10 transition-colors"
+          className="px-3 py-2 text-xs font-mono uppercase rounded border border-retro-red/50 text-retro-red hover:bg-retro-red/10 transition-colors"
         >
           Clear All
         </button>
@@ -107,7 +107,7 @@ function FilterChip({
       <span>{filter.value}</span>
       <button
         onClick={onClear}
-        className="ml-0.5 w-4 h-4 flex items-center justify-center rounded-full hover:bg-retro-cyan/20 transition-colors"
+        className="ml-0.5 w-6 h-6 flex items-center justify-center rounded-full hover:bg-retro-cyan/20 transition-colors"
         aria-label={`Clear ${filter.label} filter`}
       >
         ×

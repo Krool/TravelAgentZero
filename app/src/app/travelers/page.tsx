@@ -24,6 +24,7 @@ export default function TravelersPage() {
   const [newTravelerIsChild, setNewTravelerIsChild] = useState(false);
   const [expandedTraveler, setExpandedTraveler] = useState<string | null>(null);
   const [destinationSearch, setDestinationSearch] = useState('');
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
 
   const handleAddTraveler = () => {
     if (newTravelerName.trim()) {
@@ -114,7 +115,7 @@ export default function TravelersPage() {
               return (
                 <RetroCard key={traveler.id} variant={isSelected ? 'highlight' : 'default'}>
                   <RetroCardHeader>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
                       <div className="flex items-center gap-4">
                         <RetroCheckbox
                           checked={isSelected}
@@ -152,13 +153,29 @@ export default function TravelersPage() {
                         >
                           {isExpanded ? 'Collapse' : 'Edit Visits'}
                         </RetroButton>
-                        <RetroButton
-                          variant="danger"
-                          size="sm"
-                          onClick={() => removeTraveler(traveler.id)}
-                        >
-                          Remove
-                        </RetroButton>
+                        {confirmDelete === traveler.id ? (
+                          <RetroButton
+                            variant="danger"
+                            size="sm"
+                            onClick={() => {
+                              removeTraveler(traveler.id);
+                              setConfirmDelete(null);
+                            }}
+                          >
+                            Confirm?
+                          </RetroButton>
+                        ) : (
+                          <RetroButton
+                            variant="danger"
+                            size="sm"
+                            onClick={() => {
+                              setConfirmDelete(traveler.id);
+                              setTimeout(() => setConfirmDelete(null), 3000);
+                            }}
+                          >
+                            Remove
+                          </RetroButton>
+                        )}
                       </div>
                     </div>
                   </RetroCardHeader>

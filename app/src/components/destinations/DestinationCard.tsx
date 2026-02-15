@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { Destination, Traveler, UserPreferences, getDestinationImageUrl } from '@/types';
 import { ScoreBreakdown } from '@/lib/scoring';
 import { RetroCard } from '@/components/ui/RetroCard';
@@ -9,7 +8,7 @@ import { ScoreBadge } from '@/components/ui/ScoreGauge';
 import { MonthHeatmapInline } from '@/components/ui/MonthHeatmap';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
 import { getMaxPossibleScore } from '@/lib/scoring';
-import { useButtonSound, useSound } from '@/hooks/useSound';
+import { useButtonSound } from '@/hooks/useSound';
 import { useAppStore } from '@/lib/store';
 import { useToast } from '@/hooks/useToast';
 
@@ -28,7 +27,6 @@ export function DestinationCard({
   className,
 }: DestinationCardProps) {
   const buttonSound = useButtonSound();
-  const { play } = useSound();
   const { toggleFavorite, toggleCompare } = useAppStore();
   const toast = useToast();
   const maxScore = getMaxPossibleScore();
@@ -98,8 +96,20 @@ export function DestinationCard({
           <img
             src={imageUrl}
             alt={destination.name}
+            width={400}
+            height={300}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = 'none';
+              target.parentElement!.classList.add('bg-bg-card', 'flex', 'items-center', 'justify-center');
+              const fallback = document.createElement('span');
+              fallback.className = 'font-mono text-retro-cyan text-xs uppercase';
+              fallback.textContent = destination.name;
+              target.parentElement!.appendChild(fallback);
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
           {/* Action buttons */}
@@ -108,12 +118,12 @@ export function DestinationCard({
             <button
               onClick={handleCompare}
               className={cn(
-                'w-7 h-7 rounded flex items-center justify-center transition-all',
+                'w-9 h-9 rounded flex items-center justify-center transition-all',
                 isInCompare
                   ? 'bg-retro-magenta/20 text-retro-magenta'
                   : 'bg-bg-dark/80 text-text-muted hover:text-retro-magenta'
               )}
-              aria-label={isInCompare ? 'Remove from comparison' : 'Add to comparison'}
+              aria-label={isInCompare ? `Remove ${destination.name} from comparison` : `Add ${destination.name} to comparison`}
               aria-pressed={isInCompare}
             >
               {isInCompare ? (
@@ -127,12 +137,12 @@ export function DestinationCard({
             <button
               onClick={handleFavorite}
               className={cn(
-                'favorite-btn w-7 h-7 rounded flex items-center justify-center transition-all',
+                'favorite-btn w-9 h-9 rounded flex items-center justify-center transition-all',
                 isFavorite
                   ? 'active bg-retro-yellow/20'
                   : 'bg-bg-dark/80 text-text-muted hover:text-retro-yellow'
               )}
-              aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+              aria-label={isFavorite ? `Remove ${destination.name} from favorites` : `Add ${destination.name} to favorites`}
               aria-pressed={isFavorite}
             >
               {isFavorite ? '★' : '☆'}
@@ -224,7 +234,7 @@ function StatBar({
   else if (percentage < 80) color = 'var(--retro-cyan)';
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2" role="meter" aria-label={label} aria-valuenow={displayValue} aria-valuemin={0} aria-valuemax={max}>
       <span className="text-xs text-text-muted font-mono uppercase w-20 truncate">
         {label}
       </span>
@@ -237,6 +247,7 @@ function StatBar({
           }}
         />
       </div>
+      <span className="sr-only">{displayValue} out of {max}</span>
     </div>
   );
 }
@@ -249,7 +260,6 @@ export function DestinationCardCompact({
   className,
 }: DestinationCardProps) {
   const buttonSound = useButtonSound();
-  const { play } = useSound();
   const { toggleFavorite, toggleCompare } = useAppStore();
   const toast = useToast();
   const maxScore = getMaxPossibleScore();
@@ -307,8 +317,11 @@ export function DestinationCardCompact({
           <img
             src={imageUrl}
             alt={destination.name}
+            width={64}
+            height={64}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
             loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -338,24 +351,26 @@ export function DestinationCardCompact({
           <button
             onClick={handleCompare}
             className={cn(
-              'w-7 h-7 rounded flex items-center justify-center transition-all text-xs',
+              'w-9 h-9 rounded flex items-center justify-center transition-all text-xs',
               isInCompare
                 ? 'bg-retro-magenta/20 text-retro-magenta'
                 : 'text-text-muted hover:text-retro-magenta'
             )}
-            aria-label={isInCompare ? 'Remove from comparison' : 'Add to comparison'}
+            aria-label={isInCompare ? `Remove ${destination.name} from comparison` : `Add ${destination.name} to comparison`}
+            aria-pressed={isInCompare}
           >
             ⚖️
           </button>
           <button
             onClick={handleFavorite}
             className={cn(
-              'favorite-btn w-7 h-7 rounded flex items-center justify-center transition-all',
+              'favorite-btn w-9 h-9 rounded flex items-center justify-center transition-all',
               isFavorite
                 ? 'active'
                 : 'text-text-muted hover:text-retro-yellow'
             )}
-            aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            aria-label={isFavorite ? `Remove ${destination.name} from favorites` : `Add ${destination.name} to favorites`}
+            aria-pressed={isFavorite}
           >
             {isFavorite ? '★' : '☆'}
           </button>

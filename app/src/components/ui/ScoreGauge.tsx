@@ -25,12 +25,17 @@ export function ScoreGauge({
   size = 'md',
   className,
 }: ScoreGaugeProps) {
-  const [displayValue, setDisplayValue] = useState(animate ? 0 : value);
+  // Respect prefers-reduced-motion
+  const prefersReducedMotion = typeof window !== 'undefined'
+    && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const shouldAnimate = animate && !prefersReducedMotion;
+
+  const [displayValue, setDisplayValue] = useState(shouldAnimate ? 0 : value);
   const percentage = (displayValue / max) * 100;
   const color = getScoreColor(displayValue, max);
 
   useEffect(() => {
-    if (!animate) {
+    if (!shouldAnimate) {
       setDisplayValue(value);
       return;
     }
@@ -39,12 +44,11 @@ export function ScoreGauge({
     const duration = 800;
     const steps = 30;
     const increment = value / steps;
-    let current = 0;
     let step = 0;
 
     const timer = setInterval(() => {
       step++;
-      current = Math.min(value, increment * step);
+      const current = Math.min(value, increment * step);
       setDisplayValue(current);
       if (step >= steps) {
         clearInterval(timer);
@@ -53,7 +57,7 @@ export function ScoreGauge({
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [value, animate]);
+  }, [value, shouldAnimate]);
 
   const sizes = {
     sm: { height: 'h-2', text: 'text-xs', padding: 'px-1' },
@@ -82,6 +86,11 @@ export function ScoreGauge({
           'w-full bg-bg-dark border border-retro-cyan/30 rounded-sm overflow-hidden',
           sizes[size].height
         )}
+        role="meter"
+        aria-label={label || 'Score'}
+        aria-valuenow={Math.round(value * 10) / 10}
+        aria-valuemin={0}
+        aria-valuemax={max}
       >
         <div
           className={cn(

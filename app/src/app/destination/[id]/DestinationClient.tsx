@@ -2,9 +2,9 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useAppStore } from '@/lib/store';
-import { calculateScore, getMaxPossibleScore, getDurationRecommendation } from '@/lib/scoring';
+import { calculateScore, getMaxPossibleScore, getDurationRecommendation, filterDestinations, sortDestinationsByScore } from '@/lib/scoring';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
 import { ScoreGauge, ScoreBadge } from '@/components/ui/ScoreGauge';
@@ -39,6 +39,8 @@ export default function DestinationClient() {
     setTravelerVisited,
     setTravelerRating,
     setTravelMonth,
+    destinationNotes,
+    setDestinationNote,
   } = useAppStore();
 
   const destination = useMemo(() => {
@@ -49,6 +51,18 @@ export default function DestinationClient() {
     if (!destination) return null;
     return calculateScore(destination, preferences, travelers);
   }, [destination, preferences, travelers]);
+
+  // Prev/next navigation based on current filter/sort
+  const { prevDest, nextDest } = useMemo(() => {
+    if (!destination) return { prevDest: null, nextDest: null };
+    const filtered = filterDestinations(destinations, preferences, travelers);
+    const sorted = sortDestinationsByScore(filtered, preferences, travelers);
+    const currentIndex = sorted.findIndex(({ destination: d }) => d.id === destination.id);
+    return {
+      prevDest: currentIndex > 0 ? sorted[currentIndex - 1].destination : null,
+      nextDest: currentIndex < sorted.length - 1 ? sorted[currentIndex + 1].destination : null,
+    };
+  }, [destination, destinations, preferences, travelers]);
 
   if (!isLoaded) return null;
 
@@ -111,7 +125,7 @@ export default function DestinationClient() {
                   <span className="text-text-muted"> • {destination.region}</span>
                 )}
               </p>
-              <div className="flex items-center gap-4 mt-3 text-sm font-mono text-text-muted">
+              <div className="flex flex-wrap items-center gap-2 gap-y-1 mt-3 text-sm font-mono text-text-muted">
                 <span className="flex items-center gap-1">
                   ⏱️ {formatDuration(destination.duration)}
                 </span>
@@ -215,7 +229,37 @@ export default function DestinationClient() {
           travelers={travelers}
           setTravelerVisited={setTravelerVisited}
           setTravelerRating={setTravelerRating}
+          note={destinationNotes[destination.id] || ''}
+          setNote={(note: string) => setDestinationNote(destination.id, note)}
         />
+      )}
+
+      {/* Prev/Next Navigation */}
+      {(prevDest || nextDest) && (
+        <div className="mt-8 flex items-center justify-between gap-4">
+          {prevDest ? (
+            <Link
+              href={`/destination/${prevDest.id}`}
+              className="flex items-center gap-2 text-text-secondary hover:text-retro-cyan font-mono text-sm transition-colors min-w-0"
+            >
+              <span className="shrink-0">←</span>
+              <span className="truncate">{prevDest.name}</span>
+            </Link>
+          ) : (
+            <div />
+          )}
+          {nextDest ? (
+            <Link
+              href={`/destination/${nextDest.id}`}
+              className="flex items-center gap-2 text-text-secondary hover:text-retro-cyan font-mono text-sm transition-colors min-w-0 text-right"
+            >
+              <span className="truncate">{nextDest.name}</span>
+              <span className="shrink-0">→</span>
+            </Link>
+          ) : (
+            <div />
+          )}
+        </div>
       )}
 
       {/* Print-only content */}
@@ -589,7 +633,7 @@ function CostsTab({
                 {/* Accommodation */}
                 <div>
                   <h4 className="font-mono text-xs text-text-muted uppercase mb-2">Accommodation (per night)</h4>
-                  <div className="grid grid-cols-3 gap-2 text-sm font-mono">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm font-mono">
                     <div className="p-2 bg-bg-dark rounded">
                       <div className="text-retro-green text-xs">Budget</div>
                       <div className="text-text-primary">{destination.costBreakdown.accommodation.budget}</div>
@@ -607,7 +651,7 @@ function CostsTab({
                 {/* Meals */}
                 <div>
                   <h4 className="font-mono text-xs text-text-muted uppercase mb-2">Meals (per day)</h4>
-                  <div className="grid grid-cols-3 gap-2 text-sm font-mono">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm font-mono">
                     <div className="p-2 bg-bg-dark rounded">
                       <div className="text-retro-green text-xs">Budget</div>
                       <div className="text-text-primary">{destination.costBreakdown.meals.budget}</div>
@@ -623,7 +667,7 @@ function CostsTab({
                   </div>
                 </div>
                 {/* Activities & Transport */}
-                <div className="grid grid-cols-2 gap-4 text-sm font-mono">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono">
                   <div>
                     <div className="text-xs text-text-muted uppercase mb-1">Activities</div>
                     <div className="text-text-primary">{destination.costBreakdown.activities}</div>
@@ -677,11 +721,15 @@ function NotesTab({
   travelers,
   setTravelerVisited,
   setTravelerRating,
+  note,
+  setNote,
 }: {
   destination: ReturnType<typeof useAppStore.getState>['destinations'][0];
   travelers: ReturnType<typeof useAppStore.getState>['travelers'];
   setTravelerVisited: (travelerId: string, destinationId: string, visited: boolean) => void;
   setTravelerRating: (travelerId: string, destinationId: string, rating: number) => void;
+  note: string;
+  setNote: (note: string) => void;
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -754,7 +802,7 @@ function NotesTab({
         </RetroCardBody>
       </RetroCard>
 
-      {/* Personal Notes placeholder */}
+      {/* Personal Notes */}
       <RetroCard>
         <RetroCardHeader>
           <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
@@ -762,8 +810,15 @@ function NotesTab({
           </h2>
         </RetroCardHeader>
         <RetroCardBody>
-          <p className="font-mono text-text-muted italic text-sm">
-            Personal notes feature coming soon...
+          <textarea
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder="Add your notes about this destination... (restaurants, tips, things to remember)"
+            className="w-full h-40 retro-input rounded resize-y text-sm font-mono leading-relaxed"
+            aria-label={`Personal notes for ${destination.name}`}
+          />
+          <p className="text-[10px] text-text-muted font-mono mt-2">
+            Notes are saved automatically to your browser
           </p>
         </RetroCardBody>
       </RetroCard>
@@ -791,7 +846,7 @@ function StatRow({
   else if (percentage < 80) color = 'var(--retro-cyan)';
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3" role="meter" aria-label={label} aria-valuenow={displayValue} aria-valuemin={0} aria-valuemax={max}>
       <span className="font-mono text-xs text-text-muted uppercase w-24">
         {label}
       </span>

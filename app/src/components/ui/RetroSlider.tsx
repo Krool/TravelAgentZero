@@ -123,6 +123,11 @@ export function RetroDualSlider({
           max={max}
           step={step}
           value={minValue}
+          aria-label={`${label || 'Range'} minimum`}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={minValue}
+          aria-valuetext={`${valuePrefix}${minValue}${valueSuffix}`}
           onChange={(e) => {
             const value = Number(e.target.value);
             if (value < maxValue) onMinChange(value);
@@ -151,6 +156,11 @@ export function RetroDualSlider({
           max={max}
           step={step}
           value={maxValue}
+          aria-label={`${label || 'Range'} maximum`}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={maxValue}
+          aria-valuetext={`${valuePrefix}${maxValue}${valueSuffix}`}
           onChange={(e) => {
             const value = Number(e.target.value);
             if (value > minValue) onMaxChange(value);

@@ -17,12 +17,20 @@ export function AppProvider({ children }: AppProviderProps) {
     setDestinations,
     setTravelers,
     setIsLoaded,
-    isLoaded,
-    travelers,
     setSelectedTravelers,
-    preferences
+    reduceEffects,
   } = useAppStore();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Apply reduce-effects class to the document element
+  useEffect(() => {
+    if (reduceEffects) {
+      document.documentElement.classList.add('reduce-effects');
+    } else {
+      document.documentElement.classList.remove('reduce-effects');
+    }
+  }, [reduceEffects]);
 
   useEffect(() => {
     async function loadData() {
@@ -44,8 +52,9 @@ export function AppProvider({ children }: AppProviderProps) {
         }
 
         setIsLoaded(true);
-      } catch (error) {
-        console.error('Failed to load data:', error);
+      } catch (err) {
+        console.error('Failed to load data:', err);
+        setError('Failed to load destination data. Please reload the page.');
       } finally {
         setLoading(false);
       }
@@ -56,6 +65,10 @@ export function AppProvider({ children }: AppProviderProps) {
 
   if (loading) {
     return <LoadingScreen />;
+  }
+
+  if (error) {
+    return <ErrorScreen message={error} />;
   }
 
   return (
@@ -92,6 +105,28 @@ function LoadingScreen() {
         <div className="mt-4 font-mono text-xs text-text-muted">
           Loading destination database...
         </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorScreen({ message }: { message: string }) {
+  return (
+    <div className="min-h-screen bg-bg-deep flex items-center justify-center">
+      <div className="text-center max-w-md mx-auto p-6">
+        <div className="font-pixel text-2xl mb-4">
+          <span className="text-retro-red">SYSTEM</span>
+          <span className="text-retro-orange ml-2">ERROR</span>
+        </div>
+        <div className="font-terminal text-text-secondary text-lg mb-6">
+          {message}
+        </div>
+        <button
+          onClick={() => window.location.reload()}
+          className="px-6 py-3 font-mono font-semibold uppercase tracking-wide border-2 border-retro-cyan text-retro-cyan hover:bg-retro-cyan/10 transition-all"
+        >
+          Retry
+        </button>
       </div>
     </div>
   );

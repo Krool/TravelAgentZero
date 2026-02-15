@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAppStore } from '@/lib/store';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard } from '@/components/ui/RetroCard';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 const ONBOARDING_STEPS = [
   {
@@ -59,12 +60,15 @@ export function Onboarding() {
     return () => clearTimeout(timer);
   }, [hasSeenOnboarding]);
 
-  if (!isVisible || hasSeenOnboarding) {
-    return null;
-  }
+  const focusTrapRef = useFocusTrap(isVisible && !hasSeenOnboarding);
 
   const step = ONBOARDING_STEPS[currentStep];
   const isLastStep = currentStep === ONBOARDING_STEPS.length - 1;
+
+  const handleSkip = () => {
+    setHasSeenOnboarding(true);
+    setIsVisible(false);
+  };
 
   const handleNext = () => {
     if (isLastStep) {
@@ -75,23 +79,36 @@ export function Onboarding() {
     }
   };
 
-  const handleSkip = () => {
-    setHasSeenOnboarding(true);
-    setIsVisible(false);
-  };
-
   const handlePrev = () => {
     if (currentStep > 0) {
       setCurrentStep((prev) => prev - 1);
     }
   };
 
+  // Dismiss onboarding with Escape key
+  useEffect(() => {
+    if (!isVisible || hasSeenOnboarding) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') handleSkip();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isVisible, hasSeenOnboarding]);
+
+  if (!isVisible || hasSeenOnboarding) {
+    return null;
+  }
+
   return (
     <div
+      ref={focusTrapRef}
       className="fixed inset-0 bg-bg-deep/90 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="onboarding-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleSkip();
+      }}
     >
       <RetroCard className="max-w-md w-full p-6">
         {/* Progress indicator */}
@@ -150,10 +167,13 @@ export function Onboarding() {
 
 // Help modal that can be opened anytime
 export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const helpFocusTrapRef = useFocusTrap(isOpen);
+
   if (!isOpen) return null;
 
   return (
     <div
+      ref={helpFocusTrapRef}
       className="fixed inset-0 bg-bg-deep/90 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"

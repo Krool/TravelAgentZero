@@ -6,7 +6,7 @@ import { useAppStore } from '@/lib/store';
 import { calculateScore, getMaxPossibleScore } from '@/lib/scoring';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
-import { MONTH_NAMES, MONTHS_ORDERED, Month } from '@/types';
+import { MONTHS_ORDERED } from '@/types';
 import { useSound } from '@/hooks/useSound';
 
 interface CompareTableProps {
@@ -20,7 +20,6 @@ export function CompareTable({ isOpen, onClose }: CompareTableProps) {
     destinations,
     preferences,
     travelers,
-    toggleCompare,
   } = useAppStore();
 
   const compareDestinations = useMemo(() => {
@@ -70,7 +69,6 @@ export function CompareTable({ isOpen, onClose }: CompareTableProps) {
   };
 
   const scoreValues = scores.map((s) => s?.total ?? null);
-  const durationValues = compareDestinations.map((d) => d?.duration ?? null);
   const flightValues = compareDestinations.map((d) => d?.flightTimes[preferences.homeAirport] ?? null);
   const costValues = compareDestinations.map((d) => d?.cost ?? null);
   const safetyValues = compareDestinations.map((d) => d ? 10 - d.danger : null);
@@ -292,7 +290,7 @@ export function CompareTable({ isOpen, onClose }: CompareTableProps) {
         </div>
 
         {/* Footer with actions */}
-        <div className="flex items-center justify-center gap-4 p-4 border-t border-retro-magenta/30">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 p-4 border-t border-retro-magenta/30">
           {compareDestinations.map((dest) => (
             <Link key={dest!.id} href={`/destination/${dest!.id}`}>
               <RetroButton variant="primary" size="sm">

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useAppStore } from '@/lib/store';
 import { calculateScore, getMaxPossibleScore } from '@/lib/scoring';
@@ -9,7 +9,6 @@ import { ScoreGauge } from '@/components/ui/ScoreGauge';
 import { MonthHeatmap } from '@/components/ui/MonthHeatmap';
 import { CompareTable } from '@/components/CompareTable';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
-import { AIRPORT_HUBS } from '@/types';
 
 export function ComparePanel() {
   const {
@@ -36,6 +35,8 @@ export function ComparePanel() {
 
   const maxScore = getMaxPossibleScore();
 
+  const [mobileExpanded, setMobileExpanded] = useState(false);
+
   if (preferences.compareList.length === 0) {
     return null;
   }
@@ -43,32 +44,73 @@ export function ComparePanel() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 compare-panel">
       <div className="bg-bg-card border-t-2 border-retro-magenta shadow-lg">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
           {/* Header */}
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-0 md:mb-4">
             <div className="flex items-center gap-3">
               <span className="font-mono font-bold text-sm text-retro-magenta uppercase">
                 Comparing {preferences.compareList.length} Destinations
               </span>
-              {/* Slot indicator */}
               <CompareSlotIndicator count={preferences.compareList.length} max={3} />
             </div>
             <div className="flex items-center gap-2">
+              {/* Mobile: toggle expanded view */}
               <RetroButton
                 variant="secondary"
                 size="sm"
+                className="md:hidden"
+                onClick={() => setMobileExpanded(!mobileExpanded)}
+              >
+                {mobileExpanded ? 'Collapse' : 'View'}
+              </RetroButton>
+              {/* Desktop: expand to full compare table */}
+              <RetroButton
+                variant="secondary"
+                size="sm"
+                className="hidden md:inline-flex"
                 onClick={() => setCompareViewExpanded(true)}
               >
                 Expand
               </RetroButton>
               <RetroButton variant="ghost" size="sm" onClick={clearCompareList}>
-                Clear All
+                Clear
               </RetroButton>
             </div>
           </div>
 
-          {/* Comparison Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Mobile expanded view */}
+          {mobileExpanded && (
+            <div className="md:hidden space-y-3 mt-4 max-h-[60vh] overflow-y-auto">
+              {compareDestinations.map((dest, index) => {
+                if (!dest) return null;
+                const score = scores[index];
+                const flightHours = dest.flightTimes[preferences.homeAirport] || 0;
+                return (
+                  <div key={dest.id} className="bg-bg-dark border border-retro-cyan/30 rounded p-3 relative">
+                    <button
+                      onClick={() => toggleCompare(dest.id)}
+                      className="absolute top-2 right-2 text-text-muted hover:text-retro-red transition-colors"
+                      aria-label={`Remove ${dest.name} from comparison`}
+                    >
+                      ✕
+                    </button>
+                    <Link href={`/destination/${dest.id}`} className="block hover:text-retro-cyan transition-colors">
+                      <h3 className="font-mono font-semibold text-text-primary pr-6 mb-1">{dest.name}</h3>
+                    </Link>
+                    <div className="grid grid-cols-2 gap-2 text-xs font-mono mt-2">
+                      <div><span className="text-text-muted">Score: </span><span className="text-retro-cyan">{score ? Math.round((score.total / maxScore) * 100) : 0}%</span></div>
+                      <div><span className="text-text-muted">Duration: </span><span className="text-text-primary">{formatDuration(dest.duration)}</span></div>
+                      <div><span className="text-text-muted">Flight: </span><span className="text-text-primary">{formatFlightTime(flightHours)}</span></div>
+                      <div><span className="text-text-muted">Cost: </span><span className={cn(dest.cost <= 3 ? 'text-retro-green' : dest.cost <= 6 ? 'text-retro-orange' : 'text-retro-red')}>{'$'.repeat(Math.ceil(dest.cost / 2))}</span></div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Desktop: Full comparison grid */}
+          <div className="hidden md:grid grid-cols-3 gap-4">
             {compareDestinations.map((dest, index) => {
               if (!dest) return null;
               const score = scores[index];
@@ -79,7 +121,6 @@ export function ComparePanel() {
                   key={dest.id}
                   className="bg-bg-dark border border-retro-cyan/30 rounded p-3 relative"
                 >
-                  {/* Remove button */}
                   <button
                     onClick={() => toggleCompare(dest.id)}
                     className="absolute top-2 right-2 text-text-muted hover:text-retro-red transition-colors"
@@ -87,48 +128,16 @@ export function ComparePanel() {
                   >
                     ✕
                   </button>
-
-                  {/* Name and score */}
-                  <Link
-                    href={`/destination/${dest.id}`}
-                    className="block hover:text-retro-cyan transition-colors"
-                  >
-                    <h3 className="font-mono font-semibold text-text-primary pr-6 mb-1">
-                      {dest.name}
-                    </h3>
+                  <Link href={`/destination/${dest.id}`} className="block hover:text-retro-cyan transition-colors">
+                    <h3 className="font-mono font-semibold text-text-primary pr-6 mb-1">{dest.name}</h3>
                   </Link>
-                  <p className="font-mono text-xs text-text-muted mb-3">
-                    {dest.countries.join(', ')}
-                  </p>
-
-                  {/* Quick Stats */}
+                  <p className="font-mono text-xs text-text-muted mb-3">{dest.countries.join(', ')}</p>
                   <div className="grid grid-cols-2 gap-2 text-xs font-mono mb-3">
-                    <div>
-                      <span className="text-text-muted">Score: </span>
-                      <span className="text-retro-cyan">
-                        {score ? Math.round((score.total / maxScore) * 100) : 0}%
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-text-muted">Duration: </span>
-                      <span className="text-text-primary">{formatDuration(dest.duration)}</span>
-                    </div>
-                    <div>
-                      <span className="text-text-muted">Flight: </span>
-                      <span className="text-text-primary">{formatFlightTime(flightHours)}</span>
-                    </div>
-                    <div>
-                      <span className="text-text-muted">Cost: </span>
-                      <span className={cn(
-                        dest.cost <= 3 ? 'text-retro-green' :
-                        dest.cost <= 6 ? 'text-retro-orange' : 'text-retro-red'
-                      )}>
-                        {'$'.repeat(Math.ceil(dest.cost / 2))}
-                      </span>
-                    </div>
+                    <div><span className="text-text-muted">Score: </span><span className="text-retro-cyan">{score ? Math.round((score.total / maxScore) * 100) : 0}%</span></div>
+                    <div><span className="text-text-muted">Duration: </span><span className="text-text-primary">{formatDuration(dest.duration)}</span></div>
+                    <div><span className="text-text-muted">Flight: </span><span className="text-text-primary">{formatFlightTime(flightHours)}</span></div>
+                    <div><span className="text-text-muted">Cost: </span><span className={cn(dest.cost <= 3 ? 'text-retro-green' : dest.cost <= 6 ? 'text-retro-orange' : 'text-retro-red')}>{'$'.repeat(Math.ceil(dest.cost / 2))}</span></div>
                   </div>
-
-                  {/* Score Bars */}
                   {score && (
                     <div className="space-y-1">
                       <ScoreGauge value={score.monthMatch} max={20} label="Month" size="sm" animate={false} />
@@ -136,8 +145,6 @@ export function ComparePanel() {
                       <ScoreGauge value={score.safetyScore} max={8} label="Safety" size="sm" animate={false} />
                     </div>
                   )}
-
-                  {/* Best Months Mini */}
                   <div className="mt-3">
                     <MonthHeatmap data={dest.bestMonths} size="sm" />
                   </div>
@@ -172,7 +179,7 @@ export function ComparePanel() {
 // Slot indicator showing filled/empty circles
 function CompareSlotIndicator({ count, max }: { count: number; max: number }) {
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-1" role="status" aria-label={`${count} of ${max} comparison slots used`}>
       {Array.from({ length: max }).map((_, i) => {
         const isFilled = i < count;
         const isWarning = count === 2;

@@ -21,6 +21,8 @@ export default function SettingsPage() {
     resetPreferences,
     travelers,
     destinations,
+    reduceEffects,
+    setReduceEffects,
   } = useAppStore();
 
   const { play } = useSound();
@@ -52,16 +54,33 @@ export default function SettingsPage() {
     reader.onload = (e) => {
       try {
         const data = JSON.parse(e.target?.result as string);
-        // Validate and import data
-        if (data.travelers && data.preferences) {
-          useAppStore.setState({
-            travelers: data.travelers,
-            preferences: data.preferences,
-          });
-          toast.success('Data imported successfully!');
-        } else {
+        // Validate imported data shape before applying
+        if (
+          !data ||
+          !Array.isArray(data.travelers) ||
+          typeof data.preferences !== 'object' ||
+          data.preferences === null
+        ) {
           toast.error('Invalid backup file format');
+          return;
         }
+        // Validate each traveler has required fields
+        const validTravelers = data.travelers.every(
+          (t: unknown) =>
+            typeof t === 'object' &&
+            t !== null &&
+            typeof (t as Record<string, unknown>).id === 'string' &&
+            typeof (t as Record<string, unknown>).name === 'string'
+        );
+        if (!validTravelers) {
+          toast.error('Invalid traveler data in backup file');
+          return;
+        }
+        useAppStore.setState({
+          travelers: data.travelers,
+          preferences: { ...preferences, ...data.preferences },
+        });
+        toast.success('Data imported successfully!');
       } catch {
         toast.error('Failed to parse backup file');
       }
@@ -139,6 +158,25 @@ export default function SettingsPage() {
           </RetroCardBody>
         </RetroCard>
 
+        {/* Visual Effects */}
+        <RetroCard className="mb-6">
+          <RetroCardHeader>
+            <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+              Visual Effects
+            </h2>
+          </RetroCardHeader>
+          <RetroCardBody className="space-y-4">
+            <RetroToggle
+              label="Reduce Visual Effects"
+              checked={reduceEffects}
+              onChange={(e) => setReduceEffects(e.target.checked)}
+            />
+            <p className="font-mono text-xs text-text-muted">
+              Disables CRT scanlines, screen flicker, and glow animations for a calmer experience
+            </p>
+          </RetroCardBody>
+        </RetroCard>
+
         {/* Default Preferences */}
         <RetroCard className="mb-6">
           <RetroCardHeader>
@@ -187,13 +225,14 @@ export default function SettingsPage() {
                 <p className="font-mono text-sm text-text-secondary mb-2">
                   Import data from a backup file
                 </p>
-                <label className="retro-btn cursor-pointer inline-block">
+                <label className="retro-btn cursor-pointer inline-block" role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}>
                   Import Data
                   <input
                     type="file"
                     accept=".json"
                     onChange={handleImportData}
                     className="hidden"
+                    aria-label="Import data from JSON backup file"
                   />
                 </label>
               </div>

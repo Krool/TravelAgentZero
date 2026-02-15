@@ -27,7 +27,7 @@ export function MonthHeatmap({
   };
 
   return (
-    <div className={cn('flex flex-wrap', sizes[size].gap, className)}>
+    <div className={cn('flex flex-wrap', sizes[size].gap, className)} role="group" aria-label="Monthly travel conditions">
       {MONTHS.map((month) => {
         const isGood = data[month] === 1;
         const isSelected = selectedMonth === month;
@@ -37,6 +37,8 @@ export function MonthHeatmap({
             key={month}
             onClick={() => onMonthClick?.(month)}
             disabled={!onMonthClick}
+            aria-label={`${MONTH_SHORT[month]}: ${isGood ? 'good time to visit' : 'not ideal'}${isSelected ? ' (selected)' : ''}`}
+            aria-pressed={isSelected}
             className={cn(
               'flex items-center justify-center rounded-sm transition-all duration-200',
               sizes[size].cell,
@@ -68,8 +70,10 @@ export function MonthHeatmapInline({
   selectedMonth?: Month;
   className?: string;
 }) {
+  const goodMonths = MONTHS.filter(m => data[m] === 1).map(m => MONTH_SHORT[m]).join(', ');
+
   return (
-    <div className={cn('flex gap-0.5', className)}>
+    <div className={cn('flex gap-0.5', className)} role="img" aria-label={`Best months: ${goodMonths || 'none'}`}>
       {MONTHS.map((month) => {
         const isGood = data[month] === 1;
         const isSelected = selectedMonth === month;
@@ -85,6 +89,7 @@ export function MonthHeatmapInline({
               isSelected && 'ring-1 ring-retro-cyan'
             )}
             title={MONTH_SHORT[month]}
+            aria-hidden="true"
           />
         );
       })}

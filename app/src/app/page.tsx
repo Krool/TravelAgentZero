@@ -14,15 +14,21 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { ActiveFilterChips, FilterCountBadge } from '@/components/ui/ActiveFilterChips';
 import { SurpriseButton } from '@/components/ui/SurpriseButton';
 import { getActiveFilterCount } from '@/lib/filterUtils';
+import { cn } from '@/lib/utils';
 import { MONTH_NAMES, AIRPORT_HUBS, hasChildTraveler } from '@/types';
 
 type ViewMode = 'grid' | 'list' | 'favorites';
+type SortMode = 'score' | 'name' | 'cost' | 'flight' | 'duration';
+
+const PAGE_SIZE = 24;
 
 export default function HomePage() {
   const { destinations, travelers, preferences, isLoaded, setSearchQuery } = useAppStore();
   const [viewMode, setViewMode] = useState<ViewMode>('list');
   const [showFilters, setShowFilters] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [sortMode, setSortMode] = useState<SortMode>('score');
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   // Check if any selected travelers are children (auto-detect)
   const hasChildren = hasChildTraveler(travelers, preferences.selectedTravelers);
@@ -36,8 +42,29 @@ export default function HomePage() {
     if (!isLoaded) return [];
 
     const filtered = filterDestinations(destinations, preferences, travelers);
-    return sortDestinationsByScore(filtered, preferences, travelers);
-  }, [destinations, travelers, preferences, isLoaded]);
+    const scored = sortDestinationsByScore(filtered, preferences, travelers);
+
+    // Apply secondary sort
+    if (sortMode === 'score') return scored;
+
+    return [...scored].sort((a, b) => {
+      switch (sortMode) {
+        case 'name':
+          return a.destination.name.localeCompare(b.destination.name);
+        case 'cost':
+          return a.destination.cost - b.destination.cost;
+        case 'flight': {
+          const fa = a.destination.flightTimes[preferences.homeAirport] || 99;
+          const fb = b.destination.flightTimes[preferences.homeAirport] || 99;
+          return fa - fb;
+        }
+        case 'duration':
+          return a.destination.duration - b.destination.duration;
+        default:
+          return 0;
+      }
+    });
+  }, [destinations, travelers, preferences, isLoaded, sortMode]);
 
   // Get favorites
   const favoriteDestinations = useMemo(() => {
@@ -61,14 +88,21 @@ export default function HomePage() {
         return;
       }
 
-      switch (e.key.toLowerCase()) {
+      switch (e.key) {
+        case '/':
+          e.preventDefault();
+          document.querySelector<HTMLInputElement>('input[type="search"]')?.focus();
+          break;
         case 'g':
+        case 'G':
           setViewMode('grid');
           break;
         case 'l':
+        case 'L':
           setViewMode('list');
           break;
         case 'f':
+        case 'F':
           if (!e.metaKey && !e.ctrlKey) {
             e.preventDefault();
             setShowFilters((prev) => !prev);
@@ -92,8 +126,18 @@ export default function HomePage() {
     setSearchQuery('');
   }, [setSearchQuery]);
 
+  // Reset visible count when filters/sort/view changes
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [sortMode, viewMode, preferences.travelMonth, preferences.homeAirport, preferences.searchQuery,
+      preferences.regionPreference, preferences.temperaturePreference, preferences.typePreference,
+      preferences.budgetSensitivity, preferences.maxFlightTime, preferences.maxDanger,
+      preferences.durationMin, preferences.durationMax, preferences.visaFreeOnly, preferences.preferNewPlaces]);
+
   // Determine which destinations to show
-  const displayDestinations = viewMode === 'favorites' ? favoriteDestinations : sortedDestinations;
+  const allDisplayDestinations = viewMode === 'favorites' ? favoriteDestinations : sortedDestinations;
+  const displayDestinations = allDisplayDestinations.slice(0, visibleCount);
+  const hasMore = visibleCount < allDisplayDestinations.length;
 
   // Helper to analyze why there are no results
   const getEmptyStateMessage = () => {
@@ -138,7 +182,7 @@ export default function HomePage() {
 
   return (
     <ErrorBoundary>
-      <div className="container mx-auto px-4 py-6">
+      <div className={cn("container mx-auto px-4 py-6", preferences.compareList.length > 0 && "pb-80")}>
         {/* Skip to content link for accessibility */}
         <a href="#destinations" className="skip-link">
           Skip to destinations
@@ -170,8 +214,8 @@ export default function HomePage() {
                       <span className="text-text-secondary"> (max {preferences.maxFlightTime}h)</span>
                     )}
                   </p>
-                  <p className="font-mono text-sm text-text-muted mt-1">
-                    {displayDestinations.length} destinations match
+                  <p className="font-mono text-sm text-text-muted mt-1" aria-live="polite" aria-atomic="true">
+                    {allDisplayDestinations.length} destinations match
                     {preferences.favorites.length > 0 && (
                       <span className="ml-2">
                         • <span className="text-retro-yellow">{preferences.favorites.length} favorited</span>
@@ -186,9 +230,22 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-2 flex-wrap">
                   <SurpriseButton
-                    destinationIds={displayDestinations.map(({ destination }) => destination.id)}
-                    disabled={displayDestinations.length === 0}
+                    destinationIds={allDisplayDestinations.map(({ destination }) => destination.id)}
+                    disabled={allDisplayDestinations.length === 0}
                   />
+                  {/* Sort dropdown */}
+                  <select
+                    value={sortMode}
+                    onChange={(e) => setSortMode(e.target.value as SortMode)}
+                    className="retro-select text-xs py-1.5 px-2 pr-7 rounded"
+                    aria-label="Sort destinations by"
+                  >
+                    <option value="score">Sort: Score</option>
+                    <option value="name">Sort: Name</option>
+                    <option value="cost">Sort: Cost</option>
+                    <option value="flight">Sort: Flight</option>
+                    <option value="duration">Sort: Duration</option>
+                  </select>
                   <RetroButton
                     variant={viewMode === 'grid' ? 'primary' : 'ghost'}
                     size="sm"
@@ -258,7 +315,7 @@ export default function HomePage() {
       <div className="flex gap-6">
         {/* Filter sidebar - desktop */}
         <aside className="w-72 shrink-0 hidden lg:block">
-          <RetroCard className="p-4 sticky top-20">
+          <RetroCard className="p-4 sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto">
             <h2 className="font-mono font-bold text-sm text-retro-cyan mb-4 uppercase">
               Mission Control
             </h2>
@@ -267,7 +324,7 @@ export default function HomePage() {
         </aside>
 
         {/* Destination grid/list */}
-        <main id="destinations" className="flex-1 min-w-0" role="main" aria-label="Destination results">
+        <section id="destinations" className="flex-1 min-w-0" role="region" aria-label="Destination results">
           {displayDestinations.length === 0 ? (
             <RetroCard className="p-8 text-center">
               {(() => {
@@ -339,7 +396,19 @@ export default function HomePage() {
               ))}
             </div>
           )}
-        </main>
+
+          {/* Load More */}
+          {hasMore && displayDestinations.length > 0 && (
+            <div className="mt-6 text-center">
+              <RetroButton
+                variant="ghost"
+                onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+              >
+                Load More ({allDisplayDestinations.length - visibleCount} remaining)
+              </RetroButton>
+            </div>
+          )}
+        </section>
       </div>
 
       {/* Compare panel */}
@@ -347,8 +416,13 @@ export default function HomePage() {
 
       {/* Mobile filter panel */}
       {showFilters && (
-        <div className="fixed inset-0 bg-bg-deep/95 z-50 lg:hidden overflow-auto">
-          <div className="p-4">
+        <div
+          className="fixed inset-0 bg-bg-deep/95 z-50 lg:hidden overflow-auto animate-fade-in"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Filter destinations"
+        >
+          <div className="p-4 pb-[max(1rem,env(safe-area-inset-bottom))] animate-slide-up">
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-mono font-bold text-base text-retro-cyan uppercase">
                 Mission Control
@@ -357,6 +431,7 @@ export default function HomePage() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowFilters(false)}
+                aria-label="Close filters"
               >
                 Close
               </RetroButton>
@@ -368,7 +443,7 @@ export default function HomePage() {
                 className="w-full"
                 onClick={() => setShowFilters(false)}
               >
-                Apply Filters
+                Show {allDisplayDestinations.length} Results
               </RetroButton>
             </div>
           </div>

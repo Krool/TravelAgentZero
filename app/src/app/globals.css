@@ -20,7 +20,7 @@
   /* Text colors - improved contrast for accessibility */
   --text-primary: #f0f0f0;
   --text-secondary: #b8b8d8;
-  --text-muted: #8888a8;
+  --text-muted: #9999b8;
 
   /* Glow effects */
   --glow-cyan: 0 0 10px #00fff2, 0 0 20px #00fff280, 0 0 30px #00fff240;
@@ -307,12 +307,19 @@ body {
 /* Checkbox styling */
 .retro-checkbox {
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border: 2px solid var(--retro-cyan);
   background: transparent;
   cursor: pointer;
   position: relative;
+}
+
+@media (pointer: coarse) {
+  .retro-checkbox {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .retro-checkbox:checked {
@@ -341,11 +348,19 @@ body {
 
 .retro-slider::-webkit-slider-thumb {
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background: var(--retro-cyan);
   cursor: pointer;
   box-shadow: var(--glow-cyan);
+  border-radius: 50%;
+}
+
+@media (pointer: coarse) {
+  .retro-slider::-webkit-slider-thumb {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* Tooltip */
@@ -413,6 +428,29 @@ body {
   .scanlines::after {
     display: none;
   }
+}
+
+/* User-toggled reduce effects (in-app setting) */
+.reduce-effects .crt-flicker {
+  animation: none;
+}
+
+.reduce-effects .scanlines::after {
+  display: none;
+}
+
+.reduce-effects .glow-cyan,
+.reduce-effects .glow-magenta,
+.reduce-effects .glow-green {
+  text-shadow: none;
+}
+
+.reduce-effects .retro-btn:hover {
+  box-shadow: none;
+}
+
+.reduce-effects .retro-card:hover {
+  box-shadow: none;
 }
 
 /* Focus visible for keyboard navigation */
@@ -582,6 +620,46 @@ body {
 
 .animate-slide-in {
   animation: slide-in-right 0.2s ease-out;
+}
+
+/* Mobile nav drawer slide-in from right */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.25s ease-out;
+}
+
+/* Fade-in for backdrops */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+/* Mobile filter slide-up */
+@keyframes slide-up-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up-in 0.3s ease-out;
 }
 
 /* Print styles */
