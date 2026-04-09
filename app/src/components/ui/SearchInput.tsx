@@ -15,7 +15,6 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
 
     useEffect(() => {
       const handleKeyDown = (e: KeyboardEvent) => {
-        // Focus search on "/" key (unless already in an input)
         if (
           e.key === shortcutKey &&
           document.activeElement?.tagName !== 'INPUT' &&
@@ -24,7 +23,6 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           e.preventDefault();
           combinedRef.current?.focus();
         }
-        // Clear and blur on Escape
         if (e.key === 'Escape' && document.activeElement === combinedRef.current) {
           onClear?.();
           combinedRef.current?.blur();
@@ -40,7 +38,10 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
     return (
       <div className="search-input-wrapper w-full">
         <span className="search-icon" aria-hidden="true">
-          🔍
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
         </span>
         <input
           ref={combinedRef}
@@ -53,15 +54,17 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           aria-label="Search destinations"
           {...props}
         />
-        <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
           {hasValue ? (
             <button
               type="button"
               onClick={onClear}
-              className="text-text-muted hover:text-retro-cyan transition-colors p-1"
+              className="text-text-muted hover:text-text-primary transition-colors p-1 rounded"
               aria-label="Clear search"
             >
-              ✕
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
             </button>
           ) : (
             <span className="kbd" aria-hidden="true">/</span>

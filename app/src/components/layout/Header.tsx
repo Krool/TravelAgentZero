@@ -30,13 +30,15 @@ export function Header() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
 
-  // Trap focus inside mobile menu when open
+  // Trap focus inside mobile menu when open + lock body scroll
   useEffect(() => {
     if (!mobileMenuOpen || !menuRef.current) return;
+    document.body.style.overflow = 'hidden';
     const focusable = menuRef.current.querySelectorAll<HTMLElement>(
       'a, button, input, [tabindex]:not([tabindex="-1"])'
     );
     if (focusable.length > 0) focusable[0].focus();
+    return () => { document.body.style.overflow = ''; };
   }, [mobileMenuOpen]);
 
   const toggleSound = () => {
@@ -49,38 +51,41 @@ export function Header() {
   const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
   return (
-    <header className="border-b border-retro-cyan/20 bg-bg-dark/80 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b border-white/[0.06] bg-bg-deep/70 backdrop-blur-xl sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <span className="font-pixel text-lg text-retro-cyan glow-cyan tracking-wider">
-                TRAVEL AGENT
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-retro-cyan to-retro-blue flex items-center justify-center">
+              <span className="text-bg-deep font-bold text-sm">T</span>
+            </div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-bold text-lg text-text-primary tracking-tight">
+                Travel Agent
               </span>
-              <span className="font-pixel text-lg text-retro-magenta glow-magenta ml-2">
-                ZERO
+              <span className="font-bold text-lg gradient-text">
+                Zero
               </span>
             </div>
           </Link>
 
           {/* Nav - Desktop */}
-          <nav className="hidden md:flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-1 bg-white/[0.04] rounded-full px-1.5 py-1">
             <NavLink href="/" active={pathname === '/'}>Destinations</NavLink>
             <NavLink href="/travelers" active={pathname === '/travelers'}>Travelers</NavLink>
             <NavLink href="/settings" active={pathname === '/settings'}>Settings</NavLink>
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {/* Sound toggle */}
             <button
               onClick={toggleSound}
               className={cn(
-                'p-2 rounded border transition-all',
+                'p-2 rounded-lg transition-all',
                 soundEnabled
-                  ? 'border-retro-cyan text-retro-cyan hover:bg-retro-cyan/10'
-                  : 'border-text-muted text-text-muted hover:border-retro-cyan'
+                  ? 'text-retro-cyan hover:bg-retro-cyan/10'
+                  : 'text-text-muted hover:text-text-secondary hover:bg-white/[0.04]'
               )}
               title={soundEnabled ? 'Sound On' : 'Sound Off'}
               aria-label={soundEnabled ? 'Mute sound' : 'Enable sound'}
@@ -110,16 +115,22 @@ export function Header() {
             )}
 
             {/* Mobile menu button */}
-            <RetroButton
-              variant="ghost"
-              size="sm"
-              className="md:hidden"
+            <button
+              className="md:hidden p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-all"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? '✕' : '☰'}
-            </RetroButton>
+              {mobileMenuOpen ? (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
       </div>
@@ -129,7 +140,7 @@ export function Header() {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-bg-deep/80 z-40 md:hidden animate-fade-in"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden animate-fade-in"
             onClick={closeMobileMenu}
             aria-hidden="true"
           />
@@ -139,16 +150,18 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            className="fixed top-0 right-0 h-full w-64 bg-bg-card border-l border-retro-cyan/30 z-50 md:hidden animate-slide-in-left shadow-[0_0_30px_rgba(0,255,242,0.1)]"
+            className="fixed top-0 right-0 h-full w-72 bg-bg-card-solid/95 backdrop-blur-xl border-l border-white/[0.06] z-50 md:hidden animate-slide-in-left shadow-2xl"
           >
-            <div className="flex items-center justify-between p-4 border-b border-retro-cyan/20">
-              <span className="font-pixel text-sm text-retro-cyan">NAVIGATE</span>
+            <div className="flex items-center justify-between p-5 border-b border-white/[0.06]">
+              <span className="font-semibold text-sm text-text-secondary uppercase tracking-wider">Menu</span>
               <button
                 onClick={closeMobileMenu}
-                className="p-1 text-text-muted hover:text-retro-cyan transition-colors"
+                className="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-white/[0.04] transition-colors"
                 aria-label="Close menu"
               >
-                ✕
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
               </button>
             </div>
             <nav className="p-4 space-y-1">
@@ -174,8 +187,10 @@ function NavLink({ href, children, active }: { href: string; children: React.Rea
     <Link
       href={href}
       className={cn(
-        'font-mono text-sm font-medium transition-colors uppercase tracking-wider',
-        active ? 'text-retro-cyan glow-cyan-subtle' : 'text-text-secondary hover:text-retro-cyan'
+        'px-4 py-1.5 rounded-full text-sm font-medium transition-all',
+        active
+          ? 'bg-retro-cyan/15 text-retro-cyan'
+          : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
       )}
     >
       {children}
@@ -189,10 +204,10 @@ function MobileNavLink({ href, children, active, onClick }: { href: string; chil
       href={href}
       onClick={onClick}
       className={cn(
-        'block px-4 py-3 rounded font-mono text-sm font-medium uppercase tracking-wider transition-all',
+        'block px-4 py-3 rounded-lg text-sm font-medium transition-all',
         active
-          ? 'text-retro-cyan bg-retro-cyan/10 border border-retro-cyan/30'
-          : 'text-text-secondary hover:text-retro-cyan hover:bg-bg-hover'
+          ? 'text-retro-cyan bg-retro-cyan/10'
+          : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
       )}
     >
       {children}

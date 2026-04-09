@@ -25,7 +25,6 @@ export function ScoreGauge({
   size = 'md',
   className,
 }: ScoreGaugeProps) {
-  // Respect prefers-reduced-motion
   const prefersReducedMotion = typeof window !== 'undefined'
     && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const shouldAnimate = animate && !prefersReducedMotion;
@@ -40,7 +39,6 @@ export function ScoreGauge({
       return;
     }
 
-    // Animate from 0 to value
     const duration = 800;
     const steps = 30;
     const increment = value / steps;
@@ -60,16 +58,16 @@ export function ScoreGauge({
   }, [value, shouldAnimate]);
 
   const sizes = {
-    sm: { height: 'h-2', text: 'text-xs', padding: 'px-1' },
-    md: { height: 'h-3', text: 'text-xs', padding: 'px-2' },
-    lg: { height: 'h-4', text: 'text-sm', padding: 'px-3' },
+    sm: { height: 'h-1.5', text: 'text-xs', padding: 'px-1' },
+    md: { height: 'h-2', text: 'text-xs', padding: 'px-2' },
+    lg: { height: 'h-3', text: 'text-sm', padding: 'px-3' },
   };
 
   return (
     <div className={cn('w-full', className)}>
       {label && (
-        <div className="flex justify-between items-center mb-1">
-          <span className={cn('font-mono text-text-secondary uppercase', sizes[size].text)}>
+        <div className="flex justify-between items-center mb-1.5">
+          <span className={cn('text-text-secondary', sizes[size].text)}>
             {label}
           </span>
           {showValue && (
@@ -83,7 +81,7 @@ export function ScoreGauge({
       )}
       <div
         className={cn(
-          'w-full bg-bg-dark border border-retro-cyan/30 rounded-sm overflow-hidden',
+          'w-full bg-white/[0.06] rounded-full overflow-hidden',
           sizes[size].height
         )}
         role="meter"
@@ -94,13 +92,12 @@ export function ScoreGauge({
       >
         <div
           className={cn(
-            'h-full transition-all duration-300 ease-out',
+            'h-full transition-all duration-300 ease-out rounded-full',
             animate && 'score-bar'
           )}
           style={{
             width: `${percentage}%`,
             backgroundColor: color,
-            boxShadow: `0 0 10px ${color}`,
           }}
         />
       </div>
@@ -131,18 +128,17 @@ export function ScoreBadge({
   return (
     <div
       className={cn(
-        'inline-flex items-center gap-1 px-2 py-1 rounded font-mono font-bold text-sm',
+        'inline-flex items-center gap-1 px-2.5 py-1 rounded-lg font-mono font-bold text-sm',
         className
       )}
       style={{
-        backgroundColor: `${color}20`,
-        border: `1px solid ${color}`,
+        backgroundColor: `${color}15`,
+        border: `1px solid ${color}40`,
         color: color,
-        boxShadow: `0 0 10px ${color}40`,
       }}
     >
       <span>{Math.round(percentage)}</span>
-      <span className="text-xs opacity-70">PTS</span>
+      <span className="text-[10px] opacity-60 font-medium">PTS</span>
     </div>
   );
 }

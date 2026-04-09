@@ -22,7 +22,6 @@ export function SurpriseButton({ destinationIds, disabled, className }: Surprise
     setIsSpinning(true);
     play('score');
 
-    // Random selection with spin animation
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * destinationIds.length);
       const selectedId = destinationIds[randomIndex];
@@ -37,11 +36,11 @@ export function SurpriseButton({ destinationIds, disabled, className }: Surprise
       onClick={handleClick}
       disabled={isDisabled || isSpinning}
       className={cn(
-        'relative px-4 py-2 font-mono text-sm uppercase tracking-wider rounded',
-        'border-2 transition-all duration-200',
+        'relative px-4 py-2 text-sm font-medium rounded-lg',
+        'border transition-all duration-200',
         isDisabled
-          ? 'border-text-muted/50 text-text-muted cursor-not-allowed opacity-50'
-          : 'border-retro-yellow text-retro-yellow hover:bg-retro-yellow/10 hover:shadow-[0_0_20px_rgba(255,255,0,0.3)]',
+          ? 'border-white/10 text-text-muted cursor-not-allowed opacity-40'
+          : 'border-retro-yellow/40 text-retro-yellow bg-retro-yellow/[0.06] hover:bg-retro-yellow/15 hover:border-retro-yellow/60 hover:shadow-[0_0_20px_rgba(251,191,36,0.1)]',
         isSpinning && 'animate-pulse',
         className
       )}
@@ -57,7 +56,7 @@ export function SurpriseButton({ destinationIds, disabled, className }: Surprise
         >
           🎲
         </span>
-        <span>{isSpinning ? 'Picking...' : 'Surprise Me!'}</span>
+        <span className="hidden sm:inline">{isSpinning ? 'Picking...' : 'Surprise Me'}</span>
       </span>
     </button>
   );

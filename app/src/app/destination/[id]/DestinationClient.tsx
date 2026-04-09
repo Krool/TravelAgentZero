@@ -52,7 +52,6 @@ export default function DestinationClient() {
     return calculateScore(destination, preferences, travelers);
   }, [destination, preferences, travelers]);
 
-  // Prev/next navigation based on current filter/sort
   const { prevDest, nextDest } = useMemo(() => {
     if (!destination) return { prevDest: null, nextDest: null };
     const filtered = filterDestinations(destinations, preferences, travelers);
@@ -69,12 +68,15 @@ export default function DestinationClient() {
   if (!destination || !score) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <RetroCard className="p-8 text-center">
-          <div className="font-mono font-bold text-retro-red text-xl mb-4">
-            DESTINATION NOT FOUND
+        <RetroCard className="p-12 text-center">
+          <div className="w-12 h-12 rounded-xl bg-retro-red/15 flex items-center justify-center mx-auto mb-4">
+            <span className="text-retro-red text-xl">!</span>
+          </div>
+          <div className="font-semibold text-text-primary text-lg mb-2">
+            Destination not found
           </div>
           <RetroButton onClick={() => router.push('/')}>
-            Return to Base
+            Back to destinations
           </RetroButton>
         </RetroCard>
       </div>
@@ -82,12 +84,9 @@ export default function DestinationClient() {
   }
 
   const maxScore = getMaxPossibleScore();
-
-  // Flight time and duration recommendation
   const flightHours = destination.flightTimes[preferences.homeAirport] || 0;
   const durationRec = getDurationRecommendation(destination.duration, flightHours);
 
-  // Climate and type icons
   const climateInfo = {
     Hot: { icon: '☀️', desc: 'Hot / Tropical' },
     Cold: { icon: '❄️', desc: 'Cold / Alpine' },
@@ -106,9 +105,12 @@ export default function DestinationClient() {
       {/* Back button */}
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-text-secondary hover:text-retro-cyan font-mono mb-4 transition-colors"
+        className="inline-flex items-center gap-2 text-text-secondary hover:text-retro-cyan text-sm mb-5 transition-colors"
       >
-        ← Back to Destinations
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Destinations
       </Link>
 
       {/* Header */}
@@ -116,16 +118,16 @@ export default function DestinationClient() {
         <RetroCard className="p-6">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
             <div>
-              <h1 className="font-pixel text-lg text-retro-cyan glow-cyan mb-2">
+              <h1 className="text-2xl font-bold text-text-primary mb-1">
                 {destination.name}
               </h1>
-              <p className="font-mono text-text-secondary text-lg">
+              <p className="text-text-secondary">
                 {destination.countries.join(', ')}
                 {destination.region && (
-                  <span className="text-text-muted"> • {destination.region}</span>
+                  <span className="text-text-muted"> · {destination.region}</span>
                 )}
               </p>
-              <div className="flex flex-wrap items-center gap-2 gap-y-1 mt-3 text-sm font-mono text-text-muted">
+              <div className="flex flex-wrap items-center gap-3 mt-3 text-sm text-text-muted">
                 <span className="flex items-center gap-1">
                   ⏱️ {formatDuration(destination.duration)}
                 </span>
@@ -150,7 +152,7 @@ export default function DestinationClient() {
         </RetroCard>
       </div>
 
-      {/* Duration Recommendation based on flight time */}
+      {/* Duration Recommendation */}
       {flightHours > 0 && (
         <div className="mb-6">
           <RetroCard
@@ -161,32 +163,28 @@ export default function DestinationClient() {
                 ? 'warning'
                 : 'danger'
             }
-            className="p-4"
+            className="p-5"
           >
             <div className="flex items-center gap-4">
               <div
                 className={cn(
-                  'text-3xl',
-                  durationRec.status === 'good' && 'text-retro-green',
-                  durationRec.status === 'warning' && 'text-retro-orange',
-                  durationRec.status === 'poor' && 'text-retro-red'
+                  'w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0',
+                  durationRec.status === 'good' && 'bg-retro-green/15 text-retro-green',
+                  durationRec.status === 'warning' && 'bg-retro-orange/15 text-retro-orange',
+                  durationRec.status === 'poor' && 'bg-retro-red/15 text-retro-red'
                 )}
               >
-                {durationRec.status === 'good'
-                  ? '✓'
-                  : durationRec.status === 'warning'
-                  ? '⚠'
-                  : '✗'}
+                {durationRec.status === 'good' ? '✓' : durationRec.status === 'warning' ? '⚠' : '✗'}
               </div>
               <div>
-                <div className="font-mono font-bold text-xs text-text-muted uppercase mb-1">
+                <div className="text-xs text-text-muted uppercase tracking-wider mb-1 font-medium">
                   Duration Recommendation
                 </div>
-                <p className="font-mono text-text-primary">
+                <p className="text-text-primary text-sm">
                   {durationRec.message}
                 </p>
-                <p className="font-mono text-xs text-text-muted mt-1">
-                  Flight from {AIRPORT_HUBS[preferences.homeAirport].city}: ~{flightHours}h • Suggested stay: {durationRec.recommended}+ days • This trip: {destination.duration} days
+                <p className="text-xs text-text-muted mt-1">
+                  Flight from {AIRPORT_HUBS[preferences.homeAirport].city}: ~{flightHours}h · Suggested: {durationRec.recommended}+ days · This trip: {destination.duration} days
                 </p>
               </div>
             </div>
@@ -240,9 +238,11 @@ export default function DestinationClient() {
           {prevDest ? (
             <Link
               href={`/destination/${prevDest.id}`}
-              className="flex items-center gap-2 text-text-secondary hover:text-retro-cyan font-mono text-sm transition-colors min-w-0"
+              className="flex items-center gap-2 text-text-secondary hover:text-retro-cyan text-sm transition-colors min-w-0"
             >
-              <span className="shrink-0">←</span>
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
               <span className="truncate">{prevDest.name}</span>
             </Link>
           ) : (
@@ -251,10 +251,12 @@ export default function DestinationClient() {
           {nextDest ? (
             <Link
               href={`/destination/${nextDest.id}`}
-              className="flex items-center gap-2 text-text-secondary hover:text-retro-cyan font-mono text-sm transition-colors min-w-0 text-right"
+              className="flex items-center gap-2 text-text-secondary hover:text-retro-cyan text-sm transition-colors min-w-0 text-right"
             >
               <span className="truncate">{nextDest.name}</span>
-              <span className="shrink-0">→</span>
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </Link>
           ) : (
             <div />
@@ -262,7 +264,6 @@ export default function DestinationClient() {
         </div>
       )}
 
-      {/* Print-only content */}
       <PrintableContent destination={destination} preferences={preferences} />
     </div>
   );
@@ -280,123 +281,64 @@ function OverviewTab({
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      {/* Left column - Details */}
       <div className="lg:col-span-2 space-y-6">
-        {/* Itinerary Summary */}
         <RetroCard>
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+            <h2 className="font-semibold text-sm text-retro-magenta">
               Itinerary Summary
             </h2>
           </RetroCardHeader>
           <RetroCardBody>
-            <p className="font-mono text-text-primary leading-relaxed">
+            <p className="text-text-primary leading-relaxed text-sm">
               {destination.itinerarySummary}
             </p>
           </RetroCardBody>
         </RetroCard>
 
-        {/* Important Considerations */}
         <RetroCard variant="warning">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-orange uppercase">
+            <h2 className="font-semibold text-sm text-retro-orange">
               Important Considerations
             </h2>
           </RetroCardHeader>
           <RetroCardBody>
-            <p className="font-mono text-text-primary leading-relaxed">
+            <p className="text-text-primary leading-relaxed text-sm">
               {destination.considerations}
             </p>
           </RetroCardBody>
         </RetroCard>
 
-        {/* Destination Stats */}
         <RetroCard>
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+            <h2 className="font-semibold text-sm text-text-primary">
               Destination Stats
             </h2>
           </RetroCardHeader>
           <RetroCardBody className="space-y-3">
-            <StatRow
-              label="Cost Level"
-              value={destination.cost}
-              max={10}
-              inverted
-            />
-            <StatRow
-              label="Safety"
-              value={10 - destination.danger}
-              max={10}
-            />
-            <StatRow
-              label="Kid-Friendly"
-              value={destination.easeWithChild}
-              max={10}
-            />
+            <StatRow label="Cost Level" value={destination.cost} max={10} inverted />
+            <StatRow label="Safety" value={10 - destination.danger} max={10} />
+            <StatRow label="Kid-Friendly" value={destination.easeWithChild} max={10} />
             <StatRow label="Urgency" value={destination.urgency} max={10} />
           </RetroCardBody>
         </RetroCard>
       </div>
 
-      {/* Right column - Score */}
       <div className="space-y-6">
-        {/* Score Breakdown */}
         <RetroCard>
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-cyan uppercase">
+            <h2 className="font-semibold text-sm text-retro-cyan">
               Score Breakdown
             </h2>
           </RetroCardHeader>
           <RetroCardBody className="space-y-3">
-            <ScoreGauge
-              value={score.monthMatch}
-              max={20}
-              label="Month Match"
-              size="sm"
-            />
-            <ScoreGauge
-              value={score.newPlace}
-              max={15}
-              label="New Place Bonus"
-              size="sm"
-            />
-            <ScoreGauge
-              value={score.personalRating}
-              max={15}
-              label="Personal Rating"
-              size="sm"
-            />
-            <ScoreGauge
-              value={score.childFriendly}
-              max={12}
-              label="Child Friendly"
-              size="sm"
-            />
-            <ScoreGauge
-              value={score.costMatch}
-              max={10}
-              label="Budget Fit"
-              size="sm"
-            />
-            <ScoreGauge
-              value={score.safetyScore}
-              max={8}
-              label="Safety"
-              size="sm"
-            />
-            <ScoreGauge
-              value={score.durationMatch}
-              max={8}
-              label="Duration Fit"
-              size="sm"
-            />
-            <ScoreGauge
-              value={score.flightTime}
-              max={5}
-              label="Flight Time"
-              size="sm"
-            />
+            <ScoreGauge value={score.monthMatch} max={20} label="Month Match" size="sm" />
+            <ScoreGauge value={score.newPlace} max={15} label="New Place Bonus" size="sm" />
+            <ScoreGauge value={score.personalRating} max={15} label="Personal Rating" size="sm" />
+            <ScoreGauge value={score.childFriendly} max={12} label="Child Friendly" size="sm" />
+            <ScoreGauge value={score.costMatch} max={10} label="Budget Fit" size="sm" />
+            <ScoreGauge value={score.safetyScore} max={8} label="Safety" size="sm" />
+            <ScoreGauge value={score.durationMatch} max={8} label="Duration Fit" size="sm" />
+            <ScoreGauge value={score.flightTime} max={5} label="Flight Time" size="sm" />
           </RetroCardBody>
         </RetroCard>
       </div>
@@ -416,15 +358,14 @@ function PlanningTab({
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Best Time to Visit */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-green uppercase">
+          <h2 className="font-semibold text-sm text-retro-green">
             Best Time to Visit
           </h2>
         </RetroCardHeader>
         <RetroCardBody>
-          <p className="font-mono text-text-secondary mb-4">
+          <p className="text-text-secondary text-sm mb-4">
             {destination.bestTimeDescription}
           </p>
           <MonthHeatmap
@@ -433,30 +374,28 @@ function PlanningTab({
             onMonthClick={(month) => setTravelMonth(month)}
             size="lg"
           />
-          <p className="text-xs text-text-muted mt-2 font-mono">
+          <p className="text-xs text-text-muted mt-2">
             Click a month to update your travel preferences
           </p>
         </RetroCardBody>
       </RetroCard>
 
-      {/* Visa Requirements */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-cyan uppercase">
+          <h2 className="font-semibold text-sm text-retro-cyan">
             Visa Requirements
           </h2>
         </RetroCardHeader>
         <RetroCardBody>
-          <p className="font-mono text-text-primary">
+          <p className="text-text-primary text-sm">
             {destination.visaRequirements}
           </p>
         </RetroCardBody>
       </RetroCard>
 
-      {/* Flight Times */}
       <RetroCard className="lg:col-span-2">
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-cyan uppercase">
+          <h2 className="font-semibold text-sm text-retro-cyan">
             Flight Times from Major Hubs
           </h2>
         </RetroCardHeader>
@@ -467,16 +406,16 @@ function PlanningTab({
                 <div
                   key={code}
                   className={cn(
-                    'p-2 rounded border text-center',
+                    'p-3 rounded-lg border text-center',
                     code === preferences.homeAirport
-                      ? 'border-retro-cyan bg-retro-cyan/10'
-                      : 'border-bg-hover'
+                      ? 'border-retro-cyan/40 bg-retro-cyan/[0.06]'
+                      : 'border-white/[0.06]'
                   )}
                 >
-                  <div className="font-mono text-sm text-text-primary">
+                  <div className="text-sm text-text-primary font-medium">
                     {formatFlightTime(hours)}
                   </div>
-                  <div className="font-mono text-[10px] text-text-muted">
+                  <div className="text-[10px] text-text-muted mt-0.5">
                     {AIRPORT_HUBS[code]?.city || code}
                   </div>
                 </div>
@@ -486,10 +425,9 @@ function PlanningTab({
         </RetroCardBody>
       </RetroCard>
 
-      {/* Neighborhoods */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+          <h2 className="font-semibold text-sm text-retro-magenta">
             Neighborhoods
           </h2>
         </RetroCardHeader>
@@ -497,13 +435,13 @@ function PlanningTab({
           {destination.neighborhoods && destination.neighborhoods.length > 0 ? (
             <div className="space-y-4">
               {destination.neighborhoods.map((hood, i) => (
-                <div key={i} className="border-l-2 border-retro-cyan/30 pl-3">
-                  <h3 className="font-mono font-bold text-sm text-retro-cyan">{hood.name}</h3>
-                  <p className="font-mono text-text-secondary text-sm mt-1">{hood.description}</p>
+                <div key={i} className="border-l-2 border-retro-cyan/20 pl-3">
+                  <h3 className="font-semibold text-sm text-retro-cyan">{hood.name}</h3>
+                  <p className="text-text-secondary text-sm mt-1">{hood.description}</p>
                   {hood.bestFor.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-2">
                       {hood.bestFor.map((tag, j) => (
-                        <span key={j} className="px-2 py-0.5 text-[10px] font-mono uppercase bg-bg-dark text-text-muted rounded">
+                        <span key={j} className="px-2 py-0.5 text-[10px] bg-white/[0.04] text-text-muted rounded-full">
                           {tag}
                         </span>
                       ))}
@@ -513,41 +451,40 @@ function PlanningTab({
               ))}
             </div>
           ) : (
-            <p className="font-mono text-text-muted italic text-sm">
+            <p className="text-text-muted italic text-sm">
               Neighborhood information coming soon...
             </p>
           )}
         </RetroCardBody>
       </RetroCard>
 
-      {/* Getting Around */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+          <h2 className="font-semibold text-sm text-retro-magenta">
             Getting Around
           </h2>
         </RetroCardHeader>
         <RetroCardBody>
           {destination.gettingAround ? (
             <div>
-              <p className="font-mono text-text-secondary text-sm mb-4">
+              <p className="text-text-secondary text-sm mb-4">
                 {destination.gettingAround.summary}
               </p>
               <div className="space-y-3">
                 {destination.gettingAround.options.map((opt, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="text-retro-cyan">•</span>
+                    <span className="text-retro-cyan text-xs mt-1">●</span>
                     <div>
-                      <span className="font-mono font-bold text-sm text-text-primary">{opt.type}</span>
+                      <span className="font-medium text-sm text-text-primary">{opt.type}</span>
                       {opt.cost && <span className="text-text-muted text-xs ml-2">({opt.cost})</span>}
-                      <p className="font-mono text-text-muted text-sm">{opt.description}</p>
+                      <p className="text-text-muted text-sm">{opt.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           ) : (
-            <p className="font-mono text-text-muted italic text-sm">
+            <p className="text-text-muted italic text-sm">
               Transportation information coming soon...
             </p>
           )}
@@ -569,11 +506,10 @@ function CostsTab({
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Flight Prices */}
       {hasPrices ? (
         <RetroCard className="lg:col-span-2">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-yellow uppercase">
+            <h2 className="font-semibold text-sm text-retro-yellow">
               Estimated Flight Prices
             </h2>
           </RetroCardHeader>
@@ -583,14 +519,14 @@ function CostsTab({
               selectedMonth={preferences.travelMonth}
             />
             {Object.keys(destination.avgFlightPrices!).length > 1 && (
-              <div className="mt-4 pt-4 border-t border-bg-hover">
+              <div className="mt-4 pt-4 border-t border-white/[0.06]">
                 <AirportPriceComparison
                   prices={destination.avgFlightPrices!}
                   selectedMonth={preferences.travelMonth}
                 />
               </div>
             )}
-            <p className="text-[10px] text-text-muted mt-3 font-mono">
+            <p className="text-[10px] text-text-muted mt-3">
               * Prices are estimates based on historical averages. Actual prices may vary.
             </p>
           </RetroCardBody>
@@ -598,28 +534,27 @@ function CostsTab({
       ) : (
         <RetroCard>
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-yellow uppercase">
+            <h2 className="font-semibold text-sm text-retro-yellow">
               Flight Prices
             </h2>
           </RetroCardHeader>
           <RetroCardBody>
-            <p className="font-mono text-text-muted italic text-sm">
+            <p className="text-text-muted italic text-sm">
               Flight price data not available for this destination.
             </p>
           </RetroCardBody>
         </RetroCard>
       )}
 
-      {/* Cost Breakdown */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-orange uppercase">
+          <h2 className="font-semibold text-sm text-retro-orange">
             Cost Breakdown
           </h2>
         </RetroCardHeader>
         <RetroCardBody>
           <div className="space-y-3">
-            <div className="flex justify-between font-mono text-sm">
+            <div className="flex justify-between text-sm">
               <span className="text-text-muted">Overall Cost Level:</span>
               <span className={cn(
                 destination.cost <= 3 ? 'text-retro-green' :
@@ -630,56 +565,53 @@ function CostsTab({
             </div>
             {destination.costBreakdown ? (
               <div className="mt-4 space-y-4">
-                {/* Accommodation */}
                 <div>
-                  <h4 className="font-mono text-xs text-text-muted uppercase mb-2">Accommodation (per night)</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm font-mono">
-                    <div className="p-2 bg-bg-dark rounded">
-                      <div className="text-retro-green text-xs">Budget</div>
+                  <h4 className="text-xs text-text-muted uppercase mb-2 font-medium">Accommodation (per night)</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
+                    <div className="p-3 bg-white/[0.03] rounded-lg">
+                      <div className="text-retro-green text-xs font-medium">Budget</div>
                       <div className="text-text-primary">{destination.costBreakdown.accommodation.budget}</div>
                     </div>
-                    <div className="p-2 bg-bg-dark rounded">
-                      <div className="text-retro-cyan text-xs">Mid-range</div>
+                    <div className="p-3 bg-white/[0.03] rounded-lg">
+                      <div className="text-retro-cyan text-xs font-medium">Mid-range</div>
                       <div className="text-text-primary">{destination.costBreakdown.accommodation.mid}</div>
                     </div>
-                    <div className="p-2 bg-bg-dark rounded">
-                      <div className="text-retro-magenta text-xs">Luxury</div>
+                    <div className="p-3 bg-white/[0.03] rounded-lg">
+                      <div className="text-retro-magenta text-xs font-medium">Luxury</div>
                       <div className="text-text-primary">{destination.costBreakdown.accommodation.luxury}</div>
                     </div>
                   </div>
                 </div>
-                {/* Meals */}
                 <div>
-                  <h4 className="font-mono text-xs text-text-muted uppercase mb-2">Meals (per day)</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm font-mono">
-                    <div className="p-2 bg-bg-dark rounded">
-                      <div className="text-retro-green text-xs">Budget</div>
+                  <h4 className="text-xs text-text-muted uppercase mb-2 font-medium">Meals (per day)</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
+                    <div className="p-3 bg-white/[0.03] rounded-lg">
+                      <div className="text-retro-green text-xs font-medium">Budget</div>
                       <div className="text-text-primary">{destination.costBreakdown.meals.budget}</div>
                     </div>
-                    <div className="p-2 bg-bg-dark rounded">
-                      <div className="text-retro-cyan text-xs">Mid-range</div>
+                    <div className="p-3 bg-white/[0.03] rounded-lg">
+                      <div className="text-retro-cyan text-xs font-medium">Mid-range</div>
                       <div className="text-text-primary">{destination.costBreakdown.meals.mid}</div>
                     </div>
-                    <div className="p-2 bg-bg-dark rounded">
-                      <div className="text-retro-magenta text-xs">Luxury</div>
+                    <div className="p-3 bg-white/[0.03] rounded-lg">
+                      <div className="text-retro-magenta text-xs font-medium">Luxury</div>
                       <div className="text-text-primary">{destination.costBreakdown.meals.luxury}</div>
                     </div>
                   </div>
                 </div>
-                {/* Activities & Transport */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <div className="text-xs text-text-muted uppercase mb-1">Activities</div>
+                    <div className="text-xs text-text-muted uppercase mb-1 font-medium">Activities</div>
                     <div className="text-text-primary">{destination.costBreakdown.activities}</div>
                   </div>
                   <div>
-                    <div className="text-xs text-text-muted uppercase mb-1">Local Transport</div>
+                    <div className="text-xs text-text-muted uppercase mb-1 font-medium">Local Transport</div>
                     <div className="text-text-primary">{destination.costBreakdown.transport}</div>
                   </div>
                 </div>
               </div>
             ) : (
-              <p className="font-mono text-text-muted italic text-sm mt-4">
+              <p className="text-text-muted italic text-sm mt-4">
                 Detailed cost breakdown coming soon...
               </p>
             )}
@@ -687,10 +619,9 @@ function CostsTab({
         </RetroCardBody>
       </RetroCard>
 
-      {/* Budget Tips */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-green uppercase">
+          <h2 className="font-semibold text-sm text-retro-green">
             Budget Tips
           </h2>
         </RetroCardHeader>
@@ -698,14 +629,14 @@ function CostsTab({
           {destination.costBreakdown?.tips && destination.costBreakdown.tips.length > 0 ? (
             <ul className="space-y-2">
               {destination.costBreakdown.tips.map((tip, i) => (
-                <li key={i} className="flex items-start gap-2 font-mono text-sm">
-                  <span className="text-retro-green">✓</span>
+                <li key={i} className="flex items-start gap-2 text-sm">
+                  <span className="text-retro-green mt-0.5">✓</span>
                   <span className="text-text-secondary">{tip}</span>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="font-mono text-text-muted italic text-sm">
+            <p className="text-text-muted italic text-sm">
               Budget tips coming soon...
             </p>
           )}
@@ -733,10 +664,9 @@ function NotesTab({
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Traveler Tracking */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-green uppercase">
+          <h2 className="font-semibold text-sm text-retro-green">
             Traveler Tracking
           </h2>
         </RetroCardHeader>
@@ -756,15 +686,12 @@ function NotesTab({
                   rating: 5,
                 };
                 return (
-                  <div
-                    key={traveler.id}
-                    className="p-3 border border-bg-hover rounded"
-                  >
+                  <div key={traveler.id} className="p-3 border border-white/[0.06] rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-text-primary flex items-center gap-2">
+                      <span className="text-text-primary text-sm flex items-center gap-2">
                         {traveler.name}
                         {traveler.isChild && (
-                          <span className="text-[9px] px-1 py-0.5 bg-retro-orange/20 text-retro-orange rounded uppercase font-bold">
+                          <span className="text-[9px] px-1.5 py-0.5 bg-retro-orange/15 text-retro-orange rounded-full font-semibold">
                             Child
                           </span>
                         )}
@@ -772,11 +699,7 @@ function NotesTab({
                       <RetroCheckbox
                         checked={data.hasVisited}
                         onChange={(e) =>
-                          setTravelerVisited(
-                            traveler.id,
-                            destination.id,
-                            e.target.checked
-                          )
+                          setTravelerVisited(traveler.id, destination.id, e.target.checked)
                         }
                         label="Been here"
                       />
@@ -787,11 +710,7 @@ function NotesTab({
                       max={10}
                       value={data.rating}
                       onChange={(e) =>
-                        setTravelerRating(
-                          traveler.id,
-                          destination.id,
-                          Number(e.target.value)
-                        )
+                        setTravelerRating(traveler.id, destination.id, Number(e.target.value))
                       }
                     />
                   </div>
@@ -802,10 +721,9 @@ function NotesTab({
         </RetroCardBody>
       </RetroCard>
 
-      {/* Personal Notes */}
       <RetroCard>
         <RetroCardHeader>
-          <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+          <h2 className="font-semibold text-sm text-retro-magenta">
             Personal Notes
           </h2>
         </RetroCardHeader>
@@ -814,10 +732,10 @@ function NotesTab({
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder="Add your notes about this destination... (restaurants, tips, things to remember)"
-            className="w-full h-40 retro-input rounded resize-y text-sm font-mono leading-relaxed"
+            className="w-full h-40 retro-input rounded-lg resize-y text-sm leading-relaxed"
             aria-label={`Personal notes for ${destination.name}`}
           />
-          <p className="text-[10px] text-text-muted font-mono mt-2">
+          <p className="text-[10px] text-text-muted mt-2">
             Notes are saved automatically to your browser
           </p>
         </RetroCardBody>
@@ -847,12 +765,12 @@ function StatRow({
 
   return (
     <div className="flex items-center gap-3" role="meter" aria-label={label} aria-valuenow={displayValue} aria-valuemin={0} aria-valuemax={max}>
-      <span className="font-mono text-xs text-text-muted uppercase w-24">
+      <span className="text-xs text-text-muted w-24">
         {label}
       </span>
-      <div className="flex-1 h-2 bg-bg-dark rounded overflow-hidden">
+      <div className="flex-1 h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
         <div
-          className="h-full rounded transition-all"
+          className="h-full rounded-full transition-all"
           style={{ width: `${percentage}%`, backgroundColor: color }}
         />
       </div>

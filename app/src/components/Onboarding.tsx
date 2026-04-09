@@ -10,7 +10,7 @@ const ONBOARDING_STEPS = [
   {
     id: 'welcome',
     title: 'Welcome to Travel Agent Zero',
-    content: 'Your retro-futuristic travel planning companion. Let me show you around!',
+    content: 'Your smart travel planning companion. Let me show you around!',
     icon: '🚀',
   },
   {
@@ -21,7 +21,7 @@ const ONBOARDING_STEPS = [
   },
   {
     id: 'filters',
-    title: 'Mission Control',
+    title: 'Powerful Filters',
     content: 'Use the filters on the left (or tap "Filters" on mobile) to narrow down destinations by duration, climate, type, and more.',
     icon: '🎛️',
   },
@@ -51,7 +51,6 @@ export function Onboarding() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Small delay to show onboarding after initial load
     const timer = setTimeout(() => {
       if (!hasSeenOnboarding) {
         setIsVisible(true);
@@ -85,7 +84,6 @@ export function Onboarding() {
     }
   };
 
-  // Dismiss onboarding with Escape key
   useEffect(() => {
     if (!isVisible || hasSeenOnboarding) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -102,7 +100,7 @@ export function Onboarding() {
   return (
     <div
       ref={focusTrapRef}
-      className="fixed inset-0 bg-bg-deep/90 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="onboarding-title"
@@ -110,14 +108,14 @@ export function Onboarding() {
         if (e.target === e.currentTarget) handleSkip();
       }}
     >
-      <RetroCard className="max-w-md w-full p-6">
+      <RetroCard className="max-w-md w-full p-8">
         {/* Progress indicator */}
-        <div className="flex gap-1 mb-6">
+        <div className="flex gap-1 mb-8">
           {ONBOARDING_STEPS.map((_, index) => (
             <div
               key={index}
-              className={`h-1 flex-1 rounded ${
-                index <= currentStep ? 'bg-retro-cyan' : 'bg-bg-hover'
+              className={`h-1 flex-1 rounded-full ${
+                index <= currentStep ? 'bg-retro-cyan' : 'bg-white/[0.08]'
               }`}
             />
           ))}
@@ -128,18 +126,18 @@ export function Onboarding() {
           <div className="text-4xl mb-4">{step.icon}</div>
           <h2
             id="onboarding-title"
-            className="font-mono font-bold text-lg text-retro-cyan mb-3"
+            className="font-bold text-lg text-text-primary mb-3"
           >
             {step.title}
           </h2>
-          <p className="font-mono text-text-secondary">
+          <p className="text-text-secondary text-sm leading-relaxed">
             {step.content}
           </p>
         </div>
 
         {/* Step counter */}
-        <div className="text-center mb-4">
-          <span className="font-mono text-xs text-text-muted">
+        <div className="text-center mb-6">
+          <span className="text-xs text-text-muted">
             {currentStep + 1} of {ONBOARDING_STEPS.length}
           </span>
         </div>
@@ -165,7 +163,6 @@ export function Onboarding() {
   );
 }
 
-// Help modal that can be opened anytime
 export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const helpFocusTrapRef = useFocusTrap(isOpen);
 
@@ -174,7 +171,7 @@ export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   return (
     <div
       ref={helpFocusTrapRef}
-      className="fixed inset-0 bg-bg-deep/90 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="help-title"
@@ -184,27 +181,29 @@ export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
     >
       <RetroCard className="max-w-lg w-full p-6 max-h-[80vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-6">
-          <h2 id="help-title" className="font-mono font-bold text-lg text-retro-cyan">
+          <h2 id="help-title" className="font-bold text-lg text-text-primary">
             How It Works
           </h2>
           <button
             onClick={onClose}
-            className="text-text-muted hover:text-retro-cyan transition-colors"
+            className="text-text-muted hover:text-text-primary transition-colors p-1 rounded-lg hover:bg-white/[0.04]"
             aria-label="Close help"
           >
-            ✕
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
           </button>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-5">
           {ONBOARDING_STEPS.map((step) => (
             <div key={step.id} className="flex gap-4">
               <div className="text-2xl shrink-0">{step.icon}</div>
               <div>
-                <h3 className="font-mono font-semibold text-text-primary mb-1">
+                <h3 className="font-semibold text-text-primary mb-1 text-sm">
                   {step.title}
                 </h3>
-                <p className="font-mono text-sm text-text-muted">
+                <p className="text-sm text-text-muted leading-relaxed">
                   {step.content}
                 </p>
               </div>
@@ -212,11 +211,11 @@ export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           ))}
         </div>
 
-        <div className="mt-6 pt-4 border-t border-retro-cyan/20">
-          <h3 className="font-mono font-semibold text-sm text-retro-magenta uppercase mb-3">
+        <div className="mt-6 pt-4 border-t border-white/[0.06]">
+          <h3 className="font-semibold text-sm text-retro-cyan mb-3">
             Keyboard Shortcuts
           </h3>
-          <div className="grid grid-cols-2 gap-2 text-sm font-mono">
+          <div className="grid grid-cols-2 gap-2 text-sm">
             <div className="flex justify-between">
               <span className="text-text-muted">Search</span>
               <span className="kbd">/</span>

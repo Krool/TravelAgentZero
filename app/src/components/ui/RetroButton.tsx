@@ -26,38 +26,38 @@ export const RetroButton = forwardRef<HTMLButtonElement, RetroButtonProps>(
     };
 
     const baseStyles = `
-      relative font-mono font-semibold uppercase tracking-wide
-      border-2 transition-all duration-200 ease-out
-      disabled:opacity-50 disabled:cursor-not-allowed
-      overflow-hidden
+      relative font-semibold tracking-wide cursor-pointer
+      border transition-all duration-200 ease-out
+      disabled:opacity-40 disabled:cursor-not-allowed
+      rounded-lg
     `;
 
     const variants = {
       primary: `
-        border-retro-cyan text-retro-cyan bg-transparent
-        hover:bg-retro-cyan/10
-        ${glow ? 'hover:shadow-[0_0_20px_rgba(0,255,242,0.4)]' : ''}
+        border-retro-cyan/60 text-retro-cyan bg-retro-cyan/[0.06]
+        hover:bg-retro-cyan/15 hover:border-retro-cyan
+        ${glow ? 'hover:shadow-[0_0_24px_rgba(34,211,238,0.15)]' : ''}
       `,
       secondary: `
-        border-retro-magenta text-retro-magenta bg-transparent
-        hover:bg-retro-magenta/10
-        ${glow ? 'hover:shadow-[0_0_20px_rgba(255,0,255,0.4)]' : ''}
+        border-retro-magenta/60 text-retro-magenta bg-retro-magenta/[0.06]
+        hover:bg-retro-magenta/15 hover:border-retro-magenta
+        ${glow ? 'hover:shadow-[0_0_24px_rgba(232,121,249,0.15)]' : ''}
       `,
       ghost: `
-        border-text-muted text-text-secondary bg-transparent
-        hover:border-retro-cyan hover:text-retro-cyan
+        border-white/10 text-text-secondary bg-transparent
+        hover:border-white/20 hover:text-text-primary hover:bg-white/[0.04]
       `,
       danger: `
-        border-retro-red text-retro-red bg-transparent
-        hover:bg-retro-red/10
-        ${glow ? 'hover:shadow-[0_0_20px_rgba(255,51,102,0.4)]' : ''}
+        border-retro-red/60 text-retro-red bg-retro-red/[0.06]
+        hover:bg-retro-red/15 hover:border-retro-red
+        ${glow ? 'hover:shadow-[0_0_24px_rgba(248,113,113,0.15)]' : ''}
       `,
     };
 
     const sizes = {
       sm: 'px-3 py-1.5 text-xs',
       md: 'px-4 py-2 text-sm',
-      lg: 'px-6 py-3 text-base',
+      lg: 'px-6 py-2.5 text-sm',
     };
 
     return (
@@ -68,9 +68,7 @@ export const RetroButton = forwardRef<HTMLButtonElement, RetroButtonProps>(
         onMouseEnter={handleMouseEnter}
         {...props}
       >
-        {/* Sweep effect */}
-        <span className="absolute inset-0 -translate-x-full hover:translate-x-full transition-transform duration-500 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        <span className="relative z-10">{children}</span>
+        {children}
       </button>
     );
   }

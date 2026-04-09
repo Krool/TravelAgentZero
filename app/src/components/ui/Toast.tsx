@@ -6,32 +6,28 @@ import { cn } from '@/lib/utils';
 
 const toastStyles = {
   success: {
-    border: 'border-retro-green',
-    bg: 'bg-retro-green/10',
+    border: 'border-retro-green/40',
+    bg: 'bg-retro-green/[0.08]',
     text: 'text-retro-green',
     icon: '✓',
-    glow: 'shadow-[0_0_15px_rgba(0,255,0,0.3)]',
   },
   error: {
-    border: 'border-retro-red',
-    bg: 'bg-retro-red/10',
+    border: 'border-retro-red/40',
+    bg: 'bg-retro-red/[0.08]',
     text: 'text-retro-red',
     icon: '✕',
-    glow: 'shadow-[0_0_15px_rgba(255,51,102,0.3)]',
   },
   info: {
-    border: 'border-retro-cyan',
-    bg: 'bg-retro-cyan/10',
+    border: 'border-retro-cyan/40',
+    bg: 'bg-retro-cyan/[0.08]',
     text: 'text-retro-cyan',
     icon: 'i',
-    glow: 'shadow-[0_0_15px_rgba(0,255,242,0.3)]',
   },
   warning: {
-    border: 'border-retro-orange',
-    bg: 'bg-retro-orange/10',
+    border: 'border-retro-orange/40',
+    bg: 'bg-retro-orange/[0.08]',
     text: 'text-retro-orange',
     icon: '!',
-    glow: 'shadow-[0_0_15px_rgba(255,107,53,0.3)]',
   },
 };
 
@@ -47,11 +43,10 @@ function ToastItem({ toast, onClose }: { toast: ToastType; onClose: () => void }
   return (
     <div
       className={cn(
-        'flex items-center gap-3 px-4 py-3 rounded border-2 font-mono text-sm',
-        'backdrop-blur-sm transition-all duration-200',
+        'flex items-center gap-3 px-4 py-3 rounded-xl border text-sm',
+        'backdrop-blur-xl transition-all duration-200',
+        'bg-[rgba(15,18,35,0.9)]',
         style.border,
-        style.bg,
-        style.glow,
         isExiting ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0',
         'animate-slide-in'
       )}
@@ -61,7 +56,7 @@ function ToastItem({ toast, onClose }: { toast: ToastType; onClose: () => void }
       {/* Icon */}
       <span
         className={cn(
-          'w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold',
+          'w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold border',
           style.border,
           style.text
         )}
@@ -75,13 +70,12 @@ function ToastItem({ toast, onClose }: { toast: ToastType; onClose: () => void }
       {/* Close button */}
       <button
         onClick={handleClose}
-        className={cn(
-          'w-5 h-5 flex items-center justify-center rounded transition-colors',
-          'text-text-muted hover:text-text-primary'
-        )}
+        className="w-5 h-5 flex items-center justify-center rounded transition-colors text-text-muted hover:text-text-primary"
         aria-label="Dismiss notification"
       >
-        ×
+        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
       </button>
     </div>
   );
@@ -106,5 +100,4 @@ export function ToastContainer() {
   );
 }
 
-// Export a simple toast function for direct use
 export { useToastStore } from '@/lib/toastStore';

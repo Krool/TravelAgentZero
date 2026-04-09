@@ -17,7 +17,7 @@ export const RetroSlider = forwardRef<HTMLInputElement, RetroSliderProps>(
         {(label || showValue) && (
           <div className="flex justify-between items-center mb-2">
             {label && (
-              <label className="text-text-secondary font-mono text-xs uppercase">
+              <label className="text-text-secondary text-xs">
                 {label}
               </label>
             )}
@@ -33,17 +33,17 @@ export const RetroSlider = forwardRef<HTMLInputElement, RetroSliderProps>(
           type="range"
           value={value}
           className={cn(
-            'w-full h-2 rounded appearance-none cursor-pointer',
-            'bg-bg-dark border border-retro-cyan/30',
+            'w-full h-1.5 rounded-full appearance-none cursor-pointer',
+            'bg-white/[0.08]',
             '[&::-webkit-slider-thumb]:appearance-none',
             '[&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4',
-            '[&::-webkit-slider-thumb]:rounded-sm [&::-webkit-slider-thumb]:bg-retro-cyan',
+            '[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-retro-cyan',
             '[&::-webkit-slider-thumb]:cursor-pointer',
-            '[&::-webkit-slider-thumb]:shadow-[0_0_10px_var(--retro-cyan)]',
+            '[&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(34,211,238,0.3)]',
             '[&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:duration-200',
             '[&::-webkit-slider-thumb]:hover:scale-110',
             '[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4',
-            '[&::-moz-range-thumb]:rounded-sm [&::-moz-range-thumb]:bg-retro-cyan',
+            '[&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-retro-cyan',
             '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
             'focus:outline-none',
             className
@@ -85,17 +85,15 @@ export function RetroDualSlider({
   valueSuffix = '',
   className,
 }: DualSliderProps) {
-  // Calculate percentage positions for z-index logic
   const minPercent = ((minValue - min) / (max - min)) * 100;
   const maxPercent = ((maxValue - min) / (max - min)) * 100;
-  // When thumbs are close or min is being dragged near max, bring min slider on top
   const minOnTop = maxPercent - minPercent < 20;
 
   return (
     <div className={cn('w-full', className)}>
       {label && (
         <div className="flex justify-between items-center mb-2">
-          <label className="text-text-secondary font-mono text-xs uppercase">
+          <label className="text-text-secondary text-xs">
             {label}
           </label>
           <span className="text-retro-cyan font-mono text-sm">
@@ -105,11 +103,11 @@ export function RetroDualSlider({
       )}
       <div className="relative h-6">
         {/* Track background */}
-        <div className="absolute top-2 left-0 right-0 h-2 bg-bg-dark border border-retro-cyan/30 rounded" />
+        <div className="absolute top-[10px] left-0 right-0 h-1.5 bg-white/[0.08] rounded-full" />
 
         {/* Active range indicator */}
         <div
-          className="absolute top-2 h-2 bg-retro-cyan/30 rounded pointer-events-none"
+          className="absolute top-[10px] h-1.5 bg-retro-cyan/25 rounded-full pointer-events-none"
           style={{
             left: `${minPercent}%`,
             width: `${maxPercent - minPercent}%`,
@@ -137,12 +135,12 @@ export function RetroDualSlider({
             'pointer-events-none',
             '[&::-webkit-slider-thumb]:appearance-none',
             '[&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4',
-            '[&::-webkit-slider-thumb]:rounded-sm [&::-webkit-slider-thumb]:bg-retro-cyan',
+            '[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-retro-cyan',
             '[&::-webkit-slider-thumb]:cursor-pointer',
-            '[&::-webkit-slider-thumb]:shadow-[0_0_10px_var(--retro-cyan)]',
+            '[&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(34,211,238,0.3)]',
             '[&::-webkit-slider-thumb]:pointer-events-auto',
             '[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4',
-            '[&::-moz-range-thumb]:rounded-sm [&::-moz-range-thumb]:bg-retro-cyan',
+            '[&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-retro-cyan',
             '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
             '[&::-moz-range-thumb]:pointer-events-auto',
             minOnTop ? 'z-20' : 'z-10'
@@ -170,12 +168,12 @@ export function RetroDualSlider({
             'pointer-events-none',
             '[&::-webkit-slider-thumb]:appearance-none',
             '[&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4',
-            '[&::-webkit-slider-thumb]:rounded-sm [&::-webkit-slider-thumb]:bg-retro-magenta',
+            '[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-retro-magenta',
             '[&::-webkit-slider-thumb]:cursor-pointer',
-            '[&::-webkit-slider-thumb]:shadow-[0_0_10px_var(--retro-magenta)]',
+            '[&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(232,121,249,0.3)]',
             '[&::-webkit-slider-thumb]:pointer-events-auto',
             '[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4',
-            '[&::-moz-range-thumb]:rounded-sm [&::-moz-range-thumb]:bg-retro-magenta',
+            '[&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-retro-magenta',
             '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
             '[&::-moz-range-thumb]:pointer-events-auto',
             minOnTop ? 'z-10' : 'z-20'

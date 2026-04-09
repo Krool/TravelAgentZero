@@ -42,7 +42,6 @@ export function FilterPanel({ className, collapsed = false }: FilterPanelProps) 
     resetPreferences,
   } = useAppStore();
 
-  // Check if any selected traveler is a child
   const hasChildren = hasChildTraveler(travelers, preferences.selectedTravelers);
   const childCount = travelers
     .filter(t => preferences.selectedTravelers.includes(t.id))
@@ -52,7 +51,6 @@ export function FilterPanel({ className, collapsed = false }: FilterPanelProps) 
   if (collapsed) {
     return (
       <div className={cn('space-y-2', className)}>
-        {/* Collapsed quick filters */}
         <div className="flex flex-wrap gap-2">
           <QuickChip
             label={MONTH_NAMES[preferences.travelMonth]}
@@ -121,7 +119,7 @@ export function FilterPanel({ className, collapsed = false }: FilterPanelProps) 
                       <span className="flex items-center gap-1.5">
                         {traveler.name}
                         {traveler.isChild && (
-                          <span className="text-[9px] px-1 py-0.5 bg-retro-orange/20 text-retro-orange rounded uppercase font-bold">
+                          <span className="text-[9px] px-1.5 py-0.5 bg-retro-orange/15 text-retro-orange rounded-full font-semibold">
                             Child
                           </span>
                         )}
@@ -133,13 +131,13 @@ export function FilterPanel({ className, collapsed = false }: FilterPanelProps) 
                 </div>
               ))}
               {hasChildren && (
-                <p className="text-xs text-retro-orange font-mono mt-2 flex items-center gap-1">
+                <p className="text-xs text-retro-orange mt-2 flex items-center gap-1">
                   <span>*</span> Child-friendly destinations prioritized
                 </p>
               )}
             </>
           ) : (
-            <p className="text-text-muted text-xs italic font-mono">
+            <p className="text-text-muted text-xs italic">
               No travelers added yet. Add travelers to track visits.
             </p>
           )}
@@ -250,7 +248,7 @@ export function FilterPanel({ className, collapsed = false }: FilterPanelProps) 
       </FilterSection>
 
       {/* Section: Filters */}
-      <FilterSection title="Filters">
+      <FilterSection title="Preferences">
         <RetroToggle
           label="New Places Only"
           checked={preferences.preferNewPlaces}
@@ -290,7 +288,7 @@ function FilterSection({
 }) {
   return (
     <div className="space-y-3">
-      <h3 className="font-mono font-bold text-xs text-retro-magenta uppercase tracking-wider">
+      <h3 className="text-xs font-semibold text-text-muted uppercase tracking-wider">
         {title}
       </h3>
       <div className="space-y-3">{children}</div>
@@ -302,10 +300,10 @@ function QuickChip({ label, active }: { label: string; active?: boolean }) {
   return (
     <span
       className={cn(
-        'px-2 py-1 text-xs font-mono uppercase rounded border',
+        'px-2.5 py-1 text-xs rounded-full border',
         active
-          ? 'border-retro-cyan text-retro-cyan bg-retro-cyan/10'
-          : 'border-text-muted text-text-muted'
+          ? 'border-retro-cyan/40 text-retro-cyan bg-retro-cyan/10'
+          : 'border-white/10 text-text-muted'
       )}
     >
       {label}

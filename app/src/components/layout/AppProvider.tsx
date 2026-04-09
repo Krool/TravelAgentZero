@@ -5,7 +5,6 @@ import { useAppStore } from '@/lib/store';
 import { Destination, Traveler } from '@/types';
 import { ToastContainer } from '@/components/ui/Toast';
 
-// Get base path for asset URLs
 const basePath = process.env.NODE_ENV === 'production' ? '/TravelAgentZero' : '';
 
 interface AppProviderProps {
@@ -23,7 +22,6 @@ export function AppProvider({ children }: AppProviderProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Apply reduce-effects class to the document element
   useEffect(() => {
     if (reduceEffects) {
       document.documentElement.classList.add('reduce-effects');
@@ -35,19 +33,15 @@ export function AppProvider({ children }: AppProviderProps) {
   useEffect(() => {
     async function loadData() {
       try {
-        // Load destinations
         const destResponse = await fetch(`${basePath}/data/destinations.json`);
         const destinations: Destination[] = await destResponse.json();
         setDestinations(destinations);
 
-        // Load travelers if not already in localStorage
         const currentTravelers = useAppStore.getState().travelers;
         if (currentTravelers.length === 0) {
           const travelerResponse = await fetch(`${basePath}/data/travelers.json`);
           const defaultTravelers: Traveler[] = await travelerResponse.json();
           setTravelers(defaultTravelers);
-
-          // Auto-select both travelers by default
           setSelectedTravelers(defaultTravelers.map(t => t.id));
         }
 
@@ -85,25 +79,27 @@ function LoadingScreen() {
   useEffect(() => {
     const interval = setInterval(() => {
       setDots((d) => (d.length >= 3 ? '' : d + '.'));
-    }, 300);
+    }, 400);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="min-h-screen bg-bg-deep flex items-center justify-center">
       <div className="text-center boot-animation">
-        <div className="font-pixel text-2xl mb-4">
-          <span className="text-retro-cyan glow-cyan">TRAVEL AGENT</span>
-          <span className="text-retro-magenta glow-magenta ml-2">ZERO</span>
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-retro-cyan to-retro-blue flex items-center justify-center">
+            <span className="text-bg-deep font-bold text-lg">T</span>
+          </div>
         </div>
-        <div className="font-terminal text-text-secondary text-lg">
-          INITIALIZING SYSTEM{dots}
+        <div className="text-xl font-bold mb-1">
+          <span className="text-text-primary">Travel Agent </span>
+          <span className="gradient-text">Zero</span>
         </div>
-        <div className="mt-6 w-64 h-2 bg-bg-dark rounded overflow-hidden mx-auto">
-          <div className="h-full bg-gradient-to-r from-retro-cyan to-retro-magenta loading-bar" />
+        <div className="text-text-muted text-sm mb-8">
+          Loading{dots}
         </div>
-        <div className="mt-4 font-mono text-xs text-text-muted">
-          Loading destination database...
+        <div className="w-48 h-1 bg-white/[0.06] rounded-full overflow-hidden mx-auto">
+          <div className="h-full bg-gradient-to-r from-retro-cyan to-retro-magenta loading-bar rounded-full" />
         </div>
       </div>
     </div>
@@ -114,18 +110,20 @@ function ErrorScreen({ message }: { message: string }) {
   return (
     <div className="min-h-screen bg-bg-deep flex items-center justify-center">
       <div className="text-center max-w-md mx-auto p-6">
-        <div className="font-pixel text-2xl mb-4">
-          <span className="text-retro-red">SYSTEM</span>
-          <span className="text-retro-orange ml-2">ERROR</span>
+        <div className="w-12 h-12 rounded-xl bg-retro-red/15 flex items-center justify-center mx-auto mb-4">
+          <span className="text-retro-red text-xl">!</span>
         </div>
-        <div className="font-terminal text-text-secondary text-lg mb-6">
+        <h1 className="text-lg font-bold text-text-primary mb-2">
+          Something went wrong
+        </h1>
+        <p className="text-text-secondary text-sm mb-6">
           {message}
-        </div>
+        </p>
         <button
           onClick={() => window.location.reload()}
-          className="px-6 py-3 font-mono font-semibold uppercase tracking-wide border-2 border-retro-cyan text-retro-cyan hover:bg-retro-cyan/10 transition-all"
+          className="px-6 py-2.5 font-semibold text-sm rounded-lg border border-retro-cyan/60 text-retro-cyan bg-retro-cyan/[0.06] hover:bg-retro-cyan/15 transition-all"
         >
-          Retry
+          Try Again
         </button>
       </div>
     </div>

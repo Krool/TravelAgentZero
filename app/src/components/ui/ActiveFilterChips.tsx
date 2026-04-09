@@ -55,7 +55,6 @@ export function ActiveFilterChips() {
 
   const handleClearAll = () => {
     play('click');
-    // Reset all filter-related preferences
     setPreferences({
       travelMonth: DEFAULT_PREFERENCES.travelMonth,
       regionPreference: 'Any',
@@ -80,7 +79,7 @@ export function ActiveFilterChips() {
       {activeFilters.length >= 2 && (
         <button
           onClick={handleClearAll}
-          className="px-3 py-2 text-xs font-mono uppercase rounded border border-retro-red/50 text-retro-red hover:bg-retro-red/10 transition-colors"
+          className="px-3 py-1.5 text-xs rounded-full border border-retro-red/30 text-retro-red hover:bg-retro-red/10 transition-colors"
         >
           Clear All
         </button>
@@ -99,34 +98,35 @@ function FilterChip({
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 px-2 py-1 text-xs font-mono uppercase rounded',
-        'border border-retro-cyan/50 bg-retro-cyan/10 text-retro-cyan'
+        'inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-full',
+        'border border-retro-cyan/30 bg-retro-cyan/[0.06] text-retro-cyan'
       )}
     >
       <span className="text-text-muted">{filter.label}:</span>
-      <span>{filter.value}</span>
+      <span className="font-medium">{filter.value}</span>
       <button
         onClick={onClear}
-        className="ml-0.5 w-6 h-6 flex items-center justify-center rounded-full hover:bg-retro-cyan/20 transition-colors"
+        className="ml-0.5 w-4 h-4 flex items-center justify-center rounded-full hover:bg-retro-cyan/20 transition-colors"
         aria-label={`Clear ${filter.label} filter`}
       >
-        ×
+        <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
       </button>
     </span>
   );
 }
 
-// Filter count badge for the Mission Control button
+// Filter count badge for the Filters button
 export function FilterCountBadge({ count }: { count: number }) {
   if (count === 0) return null;
 
   return (
     <span
       className={cn(
-        'absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center',
-        'text-[10px] font-mono font-bold rounded-full',
-        'bg-retro-magenta text-white',
-        'shadow-[0_0_8px_rgba(255,0,255,0.5)]'
+        'absolute -top-1.5 -right-1.5 w-5 h-5 flex items-center justify-center',
+        'text-[10px] font-bold rounded-full',
+        'bg-retro-magenta text-white'
       )}
     >
       {count}

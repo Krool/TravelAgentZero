@@ -28,25 +28,22 @@ export function RetroTabs({ tabs, activeTab, onTabChange, className }: RetroTabs
   };
 
   return (
-    <div className={cn('flex border-b border-retro-cyan/30 overflow-x-auto', className)}>
+    <div className={cn('flex bg-white/[0.03] rounded-xl p-1 overflow-x-auto', className)}>
       {tabs.map((tab) => (
         <button
           key={tab.id}
           onClick={() => handleTabClick(tab.id)}
           className={cn(
-            'flex items-center gap-2 px-4 py-3 font-mono text-xs uppercase tracking-wider whitespace-nowrap transition-all relative',
+            'flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all',
             activeTab === tab.id
-              ? 'text-retro-cyan border-b-2 border-retro-cyan bg-retro-cyan/5'
-              : 'text-text-muted hover:text-text-secondary border-b-2 border-transparent'
+              ? 'text-retro-cyan bg-retro-cyan/10 shadow-sm'
+              : 'text-text-muted hover:text-text-secondary'
           )}
           role="tab"
           aria-selected={activeTab === tab.id}
         >
-          {tab.icon && <span>{tab.icon}</span>}
+          {tab.icon && <span className="text-sm">{tab.icon}</span>}
           {tab.label}
-          {activeTab === tab.id && (
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-retro-cyan shadow-[0_0_8px_rgba(0,255,242,0.8)]" />
-          )}
         </button>
       ))}
     </div>
@@ -58,13 +55,11 @@ export function useTabHash(defaultTab: string) {
   const [activeTab, setActiveTab] = useState(defaultTab);
 
   useEffect(() => {
-    // Check hash on mount
     const hash = window.location.hash.slice(1);
     if (hash) {
       setActiveTab(hash);
     }
 
-    // Listen for hash changes
     const handleHashChange = () => {
       const newHash = window.location.hash.slice(1);
       if (newHash) {
@@ -78,7 +73,6 @@ export function useTabHash(defaultTab: string) {
 
   const setTab = (tabId: string) => {
     setActiveTab(tabId);
-    // Update URL hash without scrolling
     window.history.replaceState(null, '', `#${tabId}`);
   };
 

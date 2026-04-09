@@ -12,24 +12,24 @@ interface RetroCardProps extends HTMLAttributes<HTMLDivElement> {
 export const RetroCard = forwardRef<HTMLDivElement, RetroCardProps>(
   ({ className, variant = 'default', glow = false, hoverable = true, children, ...props }, ref) => {
     const variants = {
-      default: 'border-retro-cyan/20 hover:border-retro-cyan/50',
-      highlight: 'border-retro-magenta/30 hover:border-retro-magenta',
-      warning: 'border-retro-orange/30 hover:border-retro-orange',
-      danger: 'border-retro-red/30 hover:border-retro-red bg-retro-red/5',
+      default: 'border-white/[0.08] hover:border-white/[0.15]',
+      highlight: 'border-retro-magenta/20 hover:border-retro-magenta/40',
+      warning: 'border-retro-orange/20 hover:border-retro-orange/40',
+      danger: 'border-retro-red/20 hover:border-retro-red/40 bg-retro-red/[0.03]',
     };
 
     const glowStyles = glow
-      ? 'shadow-[0_0_20px_rgba(0,255,242,0.1)] hover:shadow-[0_0_30px_rgba(0,255,242,0.2)]'
+      ? 'hover:shadow-[0_4px_40px_rgba(34,211,238,0.06)]'
       : '';
 
     return (
       <div
         ref={ref}
         className={cn(
-          'bg-bg-card border rounded transition-all duration-300',
+          'bg-[var(--glass-bg)] backdrop-blur-xl border rounded-xl transition-all duration-300',
           variants[variant],
           glowStyles,
-          hoverable && 'hover:translate-y-[-2px]',
+          hoverable && 'hover:translate-y-[-1px]',
           className
         )}
         {...props}
@@ -51,7 +51,7 @@ export function RetroCardHeader({
   return (
     <div
       className={cn(
-        'px-4 py-3 border-b border-retro-cyan/20',
+        'px-5 py-3.5 border-b border-white/[0.06]',
         className
       )}
       {...props}
@@ -68,7 +68,7 @@ export function RetroCardBody({
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('p-4', className)} {...props}>
+    <div className={cn('p-5', className)} {...props}>
       {children}
     </div>
   );
@@ -83,7 +83,7 @@ export function RetroCardFooter({
   return (
     <div
       className={cn(
-        'px-4 py-3 border-t border-retro-cyan/20 bg-bg-dark/50',
+        'px-5 py-3.5 border-t border-white/[0.06] bg-white/[0.02]',
         className
       )}
       {...props}

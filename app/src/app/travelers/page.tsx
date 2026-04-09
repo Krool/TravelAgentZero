@@ -34,7 +34,6 @@ export default function TravelersPage() {
     }
   };
 
-  // Filter destinations based on search
   const filteredDestinations = useMemo(() => {
     if (!destinationSearch.trim()) return destinations;
     const query = destinationSearch.toLowerCase();
@@ -50,10 +49,10 @@ export default function TravelersPage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="font-pixel text-lg text-retro-cyan glow-cyan mb-2">
-            TRAVELERS
+          <h1 className="text-2xl font-bold text-text-primary mb-1">
+            Travelers
           </h1>
-          <p className="font-mono text-text-secondary">
+          <p className="text-text-secondary text-sm">
             Manage travelers and track which destinations everyone has visited.
             Mark travelers as children to prioritize child-friendly destinations.
           </p>
@@ -62,7 +61,7 @@ export default function TravelersPage() {
         {/* Add new traveler */}
         <RetroCard className="mb-6">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+            <h2 className="font-semibold text-sm text-retro-magenta">
               Add New Traveler
             </h2>
           </RetroCardHeader>
@@ -81,24 +80,23 @@ export default function TravelersPage() {
                   Add
                 </RetroButton>
               </div>
-              <div className="flex items-center gap-3">
-                <RetroToggle
-                  label="This traveler is a child (under 18)"
-                  checked={newTravelerIsChild}
-                  onChange={(e) => setNewTravelerIsChild(e.target.checked)}
-                />
-              </div>
+              <RetroToggle
+                label="This traveler is a child (under 18)"
+                checked={newTravelerIsChild}
+                onChange={(e) => setNewTravelerIsChild(e.target.checked)}
+              />
             </div>
           </RetroCardBody>
         </RetroCard>
 
         {/* Traveler list */}
         {travelers.length === 0 ? (
-          <RetroCard className="p-8 text-center">
-            <div className="font-mono font-bold text-retro-magenta text-xl mb-2">
-              NO TRAVELERS YET
+          <RetroCard className="p-12 text-center">
+            <div className="text-4xl mb-4 opacity-40">👥</div>
+            <div className="font-semibold text-text-primary text-lg mb-2">
+              No travelers yet
             </div>
-            <p className="font-mono text-text-muted">
+            <p className="text-text-muted text-sm">
               Add travelers above to start tracking visits
             </p>
           </RetroCard>
@@ -124,16 +122,16 @@ export default function TravelersPage() {
                         />
                         <div>
                           <div className="flex items-center gap-2">
-                            <h3 className="font-mono font-semibold text-lg text-text-primary">
+                            <h3 className="font-semibold text-lg text-text-primary">
                               {traveler.name}
                             </h3>
                             {traveler.isChild && (
-                              <span className="text-[10px] px-1.5 py-0.5 bg-retro-orange/20 text-retro-orange rounded uppercase font-bold">
+                              <span className="text-[10px] px-2 py-0.5 bg-retro-orange/15 text-retro-orange rounded-full font-semibold">
                                 Child
                               </span>
                             )}
                           </div>
-                          <p className="font-mono text-xs text-text-muted">
+                          <p className="text-xs text-text-muted">
                             {visitedCount} / {totalCount} destinations visited
                           </p>
                         </div>
@@ -184,13 +182,13 @@ export default function TravelersPage() {
                     <RetroCardBody>
                       {/* Progress bar */}
                       <div className="mb-4">
-                        <div className="flex justify-between text-xs font-mono text-text-muted mb-1">
+                        <div className="flex justify-between text-xs text-text-muted mb-1.5">
                           <span>Travel Progress</span>
                           <span>{Math.round((visitedCount / totalCount) * 100)}%</span>
                         </div>
-                        <div className="h-2 bg-bg-dark rounded overflow-hidden">
+                        <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-retro-green"
+                            className="h-full bg-retro-green rounded-full transition-all"
                             style={{
                               width: `${(visitedCount / totalCount) * 100}%`,
                             }}
@@ -198,7 +196,6 @@ export default function TravelersPage() {
                         </div>
                       </div>
 
-                      {/* Search destinations */}
                       <div className="mb-4">
                         <SearchInput
                           value={destinationSearch}
@@ -208,7 +205,6 @@ export default function TravelersPage() {
                         />
                       </div>
 
-                      {/* Destination checklist */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 max-h-96 overflow-y-auto">
                         {filteredDestinations.map((dest) => {
                           const data = traveler.destinations[dest.id] || {
@@ -219,10 +215,10 @@ export default function TravelersPage() {
                             <div
                               key={dest.id}
                               className={cn(
-                                'p-2 rounded border text-sm',
+                                'p-2.5 rounded-lg border text-sm',
                                 data.hasVisited
-                                  ? 'border-retro-green/30 bg-retro-green/5'
-                                  : 'border-bg-hover'
+                                  ? 'border-retro-green/20 bg-retro-green/[0.04]'
+                                  : 'border-white/[0.06]'
                               )}
                             >
                               <RetroCheckbox
@@ -241,7 +237,7 @@ export default function TravelersPage() {
                         })}
                       </div>
                       {filteredDestinations.length === 0 && destinationSearch && (
-                        <p className="text-text-muted text-sm font-mono text-center py-4">
+                        <p className="text-text-muted text-sm text-center py-4">
                           No destinations match &quot;{destinationSearch}&quot;
                         </p>
                       )}
@@ -254,18 +250,20 @@ export default function TravelersPage() {
         )}
 
         {/* Help text */}
-        <div className="mt-6 p-4 border border-retro-cyan/20 rounded">
-          <h3 className="font-mono font-bold text-xs text-retro-cyan uppercase mb-2">
-            How It Works
-          </h3>
-          <ul className="font-mono text-sm text-text-muted space-y-1">
-            <li>Check the checkbox to include a traveler in destination scoring</li>
-            <li>Toggle &quot;Child&quot; to mark travelers under 18 - child-friendly destinations will be prioritized automatically</li>
-            <li>Click &quot;Edit Visits&quot; to mark which destinations each traveler has visited</li>
-            <li>Use the search bar to quickly find destinations when editing visits</li>
-            <li>Visited destinations will be filtered out when &quot;New Places Only&quot; is enabled</li>
-            <li>All data is saved locally in your browser</li>
-          </ul>
+        <div className="mt-6">
+          <RetroCard className="p-5">
+            <h3 className="font-semibold text-xs text-retro-cyan uppercase tracking-wider mb-3">
+              How It Works
+            </h3>
+            <ul className="text-sm text-text-muted space-y-1.5 leading-relaxed">
+              <li>Check the checkbox to include a traveler in destination scoring</li>
+              <li>Toggle &quot;Child&quot; to mark travelers under 18 - child-friendly destinations will be prioritized automatically</li>
+              <li>Click &quot;Edit Visits&quot; to mark which destinations each traveler has visited</li>
+              <li>Use the search bar to quickly find destinations when editing visits</li>
+              <li>Visited destinations will be filtered out when &quot;New Places Only&quot; is enabled</li>
+              <li>All data is saved locally in your browser</li>
+            </ul>
+          </RetroCard>
         </div>
       </div>
     </div>

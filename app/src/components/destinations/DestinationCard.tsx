@@ -61,7 +61,6 @@ export function DestinationCard({
     }
   };
 
-  // Get climate icon
   const climateIcon = {
     Hot: '☀️',
     Cold: '❄️',
@@ -69,7 +68,6 @@ export function DestinationCard({
     Mix: '🌡️',
   }[destination.climate];
 
-  // Get type icon
   const typeIcon = {
     Urban: '🏙️',
     Nature: '🌲',
@@ -92,13 +90,13 @@ export function DestinationCard({
         glow
       >
         {/* Hero Image */}
-        <div className="h-32 relative overflow-hidden">
+        <div className="h-40 relative overflow-hidden rounded-t-xl">
           <img
             src={imageUrl}
             alt={destination.name}
             width={400}
             height={300}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             loading="lazy"
             decoding="async"
             onError={(e) => {
@@ -106,41 +104,47 @@ export function DestinationCard({
               target.style.display = 'none';
               target.parentElement!.classList.add('bg-bg-card', 'flex', 'items-center', 'justify-center');
               const fallback = document.createElement('span');
-              fallback.className = 'font-mono text-retro-cyan text-xs uppercase';
+              fallback.className = 'text-retro-cyan text-xs uppercase font-medium';
               fallback.textContent = destination.name;
               target.parentElement!.appendChild(fallback);
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/40 to-transparent" />
+
+          {/* Score badge overlay */}
+          <div className="absolute bottom-3 left-3">
+            <ScoreBadge value={score.total} max={maxScore} />
+          </div>
+
           {/* Action buttons */}
-          <div className="absolute top-2 right-2 flex items-center gap-1 z-10">
-            {/* Compare button */}
+          <div className="absolute top-3 right-3 flex items-center gap-1.5 z-10">
             <button
               onClick={handleCompare}
               className={cn(
-                'w-9 h-9 rounded flex items-center justify-center transition-all',
+                'w-8 h-8 rounded-lg flex items-center justify-center transition-all backdrop-blur-sm',
                 isInCompare
-                  ? 'bg-retro-magenta/20 text-retro-magenta'
-                  : 'bg-bg-dark/80 text-text-muted hover:text-retro-magenta'
+                  ? 'bg-retro-magenta/30 text-retro-magenta border border-retro-magenta/30'
+                  : 'bg-black/40 text-white/70 hover:text-retro-magenta hover:bg-black/60'
               )}
               aria-label={isInCompare ? `Remove ${destination.name} from comparison` : `Add ${destination.name} to comparison`}
               aria-pressed={isInCompare}
             >
               {isInCompare ? (
-                <span className="font-mono text-xs font-bold">{compareIndex + 1}</span>
+                <span className="text-xs font-bold">{compareIndex + 1}</span>
               ) : (
-                '⚖️'
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 6h18M3 12h18M3 18h18" /><path d="M8 6v12M16 6v12" />
+                </svg>
               )}
             </button>
 
-            {/* Favorite button */}
             <button
               onClick={handleFavorite}
               className={cn(
-                'favorite-btn w-9 h-9 rounded flex items-center justify-center transition-all',
+                'favorite-btn w-8 h-8 rounded-lg flex items-center justify-center transition-all backdrop-blur-sm',
                 isFavorite
-                  ? 'active bg-retro-yellow/20'
-                  : 'bg-bg-dark/80 text-text-muted hover:text-retro-yellow'
+                  ? 'active bg-retro-yellow/20 border border-retro-yellow/30'
+                  : 'bg-black/40 text-white/70 hover:text-retro-yellow hover:bg-black/60'
               )}
               aria-label={isFavorite ? `Remove ${destination.name} from favorites` : `Add ${destination.name} to favorites`}
               aria-pressed={isFavorite}
@@ -152,60 +156,52 @@ export function DestinationCard({
 
         {/* Content */}
         <div className="p-4">
-        {/* Header */}
-        <div className="mb-3">
-          <h3 className="font-mono font-semibold text-lg text-retro-cyan truncate group-hover:glow-cyan transition-all">
-            {destination.name}
-          </h3>
-          <p className="text-text-muted text-xs font-mono truncate">
-            {destination.countries.join(', ')}
-          </p>
-        </div>
-
-        {/* Score */}
-        <div className="mb-3">
-          <ScoreBadge value={score.total} max={maxScore} />
-        </div>
-
-        {/* Quick stats */}
-        <div className="grid grid-cols-2 gap-2 mb-3 text-xs font-mono">
-          <div className="flex items-center gap-1 text-text-secondary">
-            <span>⏱️</span>
-            <span>{formatDuration(destination.duration)}</span>
+          {/* Header */}
+          <div className="mb-3">
+            <h3 className="font-semibold text-base text-text-primary truncate group-hover:text-retro-cyan transition-colors">
+              {destination.name}
+            </h3>
+            <p className="text-text-muted text-xs truncate mt-0.5">
+              {destination.countries.join(', ')}
+            </p>
           </div>
-          <div className="flex items-center gap-1 text-text-secondary">
-            <span>✈️</span>
-            <span>{formatFlightTime(destination.flightTimes[preferences.homeAirport] || 0)}</span>
-          </div>
-          <div className="flex items-center gap-1 text-text-secondary">
-            <span>{climateIcon}</span>
-            <span>{destination.climate}</span>
-          </div>
-          <div className="flex items-center gap-1 text-text-secondary">
-            <span>{typeIcon}</span>
-            <span>{destination.type}</span>
-          </div>
-        </div>
 
-        {/* Stat bars */}
-        <div className="space-y-1 mb-3">
-          <StatBar label="Cost" value={destination.cost} max={10} inverted />
-          <StatBar label="Safety" value={10 - destination.danger} max={10} />
-          <StatBar label="Kid-Friendly" value={destination.easeWithChild} max={10} />
-        </div>
+          {/* Quick stats */}
+          <div className="grid grid-cols-2 gap-2 mb-3 text-xs">
+            <div className="flex items-center gap-1.5 text-text-secondary">
+              <span className="text-[10px]">⏱️</span>
+              <span>{formatDuration(destination.duration)}</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-text-secondary">
+              <span className="text-[10px]">✈️</span>
+              <span>{formatFlightTime(destination.flightTimes[preferences.homeAirport] || 0)}</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-text-secondary">
+              <span className="text-[10px]">{climateIcon}</span>
+              <span>{destination.climate}</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-text-secondary">
+              <span className="text-[10px]">{typeIcon}</span>
+              <span>{destination.type}</span>
+            </div>
+          </div>
 
-        {/* Month heatmap */}
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-text-muted font-mono uppercase">Best Months</span>
-          <MonthHeatmapInline
-            data={destination.bestMonths}
-            selectedMonth={preferences.travelMonth}
-          />
-        </div>
-        </div>
+          {/* Stat bars */}
+          <div className="space-y-1.5 mb-3">
+            <StatBar label="Cost" value={destination.cost} max={10} inverted />
+            <StatBar label="Safety" value={10 - destination.danger} max={10} />
+            <StatBar label="Kid-Friendly" value={destination.easeWithChild} max={10} />
+          </div>
 
-        {/* Hover effect overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-retro-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          {/* Month heatmap */}
+          <div className="flex items-center justify-between pt-2 border-t border-white/[0.06]">
+            <span className="text-xs text-text-muted">Best Months</span>
+            <MonthHeatmapInline
+              data={destination.bestMonths}
+              selectedMonth={preferences.travelMonth}
+            />
+          </div>
+        </div>
       </RetroCard>
     </Link>
   );
@@ -223,11 +219,9 @@ function StatBar({
   max: number;
   inverted?: boolean;
 }) {
-  // For inverted (like cost), lower is better
   const displayValue = inverted ? max - value : value;
   const percentage = (displayValue / max) * 100;
 
-  // Color based on percentage
   let color = 'var(--retro-green)';
   if (percentage < 40) color = 'var(--retro-red)';
   else if (percentage < 60) color = 'var(--retro-orange)';
@@ -235,12 +229,12 @@ function StatBar({
 
   return (
     <div className="flex items-center gap-2" role="meter" aria-label={label} aria-valuenow={displayValue} aria-valuemin={0} aria-valuemax={max}>
-      <span className="text-xs text-text-muted font-mono uppercase w-20 truncate">
+      <span className="text-xs text-text-muted w-20 truncate">
         {label}
       </span>
-      <div className="flex-1 h-1.5 bg-bg-dark rounded-sm overflow-hidden">
+      <div className="flex-1 h-1 bg-white/[0.06] rounded-full overflow-hidden">
         <div
-          className="h-full rounded-sm transition-all duration-300"
+          className="h-full rounded-full transition-all duration-300"
           style={{
             width: `${percentage}%`,
             backgroundColor: color,
@@ -313,7 +307,7 @@ export function DestinationCardCompact({
         </div>
 
         {/* Image */}
-        <div className="w-16 h-16 shrink-0 rounded overflow-hidden bg-bg-dark">
+        <div className="w-14 h-14 shrink-0 rounded-lg overflow-hidden bg-bg-dark">
           <img
             src={imageUrl}
             alt={destination.name}
@@ -327,14 +321,14 @@ export function DestinationCardCompact({
 
         {/* Info */}
         <div className="flex-1 min-w-0">
-          <h3 className="font-mono font-semibold text-sm text-retro-cyan truncate group-hover:glow-cyan">
+          <h3 className="font-semibold text-sm text-text-primary truncate group-hover:text-retro-cyan transition-colors">
             {destination.name}
           </h3>
-          <p className="text-text-muted text-xs font-mono truncate">
+          <p className="text-text-muted text-xs truncate">
             {destination.countries.join(', ')}
           </p>
-          <p className="text-text-muted text-[10px] font-mono truncate mt-0.5">
-            {formatDuration(destination.duration)} • {formatFlightTime(destination.flightTimes[preferences.homeAirport] || 0)} flight
+          <p className="text-text-muted text-[10px] truncate mt-0.5">
+            {formatDuration(destination.duration)} · {formatFlightTime(destination.flightTimes[preferences.homeAirport] || 0)} flight
           </p>
         </div>
 
@@ -351,20 +345,22 @@ export function DestinationCardCompact({
           <button
             onClick={handleCompare}
             className={cn(
-              'w-9 h-9 rounded flex items-center justify-center transition-all text-xs',
+              'w-8 h-8 rounded-lg flex items-center justify-center transition-all text-xs',
               isInCompare
-                ? 'bg-retro-magenta/20 text-retro-magenta'
+                ? 'bg-retro-magenta/15 text-retro-magenta'
                 : 'text-text-muted hover:text-retro-magenta'
             )}
             aria-label={isInCompare ? `Remove ${destination.name} from comparison` : `Add ${destination.name} to comparison`}
             aria-pressed={isInCompare}
           >
-            ⚖️
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 6h18M3 12h18M3 18h18" /><path d="M8 6v12M16 6v12" />
+            </svg>
           </button>
           <button
             onClick={handleFavorite}
             className={cn(
-              'favorite-btn w-9 h-9 rounded flex items-center justify-center transition-all',
+              'favorite-btn w-8 h-8 rounded-lg flex items-center justify-center transition-all',
               isFavorite
                 ? 'active'
                 : 'text-text-muted hover:text-retro-yellow'

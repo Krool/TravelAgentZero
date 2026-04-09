@@ -10,24 +10,17 @@ interface PriceHeatmapProps {
   showLabels?: boolean;
 }
 
-/**
- * Get price level color based on value relative to min/max
- */
 function getPriceColor(price: number, min: number, max: number): string {
   const range = max - min;
   if (range === 0) return 'var(--retro-cyan)';
 
   const normalized = (price - min) / range;
 
-  // Green (cheap) to Yellow to Red (expensive)
   if (normalized < 0.33) return 'var(--retro-green)';
   if (normalized < 0.66) return 'var(--retro-yellow)';
   return 'var(--retro-red)';
 }
 
-/**
- * Compact inline price heatmap for cards
- */
 export function PriceHeatmapInline({
   prices,
   selectedMonth,
@@ -39,7 +32,7 @@ export function PriceHeatmapInline({
   const max = Math.max(...values);
 
   return (
-    <div className={cn('flex gap-0.5', className)} title="Flight price by month">
+    <div className={cn('flex gap-[3px]', className)} title="Flight price by month">
       {months.map((month) => {
         const price = prices[month];
         const isSelected = month === selectedMonth;
@@ -63,9 +56,6 @@ export function PriceHeatmapInline({
   );
 }
 
-/**
- * Full price heatmap with labels and values
- */
 export function PriceHeatmap({
   prices,
   selectedMonth,
@@ -80,13 +70,11 @@ export function PriceHeatmap({
 
   return (
     <div className={cn('space-y-2', className)}>
-      {/* Header */}
-      <div className="flex justify-between items-center text-xs font-mono text-text-muted">
+      <div className="flex justify-between items-center text-xs text-text-muted">
         <span>Avg Flight Price by Month</span>
-        <span className="text-retro-cyan">Avg: {formatPrice(avg)}</span>
+        <span className="text-retro-cyan font-mono">Avg: {formatPrice(avg)}</span>
       </div>
 
-      {/* Grid */}
       <div className="grid grid-cols-12 gap-1">
         {months.map((month) => {
           const price = prices[month];
@@ -96,13 +84,13 @@ export function PriceHeatmap({
           return (
             <div key={month} className="text-center">
               {showLabels && (
-                <div className="text-[8px] font-mono text-text-muted mb-0.5 uppercase">
+                <div className="text-[8px] text-text-muted mb-0.5 uppercase">
                   {MONTH_SHORT[month]}
                 </div>
               )}
               <div
                 className={cn(
-                  'h-8 rounded flex items-center justify-center text-[9px] font-mono font-bold transition-all cursor-default',
+                  'h-8 rounded-md flex items-center justify-center text-[9px] font-mono font-bold transition-all cursor-default',
                   isSelected && 'ring-2 ring-white scale-105'
                 )}
                 style={{
@@ -118,13 +106,12 @@ export function PriceHeatmap({
         })}
       </div>
 
-      {/* Legend */}
-      <div className="flex justify-between items-center text-[10px] font-mono">
-        <div className="flex items-center gap-1">
+      <div className="flex justify-between items-center text-[10px]">
+        <div className="flex items-center gap-1.5">
           <div className="w-3 h-2 rounded-sm bg-retro-green" />
           <span className="text-text-muted">Cheaper ({formatPrice(min)})</span>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
           <div className="w-3 h-2 rounded-sm bg-retro-red" />
           <span className="text-text-muted">Pricier ({formatPrice(max)})</span>
         </div>
@@ -133,9 +120,6 @@ export function PriceHeatmap({
   );
 }
 
-/**
- * Airport price comparison component
- */
 interface AirportPriceComparisonProps {
   prices: Partial<Record<string, MonthlyPricing>>;
   selectedMonth: Month;
@@ -153,7 +137,6 @@ export function AirportPriceComparison({
     return null;
   }
 
-  // Get prices for selected month and sort
   const monthPrices = airports
     .map(([code, monthlyPrices]) => ({
       code,
@@ -171,7 +154,7 @@ export function AirportPriceComparison({
 
   return (
     <div className={cn('space-y-2', className)}>
-      <div className="text-xs font-mono text-text-muted uppercase">
+      <div className="text-xs text-text-muted uppercase font-medium">
         Est. Flight Prices for {MONTH_SHORT[selectedMonth]}
       </div>
       <div className="space-y-1">
@@ -187,9 +170,9 @@ export function AirportPriceComparison({
               )}>
                 {code}
               </span>
-              <div className="flex-1 h-4 bg-bg-dark rounded overflow-hidden">
+              <div className="flex-1 h-3.5 bg-white/[0.04] rounded-full overflow-hidden">
                 <div
-                  className="h-full rounded transition-all"
+                  className="h-full rounded-full transition-all"
                   style={{
                     width: `${barWidth}%`,
                     backgroundColor: getPriceColor(price, minPrice, maxPrice),
@@ -208,7 +191,7 @@ export function AirportPriceComparison({
         })}
       </div>
       {minPrice < maxPrice && (
-        <p className="text-[10px] text-text-muted font-mono">
+        <p className="text-[10px] text-text-muted">
           * Best departure airport for this month
         </p>
       )}

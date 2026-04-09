@@ -54,7 +54,6 @@ export default function SettingsPage() {
     reader.onload = (e) => {
       try {
         const data = JSON.parse(e.target?.result as string);
-        // Validate imported data shape before applying
         if (
           !data ||
           !Array.isArray(data.travelers) ||
@@ -64,7 +63,6 @@ export default function SettingsPage() {
           toast.error('Invalid backup file format');
           return;
         }
-        // Validate each traveler has required fields
         const validTravelers = data.travelers.every(
           (t: unknown) =>
             typeof t === 'object' &&
@@ -101,10 +99,10 @@ export default function SettingsPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="font-pixel text-lg text-retro-cyan glow-cyan mb-2">
-            SETTINGS
+          <h1 className="text-2xl font-bold text-text-primary mb-1">
+            Settings
           </h1>
-          <p className="font-mono text-text-secondary">
+          <p className="text-text-secondary text-sm">
             Configure your Travel Agent Zero experience
           </p>
         </div>
@@ -112,7 +110,7 @@ export default function SettingsPage() {
         {/* Sound Settings */}
         <RetroCard className="mb-6">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+            <h2 className="font-semibold text-sm text-retro-magenta">
               Sound Settings
             </h2>
           </RetroCardHeader>
@@ -161,7 +159,7 @@ export default function SettingsPage() {
         {/* Visual Effects */}
         <RetroCard className="mb-6">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-magenta uppercase">
+            <h2 className="font-semibold text-sm text-retro-magenta">
               Visual Effects
             </h2>
           </RetroCardHeader>
@@ -171,8 +169,8 @@ export default function SettingsPage() {
               checked={reduceEffects}
               onChange={(e) => setReduceEffects(e.target.checked)}
             />
-            <p className="font-mono text-xs text-text-muted">
-              Disables CRT scanlines, screen flicker, and glow animations for a calmer experience
+            <p className="text-xs text-text-muted">
+              Disables scanlines and glow effects for a calmer experience
             </p>
           </RetroCardBody>
         </RetroCard>
@@ -180,7 +178,7 @@ export default function SettingsPage() {
         {/* Default Preferences */}
         <RetroCard className="mb-6">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-cyan uppercase">
+            <h2 className="font-semibold text-sm text-retro-cyan">
               Default Settings
             </h2>
           </RetroCardHeader>
@@ -208,24 +206,24 @@ export default function SettingsPage() {
         {/* Data Management */}
         <RetroCard className="mb-6">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-orange uppercase">
+            <h2 className="font-semibold text-sm text-retro-orange">
               Data Management
             </h2>
           </RetroCardHeader>
           <RetroCardBody className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <p className="font-mono text-sm text-text-secondary mb-2">
+                <p className="text-sm text-text-secondary mb-3">
                   Export your traveler data and preferences
                 </p>
                 <RetroButton onClick={handleExportData}>Export Data</RetroButton>
               </div>
 
               <div>
-                <p className="font-mono text-sm text-text-secondary mb-2">
+                <p className="text-sm text-text-secondary mb-3">
                   Import data from a backup file
                 </p>
-                <label className="retro-btn cursor-pointer inline-block" role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}>
+                <label className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg border border-retro-cyan/60 text-retro-cyan bg-retro-cyan/[0.06] hover:bg-retro-cyan/15 transition-all cursor-pointer" role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}>
                   Import Data
                   <input
                     type="file"
@@ -238,8 +236,8 @@ export default function SettingsPage() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-retro-red/20">
-              <p className="font-mono text-sm text-text-muted mb-2">
+            <div className="pt-4 border-t border-white/[0.06]">
+              <p className="text-sm text-text-muted mb-3">
                 Clear all local data (cannot be undone)
               </p>
               <RetroButton variant="danger" onClick={handleClearData}>
@@ -250,9 +248,9 @@ export default function SettingsPage() {
         </RetroCard>
 
         {/* Stats */}
-        <RetroCard>
+        <RetroCard className="mb-6">
           <RetroCardHeader>
-            <h2 className="font-mono font-bold text-sm text-retro-green uppercase">
+            <h2 className="font-semibold text-sm text-retro-green">
               Statistics
             </h2>
           </RetroCardHeader>
@@ -275,14 +273,16 @@ export default function SettingsPage() {
 
         {/* About */}
         <div className="mt-8 text-center">
-          <div className="font-pixel text-base mb-2">
-            <span className="text-retro-cyan">TRAVEL AGENT</span>
-            <span className="text-retro-magenta ml-2">ZERO</span>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-retro-cyan to-retro-blue flex items-center justify-center">
+              <span className="text-bg-deep font-bold text-xs">T</span>
+            </div>
+            <span className="font-bold text-base">
+              <span className="text-text-primary">Travel Agent </span>
+              <span className="gradient-text">Zero</span>
+            </span>
           </div>
-          <p className="font-mono text-xs text-text-muted">
-            A retro-futuristic travel planning companion
-          </p>
-          <p className="font-mono text-[10px] text-text-muted mt-1">
+          <p className="text-xs text-text-muted">
             Data stored locally in your browser
           </p>
         </div>
@@ -293,9 +293,9 @@ export default function SettingsPage() {
 
 function StatBox({ label, value }: { label: string; value: number }) {
   return (
-    <div className="p-4 bg-bg-dark rounded border border-retro-cyan/20 text-center">
-      <div className="font-mono font-bold text-2xl text-retro-cyan">{value}</div>
-      <div className="font-mono text-xs text-text-muted uppercase mt-1">
+    <div className="p-4 bg-white/[0.03] rounded-xl border border-white/[0.06] text-center">
+      <div className="font-bold text-2xl gradient-text">{value}</div>
+      <div className="text-xs text-text-muted uppercase mt-1 font-medium">
         {label}
       </div>
     </div>

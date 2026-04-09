@@ -21,7 +21,7 @@ export function MonthHeatmap({
   className,
 }: MonthHeatmapProps) {
   const sizes = {
-    sm: { cell: 'w-5 h-5', text: 'text-[6px]', gap: 'gap-0.5' },
+    sm: { cell: 'w-5 h-5', text: 'text-[6px]', gap: 'gap-1' },
     md: { cell: 'w-7 h-7', text: 'text-[8px]', gap: 'gap-1' },
     lg: { cell: 'w-9 h-9', text: 'text-[10px]', gap: 'gap-1.5' },
   };
@@ -40,13 +40,13 @@ export function MonthHeatmap({
             aria-label={`${MONTH_SHORT[month]}: ${isGood ? 'good time to visit' : 'not ideal'}${isSelected ? ' (selected)' : ''}`}
             aria-pressed={isSelected}
             className={cn(
-              'flex items-center justify-center rounded-sm transition-all duration-200',
+              'flex items-center justify-center rounded-md transition-all duration-200',
               sizes[size].cell,
               sizes[size].text,
-              'font-terminal uppercase',
+              'font-mono uppercase',
               isGood
-                ? 'bg-retro-green/80 text-bg-deep shadow-[0_0_8px_var(--retro-green)]'
-                : 'bg-bg-hover text-text-muted',
+                ? 'bg-retro-green/70 text-bg-deep font-bold'
+                : 'bg-white/[0.06] text-text-muted',
               isSelected && 'ring-2 ring-retro-cyan ring-offset-1 ring-offset-bg-deep',
               onMonthClick && 'cursor-pointer hover:scale-110',
               !onMonthClick && 'cursor-default'
@@ -73,7 +73,7 @@ export function MonthHeatmapInline({
   const goodMonths = MONTHS.filter(m => data[m] === 1).map(m => MONTH_SHORT[m]).join(', ');
 
   return (
-    <div className={cn('flex gap-0.5', className)} role="img" aria-label={`Best months: ${goodMonths || 'none'}`}>
+    <div className={cn('flex gap-[3px]', className)} role="img" aria-label={`Best months: ${goodMonths || 'none'}`}>
       {MONTHS.map((month) => {
         const isGood = data[month] === 1;
         const isSelected = selectedMonth === month;
@@ -84,8 +84,8 @@ export function MonthHeatmapInline({
             className={cn(
               'w-2 h-2 rounded-sm',
               isGood
-                ? 'bg-retro-green shadow-[0_0_4px_var(--retro-green)]'
-                : 'bg-bg-hover',
+                ? 'bg-retro-green/80'
+                : 'bg-white/[0.08]',
               isSelected && 'ring-1 ring-retro-cyan'
             )}
             title={MONTH_SHORT[month]}

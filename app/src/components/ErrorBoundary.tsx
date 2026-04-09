@@ -45,13 +45,13 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-[400px] flex items-center justify-center p-4">
           <RetroCard className="p-8 max-w-md text-center" variant="danger">
-            <div className="font-pixel text-base text-retro-red mb-4">
-              SYSTEM ERROR
+            <div className="w-12 h-12 rounded-xl bg-retro-red/15 flex items-center justify-center mx-auto mb-4">
+              <span className="text-retro-red text-xl">!</span>
             </div>
-            <div className="font-mono text-xl text-text-primary mb-2">
+            <div className="text-lg font-bold text-text-primary mb-2">
               Something went wrong
             </div>
-            <p className="font-mono text-sm text-text-muted mb-6">
+            <p className="text-sm text-text-muted mb-6">
               {this.state.error?.message || 'An unexpected error occurred'}
             </p>
             <div className="flex gap-3 justify-center">
