@@ -566,7 +566,7 @@ function CostsTab({
             {destination.costBreakdown ? (
               <div className="mt-4 space-y-4">
                 <div>
-                  <h4 className="text-xs text-text-muted uppercase mb-2 font-medium">Accommodation (per night)</h4>
+                  <h3 className="text-xs text-text-muted uppercase mb-2 font-medium">Accommodation (per night)</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
                     <div className="p-3 bg-white/[0.03] rounded-lg">
                       <div className="text-retro-green text-xs font-medium">Budget</div>
@@ -583,7 +583,7 @@ function CostsTab({
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-xs text-text-muted uppercase mb-2 font-medium">Meals (per day)</h4>
+                  <h3 className="text-xs text-text-muted uppercase mb-2 font-medium">Meals (per day)</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
                     <div className="p-3 bg-white/[0.03] rounded-lg">
                       <div className="text-retro-green text-xs font-medium">Budget</div>

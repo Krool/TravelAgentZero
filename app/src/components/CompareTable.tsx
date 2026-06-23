@@ -94,7 +94,7 @@ export function CompareTable({ isOpen, onClose }: CompareTableProps) {
         </div>
 
         <div className="p-5 overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm" aria-labelledby="compare-table-title">
             <thead>
               <tr>
                 <th className="text-left p-2 text-text-muted uppercase text-xs w-32 font-medium">Attribute</th>

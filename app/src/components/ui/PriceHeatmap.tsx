@@ -32,7 +32,12 @@ export function PriceHeatmapInline({
   const max = Math.max(...values);
 
   return (
-    <div className={cn('flex gap-[3px]', className)} title="Flight price by month">
+    <div
+      className={cn('flex gap-[3px]', className)}
+      role="img"
+      aria-label={`Flight prices by month, ${formatPrice(min)} to ${formatPrice(max)}`}
+      title="Flight price by month"
+    >
       {months.map((month) => {
         const price = prices[month];
         const isSelected = month === selectedMonth;
@@ -75,7 +80,11 @@ export function PriceHeatmap({
         <span className="text-retro-cyan font-mono">Avg: {formatPrice(avg)}</span>
       </div>
 
-      <div className="grid grid-cols-12 gap-1">
+      <div
+        className="grid grid-cols-12 gap-1"
+        role="img"
+        aria-label={`Average flight prices by month, ranging from ${formatPrice(min)} (cheapest) to ${formatPrice(max)} (priciest)`}
+      >
         {months.map((month) => {
           const price = prices[month];
           const isSelected = month === selectedMonth;

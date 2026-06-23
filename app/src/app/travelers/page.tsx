@@ -74,6 +74,7 @@ export default function TravelersPage() {
                   onChange={(e) => setNewTravelerName(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleAddTraveler()}
                   placeholder="Enter traveler name..."
+                  aria-label="New traveler name"
                   className="flex-1 retro-input"
                 />
                 <RetroButton onClick={handleAddTraveler} disabled={!newTravelerName.trim()}>
@@ -119,6 +120,7 @@ export default function TravelersPage() {
                           checked={isSelected}
                           onChange={() => toggleTraveler(traveler.id)}
                           label=""
+                          aria-label={`Include ${traveler.name} in destination scoring`}
                         />
                         <div>
                           <div className="flex items-center gap-2">

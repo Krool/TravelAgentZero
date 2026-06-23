@@ -326,6 +326,11 @@ export default function HomePage() {
           </RetroCard>
         </div>
 
+        {/* Live region announcing result count for screen readers */}
+        <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+          {allDisplayDestinations.length} destination{allDisplayDestinations.length === 1 ? '' : 's'} found
+        </div>
+
         {/* Main content */}
         <div className="flex gap-6">
           {/* Filter sidebar - desktop */}

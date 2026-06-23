@@ -28,7 +28,7 @@ export function RetroTabs({ tabs, activeTab, onTabChange, className }: RetroTabs
   };
 
   return (
-    <div className={cn('flex bg-white/[0.03] rounded-xl p-1 overflow-x-auto', className)}>
+    <div role="tablist" aria-label="Destination details" className={cn('flex bg-white/[0.03] rounded-xl p-1 overflow-x-auto', className)}>
       {tabs.map((tab) => (
         <button
           key={tab.id}

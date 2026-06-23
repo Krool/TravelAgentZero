@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Travel Agent Zero",
   description: "A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries with vintage-inspired aesthetics.",
   metadataBase: new URL("https://krool.github.io/TravelAgentZero"),
+  alternates: { canonical: "https://krool.github.io/TravelAgentZero/" },
   icons: {
     icon: "/favicon.ico",
   },
@@ -34,6 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"WebApplication","name":"Travel Agent Zero","url":"https://krool.github.io/TravelAgentZero/","description":"A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries.","applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}) }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SXG8M67HPV"
           strategy="afterInteractive"
@@ -43,7 +48,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-SXG8M67HPV');
+            gtag('config', 'G-SXG8M67HPV', { content_group: 'Travel Agent Zero' });
           `}
         </Script>
         <AppProvider>
