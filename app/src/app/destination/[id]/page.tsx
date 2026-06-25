@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${destination.name} | Travel Agent Zero`,
     description,
+    // Self-referential canonical — without this each destination inherits the
+    // root layout's canonical (the homepage) and Google treats it as a duplicate.
+    alternates: { canonical: `https://krool.github.io/TravelAgentZero/destination/${id}/` },
     openGraph: {
       title: `${destination.name} | Travel Agent Zero`,
       description,
