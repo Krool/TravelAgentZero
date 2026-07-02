@@ -32,6 +32,10 @@ jobs:
         working-directory: ./app
         run: npm ci
 
+      - name: Validate data
+        working-directory: ./app
+        run: node scripts/validate-data.js
+
       - name: Build
         working-directory: ./app
         run: npm run build

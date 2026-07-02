@@ -34,13 +34,21 @@ export function AppProvider({ children }: AppProviderProps) {
     async function loadData() {
       try {
         const destResponse = await fetch(`${basePath}/data/destinations.json`);
+        if (!destResponse.ok) throw new Error(`destinations.json ${destResponse.status}`);
         const destinations: Destination[] = await destResponse.json();
+        if (!Array.isArray(destinations) || destinations.length === 0) {
+          throw new Error('destinations.json is empty or malformed');
+        }
         setDestinations(destinations);
 
         const currentTravelers = useAppStore.getState().travelers;
         if (currentTravelers.length === 0) {
           const travelerResponse = await fetch(`${basePath}/data/travelers.json`);
+          if (!travelerResponse.ok) throw new Error(`travelers.json ${travelerResponse.status}`);
           const defaultTravelers: Traveler[] = await travelerResponse.json();
+          if (!Array.isArray(defaultTravelers)) {
+            throw new Error('travelers.json is malformed');
+          }
           setTravelers(defaultTravelers);
           setSelectedTravelers(defaultTravelers.map(t => t.id));
         }

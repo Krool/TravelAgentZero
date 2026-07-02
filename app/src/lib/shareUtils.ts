@@ -48,10 +48,16 @@ export function decodeShareParams(searchParams: URLSearchParams): ShareParams {
   // Duration
   const duration = searchParams.get('d');
   if (duration) {
-    const [min, max] = duration.split('-').map(Number);
-    if (!isNaN(min) && !isNaN(max)) {
-      result.durationMin = Math.max(3, Math.min(21, min));
-      result.durationMax = Math.max(3, Math.min(21, max));
+    const parts = duration.split('-');
+    const [min, max] = parts.map(Number);
+    // Reject malformed input (e.g. "8-" where an empty part coerces to 0).
+    if (parts.length === 2 && parts[0] !== '' && parts[1] !== '' && !isNaN(min) && !isNaN(max)) {
+      const lo = Math.max(3, Math.min(21, min));
+      const hi = Math.max(3, Math.min(21, max));
+      // Guard against a swapped/crossed range (e.g. d=15-5) that would
+      // otherwise exclude every destination and break the dual slider.
+      result.durationMin = Math.min(lo, hi);
+      result.durationMax = Math.max(lo, hi);
     }
   }
 
@@ -67,7 +73,9 @@ export function buildShareUrl(destinationId: string, preferences: UserPreference
     : '';
 
   const params = encodeShareParams(preferences);
-  return `${baseUrl}/destination/${destinationId}${params ? `?${params}` : ''}`;
+  // Trailing slash to match next.config trailingSlash + the page's canonical,
+  // so the shared link lands directly instead of via a 301.
+  return `${baseUrl}/destination/${destinationId}/${params ? `?${params}` : ''}`;
 }
 
 /**

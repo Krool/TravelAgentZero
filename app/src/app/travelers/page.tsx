@@ -6,6 +6,8 @@ import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
 import { RetroCheckbox, RetroToggle } from '@/components/ui/RetroCheckbox';
 import { SearchInput } from '@/components/ui/SearchInput';
+import { useToast } from '@/hooks/useToast';
+import { Analytics } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
 export default function TravelersPage() {
@@ -25,13 +27,19 @@ export default function TravelersPage() {
   const [expandedTraveler, setExpandedTraveler] = useState<string | null>(null);
   const [destinationSearch, setDestinationSearch] = useState('');
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
+  const toast = useToast();
 
   const handleAddTraveler = () => {
-    if (newTravelerName.trim()) {
-      addTraveler(newTravelerName.trim(), newTravelerIsChild);
-      setNewTravelerName('');
-      setNewTravelerIsChild(false);
+    const name = newTravelerName.trim();
+    if (!name) return;
+    const added = addTraveler(name, newTravelerIsChild);
+    if (!added) {
+      toast.error(`A traveler named "${name}" already exists`);
+      return;
     }
+    Analytics.travelerAdded();
+    setNewTravelerName('');
+    setNewTravelerIsChild(false);
   };
 
   const filteredDestinations = useMemo(() => {

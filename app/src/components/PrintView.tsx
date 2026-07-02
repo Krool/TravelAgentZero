@@ -45,7 +45,7 @@ export function PrintableContent({
   destination: Destination;
   preferences: UserPreferences;
 }) {
-  const bestMonths = MONTHS_ORDERED.filter(m => destination.bestMonths[m] >= 8);
+  const bestMonths = MONTHS_ORDERED.filter(m => destination.bestMonths[m] === 1);
 
   return (
     <div className="print-only hidden print:block p-8 bg-white text-black">

@@ -14,6 +14,7 @@ import {
   TripType,
   hasChildTraveler,
 } from '@/types';
+import { Analytics } from '@/lib/analytics';
 
 interface AppStore {
   // Data
@@ -64,7 +65,7 @@ interface AppStore {
   clearCompareList: () => void;
 
   // Actions - Travelers
-  addTraveler: (name: string, isChild?: boolean) => void;
+  addTraveler: (name: string, isChild?: boolean) => boolean;
   removeTraveler: (id: string) => void;
   updateTraveler: (id: string, updates: Partial<Omit<Traveler, 'id' | 'destinations'>>) => void;
   setTravelerIsChild: (id: string, isChild: boolean) => void;
@@ -114,8 +115,25 @@ export const useAppStore = create<AppStore>()(
         return hasChildTraveler(state.travelers, state.preferences.selectedTravelers);
       },
 
-      // Data loading
-      setDestinations: (destinations) => set({ destinations }),
+      // Data loading. Reconcile persisted compare/favorite ids against the
+      // freshly loaded catalog so a renamed/removed destination can't leave a
+      // phantom id inflating the compare count or blocking the 3-item cap.
+      setDestinations: (destinations) =>
+        set((state) => {
+          const validIds = new Set(destinations.map((d) => d.id));
+          const { compareList, favorites } = state.preferences;
+          const nextCompare = compareList.filter((id) => validIds.has(id));
+          const nextFavorites = favorites.filter((id) => validIds.has(id));
+          const changed =
+            nextCompare.length !== compareList.length ||
+            nextFavorites.length !== favorites.length;
+          return {
+            destinations,
+            preferences: changed
+              ? { ...state.preferences, compareList: nextCompare, favorites: nextFavorites }
+              : state.preferences,
+          };
+        }),
       setTravelers: (travelers) => set({ travelers }),
       setIsLoaded: (loaded) => set({ isLoaded: loaded }),
 
@@ -154,30 +172,40 @@ export const useAppStore = create<AppStore>()(
       resetPreferences: () => set({ preferences: DEFAULT_PREFERENCES }),
 
       // New filter preferences
-      setRegionPreference: (region) =>
+      setRegionPreference: (region) => {
         set((state) => ({
           preferences: { ...state.preferences, regionPreference: region },
-        })),
+        }));
+        Analytics.filterApplied('region', region);
+      },
 
-      setBudgetSensitivity: (budget) =>
+      setBudgetSensitivity: (budget) => {
         set((state) => ({
           preferences: { ...state.preferences, budgetSensitivity: budget },
-        })),
+        }));
+        Analytics.filterApplied('budget', budget);
+      },
 
-      setMaxFlightTime: (hours) =>
+      setMaxFlightTime: (hours) => {
         set((state) => ({
           preferences: { ...state.preferences, maxFlightTime: hours },
-        })),
+        }));
+        Analytics.filterApplied('flight_time', String(hours));
+      },
 
-      setClimatePreference: (climate) =>
+      setClimatePreference: (climate) => {
         set((state) => ({
           preferences: { ...state.preferences, temperaturePreference: climate },
-        })),
+        }));
+        Analytics.filterApplied('climate', climate);
+      },
 
-      setTripTypePreference: (type) =>
+      setTripTypePreference: (type) => {
         set((state) => ({
           preferences: { ...state.preferences, typePreference: type },
-        })),
+        }));
+        Analytics.filterApplied('trip_type', type);
+      },
 
       // Search, Favorites, Compare
       setSearchQuery: (query) =>
@@ -185,69 +213,67 @@ export const useAppStore = create<AppStore>()(
           preferences: { ...state.preferences, searchQuery: query },
         })),
 
-      toggleFavorite: (destinationId) =>
+      toggleFavorite: (destinationId) => {
+        const added = !get().preferences.favorites.includes(destinationId);
         set((state) => {
           const favorites = state.preferences.favorites;
-          const newFavorites = favorites.includes(destinationId)
-            ? favorites.filter((id) => id !== destinationId)
-            : [...favorites, destinationId];
+          const newFavorites = added
+            ? [...favorites, destinationId]
+            : favorites.filter((id) => id !== destinationId);
           return {
             preferences: { ...state.preferences, favorites: newFavorites },
           };
-        }),
+        });
+        Analytics.favoriteToggled(added);
+      },
 
-      toggleCompare: (destinationId) =>
-        set((state) => {
-          const compareList = state.preferences.compareList;
-          if (compareList.includes(destinationId)) {
-            return {
-              preferences: {
-                ...state.preferences,
-                compareList: compareList.filter((id) => id !== destinationId),
-              },
-            };
-          }
-          // Max 3 items in compare list
-          if (compareList.length >= 3) return state;
-          return {
-            preferences: {
-              ...state.preferences,
-              compareList: [...compareList, destinationId],
-            },
-          };
-        }),
+      toggleCompare: (destinationId) => {
+        const compareList = get().preferences.compareList;
+        const has = compareList.includes(destinationId);
+        // Max 3 items - at the cap, adding is a silent no-op (no event).
+        if (!has && compareList.length >= 3) return;
+        set((state) => ({
+          preferences: {
+            ...state.preferences,
+            compareList: has
+              ? state.preferences.compareList.filter((id) => id !== destinationId)
+              : [...state.preferences.compareList, destinationId],
+          },
+        }));
+        Analytics.compareToggled(!has);
+      },
 
       clearCompareList: () =>
         set((state) => ({
           preferences: { ...state.preferences, compareList: [] },
         })),
 
-      // Travelers
-      addTraveler: (name, isChild = false) =>
-        set((state) => {
-          const id = name.toLowerCase().replace(/\s+/g, '-');
-          // Check if traveler already exists
-          if (state.travelers.some((t) => t.id === id)) {
-            return state;
-          }
-          // Create new traveler with empty destinations
-          const newTraveler: Traveler = {
-            id,
-            name,
-            isChild,
-            destinations: {},
+      // Travelers. Returns false (no-op) if a traveler with the same slug id
+      // already exists, so callers can surface an error instead of silently
+      // "succeeding" and clearing the form.
+      addTraveler: (name, isChild = false) => {
+        const id = name.toLowerCase().replace(/\s+/g, '-');
+        const state = get();
+        if (state.travelers.some((t) => t.id === id)) {
+          return false;
+        }
+        // Create new traveler with empty destinations
+        const newTraveler: Traveler = {
+          id,
+          name,
+          isChild,
+          destinations: {},
+        };
+        // Initialize all destination data
+        state.destinations.forEach((dest) => {
+          newTraveler.destinations[dest.id] = {
+            hasVisited: false,
+            rating: 5,
           };
-          // Initialize all destination data
-          state.destinations.forEach((dest) => {
-            newTraveler.destinations[dest.id] = {
-              hasVisited: false,
-              rating: 5,
-            };
-          });
-          return {
-            travelers: [...state.travelers, newTraveler],
-          };
-        }),
+        });
+        set((s) => ({ travelers: [...s.travelers, newTraveler] }));
+        return true;
+      },
 
       removeTraveler: (id) =>
         set((state) => ({

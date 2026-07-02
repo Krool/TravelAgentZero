@@ -1,3 +1,9 @@
+> **Historical planning document.** Written during the initial build (Nov 2025).
+> The shipped app has since diverged from this plan: data model, scoring
+> weights, and routes are all different from what's described below, and LLM
+> itinerary generation was never built. For the current implementation, see
+> `CLAUDE.md`, `app/src/types/index.ts`, and `app/src/lib/scoring.ts`.
+
 # Travel Agent Zero - Project Plan
 
 ## Vision

@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-bg-deep/80 backdrop-blur-sm mt-8">
@@ -18,6 +20,13 @@ export function Footer() {
           <p className="text-text-muted text-xs text-center max-w-md leading-relaxed">
             Travel scoring is based on your preferences. Always verify visa requirements and safety advisories before booking.
           </p>
+
+          <Link
+            href="/privacy"
+            className="text-text-muted hover:text-retro-cyan text-xs transition-colors"
+          >
+            Privacy
+          </Link>
 
           <div className="h-px w-16 bg-gradient-to-r from-transparent via-retro-cyan/30 to-transparent" />
 

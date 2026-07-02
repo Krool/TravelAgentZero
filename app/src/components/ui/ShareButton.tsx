@@ -3,6 +3,7 @@
 import { useCallback } from 'react';
 import { useToast } from '@/hooks/useToast';
 import { buildShareUrl, copyToClipboard, canNativeShare, nativeShare } from '@/lib/shareUtils';
+import { Analytics } from '@/lib/analytics';
 import { UserPreferences } from '@/types';
 import { cn } from '@/lib/utils';
 
@@ -31,6 +32,7 @@ export function ShareButton({
     if (canNativeShare()) {
       const shared = await nativeShare(title, text, url);
       if (shared) {
+        Analytics.shareClicked('native');
         toast.success('Shared successfully!');
         return;
       }
@@ -38,6 +40,7 @@ export function ShareButton({
 
     const copied = await copyToClipboard(url);
     if (copied) {
+      Analytics.shareClicked('clipboard');
       toast.success('Link copied to clipboard!');
     } else {
       toast.error('Failed to copy link');

@@ -1,7 +1,7 @@
 [
   {
-    "id": "kenny",
-    "name": "Kenny",
+    "id": "traveler-1",
+    "name": "Alex",
     "isChild": false,
     "destinations": {
       "prague-czech": { "hasVisited": true, "rating": 8 },
@@ -67,8 +67,8 @@
     }
   },
   {
-    "id": "sara",
-    "name": "Sara",
+    "id": "traveler-2",
+    "name": "Jordan",
     "isChild": false,
     "destinations": {
       "prague-czech": { "hasVisited": true, "rating": 5 },

@@ -4,6 +4,13 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AppProvider } from "@/components/layout/AppProvider";
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
+import { ConsentBanner } from "@/components/analytics/ConsentBanner";
+
+// GA only loads in production so local dev / preview builds never pollute the
+// live analytics property.
+const isProd = process.env.NODE_ENV === "production";
+const GA_ID = "G-SXG8M67HPV";
 
 export const metadata: Metadata = {
   title: "Travel Agent Zero",
@@ -39,24 +46,37 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"WebApplication","name":"Travel Agent Zero","url":"https://krool.github.io/TravelAgentZero/","description":"A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries.","applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}) }}
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SXG8M67HPV"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SXG8M67HPV', { content_group: 'Travel Agent Zero' });
-          `}
-        </Script>
+        {isProd && (
+          <>
+            <Script id="ga-consent-default" strategy="beforeInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('consent', 'default', { analytics_storage: 'denied', wait_for_update: 500 });
+              `}
+            </Script>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', { content_group: 'Travel Agent Zero' });
+              `}
+            </Script>
+          </>
+        )}
         <AppProvider>
           <div className="min-h-screen bg-bg-deep retro-grid scanlines flex flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <PageViewTracker />
+          <ConsentBanner />
         </AppProvider>
       </body>
     </html>

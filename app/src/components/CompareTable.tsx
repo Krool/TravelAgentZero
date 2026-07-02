@@ -133,7 +133,7 @@ export function CompareTable({ isOpen, onClose }: CompareTableProps) {
                   const hours = dest?.flightTimes[preferences.homeAirport];
                   return (
                     <td key={i} className={cn('text-center p-2', isBest(hours ?? null, bestFlight) && 'text-retro-green font-bold')}>
-                      {hours ? formatFlightTime(hours) : '-'}
+                      {hours != null ? formatFlightTime(hours) : '-'}
                     </td>
                   );
                 })}
@@ -187,7 +187,7 @@ export function CompareTable({ isOpen, onClose }: CompareTableProps) {
                   <td key={i} className="text-center p-2 text-xs">
                     {dest ? (
                       <div className="flex flex-wrap justify-center gap-1">
-                        {MONTHS_ORDERED.filter(m => dest.bestMonths[m] >= 8).map(m => (
+                        {MONTHS_ORDERED.filter(m => dest.bestMonths[m] === 1).map(m => (
                           <span
                             key={m}
                             className={cn(

@@ -153,7 +153,6 @@ export interface Traveler {
   id: string;
   name: string;
   isChild: boolean; // NEW: marks traveler as a child (under 18)
-  birthYear?: number; // Optional: for age calculation
   destinations: Record<string, TravelerData>;
 }
 

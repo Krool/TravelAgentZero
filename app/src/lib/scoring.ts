@@ -103,8 +103,10 @@ export function calculateScore(
                   destination.duration <= preferences.durationMax;
   const durationMatch = inRange ? WEIGHTS.durationMatch : 0;
 
-  // Flight time (normalized, shorter = better)
-  const flightHours = destination.flightTimes[preferences.homeAirport] || 15;
+  // Flight time (normalized, shorter = better). Nullish (not ||) so a genuine
+  // 0 (home hub = "you're already there") keeps the best score instead of
+  // being treated as missing data and penalized as a 15h flight.
+  const flightHours = destination.flightTimes[preferences.homeAirport] ?? 15;
   const maxFlightTime = 20; // Assume 20 hours is max
   const flightTimeScore = Math.max(0, ((maxFlightTime - flightHours) / maxFlightTime)) * WEIGHTS.flightTime;
 
@@ -220,10 +222,11 @@ export function filterDestinations(
       }
     }
 
-    // Filter by max flight time (NEW)
+    // Filter by max flight time (NEW). Use != null so a 0 (local) passes and
+    // only genuinely-missing data is skipped rather than silently excluded.
     if (preferences.maxFlightTime && preferences.maxFlightTime > 0) {
       const flightHours = dest.flightTimes[preferences.homeAirport];
-      if (flightHours && flightHours > preferences.maxFlightTime) {
+      if (flightHours != null && flightHours > preferences.maxFlightTime) {
         return false;
       }
     }

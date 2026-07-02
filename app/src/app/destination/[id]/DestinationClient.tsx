@@ -2,9 +2,11 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useAppStore } from '@/lib/store';
 import { calculateScore, getMaxPossibleScore, getDurationRecommendation, filterDestinations, sortDestinationsByScore } from '@/lib/scoring';
+import { decodeShareParams } from '@/lib/shareUtils';
+import { Analytics } from '@/lib/analytics';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
 import { ScoreGauge, ScoreBadge } from '@/components/ui/ScoreGauge';
@@ -16,7 +18,7 @@ import { RetroTabs, useTabHash, Tab } from '@/components/ui/RetroTabs';
 import { ShareButton } from '@/components/ui/ShareButton';
 import { PrintButton, PrintableContent } from '@/components/PrintView';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
-import { AIRPORT_HUBS, AirportCode } from '@/types';
+import { AIRPORT_HUBS, AirportCode, UserPreferences, DEFAULT_PREFERENCES } from '@/types';
 
 const TABS: Tab[] = [
   { id: 'overview', label: 'Overview', icon: '📋' },
@@ -39,6 +41,7 @@ export default function DestinationClient() {
     setTravelerVisited,
     setTravelerRating,
     setTravelMonth,
+    setPreferences,
     destinationNotes,
     setDestinationNote,
   } = useAppStore();
@@ -63,6 +66,36 @@ export default function DestinationClient() {
     };
   }, [destination, destinations, preferences, travelers]);
 
+  // Apply preferences carried in a shared link (?m=&a=&d=) once, after load.
+  // Reads window.location.search rather than useSearchParams() to avoid the
+  // Suspense-boundary requirement that would deopt this statically-exported page.
+  useEffect(() => {
+    if (!isLoaded || typeof window === 'undefined') return;
+    // Only adopt a shared link's context if the visitor hasn't set their own
+    // month/airport/duration yet. Never silently overwrite saved settings for
+    // a returning user who opens someone else's link.
+    const untouched =
+      preferences.travelMonth === DEFAULT_PREFERENCES.travelMonth &&
+      preferences.homeAirport === DEFAULT_PREFERENCES.homeAirport &&
+      preferences.durationMin === DEFAULT_PREFERENCES.durationMin &&
+      preferences.durationMax === DEFAULT_PREFERENCES.durationMax;
+    if (!untouched) return;
+    const decoded = decodeShareParams(new URLSearchParams(window.location.search));
+    const patch: Partial<UserPreferences> = {};
+    if (decoded.month) patch.travelMonth = decoded.month;
+    if (decoded.airport) patch.homeAirport = decoded.airport;
+    if (decoded.durationMin != null) patch.durationMin = decoded.durationMin;
+    if (decoded.durationMax != null) patch.durationMax = decoded.durationMax;
+    if (Object.keys(patch).length > 0) setPreferences(patch);
+    // Run once when data becomes available; not on every preference change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoaded]);
+
+  // Count a detail-page view once the destination resolves.
+  useEffect(() => {
+    if (destination) Analytics.destinationViewed(destination.id);
+  }, [destination]);
+
   if (!isLoaded) return null;
 
   if (!destination || !score) {
@@ -84,7 +117,7 @@ export default function DestinationClient() {
   }
 
   const maxScore = getMaxPossibleScore();
-  const flightHours = destination.flightTimes[preferences.homeAirport] || 0;
+  const flightHours = destination.flightTimes[preferences.homeAirport] ?? 0;
   const durationRec = getDurationRecommendation(destination.duration, flightHours);
 
   const climateInfo = {

@@ -1,4 +1,10 @@
-// Google Analytics event tracking utilities for Travel Agent Zero
+// Google Analytics (GA4) event helpers for Travel Agent Zero.
+//
+// Every event here is intentionally PII-free: no traveler names, no raw search
+// text, and no note content are ever sent - only destination ids, coarse
+// counts, and enum-valued filter selections. trackEvent no-ops unless gtag is
+// present, so events are silently inert in development (GA only loads in
+// production) and before analytics consent is granted.
 
 declare global {
   interface Window {
@@ -7,55 +13,38 @@ declare global {
 }
 
 export function trackEvent(eventName: string, params?: Record<string, unknown>) {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", eventName, params);
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
   }
 }
 
-// Travel Agent Zero specific events
 export const Analytics = {
-  // Track destination viewed
-  destinationViewed: (destinationId: string, destinationName: string) => {
-    trackEvent("destination_viewed", {
-      destination_id: destinationId,
-      destination_name: destinationName,
-    });
-  },
+  // Client-side route change (the GA config only auto-sends the first view).
+  // Send the full location (incl. basePath) + title so SPA views match the
+  // initial config-sent view rather than a basePath-less page_path.
+  pageView: (location: string, title: string) =>
+    trackEvent('page_view', { page_location: location, page_title: title }),
 
-  // Track trip planned
-  tripPlanned: (destinationId: string, travelerCount: number) => {
-    trackEvent("trip_planned", {
-      destination_id: destinationId,
-      traveler_count: travelerCount,
-    });
-  },
+  // A destination detail page was opened.
+  destinationViewed: (destinationId: string) =>
+    trackEvent('destination_viewed', { destination_id: destinationId }),
 
-  // Track traveler added
-  travelerAdded: () => {
-    trackEvent("traveler_added");
-  },
+  // A filter changed. `value` is always an enum/number, never free text.
+  filterApplied: (filterType: string, value: string) =>
+    trackEvent('filter_applied', { filter_type: filterType, filter_value: value }),
 
-  // Track itinerary created
-  itineraryCreated: (destinationId: string, dayCount: number) => {
-    trackEvent("itinerary_created", {
-      destination_id: destinationId,
-      day_count: dayCount,
-    });
-  },
+  favoriteToggled: (added: boolean) =>
+    trackEvent('favorite_toggled', { action: added ? 'add' : 'remove' }),
 
-  // Track search performed
-  searchPerformed: (query: string, resultCount: number) => {
-    trackEvent("search", {
-      search_term: query,
-      result_count: resultCount,
-    });
-  },
+  compareToggled: (added: boolean) =>
+    trackEvent('compare_toggled', { action: added ? 'add' : 'remove' }),
 
-  // Track filter applied
-  filterApplied: (filterType: string, value: string) => {
-    trackEvent("filter_applied", {
-      filter_type: filterType,
-      filter_value: value,
-    });
-  },
+  // How a share resolved (Web Share API vs clipboard copy). No URL/preferences.
+  shareClicked: (method: 'native' | 'clipboard') =>
+    trackEvent('share', { method }),
+
+  surpriseUsed: () => trackEvent('surprise_me'),
+
+  // Count only - never the traveler's name.
+  travelerAdded: () => trackEvent('traveler_added'),
 };

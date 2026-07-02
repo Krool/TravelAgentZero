@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSound } from '@/hooks/useSound';
+import { Analytics } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
 interface SurpriseButtonProps {
@@ -21,6 +22,7 @@ export function SurpriseButton({ destinationIds, disabled, className }: Surprise
 
     setIsSpinning(true);
     play('score');
+    Analytics.surpriseUsed();
 
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * destinationIds.length);
