@@ -996,7 +996,7 @@
     "id": "berlin-germany",
     "name": "Berlin Germany",
     "duration": 8,
-    "itinerarySummary": "Historic sites modern art museums vibrant neighborhoods and a dynamic food scene",
+    "itinerarySummary": "Historic sites modern art museums nightlife districts and a global food scene",
     "considerations": "English is widely spoken but public transit requires basic navigation skills",
     "visaRequirements": "No visa required for US citizens for stays under 90 days",
     "countries": [
@@ -1414,7 +1414,7 @@
       "art"
     ],
     "highlights": [
-      "Museum Island packs five world-class museums onto one islet",
+      "Museum Island packs five major museums onto one islet",
       "East Side Gallery: 1.3 km of painted Berlin Wall",
       "Techno clubs in converted power plants run all weekend",
       "Doner kebab and currywurst for under 6 euros"
@@ -12334,12 +12334,12 @@
       "2,000+ years of history in one walkable city",
       "World's best pasta, pizza, and gelato",
       "The Vatican and Sistine Chapel",
-      "Iconic landmarks at every corner"
+      "Ancient landmarks around every corner"
     ],
     "neighborhoods": [
       {
         "name": "Trastevere",
-        "description": "Charming cobblestone streets, authentic trattorias, and vibrant nightlife across the Tiber.",
+        "description": "Cobblestone lanes, family-run trattorias, and late-night bars across the Tiber.",
         "bestFor": [
           "food",
           "nightlife",
@@ -16380,7 +16380,7 @@
     "id": "chile",
     "name": "Chile",
     "duration": 10,
-    "itinerarySummary": "From Santiago to Atacama Desert and Patagonia explore Chile's stunning variety",
+    "itinerarySummary": "From Santiago to the Atacama Desert and Patagonia spanning desert glaciers and vineyards",
     "considerations": "Long internal flights may be needed to see multiple regions",
     "visaRequirements": "No visa required for US citizens",
     "countries": [
@@ -17288,7 +17288,7 @@
       "temples"
     ],
     "highlights": [
-      "World-class cuisine from ramen to kaiseki",
+      "From street-corner ramen to multi-course kaiseki",
       "Ancient temples alongside neon-lit cities",
       "The legendary cherry blossom season",
       "Incredibly efficient and scenic rail travel"
@@ -17296,7 +17296,7 @@
     "neighborhoods": [
       {
         "name": "Shinjuku (Tokyo)",
-        "description": "Bustling hub with towering skyscrapers, incredible nightlife, and the famous Golden Gai bar district.",
+        "description": "Dense hub of skyscrapers, all-night izakayas, and the tiny bars of Golden Gai.",
         "bestFor": [
           "nightlife",
           "shopping",
@@ -17314,7 +17314,7 @@
       },
       {
         "name": "Shibuya (Tokyo)",
-        "description": "Youth culture center featuring the famous scramble crossing, trendy shops, and vibrant energy.",
+        "description": "Youth culture center around the scramble crossing, packed with fashion shops and late-night crowds.",
         "bestFor": [
           "shopping",
           "pop culture",
@@ -17323,7 +17323,7 @@
       }
     ],
     "gettingAround": {
-      "summary": "Japan Rail Pass is essential for intercity travel. Local transit is world-class.",
+      "summary": "Japan Rail Pass is essential for intercity travel. Local transit is fast, clean, and punctual.",
       "options": [
         {
           "type": "JR Pass",
@@ -18859,7 +18859,7 @@
     "id": "charleston",
     "name": "Charleston",
     "duration": 5,
-    "itinerarySummary": "Charming old town architecture carriage rides and low country cuisine",
+    "itinerarySummary": "Antebellum architecture carriage rides and Lowcountry cuisine",
     "considerations": "Warm and humid summers and potential for hurricanes in fall",
     "visaRequirements": "No visa required for US citizens",
     "countries": [
@@ -22834,7 +22834,7 @@
     "id": "glacier-national-park",
     "name": "Glacier National Park",
     "duration": 7,
-    "itinerarySummary": "Hiking Going to the Sun Road lakes and wildlife in Montana's iconic park",
+    "itinerarySummary": "Hiking Going to the Sun Road lakes and wildlife in Montana's flagship park",
     "considerations": "Limited seasonal access and some areas require timed entry permits",
     "visaRequirements": "No visa required for US citizens",
     "countries": [
@@ -23769,7 +23769,7 @@
         "bestFor": [
           "hiking",
           "early starts",
-          "iconic lakes"
+          "alpine lakes"
         ]
       },
       {
@@ -25744,7 +25744,7 @@
     "neighborhoods": [
       {
         "name": "Downtown Reykjavik",
-        "description": "Colorful streets with cafes, design shops, and the iconic Hallgrimskirkja church.",
+        "description": "Colorful streets with cafes, design shops, and the landmark Hallgrimskirkja church.",
         "bestFor": [
           "dining",
           "nightlife",
@@ -27798,7 +27798,7 @@
     "id": "colombia",
     "name": "Colombia",
     "duration": 10,
-    "itinerarySummary": "Colonial towns jungle treks and vibrant cities like Medellin and Cartagena",
+    "itinerarySummary": "Colonial towns jungle treks and city life in Medellin and Cartagena",
     "considerations": "Some regions may be unsafe due to local conflicts check travel advisories",
     "visaRequirements": "Visa not required for stays under 90 days for US citizens",
     "countries": [
@@ -29232,7 +29232,7 @@
       },
       {
         "name": "Taveuni",
-        "description": "The lush 'Garden Island' with Bouma waterfalls, the Lavena coastal walk, and world-class dives on Rainbow Reef.",
+        "description": "The lush 'Garden Island' with Bouma waterfalls, the Lavena coastal walk, and soft-coral dives on Rainbow Reef.",
         "bestFor": [
           "diving",
           "hiking",
@@ -29783,7 +29783,7 @@
     "id": "paris-france",
     "name": "Paris France",
     "duration": 7,
-    "itinerarySummary": "Visit the Eiffel Tower Louvre Museum Notre-Dame and explore charming neighborhoods and cafes",
+    "itinerarySummary": "Visit the Eiffel Tower Louvre Museum Notre-Dame and wander the old neighborhoods and cafes",
     "considerations": "Can be crowded in summer book popular attractions in advance",
     "visaRequirements": "No visa required for US citizens up to 90 days in Schengen",
     "countries": [
@@ -32268,7 +32268,7 @@
     "id": "maldives",
     "name": "Maldives",
     "duration": 7,
-    "itinerarySummary": "Overwater bungalows pristine beaches world-class snorkeling and diving in the Indian Ocean",
+    "itinerarySummary": "Overwater bungalows quiet beaches and reef snorkeling and diving in the Indian Ocean",
     "considerations": "Very expensive destination best as a honeymoon or special occasion trip",
     "visaRequirements": "No visa required for US citizens up to 30 days",
     "countries": [
@@ -37732,7 +37732,7 @@
     "id": "quebec-city-montreal",
     "name": "Quebec City & Montreal",
     "duration": 6,
-    "itinerarySummary": "Explore French Canadian culture historic Old Quebec vibrant Montreal and local cuisine",
+    "itinerarySummary": "Explore French Canadian culture historic Old Quebec big-city Montreal and local cuisine",
     "considerations": "French is primary language winters are very cold fall foliage spectacular",
     "visaRequirements": "No visa required for US citizens",
     "countries": [

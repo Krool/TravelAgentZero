@@ -98,17 +98,23 @@ export function calculateScore(
   const budget = preferences.budgetSensitivity || 'moderate';
   const costMatch = getBudgetMultiplier(budget, destination.cost) * WEIGHTS.costMatch;
 
-  // Duration fit
-  const inRange = destination.duration >= preferences.durationMin &&
-                  destination.duration <= preferences.durationMax;
-  const durationMatch = inRange ? WEIGHTS.durationMatch : 0;
-
   // Flight time (normalized, shorter = better). Nullish (not ||) so a genuine
   // 0 (home hub = "you're already there") keeps the best score instead of
   // being treated as missing data and penalized as a 15h flight.
   const flightHours = destination.flightTimes[preferences.homeAirport] ?? 15;
   const maxFlightTime = 20; // Assume 20 hours is max
   const flightTimeScore = Math.max(0, ((maxFlightTime - flightHours) / maxFlightTime)) * WEIGHTS.flightTime;
+
+  // Duration fit: inside the user's preferred range, and long enough to
+  // justify the flight from their home airport. A 5-day trip after a 16h
+  // haul is a poor use of travel time even if 5 days is "in range", so it
+  // only earns half credit (matches the detail page's duration guidance).
+  const inRange = destination.duration >= preferences.durationMin &&
+                  destination.duration <= preferences.durationMax;
+  let durationMatch = inRange ? WEIGHTS.durationMatch : 0;
+  if (durationMatch > 0 && destination.duration < getRecommendedMinDuration(flightHours)) {
+    durationMatch *= 0.5;
+  }
 
   // Safety score - penalize if over threshold
   let safetyScore = 0;

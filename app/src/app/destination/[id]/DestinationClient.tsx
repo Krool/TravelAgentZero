@@ -155,6 +155,8 @@ export default function DestinationClient() {
           <div className="relative h-56 sm:h-72 md:h-80">
             <img
               src={getDestinationImageUrl(destination, 'hero')}
+              srcSet={`${getDestinationImageUrl(destination, 'card')} 800w, ${getDestinationImageUrl(destination, 'hero')} 1600w`}
+              sizes="100vw"
               alt={destination.name}
               className="w-full h-full object-cover"
               decoding="async"
@@ -168,11 +170,11 @@ export default function DestinationClient() {
                 {destination.region} · {destination.countries.join(', ')}
               </p>
               <div className="flex flex-wrap items-end justify-between gap-4">
-                <h1 className="display-title text-3xl sm:text-4xl text-text-primary">
+                <h1 className="display-title text-2xl sm:text-4xl text-text-primary">
                   {destination.name}
                 </h1>
                 <div className="shrink-0 flex items-center gap-3">
-                  <PrintButton destination={destination} preferences={preferences} />
+                  <PrintButton destination={destination} preferences={preferences} className="hidden sm:block" />
                   <ShareButton
                     destinationId={destination.id}
                     destinationName={destination.name}
