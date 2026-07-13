@@ -12,9 +12,15 @@ import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 const isProd = process.env.NODE_ENV === "production";
 const GA_ID = "G-SXG8M67HPV";
 
+const SITE_DESCRIPTION =
+  "Compare 100+ destinations by best month to visit, flight time from 25 home airports, budget, safety, and kid-friendliness. Score-ranked trip planning with cost breakdowns, neighborhood guides, and month-by-month flight price estimates.";
+
 export const metadata: Metadata = {
-  title: "Travel Agent Zero",
-  description: "A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries with vintage-inspired aesthetics.",
+  title: {
+    default: "Travel Agent Zero: Score-Ranked Trip Planner",
+    template: "%s | Travel Agent Zero",
+  },
+  description: SITE_DESCRIPTION,
   metadataBase: new URL("https://krool.github.io/TravelAgentZero"),
   alternates: { canonical: "https://krool.github.io/TravelAgentZero/" },
   icons: {
@@ -23,14 +29,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://krool.github.io/TravelAgentZero/",
-    title: "Travel Agent Zero",
-    description: "A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries with vintage-inspired aesthetics.",
+    siteName: "Travel Agent Zero",
+    title: "Travel Agent Zero: Score-Ranked Trip Planner",
+    description: SITE_DESCRIPTION,
     images: [{ url: "/og-preview.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Travel Agent Zero",
-    description: "A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries with vintage-inspired aesthetics.",
+    title: "Travel Agent Zero: Score-Ranked Trip Planner",
+    description: SITE_DESCRIPTION,
   },
 };
 
@@ -44,7 +51,7 @@ export default function RootLayout({
       <body className="antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"WebApplication","name":"Travel Agent Zero","url":"https://krool.github.io/TravelAgentZero/","description":"A retro-futuristic travel planning companion. Browse destinations, plan trips, and organize itineraries.","applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"WebApplication","name":"Travel Agent Zero","url":"https://krool.github.io/TravelAgentZero/","description":SITE_DESCRIPTION,"applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}) }}
         />
         {isProd && (
           <>

@@ -502,7 +502,7 @@
     "duration": 7,
     "itinerarySummary": "Explore the Grand Bazaar Hagia Sophia Blue Mosque and Bosphorus",
     "considerations": "Straddles Europe and Asia so offers both western and eastern cultural elements",
-    "visaRequirements": "eVisa required for US citizens",
+    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Turkey"
     ],
@@ -998,7 +998,7 @@
     "duration": 8,
     "itinerarySummary": "Historic sites modern art museums nightlife districts and a global food scene",
     "considerations": "English is widely spoken but public transit requires basic navigation skills",
-    "visaRequirements": "No visa required for US citizens for stays under 90 days",
+    "visaRequirements": "No visa required for US citizens for stays under 90 days; ETIAS travel authorization (about $22) phases in from late 2026",
     "countries": [
       "Germany"
     ],
@@ -1482,7 +1482,7 @@
       "activities": "$10-15/museum, $22 Museum Island day pass",
       "transport": "$11-12/day transit pass",
       "tips": [
-        "Many museums are free the first Sunday of the month; book slots ahead",
+        "The free Museum Sunday program ended in 2024; budget $10-15 per museum and book timed slots ahead",
         "Cash still rules at kebab stands and some bars; carry 20-30 euros",
         "Buy a 7-day AB transit pass if staying 4+ days; it beats singles fast",
         "Sunday shopping is closed almost everywhere; stock groceries Saturday"
@@ -2487,7 +2487,7 @@
     "duration": 7,
     "itinerarySummary": "Visit Bolivia's high altitude capital and nearby moon valley and cable cars",
     "considerations": "High elevation may require acclimatization travel infrastructure may be limited",
-    "visaRequirements": "No visa required for US citizens",
+    "visaRequirements": "No visa required for US citizens up to 90 days; free SIGEMIG online pre-registration required before arrival",
     "countries": [
       "Bolivia"
     ],
@@ -3477,7 +3477,7 @@
     "name": "Hong Kong",
     "duration": 8,
     "itinerarySummary": "Explore Kowloon Victoria Peak street markets and enjoy day trips to nearby islands",
-    "considerations": "Current political tensions can impact protests and stability though still safe for tourists",
+    "considerations": "Safe and calm for tourists; the 2020 national security law ended street protests, so avoid political activity and expressions",
     "visaRequirements": "No visa required for US citizens",
     "countries": [
       "China"
@@ -5951,7 +5951,7 @@
         "Never exchange money on the street; use ATMs and decline conversion",
         "Beer is cheaper than water at many pubs, about $2-3 a pint",
         "The Prague Castle circuit ticket covers several buildings, buy one combo",
-        "Eat lunch specials (polednicka) away from Old Town Square to halve prices"
+        "Eat lunch specials (poledni menu) away from Old Town Square to halve prices"
       ]
     },
     "imageUrl": "https://images.unsplash.com/photo-1541849546-216549ae216d?w=800&h=600&fit=crop&q=80"
@@ -6369,7 +6369,7 @@
     },
     "tags": [
       "beach",
-      "tropical",
+      "desert",
       "warm",
       "varied",
       "diverse",
@@ -6952,7 +6952,7 @@
     "duration": 9,
     "itinerarySummary": "Visit Athens and island hop through Santorini Naxos or Crete",
     "considerations": "Very hot in summer ferry schedules vary by season",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
+    "visaRequirements": "No visa required for US citizens up to 90 days; ETIAS travel authorization (about $22) phases in from late 2026",
     "countries": [
       "Greece"
     ],
@@ -7946,7 +7946,7 @@
     "duration": 8,
     "itinerarySummary": "Short island getaway with beaches reef snorkeling some hiking on Mahe and Praslin",
     "considerations": "October is Creole Festival time trade-wind transitions lodging scarce without booking early",
-    "visaRequirements": "Visa-free for 30 days as US citizen",
+    "visaRequirements": "Visa-free for 30 days as US citizen; digital Travel Authorization (about 10 EUR) required before arrival",
     "countries": [
       "Seychelles"
     ],
@@ -7988,8 +7988,8 @@
       "jan": 0,
       "feb": 0,
       "mar": 0,
-      "apr": 0,
-      "may": 0,
+      "apr": 1,
+      "may": 1,
       "jun": 0,
       "jul": 0,
       "aug": 0,
@@ -7998,359 +7998,7 @@
       "nov": 1,
       "dec": 0
     },
-    "bestTimeDescription": "Oct-Nov",
-    "avgFlightPrices": {
-      "JFK": {
-        "jan": 1063,
-        "feb": 1063,
-        "mar": 1250,
-        "apr": 1250,
-        "may": 1250,
-        "jun": 1625,
-        "jul": 1625,
-        "aug": 1625,
-        "sep": 1250,
-        "oct": 1438,
-        "nov": 1438,
-        "dec": 1750
-      },
-      "LAX": {
-        "jan": 1046,
-        "feb": 1046,
-        "mar": 1230,
-        "apr": 1230,
-        "may": 1230,
-        "jun": 1599,
-        "jul": 1599,
-        "aug": 1599,
-        "sep": 1230,
-        "oct": 1415,
-        "nov": 1415,
-        "dec": 1722
-      },
-      "ORD": {
-        "jan": 1632,
-        "feb": 1632,
-        "mar": 1920,
-        "apr": 1920,
-        "may": 1920,
-        "jun": 2496,
-        "jul": 2496,
-        "aug": 2496,
-        "sep": 1920,
-        "oct": 2208,
-        "nov": 2208,
-        "dec": 2688
-      },
-      "SFO": {
-        "jan": 1020,
-        "feb": 1020,
-        "mar": 1200,
-        "apr": 1200,
-        "may": 1200,
-        "jun": 1560,
-        "jul": 1560,
-        "aug": 1560,
-        "sep": 1200,
-        "oct": 1380,
-        "nov": 1380,
-        "dec": 1680
-      },
-      "MIA": {
-        "jan": 1632,
-        "feb": 1632,
-        "mar": 1920,
-        "apr": 1920,
-        "may": 1920,
-        "jun": 2496,
-        "jul": 2496,
-        "aug": 2496,
-        "sep": 1920,
-        "oct": 2208,
-        "nov": 2208,
-        "dec": 2688
-      },
-      "DEN": {
-        "jan": 1683,
-        "feb": 1683,
-        "mar": 1980,
-        "apr": 1980,
-        "may": 1980,
-        "jun": 2574,
-        "jul": 2574,
-        "aug": 2574,
-        "sep": 1980,
-        "oct": 2277,
-        "nov": 2277,
-        "dec": 2772
-      },
-      "SEA": {
-        "jan": 1734,
-        "feb": 1734,
-        "mar": 2040,
-        "apr": 2040,
-        "may": 2040,
-        "jun": 2652,
-        "jul": 2652,
-        "aug": 2652,
-        "sep": 2040,
-        "oct": 2346,
-        "nov": 2346,
-        "dec": 2856
-      },
-      "ATL": {
-        "jan": 1632,
-        "feb": 1632,
-        "mar": 1920,
-        "apr": 1920,
-        "may": 1920,
-        "jun": 2496,
-        "jul": 2496,
-        "aug": 2496,
-        "sep": 1920,
-        "oct": 2208,
-        "nov": 2208,
-        "dec": 2688
-      },
-      "LHR": {
-        "jan": 1173,
-        "feb": 1173,
-        "mar": 1380,
-        "apr": 1380,
-        "may": 1380,
-        "jun": 1794,
-        "jul": 1794,
-        "aug": 1794,
-        "sep": 1380,
-        "oct": 1587,
-        "nov": 1587,
-        "dec": 1932
-      },
-      "CDG": {
-        "jan": 1173,
-        "feb": 1173,
-        "mar": 1380,
-        "apr": 1380,
-        "may": 1380,
-        "jun": 1794,
-        "jul": 1794,
-        "aug": 1794,
-        "sep": 1380,
-        "oct": 1587,
-        "nov": 1587,
-        "dec": 1932
-      },
-      "FRA": {
-        "jan": 1173,
-        "feb": 1173,
-        "mar": 1380,
-        "apr": 1380,
-        "may": 1380,
-        "jun": 1794,
-        "jul": 1794,
-        "aug": 1794,
-        "sep": 1380,
-        "oct": 1587,
-        "nov": 1587,
-        "dec": 1932
-      },
-      "AMS": {
-        "jan": 1224,
-        "feb": 1224,
-        "mar": 1440,
-        "apr": 1440,
-        "may": 1440,
-        "jun": 1872,
-        "jul": 1872,
-        "aug": 1872,
-        "sep": 1440,
-        "oct": 1656,
-        "nov": 1656,
-        "dec": 2016
-      },
-      "MAD": {
-        "jan": 1122,
-        "feb": 1122,
-        "mar": 1320,
-        "apr": 1320,
-        "may": 1320,
-        "jun": 1716,
-        "jul": 1716,
-        "aug": 1716,
-        "sep": 1320,
-        "oct": 1518,
-        "nov": 1518,
-        "dec": 1848
-      },
-      "FCO": {
-        "jan": 1122,
-        "feb": 1122,
-        "mar": 1320,
-        "apr": 1320,
-        "may": 1320,
-        "jun": 1716,
-        "jul": 1716,
-        "aug": 1716,
-        "sep": 1320,
-        "oct": 1518,
-        "nov": 1518,
-        "dec": 1848
-      },
-      "NRT": {
-        "jan": 1377,
-        "feb": 1377,
-        "mar": 1620,
-        "apr": 1620,
-        "may": 1620,
-        "jun": 2106,
-        "jul": 2106,
-        "aug": 2106,
-        "sep": 1620,
-        "oct": 1863,
-        "nov": 1863,
-        "dec": 2268
-      },
-      "PEK": {
-        "jan": 1326,
-        "feb": 1326,
-        "mar": 1560,
-        "apr": 1560,
-        "may": 1560,
-        "jun": 2028,
-        "jul": 2028,
-        "aug": 2028,
-        "sep": 1560,
-        "oct": 1794,
-        "nov": 1794,
-        "dec": 2184
-      },
-      "SIN": {
-        "jan": 969,
-        "feb": 969,
-        "mar": 1140,
-        "apr": 1140,
-        "may": 1140,
-        "jun": 1482,
-        "jul": 1482,
-        "aug": 1482,
-        "sep": 1140,
-        "oct": 1311,
-        "nov": 1311,
-        "dec": 1596
-      },
-      "DXB": {
-        "jan": 867,
-        "feb": 867,
-        "mar": 1020,
-        "apr": 1020,
-        "may": 1020,
-        "jun": 1326,
-        "jul": 1326,
-        "aug": 1326,
-        "sep": 1020,
-        "oct": 1173,
-        "nov": 1173,
-        "dec": 1428
-      },
-      "HKG": {
-        "jan": 1173,
-        "feb": 1173,
-        "mar": 1380,
-        "apr": 1380,
-        "may": 1380,
-        "jun": 1794,
-        "jul": 1794,
-        "aug": 1794,
-        "sep": 1380,
-        "oct": 1587,
-        "nov": 1587,
-        "dec": 1932
-      },
-      "ICN": {
-        "jan": 1377,
-        "feb": 1377,
-        "mar": 1620,
-        "apr": 1620,
-        "may": 1620,
-        "jun": 2106,
-        "jul": 2106,
-        "aug": 2106,
-        "sep": 1620,
-        "oct": 1863,
-        "nov": 1863,
-        "dec": 2268
-      },
-      "BKK": {
-        "jan": 1020,
-        "feb": 1020,
-        "mar": 1200,
-        "apr": 1200,
-        "may": 1200,
-        "jun": 1560,
-        "jul": 1560,
-        "aug": 1560,
-        "sep": 1200,
-        "oct": 1380,
-        "nov": 1380,
-        "dec": 1680
-      },
-      "SYD": {
-        "jan": 1377,
-        "feb": 1377,
-        "mar": 1620,
-        "apr": 1620,
-        "may": 1620,
-        "jun": 2106,
-        "jul": 2106,
-        "aug": 2106,
-        "sep": 1620,
-        "oct": 1863,
-        "nov": 1863,
-        "dec": 2268
-      },
-      "MEL": {
-        "jan": 1428,
-        "feb": 1428,
-        "mar": 1680,
-        "apr": 1680,
-        "may": 1680,
-        "jun": 2184,
-        "jul": 2184,
-        "aug": 2184,
-        "sep": 1680,
-        "oct": 1932,
-        "nov": 1932,
-        "dec": 2352
-      },
-      "GRU": {
-        "jan": 1530,
-        "feb": 1530,
-        "mar": 1800,
-        "apr": 1800,
-        "may": 1800,
-        "jun": 2340,
-        "jul": 2340,
-        "aug": 2340,
-        "sep": 1800,
-        "oct": 2070,
-        "nov": 2070,
-        "dec": 2520
-      },
-      "EZE": {
-        "jan": 1581,
-        "feb": 1581,
-        "mar": 1860,
-        "apr": 1860,
-        "may": 1860,
-        "jun": 2418,
-        "jul": 2418,
-        "aug": 2418,
-        "sep": 1860,
-        "oct": 2139,
-        "nov": 2139,
-        "dec": 2604
-      }
-    },
+    "bestTimeDescription": "Apr-May and Oct-Nov",
     "tags": [
       "beach",
       "tropical",
@@ -8438,7 +8086,359 @@
         "Prices are quoted in euros as often as rupees; cards work at most hotels."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1553829176-61484f865ac3?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1553829176-61484f865ac3?w=800&h=600&fit=crop&q=80",
+    "avgFlightPrices": {
+      "JFK": {
+        "jan": 1581,
+        "feb": 1581,
+        "mar": 1860,
+        "apr": 2139,
+        "may": 2139,
+        "jun": 2418,
+        "jul": 2418,
+        "aug": 2418,
+        "sep": 1860,
+        "oct": 2139,
+        "nov": 2139,
+        "dec": 2604
+      },
+      "LAX": {
+        "jan": 1785,
+        "feb": 1785,
+        "mar": 2100,
+        "apr": 2415,
+        "may": 2415,
+        "jun": 2730,
+        "jul": 2730,
+        "aug": 2730,
+        "sep": 2100,
+        "oct": 2415,
+        "nov": 2415,
+        "dec": 2940
+      },
+      "ORD": {
+        "jan": 1632,
+        "feb": 1632,
+        "mar": 1920,
+        "apr": 2208,
+        "may": 2208,
+        "jun": 2496,
+        "jul": 2496,
+        "aug": 2496,
+        "sep": 1920,
+        "oct": 2208,
+        "nov": 2208,
+        "dec": 2688
+      },
+      "SFO": {
+        "jan": 1734,
+        "feb": 1734,
+        "mar": 2040,
+        "apr": 2346,
+        "may": 2346,
+        "jun": 2652,
+        "jul": 2652,
+        "aug": 2652,
+        "sep": 2040,
+        "oct": 2346,
+        "nov": 2346,
+        "dec": 2856
+      },
+      "MIA": {
+        "jan": 1632,
+        "feb": 1632,
+        "mar": 1920,
+        "apr": 2208,
+        "may": 2208,
+        "jun": 2496,
+        "jul": 2496,
+        "aug": 2496,
+        "sep": 1920,
+        "oct": 2208,
+        "nov": 2208,
+        "dec": 2688
+      },
+      "DEN": {
+        "jan": 1683,
+        "feb": 1683,
+        "mar": 1980,
+        "apr": 2277,
+        "may": 2277,
+        "jun": 2574,
+        "jul": 2574,
+        "aug": 2574,
+        "sep": 1980,
+        "oct": 2277,
+        "nov": 2277,
+        "dec": 2772
+      },
+      "SEA": {
+        "jan": 1734,
+        "feb": 1734,
+        "mar": 2040,
+        "apr": 2346,
+        "may": 2346,
+        "jun": 2652,
+        "jul": 2652,
+        "aug": 2652,
+        "sep": 2040,
+        "oct": 2346,
+        "nov": 2346,
+        "dec": 2856
+      },
+      "ATL": {
+        "jan": 1632,
+        "feb": 1632,
+        "mar": 1920,
+        "apr": 2208,
+        "may": 2208,
+        "jun": 2496,
+        "jul": 2496,
+        "aug": 2496,
+        "sep": 1920,
+        "oct": 2208,
+        "nov": 2208,
+        "dec": 2688
+      },
+      "LHR": {
+        "jan": 1173,
+        "feb": 1173,
+        "mar": 1380,
+        "apr": 1587,
+        "may": 1587,
+        "jun": 1794,
+        "jul": 1794,
+        "aug": 1794,
+        "sep": 1380,
+        "oct": 1587,
+        "nov": 1587,
+        "dec": 1932
+      },
+      "CDG": {
+        "jan": 1173,
+        "feb": 1173,
+        "mar": 1380,
+        "apr": 1587,
+        "may": 1587,
+        "jun": 1794,
+        "jul": 1794,
+        "aug": 1794,
+        "sep": 1380,
+        "oct": 1587,
+        "nov": 1587,
+        "dec": 1932
+      },
+      "FRA": {
+        "jan": 1173,
+        "feb": 1173,
+        "mar": 1380,
+        "apr": 1587,
+        "may": 1587,
+        "jun": 1794,
+        "jul": 1794,
+        "aug": 1794,
+        "sep": 1380,
+        "oct": 1587,
+        "nov": 1587,
+        "dec": 1932
+      },
+      "AMS": {
+        "jan": 1224,
+        "feb": 1224,
+        "mar": 1440,
+        "apr": 1656,
+        "may": 1656,
+        "jun": 1872,
+        "jul": 1872,
+        "aug": 1872,
+        "sep": 1440,
+        "oct": 1656,
+        "nov": 1656,
+        "dec": 2016
+      },
+      "MAD": {
+        "jan": 1122,
+        "feb": 1122,
+        "mar": 1320,
+        "apr": 1518,
+        "may": 1518,
+        "jun": 1716,
+        "jul": 1716,
+        "aug": 1716,
+        "sep": 1320,
+        "oct": 1518,
+        "nov": 1518,
+        "dec": 1848
+      },
+      "FCO": {
+        "jan": 1122,
+        "feb": 1122,
+        "mar": 1320,
+        "apr": 1518,
+        "may": 1518,
+        "jun": 1716,
+        "jul": 1716,
+        "aug": 1716,
+        "sep": 1320,
+        "oct": 1518,
+        "nov": 1518,
+        "dec": 1848
+      },
+      "NRT": {
+        "jan": 1377,
+        "feb": 1377,
+        "mar": 1620,
+        "apr": 1863,
+        "may": 1863,
+        "jun": 2106,
+        "jul": 2106,
+        "aug": 2106,
+        "sep": 1620,
+        "oct": 1863,
+        "nov": 1863,
+        "dec": 2268
+      },
+      "PEK": {
+        "jan": 1326,
+        "feb": 1326,
+        "mar": 1560,
+        "apr": 1794,
+        "may": 1794,
+        "jun": 2028,
+        "jul": 2028,
+        "aug": 2028,
+        "sep": 1560,
+        "oct": 1794,
+        "nov": 1794,
+        "dec": 2184
+      },
+      "SIN": {
+        "jan": 969,
+        "feb": 969,
+        "mar": 1140,
+        "apr": 1311,
+        "may": 1311,
+        "jun": 1482,
+        "jul": 1482,
+        "aug": 1482,
+        "sep": 1140,
+        "oct": 1311,
+        "nov": 1311,
+        "dec": 1596
+      },
+      "DXB": {
+        "jan": 867,
+        "feb": 867,
+        "mar": 1020,
+        "apr": 1173,
+        "may": 1173,
+        "jun": 1326,
+        "jul": 1326,
+        "aug": 1326,
+        "sep": 1020,
+        "oct": 1173,
+        "nov": 1173,
+        "dec": 1428
+      },
+      "HKG": {
+        "jan": 1173,
+        "feb": 1173,
+        "mar": 1380,
+        "apr": 1587,
+        "may": 1587,
+        "jun": 1794,
+        "jul": 1794,
+        "aug": 1794,
+        "sep": 1380,
+        "oct": 1587,
+        "nov": 1587,
+        "dec": 1932
+      },
+      "ICN": {
+        "jan": 1377,
+        "feb": 1377,
+        "mar": 1620,
+        "apr": 1863,
+        "may": 1863,
+        "jun": 2106,
+        "jul": 2106,
+        "aug": 2106,
+        "sep": 1620,
+        "oct": 1863,
+        "nov": 1863,
+        "dec": 2268
+      },
+      "BKK": {
+        "jan": 1020,
+        "feb": 1020,
+        "mar": 1200,
+        "apr": 1380,
+        "may": 1380,
+        "jun": 1560,
+        "jul": 1560,
+        "aug": 1560,
+        "sep": 1200,
+        "oct": 1380,
+        "nov": 1380,
+        "dec": 1680
+      },
+      "SYD": {
+        "jan": 1377,
+        "feb": 1377,
+        "mar": 1620,
+        "apr": 1863,
+        "may": 1863,
+        "jun": 2106,
+        "jul": 2106,
+        "aug": 2106,
+        "sep": 1620,
+        "oct": 1863,
+        "nov": 1863,
+        "dec": 2268
+      },
+      "MEL": {
+        "jan": 1428,
+        "feb": 1428,
+        "mar": 1680,
+        "apr": 1932,
+        "may": 1932,
+        "jun": 2184,
+        "jul": 2184,
+        "aug": 2184,
+        "sep": 1680,
+        "oct": 1932,
+        "nov": 1932,
+        "dec": 2352
+      },
+      "GRU": {
+        "jan": 1530,
+        "feb": 1530,
+        "mar": 1800,
+        "apr": 2070,
+        "may": 2070,
+        "jun": 2340,
+        "jul": 2340,
+        "aug": 2340,
+        "sep": 1800,
+        "oct": 2070,
+        "nov": 2070,
+        "dec": 2520
+      },
+      "EZE": {
+        "jan": 1581,
+        "feb": 1581,
+        "mar": 1860,
+        "apr": 2139,
+        "may": 2139,
+        "jun": 2418,
+        "jul": 2418,
+        "aug": 2418,
+        "sep": 1860,
+        "oct": 2139,
+        "nov": 2139,
+        "dec": 2604
+      }
+    }
   },
   {
     "id": "grand-canyon",
@@ -8852,8 +8852,6 @@
       }
     },
     "tags": [
-      "beach",
-      "tropical",
       "warm",
       "hiking",
       "outdoors",
@@ -9844,13 +9842,13 @@
       }
     },
     "tags": [
-      "beach",
-      "tropical",
+      "desert",
       "warm",
       "hiking",
       "outdoors",
       "wildlife",
-      "adventure"
+      "adventure",
+      "stargazing"
     ],
     "highlights": [
       "Descend 750 feet into the Big Room's giant chambers",
@@ -9938,7 +9936,7 @@
     "countries": [
       "Mexico"
     ],
-    "region": "Central America",
+    "region": "North America",
     "climate": "Temperate",
     "type": "Urban",
     "easeWithChild": 6,
@@ -9981,364 +9979,12 @@
       "jun": 0,
       "jul": 0,
       "aug": 0,
-      "sep": 1,
+      "sep": 0,
       "oct": 1,
       "nov": 1,
       "dec": 0
     },
-    "bestTimeDescription": "March to May and September to November",
-    "avgFlightPrices": {
-      "JFK": {
-        "jan": 723,
-        "feb": 723,
-        "mar": 977,
-        "apr": 977,
-        "may": 977,
-        "jun": 1105,
-        "jul": 1105,
-        "aug": 1105,
-        "sep": 977,
-        "oct": 977,
-        "nov": 977,
-        "dec": 1190
-      },
-      "LAX": {
-        "jan": 706,
-        "feb": 706,
-        "mar": 954,
-        "apr": 954,
-        "may": 954,
-        "jun": 1079,
-        "jul": 1079,
-        "aug": 1079,
-        "sep": 954,
-        "oct": 954,
-        "nov": 954,
-        "dec": 1162
-      },
-      "ORD": {
-        "jan": 578,
-        "feb": 578,
-        "mar": 782,
-        "apr": 782,
-        "may": 782,
-        "jun": 884,
-        "jul": 884,
-        "aug": 884,
-        "sep": 782,
-        "oct": 782,
-        "nov": 782,
-        "dec": 952
-      },
-      "SFO": {
-        "jan": 680,
-        "feb": 680,
-        "mar": 920,
-        "apr": 920,
-        "may": 920,
-        "jun": 1040,
-        "jul": 1040,
-        "aug": 1040,
-        "sep": 920,
-        "oct": 920,
-        "nov": 920,
-        "dec": 1120
-      },
-      "MIA": {
-        "jan": 578,
-        "feb": 578,
-        "mar": 782,
-        "apr": 782,
-        "may": 782,
-        "jun": 884,
-        "jul": 884,
-        "aug": 884,
-        "sep": 782,
-        "oct": 782,
-        "nov": 782,
-        "dec": 952
-      },
-      "DEN": {
-        "jan": 612,
-        "feb": 612,
-        "mar": 828,
-        "apr": 828,
-        "may": 828,
-        "jun": 936,
-        "jul": 936,
-        "aug": 936,
-        "sep": 828,
-        "oct": 828,
-        "nov": 828,
-        "dec": 1008
-      },
-      "SEA": {
-        "jan": 578,
-        "feb": 578,
-        "mar": 782,
-        "apr": 782,
-        "may": 782,
-        "jun": 884,
-        "jul": 884,
-        "aug": 884,
-        "sep": 782,
-        "oct": 782,
-        "nov": 782,
-        "dec": 952
-      },
-      "ATL": {
-        "jan": 578,
-        "feb": 578,
-        "mar": 782,
-        "apr": 782,
-        "may": 782,
-        "jun": 884,
-        "jul": 884,
-        "aug": 884,
-        "sep": 782,
-        "oct": 782,
-        "nov": 782,
-        "dec": 952
-      },
-      "LHR": {
-        "jan": 850,
-        "feb": 850,
-        "mar": 1150,
-        "apr": 1150,
-        "may": 1150,
-        "jun": 1300,
-        "jul": 1300,
-        "aug": 1300,
-        "sep": 1150,
-        "oct": 1150,
-        "nov": 1150,
-        "dec": 1400
-      },
-      "CDG": {
-        "jan": 850,
-        "feb": 850,
-        "mar": 1150,
-        "apr": 1150,
-        "may": 1150,
-        "jun": 1300,
-        "jul": 1300,
-        "aug": 1300,
-        "sep": 1150,
-        "oct": 1150,
-        "nov": 1150,
-        "dec": 1400
-      },
-      "FRA": {
-        "jan": 850,
-        "feb": 850,
-        "mar": 1150,
-        "apr": 1150,
-        "may": 1150,
-        "jun": 1300,
-        "jul": 1300,
-        "aug": 1300,
-        "sep": 1150,
-        "oct": 1150,
-        "nov": 1150,
-        "dec": 1400
-      },
-      "AMS": {
-        "jan": 850,
-        "feb": 850,
-        "mar": 1150,
-        "apr": 1150,
-        "may": 1150,
-        "jun": 1300,
-        "jul": 1300,
-        "aug": 1300,
-        "sep": 1150,
-        "oct": 1150,
-        "nov": 1150,
-        "dec": 1400
-      },
-      "MAD": {
-        "jan": 850,
-        "feb": 850,
-        "mar": 1150,
-        "apr": 1150,
-        "may": 1150,
-        "jun": 1300,
-        "jul": 1300,
-        "aug": 1300,
-        "sep": 1150,
-        "oct": 1150,
-        "nov": 1150,
-        "dec": 1400
-      },
-      "FCO": {
-        "jan": 850,
-        "feb": 850,
-        "mar": 1150,
-        "apr": 1150,
-        "may": 1150,
-        "jun": 1300,
-        "jul": 1300,
-        "aug": 1300,
-        "sep": 1150,
-        "oct": 1150,
-        "nov": 1150,
-        "dec": 1400
-      },
-      "NRT": {
-        "jan": 918,
-        "feb": 918,
-        "mar": 1242,
-        "apr": 1242,
-        "may": 1242,
-        "jun": 1404,
-        "jul": 1404,
-        "aug": 1404,
-        "sep": 1242,
-        "oct": 1242,
-        "nov": 1242,
-        "dec": 1512
-      },
-      "PEK": {
-        "jan": 1020,
-        "feb": 1020,
-        "mar": 1380,
-        "apr": 1380,
-        "may": 1380,
-        "jun": 1560,
-        "jul": 1560,
-        "aug": 1560,
-        "sep": 1380,
-        "oct": 1380,
-        "nov": 1380,
-        "dec": 1680
-      },
-      "SIN": {
-        "jan": 1122,
-        "feb": 1122,
-        "mar": 1518,
-        "apr": 1518,
-        "may": 1518,
-        "jun": 1716,
-        "jul": 1716,
-        "aug": 1716,
-        "sep": 1518,
-        "oct": 1518,
-        "nov": 1518,
-        "dec": 1848
-      },
-      "DXB": {
-        "jan": 1054,
-        "feb": 1054,
-        "mar": 1426,
-        "apr": 1426,
-        "may": 1426,
-        "jun": 1612,
-        "jul": 1612,
-        "aug": 1612,
-        "sep": 1426,
-        "oct": 1426,
-        "nov": 1426,
-        "dec": 1736
-      },
-      "HKG": {
-        "jan": 1054,
-        "feb": 1054,
-        "mar": 1426,
-        "apr": 1426,
-        "may": 1426,
-        "jun": 1612,
-        "jul": 1612,
-        "aug": 1612,
-        "sep": 1426,
-        "oct": 1426,
-        "nov": 1426,
-        "dec": 1736
-      },
-      "ICN": {
-        "jan": 918,
-        "feb": 918,
-        "mar": 1242,
-        "apr": 1242,
-        "may": 1242,
-        "jun": 1404,
-        "jul": 1404,
-        "aug": 1404,
-        "sep": 1242,
-        "oct": 1242,
-        "nov": 1242,
-        "dec": 1512
-      },
-      "BKK": {
-        "jan": 1156,
-        "feb": 1156,
-        "mar": 1564,
-        "apr": 1564,
-        "may": 1564,
-        "jun": 1768,
-        "jul": 1768,
-        "aug": 1768,
-        "sep": 1564,
-        "oct": 1564,
-        "nov": 1564,
-        "dec": 1904
-      },
-      "SYD": {
-        "jan": 1020,
-        "feb": 1020,
-        "mar": 1380,
-        "apr": 1380,
-        "may": 1380,
-        "jun": 1560,
-        "jul": 1560,
-        "aug": 1560,
-        "sep": 1380,
-        "oct": 1380,
-        "nov": 1380,
-        "dec": 1680
-      },
-      "MEL": {
-        "jan": 1054,
-        "feb": 1054,
-        "mar": 1426,
-        "apr": 1426,
-        "may": 1426,
-        "jun": 1612,
-        "jul": 1612,
-        "aug": 1612,
-        "sep": 1426,
-        "oct": 1426,
-        "nov": 1426,
-        "dec": 1736
-      },
-      "GRU": {
-        "jan": 782,
-        "feb": 782,
-        "mar": 1058,
-        "apr": 1058,
-        "may": 1058,
-        "jun": 1196,
-        "jul": 1196,
-        "aug": 1196,
-        "sep": 1058,
-        "oct": 1058,
-        "nov": 1058,
-        "dec": 1288
-      },
-      "EZE": {
-        "jan": 816,
-        "feb": 816,
-        "mar": 1104,
-        "apr": 1104,
-        "may": 1104,
-        "jun": 1248,
-        "jul": 1248,
-        "aug": 1248,
-        "sep": 1104,
-        "oct": 1104,
-        "nov": 1104,
-        "dec": 1344
-      }
-    },
+    "bestTimeDescription": "March to May and October to November",
     "tags": [
       "mild",
       "comfortable",
@@ -10424,7 +10070,359 @@
         "The altitude is 7,350 ft; take it easy and hydrate the first two days."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?w=800&h=600&fit=crop&q=80",
+    "avgFlightPrices": {
+      "JFK": {
+        "jan": 612,
+        "feb": 612,
+        "mar": 828,
+        "apr": 828,
+        "may": 828,
+        "jun": 936,
+        "jul": 936,
+        "aug": 936,
+        "sep": 720,
+        "oct": 828,
+        "nov": 828,
+        "dec": 1008
+      },
+      "LAX": {
+        "jan": 578,
+        "feb": 578,
+        "mar": 782,
+        "apr": 782,
+        "may": 782,
+        "jun": 884,
+        "jul": 884,
+        "aug": 884,
+        "sep": 680,
+        "oct": 782,
+        "nov": 782,
+        "dec": 952
+      },
+      "ORD": {
+        "jan": 578,
+        "feb": 578,
+        "mar": 782,
+        "apr": 782,
+        "may": 782,
+        "jun": 884,
+        "jul": 884,
+        "aug": 884,
+        "sep": 680,
+        "oct": 782,
+        "nov": 782,
+        "dec": 952
+      },
+      "SFO": {
+        "jan": 578,
+        "feb": 578,
+        "mar": 782,
+        "apr": 782,
+        "may": 782,
+        "jun": 884,
+        "jul": 884,
+        "aug": 884,
+        "sep": 680,
+        "oct": 782,
+        "nov": 782,
+        "dec": 952
+      },
+      "MIA": {
+        "jan": 578,
+        "feb": 578,
+        "mar": 782,
+        "apr": 782,
+        "may": 782,
+        "jun": 884,
+        "jul": 884,
+        "aug": 884,
+        "sep": 680,
+        "oct": 782,
+        "nov": 782,
+        "dec": 952
+      },
+      "DEN": {
+        "jan": 612,
+        "feb": 612,
+        "mar": 828,
+        "apr": 828,
+        "may": 828,
+        "jun": 936,
+        "jul": 936,
+        "aug": 936,
+        "sep": 720,
+        "oct": 828,
+        "nov": 828,
+        "dec": 1008
+      },
+      "SEA": {
+        "jan": 578,
+        "feb": 578,
+        "mar": 782,
+        "apr": 782,
+        "may": 782,
+        "jun": 884,
+        "jul": 884,
+        "aug": 884,
+        "sep": 680,
+        "oct": 782,
+        "nov": 782,
+        "dec": 952
+      },
+      "ATL": {
+        "jan": 578,
+        "feb": 578,
+        "mar": 782,
+        "apr": 782,
+        "may": 782,
+        "jun": 884,
+        "jul": 884,
+        "aug": 884,
+        "sep": 680,
+        "oct": 782,
+        "nov": 782,
+        "dec": 952
+      },
+      "LHR": {
+        "jan": 850,
+        "feb": 850,
+        "mar": 1150,
+        "apr": 1150,
+        "may": 1150,
+        "jun": 1300,
+        "jul": 1300,
+        "aug": 1300,
+        "sep": 1000,
+        "oct": 1150,
+        "nov": 1150,
+        "dec": 1400
+      },
+      "CDG": {
+        "jan": 850,
+        "feb": 850,
+        "mar": 1150,
+        "apr": 1150,
+        "may": 1150,
+        "jun": 1300,
+        "jul": 1300,
+        "aug": 1300,
+        "sep": 1000,
+        "oct": 1150,
+        "nov": 1150,
+        "dec": 1400
+      },
+      "FRA": {
+        "jan": 850,
+        "feb": 850,
+        "mar": 1150,
+        "apr": 1150,
+        "may": 1150,
+        "jun": 1300,
+        "jul": 1300,
+        "aug": 1300,
+        "sep": 1000,
+        "oct": 1150,
+        "nov": 1150,
+        "dec": 1400
+      },
+      "AMS": {
+        "jan": 850,
+        "feb": 850,
+        "mar": 1150,
+        "apr": 1150,
+        "may": 1150,
+        "jun": 1300,
+        "jul": 1300,
+        "aug": 1300,
+        "sep": 1000,
+        "oct": 1150,
+        "nov": 1150,
+        "dec": 1400
+      },
+      "MAD": {
+        "jan": 850,
+        "feb": 850,
+        "mar": 1150,
+        "apr": 1150,
+        "may": 1150,
+        "jun": 1300,
+        "jul": 1300,
+        "aug": 1300,
+        "sep": 1000,
+        "oct": 1150,
+        "nov": 1150,
+        "dec": 1400
+      },
+      "FCO": {
+        "jan": 850,
+        "feb": 850,
+        "mar": 1150,
+        "apr": 1150,
+        "may": 1150,
+        "jun": 1300,
+        "jul": 1300,
+        "aug": 1300,
+        "sep": 1000,
+        "oct": 1150,
+        "nov": 1150,
+        "dec": 1400
+      },
+      "NRT": {
+        "jan": 918,
+        "feb": 918,
+        "mar": 1242,
+        "apr": 1242,
+        "may": 1242,
+        "jun": 1404,
+        "jul": 1404,
+        "aug": 1404,
+        "sep": 1080,
+        "oct": 1242,
+        "nov": 1242,
+        "dec": 1512
+      },
+      "PEK": {
+        "jan": 1020,
+        "feb": 1020,
+        "mar": 1380,
+        "apr": 1380,
+        "may": 1380,
+        "jun": 1560,
+        "jul": 1560,
+        "aug": 1560,
+        "sep": 1200,
+        "oct": 1380,
+        "nov": 1380,
+        "dec": 1680
+      },
+      "SIN": {
+        "jan": 1122,
+        "feb": 1122,
+        "mar": 1518,
+        "apr": 1518,
+        "may": 1518,
+        "jun": 1716,
+        "jul": 1716,
+        "aug": 1716,
+        "sep": 1320,
+        "oct": 1518,
+        "nov": 1518,
+        "dec": 1848
+      },
+      "DXB": {
+        "jan": 1054,
+        "feb": 1054,
+        "mar": 1426,
+        "apr": 1426,
+        "may": 1426,
+        "jun": 1612,
+        "jul": 1612,
+        "aug": 1612,
+        "sep": 1240,
+        "oct": 1426,
+        "nov": 1426,
+        "dec": 1736
+      },
+      "HKG": {
+        "jan": 1054,
+        "feb": 1054,
+        "mar": 1426,
+        "apr": 1426,
+        "may": 1426,
+        "jun": 1612,
+        "jul": 1612,
+        "aug": 1612,
+        "sep": 1240,
+        "oct": 1426,
+        "nov": 1426,
+        "dec": 1736
+      },
+      "ICN": {
+        "jan": 918,
+        "feb": 918,
+        "mar": 1242,
+        "apr": 1242,
+        "may": 1242,
+        "jun": 1404,
+        "jul": 1404,
+        "aug": 1404,
+        "sep": 1080,
+        "oct": 1242,
+        "nov": 1242,
+        "dec": 1512
+      },
+      "BKK": {
+        "jan": 1156,
+        "feb": 1156,
+        "mar": 1564,
+        "apr": 1564,
+        "may": 1564,
+        "jun": 1768,
+        "jul": 1768,
+        "aug": 1768,
+        "sep": 1360,
+        "oct": 1564,
+        "nov": 1564,
+        "dec": 1904
+      },
+      "SYD": {
+        "jan": 1020,
+        "feb": 1020,
+        "mar": 1380,
+        "apr": 1380,
+        "may": 1380,
+        "jun": 1560,
+        "jul": 1560,
+        "aug": 1560,
+        "sep": 1200,
+        "oct": 1380,
+        "nov": 1380,
+        "dec": 1680
+      },
+      "MEL": {
+        "jan": 1054,
+        "feb": 1054,
+        "mar": 1426,
+        "apr": 1426,
+        "may": 1426,
+        "jun": 1612,
+        "jul": 1612,
+        "aug": 1612,
+        "sep": 1240,
+        "oct": 1426,
+        "nov": 1426,
+        "dec": 1736
+      },
+      "GRU": {
+        "jan": 782,
+        "feb": 782,
+        "mar": 1058,
+        "apr": 1058,
+        "may": 1058,
+        "jun": 1196,
+        "jul": 1196,
+        "aug": 1196,
+        "sep": 920,
+        "oct": 1058,
+        "nov": 1058,
+        "dec": 1288
+      },
+      "EZE": {
+        "jan": 816,
+        "feb": 816,
+        "mar": 1104,
+        "apr": 1104,
+        "may": 1104,
+        "jun": 1248,
+        "jul": 1248,
+        "aug": 1248,
+        "sep": 960,
+        "oct": 1104,
+        "nov": 1104,
+        "dec": 1344
+      }
+    }
   },
   {
     "id": "southeast-us-roadtrip",
@@ -10962,7 +10960,7 @@
       "ICN": 24,
       "BKK": 25,
       "MEL": 19,
-      "EZE": 1
+      "EZE": 3
     },
     "bestMonths": {
       "jan": 0,
@@ -11422,7 +11420,7 @@
     "duration": 9,
     "itinerarySummary": "Tour Jerusalem Tel Aviv the Dead Sea and religious landmarks",
     "considerations": "Ongoing regional tensions and elevated travel advisories",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
+    "visaRequirements": "ETA-IL travel authorization required for US citizens before travel, about $7, valid 2 years; stays up to 90 days",
     "countries": [
       "Israel"
     ],
@@ -12819,13 +12817,13 @@
       }
     },
     "tags": [
-      "beach",
-      "tropical",
+      "desert",
       "warm",
       "varied",
       "diverse",
       "religious",
-      "temples"
+      "temples",
+      "ruins"
     ],
     "highlights": [
       "Stand beneath the Great Pyramid and Sphinx at Giza",
@@ -12910,7 +12908,7 @@
     "duration": 8,
     "itinerarySummary": "Vienna Salzburg and the Alps rich in music culture and scenic views",
     "considerations": "Peak season can be crowded especially in summer",
-    "visaRequirements": "Visa not required for US citizens up to 90 days",
+    "visaRequirements": "Visa not required for US citizens up to 90 days; ETIAS travel authorization (about $22) phases in from late 2026",
     "countries": [
       "Austria"
     ],
@@ -13859,7 +13857,7 @@
         {
           "type": "Subway (OMNY tap-to-pay)",
           "description": "24/7 trains across all boroughs; fares cap at the weekly rate after 12 rides in 7 days.",
-          "cost": "$2.90/ride, ~$34 weekly cap"
+          "cost": "$3.00/ride, ~$35 weekly cap"
         },
         {
           "type": "Walking + Citi Bike",
@@ -13885,7 +13883,7 @@
         "luxury": "$200+"
       },
       "activities": "$25-40/museum, $60-180 Broadway tickets",
-      "transport": "$2.90/subway ride, ~$34/week cap",
+      "transport": "$3.00/subway ride, ~$35/week cap",
       "tips": [
         "Use OMNY tap-to-pay; the weekly fare cap kicks in automatically",
         "Ride the free Staten Island Ferry for Statue of Liberty views",
@@ -14398,7 +14396,7 @@
     "duration": 10,
     "itinerarySummary": "Urban culture in Auckland Wellington Rotorua waterfalls and Southern Alps day trips scenic drives spa and wine",
     "considerations": "Long overnight flight and jet lag to overcome always-changing weather",
-    "visaRequirements": "No visa up to 90 days",
+    "visaRequirements": "NZeTA required for US citizens, NZ$17-23 plus NZ$100 visitor levy; stays up to 90 days",
     "countries": [
       "New Zealand"
     ],
@@ -14437,372 +14435,20 @@
       "EZE": 19
     },
     "bestMonths": {
-      "jan": 0,
-      "feb": 0,
-      "mar": 0,
+      "jan": 1,
+      "feb": 1,
+      "mar": 1,
       "apr": 0,
       "may": 0,
-      "jun": 1,
-      "jul": 1,
-      "aug": 1,
-      "sep": 1,
-      "oct": 1,
-      "nov": 0,
-      "dec": 0
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 0,
+      "oct": 0,
+      "nov": 1,
+      "dec": 1
     },
-    "bestTimeDescription": "Sep-Oct",
-    "avgFlightPrices": {
-      "JFK": {
-        "jan": 1063,
-        "feb": 1063,
-        "mar": 1250,
-        "apr": 1250,
-        "may": 1250,
-        "jun": 1869,
-        "jul": 1869,
-        "aug": 1869,
-        "sep": 1438,
-        "oct": 1438,
-        "nov": 1250,
-        "dec": 1750
-      },
-      "LAX": {
-        "jan": 1046,
-        "feb": 1046,
-        "mar": 1230,
-        "apr": 1230,
-        "may": 1230,
-        "jun": 1839,
-        "jul": 1839,
-        "aug": 1839,
-        "sep": 1415,
-        "oct": 1415,
-        "nov": 1230,
-        "dec": 1722
-      },
-      "ORD": {
-        "jan": 1479,
-        "feb": 1479,
-        "mar": 1740,
-        "apr": 1740,
-        "may": 1740,
-        "jun": 2601,
-        "jul": 2601,
-        "aug": 2601,
-        "sep": 2001,
-        "oct": 2001,
-        "nov": 1740,
-        "dec": 2436
-      },
-      "SFO": {
-        "jan": 1020,
-        "feb": 1020,
-        "mar": 1200,
-        "apr": 1200,
-        "may": 1200,
-        "jun": 1794,
-        "jul": 1794,
-        "aug": 1794,
-        "sep": 1380,
-        "oct": 1380,
-        "nov": 1200,
-        "dec": 1680
-      },
-      "MIA": {
-        "jan": 1632,
-        "feb": 1632,
-        "mar": 1920,
-        "apr": 1920,
-        "may": 1920,
-        "jun": 2870,
-        "jul": 2870,
-        "aug": 2870,
-        "sep": 2208,
-        "oct": 2208,
-        "nov": 1920,
-        "dec": 2688
-      },
-      "DEN": {
-        "jan": 1428,
-        "feb": 1428,
-        "mar": 1680,
-        "apr": 1680,
-        "may": 1680,
-        "jun": 2512,
-        "jul": 2512,
-        "aug": 2512,
-        "sep": 1932,
-        "oct": 1932,
-        "nov": 1680,
-        "dec": 2352
-      },
-      "SEA": {
-        "jan": 1326,
-        "feb": 1326,
-        "mar": 1560,
-        "apr": 1560,
-        "may": 1560,
-        "jun": 2332,
-        "jul": 2332,
-        "aug": 2332,
-        "sep": 1794,
-        "oct": 1794,
-        "nov": 1560,
-        "dec": 2184
-      },
-      "ATL": {
-        "jan": 1632,
-        "feb": 1632,
-        "mar": 1920,
-        "apr": 1920,
-        "may": 1920,
-        "jun": 2870,
-        "jul": 2870,
-        "aug": 2870,
-        "sep": 2208,
-        "oct": 2208,
-        "nov": 1920,
-        "dec": 2688
-      },
-      "LHR": {
-        "jan": 1887,
-        "feb": 1887,
-        "mar": 2220,
-        "apr": 2220,
-        "may": 2220,
-        "jun": 3319,
-        "jul": 3319,
-        "aug": 3319,
-        "sep": 2553,
-        "oct": 2553,
-        "nov": 2220,
-        "dec": 3108
-      },
-      "CDG": {
-        "jan": 1887,
-        "feb": 1887,
-        "mar": 2220,
-        "apr": 2220,
-        "may": 2220,
-        "jun": 3319,
-        "jul": 3319,
-        "aug": 3319,
-        "sep": 2553,
-        "oct": 2553,
-        "nov": 2220,
-        "dec": 3108
-      },
-      "FRA": {
-        "jan": 1887,
-        "feb": 1887,
-        "mar": 2220,
-        "apr": 2220,
-        "may": 2220,
-        "jun": 3319,
-        "jul": 3319,
-        "aug": 3319,
-        "sep": 2553,
-        "oct": 2553,
-        "nov": 2220,
-        "dec": 3108
-      },
-      "AMS": {
-        "jan": 1887,
-        "feb": 1887,
-        "mar": 2220,
-        "apr": 2220,
-        "may": 2220,
-        "jun": 3319,
-        "jul": 3319,
-        "aug": 3319,
-        "sep": 2553,
-        "oct": 2553,
-        "nov": 2220,
-        "dec": 3108
-      },
-      "MAD": {
-        "jan": 1887,
-        "feb": 1887,
-        "mar": 2220,
-        "apr": 2220,
-        "may": 2220,
-        "jun": 3319,
-        "jul": 3319,
-        "aug": 3319,
-        "sep": 2553,
-        "oct": 2553,
-        "nov": 2220,
-        "dec": 3108
-      },
-      "FCO": {
-        "jan": 1887,
-        "feb": 1887,
-        "mar": 2220,
-        "apr": 2220,
-        "may": 2220,
-        "jun": 3319,
-        "jul": 3319,
-        "aug": 3319,
-        "sep": 2553,
-        "oct": 2553,
-        "nov": 2220,
-        "dec": 3108
-      },
-      "NRT": {
-        "jan": 1224,
-        "feb": 1224,
-        "mar": 1440,
-        "apr": 1440,
-        "may": 1440,
-        "jun": 2153,
-        "jul": 2153,
-        "aug": 2153,
-        "sep": 1656,
-        "oct": 1656,
-        "nov": 1440,
-        "dec": 2016
-      },
-      "PEK": {
-        "jan": 1326,
-        "feb": 1326,
-        "mar": 1560,
-        "apr": 1560,
-        "may": 1560,
-        "jun": 2332,
-        "jul": 2332,
-        "aug": 2332,
-        "sep": 1794,
-        "oct": 1794,
-        "nov": 1560,
-        "dec": 2184
-      },
-      "SIN": {
-        "jan": 1173,
-        "feb": 1173,
-        "mar": 1380,
-        "apr": 1380,
-        "may": 1380,
-        "jun": 2063,
-        "jul": 2063,
-        "aug": 2063,
-        "sep": 1587,
-        "oct": 1587,
-        "nov": 1380,
-        "dec": 1932
-      },
-      "DXB": {
-        "jan": 1530,
-        "feb": 1530,
-        "mar": 1800,
-        "apr": 1800,
-        "may": 1800,
-        "jun": 2691,
-        "jul": 2691,
-        "aug": 2691,
-        "sep": 2070,
-        "oct": 2070,
-        "nov": 1800,
-        "dec": 2520
-      },
-      "HKG": {
-        "jan": 1224,
-        "feb": 1224,
-        "mar": 1440,
-        "apr": 1440,
-        "may": 1440,
-        "jun": 2153,
-        "jul": 2153,
-        "aug": 2153,
-        "sep": 1656,
-        "oct": 1656,
-        "nov": 1440,
-        "dec": 2016
-      },
-      "ICN": {
-        "jan": 1224,
-        "feb": 1224,
-        "mar": 1440,
-        "apr": 1440,
-        "may": 1440,
-        "jun": 2153,
-        "jul": 2153,
-        "aug": 2153,
-        "sep": 1656,
-        "oct": 1656,
-        "nov": 1440,
-        "dec": 2016
-      },
-      "BKK": {
-        "jan": 1224,
-        "feb": 1224,
-        "mar": 1440,
-        "apr": 1440,
-        "may": 1440,
-        "jun": 2153,
-        "jul": 2153,
-        "aug": 2153,
-        "sep": 1656,
-        "oct": 1656,
-        "nov": 1440,
-        "dec": 2016
-      },
-      "SYD": {
-        "jan": 816,
-        "feb": 816,
-        "mar": 960,
-        "apr": 960,
-        "may": 960,
-        "jun": 1435,
-        "jul": 1435,
-        "aug": 1435,
-        "sep": 1104,
-        "oct": 1104,
-        "nov": 960,
-        "dec": 1344
-      },
-      "MEL": {
-        "jan": 867,
-        "feb": 867,
-        "mar": 1020,
-        "apr": 1020,
-        "may": 1020,
-        "jun": 1525,
-        "jul": 1525,
-        "aug": 1525,
-        "sep": 1173,
-        "oct": 1173,
-        "nov": 1020,
-        "dec": 1428
-      },
-      "GRU": {
-        "jan": 1581,
-        "feb": 1581,
-        "mar": 1860,
-        "apr": 1860,
-        "may": 1860,
-        "jun": 2781,
-        "jul": 2781,
-        "aug": 2781,
-        "sep": 2139,
-        "oct": 2139,
-        "nov": 1860,
-        "dec": 2604
-      },
-      "EZE": {
-        "jan": 1632,
-        "feb": 1632,
-        "mar": 1920,
-        "apr": 1920,
-        "may": 1920,
-        "jun": 2870,
-        "jul": 2870,
-        "aug": 2870,
-        "sep": 2208,
-        "oct": 2208,
-        "nov": 1920,
-        "dec": 2688
-      }
-    },
+    "bestTimeDescription": "November to March",
     "tags": [
       "mild",
       "comfortable",
@@ -14886,7 +14532,359 @@
         "Fuel is expensive; supermarket receipts often carry fuel discount vouchers worth using."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&h=600&fit=crop&q=80",
+    "avgFlightPrices": {
+      "JFK": {
+        "jan": 1818,
+        "feb": 1818,
+        "mar": 2139,
+        "apr": 1860,
+        "may": 1860,
+        "jun": 2418,
+        "jul": 2418,
+        "aug": 2418,
+        "sep": 1860,
+        "oct": 1860,
+        "nov": 2139,
+        "dec": 2995
+      },
+      "LAX": {
+        "jan": 1525,
+        "feb": 1525,
+        "mar": 1794,
+        "apr": 1560,
+        "may": 1560,
+        "jun": 2028,
+        "jul": 2028,
+        "aug": 2028,
+        "sep": 1560,
+        "oct": 1560,
+        "nov": 1794,
+        "dec": 2512
+      },
+      "ORD": {
+        "jan": 1701,
+        "feb": 1701,
+        "mar": 2001,
+        "apr": 1740,
+        "may": 1740,
+        "jun": 2262,
+        "jul": 2262,
+        "aug": 2262,
+        "sep": 1740,
+        "oct": 1740,
+        "nov": 2001,
+        "dec": 2801
+      },
+      "SFO": {
+        "jan": 1525,
+        "feb": 1525,
+        "mar": 1794,
+        "apr": 1560,
+        "may": 1560,
+        "jun": 2028,
+        "jul": 2028,
+        "aug": 2028,
+        "sep": 1560,
+        "oct": 1560,
+        "nov": 1794,
+        "dec": 2512
+      },
+      "MIA": {
+        "jan": 1877,
+        "feb": 1877,
+        "mar": 2208,
+        "apr": 1920,
+        "may": 1920,
+        "jun": 2496,
+        "jul": 2496,
+        "aug": 2496,
+        "sep": 1920,
+        "oct": 1920,
+        "nov": 2208,
+        "dec": 3091
+      },
+      "DEN": {
+        "jan": 1642,
+        "feb": 1642,
+        "mar": 1932,
+        "apr": 1680,
+        "may": 1680,
+        "jun": 2184,
+        "jul": 2184,
+        "aug": 2184,
+        "sep": 1680,
+        "oct": 1680,
+        "nov": 1932,
+        "dec": 2705
+      },
+      "SEA": {
+        "jan": 1525,
+        "feb": 1525,
+        "mar": 1794,
+        "apr": 1560,
+        "may": 1560,
+        "jun": 2028,
+        "jul": 2028,
+        "aug": 2028,
+        "sep": 1560,
+        "oct": 1560,
+        "nov": 1794,
+        "dec": 2512
+      },
+      "ATL": {
+        "jan": 1877,
+        "feb": 1877,
+        "mar": 2208,
+        "apr": 1920,
+        "may": 1920,
+        "jun": 2496,
+        "jul": 2496,
+        "aug": 2496,
+        "sep": 1920,
+        "oct": 1920,
+        "nov": 2208,
+        "dec": 3091
+      },
+      "LHR": {
+        "jan": 2170,
+        "feb": 2170,
+        "mar": 2553,
+        "apr": 2220,
+        "may": 2220,
+        "jun": 2886,
+        "jul": 2886,
+        "aug": 2886,
+        "sep": 2220,
+        "oct": 2220,
+        "nov": 2553,
+        "dec": 3574
+      },
+      "CDG": {
+        "jan": 2170,
+        "feb": 2170,
+        "mar": 2553,
+        "apr": 2220,
+        "may": 2220,
+        "jun": 2886,
+        "jul": 2886,
+        "aug": 2886,
+        "sep": 2220,
+        "oct": 2220,
+        "nov": 2553,
+        "dec": 3574
+      },
+      "FRA": {
+        "jan": 2170,
+        "feb": 2170,
+        "mar": 2553,
+        "apr": 2220,
+        "may": 2220,
+        "jun": 2886,
+        "jul": 2886,
+        "aug": 2886,
+        "sep": 2220,
+        "oct": 2220,
+        "nov": 2553,
+        "dec": 3574
+      },
+      "AMS": {
+        "jan": 2170,
+        "feb": 2170,
+        "mar": 2553,
+        "apr": 2220,
+        "may": 2220,
+        "jun": 2886,
+        "jul": 2886,
+        "aug": 2886,
+        "sep": 2220,
+        "oct": 2220,
+        "nov": 2553,
+        "dec": 3574
+      },
+      "MAD": {
+        "jan": 2170,
+        "feb": 2170,
+        "mar": 2553,
+        "apr": 2220,
+        "may": 2220,
+        "jun": 2886,
+        "jul": 2886,
+        "aug": 2886,
+        "sep": 2220,
+        "oct": 2220,
+        "nov": 2553,
+        "dec": 3574
+      },
+      "FCO": {
+        "jan": 2170,
+        "feb": 2170,
+        "mar": 2553,
+        "apr": 2220,
+        "may": 2220,
+        "jun": 2886,
+        "jul": 2886,
+        "aug": 2886,
+        "sep": 2220,
+        "oct": 2220,
+        "nov": 2553,
+        "dec": 3574
+      },
+      "NRT": {
+        "jan": 1408,
+        "feb": 1408,
+        "mar": 1656,
+        "apr": 1440,
+        "may": 1440,
+        "jun": 1872,
+        "jul": 1872,
+        "aug": 1872,
+        "sep": 1440,
+        "oct": 1440,
+        "nov": 1656,
+        "dec": 2318
+      },
+      "PEK": {
+        "jan": 1525,
+        "feb": 1525,
+        "mar": 1794,
+        "apr": 1560,
+        "may": 1560,
+        "jun": 2028,
+        "jul": 2028,
+        "aug": 2028,
+        "sep": 1560,
+        "oct": 1560,
+        "nov": 1794,
+        "dec": 2512
+      },
+      "SIN": {
+        "jan": 1349,
+        "feb": 1349,
+        "mar": 1587,
+        "apr": 1380,
+        "may": 1380,
+        "jun": 1794,
+        "jul": 1794,
+        "aug": 1794,
+        "sep": 1380,
+        "oct": 1380,
+        "nov": 1587,
+        "dec": 2222
+      },
+      "DXB": {
+        "jan": 1759,
+        "feb": 1759,
+        "mar": 2070,
+        "apr": 1800,
+        "may": 1800,
+        "jun": 2340,
+        "jul": 2340,
+        "aug": 2340,
+        "sep": 1800,
+        "oct": 1800,
+        "nov": 2070,
+        "dec": 2898
+      },
+      "HKG": {
+        "jan": 1408,
+        "feb": 1408,
+        "mar": 1656,
+        "apr": 1440,
+        "may": 1440,
+        "jun": 1872,
+        "jul": 1872,
+        "aug": 1872,
+        "sep": 1440,
+        "oct": 1440,
+        "nov": 1656,
+        "dec": 2318
+      },
+      "ICN": {
+        "jan": 1408,
+        "feb": 1408,
+        "mar": 1656,
+        "apr": 1440,
+        "may": 1440,
+        "jun": 1872,
+        "jul": 1872,
+        "aug": 1872,
+        "sep": 1440,
+        "oct": 1440,
+        "nov": 1656,
+        "dec": 2318
+      },
+      "BKK": {
+        "jan": 1408,
+        "feb": 1408,
+        "mar": 1656,
+        "apr": 1440,
+        "may": 1440,
+        "jun": 1872,
+        "jul": 1872,
+        "aug": 1872,
+        "sep": 1440,
+        "oct": 1440,
+        "nov": 1656,
+        "dec": 2318
+      },
+      "SYD": {
+        "jan": 938,
+        "feb": 938,
+        "mar": 1104,
+        "apr": 960,
+        "may": 960,
+        "jun": 1248,
+        "jul": 1248,
+        "aug": 1248,
+        "sep": 960,
+        "oct": 960,
+        "nov": 1104,
+        "dec": 1546
+      },
+      "MEL": {
+        "jan": 997,
+        "feb": 997,
+        "mar": 1173,
+        "apr": 1020,
+        "may": 1020,
+        "jun": 1326,
+        "jul": 1326,
+        "aug": 1326,
+        "sep": 1020,
+        "oct": 1020,
+        "nov": 1173,
+        "dec": 1642
+      },
+      "GRU": {
+        "jan": 1818,
+        "feb": 1818,
+        "mar": 2139,
+        "apr": 1860,
+        "may": 1860,
+        "jun": 2418,
+        "jul": 2418,
+        "aug": 2418,
+        "sep": 1860,
+        "oct": 1860,
+        "nov": 2139,
+        "dec": 2995
+      },
+      "EZE": {
+        "jan": 1877,
+        "feb": 1877,
+        "mar": 2208,
+        "apr": 1920,
+        "may": 1920,
+        "jun": 2496,
+        "jul": 2496,
+        "aug": 2496,
+        "sep": 1920,
+        "oct": 1920,
+        "nov": 2208,
+        "dec": 3091
+      }
+    }
   },
   {
     "id": "argentina-patagonia",
@@ -15300,12 +15298,11 @@
       }
     },
     "tags": [
-      "snow",
-      "winter",
-      "skiing",
+      "hiking",
+      "trekking",
+      "outdoors",
       "varied",
-      "diverse",
-      "hiking"
+      "diverse"
     ],
     "highlights": [
       "Watch Perito Moreno Glacier calve from the walkways",
@@ -17328,7 +17325,7 @@
         {
           "type": "JR Pass",
           "description": "Unlimited rail travel including Shinkansen. Must buy before arriving.",
-          "cost": "$470/14 days"
+          "cost": "$530/14 days"
         },
         {
           "type": "Metro/Subway",
@@ -17776,13 +17773,11 @@
       }
     },
     "tags": [
-      "beach",
-      "tropical",
       "warm",
       "city",
       "culture",
-      "museums",
-      "food"
+      "food",
+      "family"
     ],
     "highlights": [
       "Two parks a 100-foot walk apart at one esplanade",
@@ -18273,12 +18268,11 @@
       }
     },
     "tags": [
-      "beach",
-      "tropical",
+      "desert",
       "warm",
       "city",
+      "neon",
       "culture",
-      "museums",
       "food"
     ],
     "highlights": [
@@ -20846,7 +20840,7 @@
   },
   {
     "id": "vancouver-victoria",
-    "name": "Vancouver & Victoria Island",
+    "name": "Vancouver & Victoria",
     "duration": 6,
     "itinerarySummary": "Explore downtown Vancouver and ferry to Victoria for gardens and coastal walks",
     "considerations": "Border crossing into Canada may require passport and customs time",
@@ -22341,7 +22335,7 @@
     "duration": 7,
     "itinerarySummary": "Explore Halifax Bay of Fundy and Cape Breton Island by car",
     "considerations": "Driving required to access many key natural sights",
-    "visaRequirements": "eTA required for US travelers by air",
+    "visaRequirements": "No visa or eTA required for US citizens; a valid US passport is enough",
     "countries": [
       "Canada"
     ],
@@ -23332,7 +23326,7 @@
     "duration": 7,
     "itinerarySummary": "Hike turquoise lakes and mountain trails in the Canadian Rockies",
     "considerations": "Requires car rental for full access some roads may close early due to snow",
-    "visaRequirements": "eTA required for US travelers by air",
+    "visaRequirements": "No visa or eTA required for US citizens, valid passport only",
     "countries": [
       "Canada"
     ],
@@ -24329,7 +24323,7 @@
     "duration": 7,
     "itinerarySummary": "Explore Havana Vinales and Trinidad with cultural stops and beach time",
     "considerations": "US citizens must qualify under permitted travel categories and keep records",
-    "visaRequirements": "Tourist card required even for US citizens",
+    "visaRequirements": "eVisa required for US citizens; it replaced the paper tourist card in July 2025",
     "countries": [
       "Cuba"
     ],
@@ -24844,7 +24838,7 @@
       "CDG": 11,
       "FRA": 11,
       "AMS": 10,
-      "NRT": 8,
+      "NRT": 15,
       "PEK": 10,
       "SIN": 14,
       "DXB": 15,
@@ -25288,7 +25282,7 @@
         },
         {
           "type": "Denali park shuttle bus",
-          "description": "Private cars are barred past mile 15; transit buses run deep into the park.",
+          "description": "Private cars are barred past mile 15; transit buses run to mile 43 until the Pretty Rocks bridge fully reopens the road, expected 2027.",
           "cost": "$35-65 per person"
         }
       ]
@@ -25310,7 +25304,7 @@
         "Book summer lodging, cars, and Denali buses 4-6 months out; June-August sells out.",
         "Shoulder season (May, early September) cuts prices 20-40% with fewer crowds.",
         "Grocery stores in Anchorage are far cheaper than anything near the parks; stock up.",
-        "An America the Beautiful pass ($80) covers Denali and Kenai Fjords entries."
+        "Denali charges a $15 per person entry fee good for 7 days; Kenai Fjords has no entrance fee at all"
       ]
     },
     "imageUrl": "https://images.unsplash.com/photo-1605415465800-59cfda79a675?w=800&h=600&fit=crop&q=80"
@@ -26766,7 +26760,7 @@
         {
           "type": "Swiss Travel Pass",
           "description": "Unlimited trains, buses, and boats plus most museums; discounts on mountain railways like Jungfraujoch.",
-          "cost": "~$290 for 4 days, ~$350 for 8"
+          "cost": "~$290 for 4 days, ~$460 for 8"
         },
         {
           "type": "Point-to-point trains (SBB)",
@@ -26808,7 +26802,7 @@
     "duration": 9,
     "itinerarySummary": "Explore cloud forests beaches and volcanoes around Arenal and Monteverde",
     "considerations": "Rainy season lasts from May to November best to go during dry months",
-    "visaRequirements": "No visa required for US citizens for up to 90 days",
+    "visaRequirements": "No visa required for US citizens for stays up to 180 days",
     "countries": [
       "Costa Rica"
     ],
@@ -27711,9 +27705,10 @@
       }
     },
     "tags": [
-      "snow",
-      "winter",
-      "skiing",
+      "fjords",
+      "cruise",
+      "trains",
+      "hiking",
       "varied",
       "diverse"
     ],
@@ -27839,10 +27834,10 @@
       "EZE": 5
     },
     "bestMonths": {
-      "jan": 0,
+      "jan": 1,
       "feb": 1,
       "mar": 1,
-      "apr": 1,
+      "apr": 0,
       "may": 0,
       "jun": 0,
       "jul": 0,
@@ -27850,361 +27845,9 @@
       "sep": 0,
       "oct": 0,
       "nov": 0,
-      "dec": 0
+      "dec": 1
     },
     "bestTimeDescription": "Dec Jan Feb Mar",
-    "avgFlightPrices": {
-      "JFK": {
-        "jan": 638,
-        "feb": 733,
-        "mar": 862,
-        "apr": 862,
-        "may": 750,
-        "jun": 975,
-        "jul": 975,
-        "aug": 975,
-        "sep": 750,
-        "oct": 750,
-        "nov": 750,
-        "dec": 1050
-      },
-      "LAX": {
-        "jan": 621,
-        "feb": 714,
-        "mar": 839,
-        "apr": 839,
-        "may": 730,
-        "jun": 949,
-        "jul": 949,
-        "aug": 949,
-        "sep": 730,
-        "oct": 730,
-        "nov": 730,
-        "dec": 1022
-      },
-      "ORD": {
-        "jan": 536,
-        "feb": 616,
-        "mar": 725,
-        "apr": 725,
-        "may": 630,
-        "jun": 819,
-        "jul": 819,
-        "aug": 819,
-        "sep": 630,
-        "oct": 630,
-        "nov": 630,
-        "dec": 882
-      },
-      "SFO": {
-        "jan": 595,
-        "feb": 684,
-        "mar": 805,
-        "apr": 805,
-        "may": 700,
-        "jun": 910,
-        "jul": 910,
-        "aug": 910,
-        "sep": 700,
-        "oct": 700,
-        "nov": 700,
-        "dec": 980
-      },
-      "MIA": {
-        "jan": 476,
-        "feb": 547,
-        "mar": 644,
-        "apr": 644,
-        "may": 560,
-        "jun": 728,
-        "jul": 728,
-        "aug": 728,
-        "sep": 560,
-        "oct": 560,
-        "nov": 560,
-        "dec": 784
-      },
-      "DEN": {
-        "jan": 565,
-        "feb": 650,
-        "mar": 765,
-        "apr": 765,
-        "may": 665,
-        "jun": 865,
-        "jul": 865,
-        "aug": 865,
-        "sep": 665,
-        "oct": 665,
-        "nov": 665,
-        "dec": 931
-      },
-      "SEA": {
-        "jan": 595,
-        "feb": 684,
-        "mar": 805,
-        "apr": 805,
-        "may": 700,
-        "jun": 910,
-        "jul": 910,
-        "aug": 910,
-        "sep": 700,
-        "oct": 700,
-        "nov": 700,
-        "dec": 980
-      },
-      "ATL": {
-        "jan": 506,
-        "feb": 582,
-        "mar": 684,
-        "apr": 684,
-        "may": 595,
-        "jun": 774,
-        "jul": 774,
-        "aug": 774,
-        "sep": 595,
-        "oct": 595,
-        "nov": 595,
-        "dec": 833
-      },
-      "LHR": {
-        "jan": 714,
-        "feb": 821,
-        "mar": 966,
-        "apr": 966,
-        "may": 840,
-        "jun": 1092,
-        "jul": 1092,
-        "aug": 1092,
-        "sep": 840,
-        "oct": 840,
-        "nov": 840,
-        "dec": 1176
-      },
-      "CDG": {
-        "jan": 714,
-        "feb": 821,
-        "mar": 966,
-        "apr": 966,
-        "may": 840,
-        "jun": 1092,
-        "jul": 1092,
-        "aug": 1092,
-        "sep": 840,
-        "oct": 840,
-        "nov": 840,
-        "dec": 1176
-      },
-      "FRA": {
-        "jan": 744,
-        "feb": 855,
-        "mar": 1006,
-        "apr": 1006,
-        "may": 875,
-        "jun": 1138,
-        "jul": 1138,
-        "aug": 1138,
-        "sep": 875,
-        "oct": 875,
-        "nov": 875,
-        "dec": 1225
-      },
-      "AMS": {
-        "jan": 714,
-        "feb": 821,
-        "mar": 966,
-        "apr": 966,
-        "may": 840,
-        "jun": 1092,
-        "jul": 1092,
-        "aug": 1092,
-        "sep": 840,
-        "oct": 840,
-        "nov": 840,
-        "dec": 1176
-      },
-      "MAD": {
-        "jan": 655,
-        "feb": 753,
-        "mar": 885,
-        "apr": 885,
-        "may": 770,
-        "jun": 1001,
-        "jul": 1001,
-        "aug": 1001,
-        "sep": 770,
-        "oct": 770,
-        "nov": 770,
-        "dec": 1078
-      },
-      "FCO": {
-        "jan": 744,
-        "feb": 855,
-        "mar": 1006,
-        "apr": 1006,
-        "may": 875,
-        "jun": 1138,
-        "jul": 1138,
-        "aug": 1138,
-        "sep": 875,
-        "oct": 875,
-        "nov": 875,
-        "dec": 1225
-      },
-      "NRT": {
-        "jan": 922,
-        "feb": 1061,
-        "mar": 1248,
-        "apr": 1248,
-        "may": 1085,
-        "jun": 1411,
-        "jul": 1411,
-        "aug": 1411,
-        "sep": 1085,
-        "oct": 1085,
-        "nov": 1085,
-        "dec": 1519
-      },
-      "PEK": {
-        "jan": 982,
-        "feb": 1129,
-        "mar": 1328,
-        "apr": 1328,
-        "may": 1155,
-        "jun": 1502,
-        "jul": 1502,
-        "aug": 1502,
-        "sep": 1155,
-        "oct": 1155,
-        "nov": 1155,
-        "dec": 1617
-      },
-      "SIN": {
-        "jan": 1041,
-        "feb": 1197,
-        "mar": 1409,
-        "apr": 1409,
-        "may": 1225,
-        "jun": 1593,
-        "jul": 1593,
-        "aug": 1593,
-        "sep": 1225,
-        "oct": 1225,
-        "nov": 1225,
-        "dec": 1715
-      },
-      "DXB": {
-        "jan": 893,
-        "feb": 1026,
-        "mar": 1208,
-        "apr": 1208,
-        "may": 1050,
-        "jun": 1365,
-        "jul": 1365,
-        "aug": 1365,
-        "sep": 1050,
-        "oct": 1050,
-        "nov": 1050,
-        "dec": 1470
-      },
-      "HKG": {
-        "jan": 982,
-        "feb": 1129,
-        "mar": 1328,
-        "apr": 1328,
-        "may": 1155,
-        "jun": 1502,
-        "jul": 1502,
-        "aug": 1502,
-        "sep": 1155,
-        "oct": 1155,
-        "nov": 1155,
-        "dec": 1617
-      },
-      "ICN": {
-        "jan": 922,
-        "feb": 1061,
-        "mar": 1248,
-        "apr": 1248,
-        "may": 1085,
-        "jun": 1411,
-        "jul": 1411,
-        "aug": 1411,
-        "sep": 1085,
-        "oct": 1085,
-        "nov": 1085,
-        "dec": 1519
-      },
-      "BKK": {
-        "jan": 1071,
-        "feb": 1232,
-        "mar": 1449,
-        "apr": 1449,
-        "may": 1260,
-        "jun": 1638,
-        "jul": 1638,
-        "aug": 1638,
-        "sep": 1260,
-        "oct": 1260,
-        "nov": 1260,
-        "dec": 1764
-      },
-      "SYD": {
-        "jan": 952,
-        "feb": 1095,
-        "mar": 1288,
-        "apr": 1288,
-        "may": 1120,
-        "jun": 1456,
-        "jul": 1456,
-        "aug": 1456,
-        "sep": 1120,
-        "oct": 1120,
-        "nov": 1120,
-        "dec": 1568
-      },
-      "MEL": {
-        "jan": 982,
-        "feb": 1129,
-        "mar": 1328,
-        "apr": 1328,
-        "may": 1155,
-        "jun": 1502,
-        "jul": 1502,
-        "aug": 1502,
-        "sep": 1155,
-        "oct": 1155,
-        "nov": 1155,
-        "dec": 1617
-      },
-      "GRU": {
-        "jan": 565,
-        "feb": 650,
-        "mar": 765,
-        "apr": 765,
-        "may": 665,
-        "jun": 865,
-        "jul": 865,
-        "aug": 865,
-        "sep": 665,
-        "oct": 665,
-        "nov": 665,
-        "dec": 931
-      },
-      "EZE": {
-        "jan": 536,
-        "feb": 616,
-        "mar": 725,
-        "apr": 725,
-        "may": 630,
-        "jun": 819,
-        "jul": 819,
-        "aug": 819,
-        "sep": 630,
-        "oct": 630,
-        "nov": 630,
-        "dec": 882
-      }
-    },
     "tags": [
       "mild",
       "comfortable",
@@ -28286,7 +27929,359 @@
         "Carry small pesos bills; cards work in cities but not small towns"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1568632234157-ce7aecd03d0d?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1568632234157-ce7aecd03d0d?w=800&h=600&fit=crop&q=80",
+    "avgFlightPrices": {
+      "JFK": {
+        "jan": 616,
+        "feb": 616,
+        "mar": 725,
+        "apr": 630,
+        "may": 630,
+        "jun": 819,
+        "jul": 819,
+        "aug": 819,
+        "sep": 630,
+        "oct": 630,
+        "nov": 630,
+        "dec": 1014
+      },
+      "LAX": {
+        "jan": 684,
+        "feb": 684,
+        "mar": 805,
+        "apr": 700,
+        "may": 700,
+        "jun": 910,
+        "jul": 910,
+        "aug": 910,
+        "sep": 700,
+        "oct": 700,
+        "nov": 700,
+        "dec": 1127
+      },
+      "ORD": {
+        "jan": 616,
+        "feb": 616,
+        "mar": 725,
+        "apr": 630,
+        "may": 630,
+        "jun": 819,
+        "jul": 819,
+        "aug": 819,
+        "sep": 630,
+        "oct": 630,
+        "nov": 630,
+        "dec": 1014
+      },
+      "SFO": {
+        "jan": 684,
+        "feb": 684,
+        "mar": 805,
+        "apr": 700,
+        "may": 700,
+        "jun": 910,
+        "jul": 910,
+        "aug": 910,
+        "sep": 700,
+        "oct": 700,
+        "nov": 700,
+        "dec": 1127
+      },
+      "MIA": {
+        "jan": 547,
+        "feb": 547,
+        "mar": 644,
+        "apr": 560,
+        "may": 560,
+        "jun": 728,
+        "jul": 728,
+        "aug": 728,
+        "sep": 560,
+        "oct": 560,
+        "nov": 560,
+        "dec": 902
+      },
+      "DEN": {
+        "jan": 650,
+        "feb": 650,
+        "mar": 765,
+        "apr": 665,
+        "may": 665,
+        "jun": 865,
+        "jul": 865,
+        "aug": 865,
+        "sep": 665,
+        "oct": 665,
+        "nov": 665,
+        "dec": 1071
+      },
+      "SEA": {
+        "jan": 684,
+        "feb": 684,
+        "mar": 805,
+        "apr": 700,
+        "may": 700,
+        "jun": 910,
+        "jul": 910,
+        "aug": 910,
+        "sep": 700,
+        "oct": 700,
+        "nov": 700,
+        "dec": 1127
+      },
+      "ATL": {
+        "jan": 582,
+        "feb": 582,
+        "mar": 684,
+        "apr": 595,
+        "may": 595,
+        "jun": 774,
+        "jul": 774,
+        "aug": 774,
+        "sep": 595,
+        "oct": 595,
+        "nov": 595,
+        "dec": 958
+      },
+      "LHR": {
+        "jan": 821,
+        "feb": 821,
+        "mar": 966,
+        "apr": 840,
+        "may": 840,
+        "jun": 1092,
+        "jul": 1092,
+        "aug": 1092,
+        "sep": 840,
+        "oct": 840,
+        "nov": 840,
+        "dec": 1352
+      },
+      "CDG": {
+        "jan": 821,
+        "feb": 821,
+        "mar": 966,
+        "apr": 840,
+        "may": 840,
+        "jun": 1092,
+        "jul": 1092,
+        "aug": 1092,
+        "sep": 840,
+        "oct": 840,
+        "nov": 840,
+        "dec": 1352
+      },
+      "FRA": {
+        "jan": 855,
+        "feb": 855,
+        "mar": 1006,
+        "apr": 875,
+        "may": 875,
+        "jun": 1138,
+        "jul": 1138,
+        "aug": 1138,
+        "sep": 875,
+        "oct": 875,
+        "nov": 875,
+        "dec": 1409
+      },
+      "AMS": {
+        "jan": 821,
+        "feb": 821,
+        "mar": 966,
+        "apr": 840,
+        "may": 840,
+        "jun": 1092,
+        "jul": 1092,
+        "aug": 1092,
+        "sep": 840,
+        "oct": 840,
+        "nov": 840,
+        "dec": 1352
+      },
+      "MAD": {
+        "jan": 753,
+        "feb": 753,
+        "mar": 885,
+        "apr": 770,
+        "may": 770,
+        "jun": 1001,
+        "jul": 1001,
+        "aug": 1001,
+        "sep": 770,
+        "oct": 770,
+        "nov": 770,
+        "dec": 1240
+      },
+      "FCO": {
+        "jan": 855,
+        "feb": 855,
+        "mar": 1006,
+        "apr": 875,
+        "may": 875,
+        "jun": 1138,
+        "jul": 1138,
+        "aug": 1138,
+        "sep": 875,
+        "oct": 875,
+        "nov": 875,
+        "dec": 1409
+      },
+      "NRT": {
+        "jan": 1061,
+        "feb": 1061,
+        "mar": 1248,
+        "apr": 1085,
+        "may": 1085,
+        "jun": 1411,
+        "jul": 1411,
+        "aug": 1411,
+        "sep": 1085,
+        "oct": 1085,
+        "nov": 1085,
+        "dec": 1747
+      },
+      "PEK": {
+        "jan": 1129,
+        "feb": 1129,
+        "mar": 1328,
+        "apr": 1155,
+        "may": 1155,
+        "jun": 1502,
+        "jul": 1502,
+        "aug": 1502,
+        "sep": 1155,
+        "oct": 1155,
+        "nov": 1155,
+        "dec": 1860
+      },
+      "SIN": {
+        "jan": 1197,
+        "feb": 1197,
+        "mar": 1409,
+        "apr": 1225,
+        "may": 1225,
+        "jun": 1593,
+        "jul": 1593,
+        "aug": 1593,
+        "sep": 1225,
+        "oct": 1225,
+        "nov": 1225,
+        "dec": 1972
+      },
+      "DXB": {
+        "jan": 1026,
+        "feb": 1026,
+        "mar": 1208,
+        "apr": 1050,
+        "may": 1050,
+        "jun": 1365,
+        "jul": 1365,
+        "aug": 1365,
+        "sep": 1050,
+        "oct": 1050,
+        "nov": 1050,
+        "dec": 1690
+      },
+      "HKG": {
+        "jan": 1129,
+        "feb": 1129,
+        "mar": 1328,
+        "apr": 1155,
+        "may": 1155,
+        "jun": 1502,
+        "jul": 1502,
+        "aug": 1502,
+        "sep": 1155,
+        "oct": 1155,
+        "nov": 1155,
+        "dec": 1860
+      },
+      "ICN": {
+        "jan": 1061,
+        "feb": 1061,
+        "mar": 1248,
+        "apr": 1085,
+        "may": 1085,
+        "jun": 1411,
+        "jul": 1411,
+        "aug": 1411,
+        "sep": 1085,
+        "oct": 1085,
+        "nov": 1085,
+        "dec": 1747
+      },
+      "BKK": {
+        "jan": 1232,
+        "feb": 1232,
+        "mar": 1449,
+        "apr": 1260,
+        "may": 1260,
+        "jun": 1638,
+        "jul": 1638,
+        "aug": 1638,
+        "sep": 1260,
+        "oct": 1260,
+        "nov": 1260,
+        "dec": 2029
+      },
+      "SYD": {
+        "jan": 1095,
+        "feb": 1095,
+        "mar": 1288,
+        "apr": 1120,
+        "may": 1120,
+        "jun": 1456,
+        "jul": 1456,
+        "aug": 1456,
+        "sep": 1120,
+        "oct": 1120,
+        "nov": 1120,
+        "dec": 1803
+      },
+      "MEL": {
+        "jan": 1129,
+        "feb": 1129,
+        "mar": 1328,
+        "apr": 1155,
+        "may": 1155,
+        "jun": 1502,
+        "jul": 1502,
+        "aug": 1502,
+        "sep": 1155,
+        "oct": 1155,
+        "nov": 1155,
+        "dec": 1860
+      },
+      "GRU": {
+        "jan": 650,
+        "feb": 650,
+        "mar": 765,
+        "apr": 665,
+        "may": 665,
+        "jun": 865,
+        "jul": 865,
+        "aug": 865,
+        "sep": 665,
+        "oct": 665,
+        "nov": 665,
+        "dec": 1071
+      },
+      "EZE": {
+        "jan": 616,
+        "feb": 616,
+        "mar": 725,
+        "apr": 630,
+        "may": 630,
+        "jun": 819,
+        "jul": 819,
+        "aug": 819,
+        "sep": 630,
+        "oct": 630,
+        "nov": 630,
+        "dec": 1014
+      }
+    }
   },
   {
     "id": "peru-no-inca",
@@ -29288,7 +29283,7 @@
     "duration": 12,
     "itinerarySummary": "Snorkel the reef visit Sydney and roadtrip up or down the east coast",
     "considerations": "Long travel time and reef is experiencing bleaching events",
-    "visaRequirements": "eVisitor visa required for US citizens",
+    "visaRequirements": "ETA (subclass 601) required for US citizens, about AUD 20 via the Australian ETA app",
     "countries": [
       "Australia"
     ],
@@ -30282,7 +30277,7 @@
     "duration": 7,
     "itinerarySummary": "Explore Big Ben Buckingham Palace the British Museum Tower of London and West End shows",
     "considerations": "Weather can be unpredictable pack layers and an umbrella",
-    "visaRequirements": "No visa required for US citizens for stays under 6 months",
+    "visaRequirements": "No visa for US citizens under 6 months but a UK ETA must be approved online before travel",
     "countries": [
       "United Kingdom"
     ],
@@ -30779,7 +30774,7 @@
     "duration": 9,
     "itinerarySummary": "Visit Gaudi architecture in Barcelona then take high-speed rail to Madrid for museums and tapas",
     "considerations": "Very hot in summer siesta culture means some shops close midday",
-    "visaRequirements": "No visa required for US citizens up to 90 days in Schengen",
+    "visaRequirements": "No visa required for US citizens up to 90 days in Schengen; ETIAS travel authorization (about $22) phases in from late 2026",
     "countries": [
       "Spain"
     ],
@@ -31277,7 +31272,7 @@
     "duration": 10,
     "itinerarySummary": "Visit Bangkok temples then explore Chiang Mai and relax on islands like Phuket or Koh Samui",
     "considerations": "Monsoon season varies by region respectful dress at temples required",
-    "visaRequirements": "No visa required for US citizens up to 30 days",
+    "visaRequirements": "No visa required for US citizens up to 60 days; complete the free Thailand Digital Arrival Card online within 72 hours before arrival",
     "countries": [
       "Thailand"
     ],
@@ -31827,7 +31822,7 @@
       "nov": 1,
       "dec": 1
     },
-    "bestTimeDescription": "October to April",
+    "bestTimeDescription": "October to April for Hanoi and Saigon; expect heavy rain and possible flooding in Hue and Hoi An from October to December",
     "avgFlightPrices": {
       "JFK": {
         "jan": 635,
@@ -32758,7 +32753,7 @@
         "Check transfer costs before booking; seaplanes add hundreds per person.",
         "Guesthouses on local islands like Maafushi cut costs by 80 percent.",
         "Half-board or all-inclusive usually pays off since resorts are captive.",
-        "Expect 10 percent service charge plus 16 percent TGST on resort bills."
+        "Expect 10 percent service charge plus 17 percent TGST on resort bills."
       ]
     },
     "imageUrl": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop&q=80"
@@ -33764,7 +33759,7 @@
     "duration": 8,
     "itinerarySummary": "Visit Edinburgh castles explore the Highlands and Isle of Skye and sample whisky",
     "considerations": "Weather is unpredictable midges can be annoying in summer",
-    "visaRequirements": "No visa required for US citizens for stays under 6 months",
+    "visaRequirements": "No visa but a UK ETA (about $27, apply online before travel) required for US citizens for stays under 6 months",
     "countries": [
       "United Kingdom"
     ],
@@ -33784,7 +33779,7 @@
       "CDG": 2,
       "FRA": 2,
       "AMS": 2,
-      "NRT": 13,
+      "NRT": 17,
       "PEK": 12,
       "SIN": 14,
       "DXB": 8,
@@ -35251,7 +35246,7 @@
     "duration": 9,
     "itinerarySummary": "Experience the Great Migration in Masai Mara visit Lake Nakuru and explore Nairobi",
     "considerations": "Safari timing matters for wildlife best during migration July-October",
-    "visaRequirements": "E-visa required for US citizens",
+    "visaRequirements": "eTA required for US citizens, about $34, apply online at least 3 days before travel",
     "countries": [
       "Kenya"
     ],
@@ -35748,7 +35743,7 @@
     "duration": 10,
     "itinerarySummary": "Safari in Serengeti and Ngorongoro Crater then relax on Zanzibar beaches",
     "considerations": "Yellow fever vaccination recommended safari and beach combo is popular",
-    "visaRequirements": "Visa required for US citizens available on arrival",
+    "visaRequirements": "Visa required for US citizens, $100 multiple-entry, apply online as an eVisa or on arrival",
     "countries": [
       "Tanzania"
     ],
@@ -36741,7 +36736,7 @@
     "id": "taiwan",
     "name": "Taiwan",
     "duration": 8,
-    "itinerarySummary": "Visit Taipei night markets Taroko Gorge Sun Moon Lake and explore temples and food scenes",
+    "itinerarySummary": "Visit Taipei night markets Sun Moon Lake Alishan and explore temples and food scenes",
     "considerations": "Typhoon season June to October very friendly locals excellent food",
     "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
@@ -37158,7 +37153,7 @@
     ],
     "highlights": [
       "Night market crawls from Shilin to Raohe",
-      "Marble canyon walls of Taroko Gorge",
+      "Sunrise above the tea fields on the Alishan forest railway",
       "Sun Moon Lake by bike, boat, and ropeway",
       "Beef noodle soup, xiaolongbao, and bubble tea at the source"
     ],
@@ -37174,7 +37169,7 @@
       },
       {
         "name": "Hualien",
-        "description": "Laid-back east coast city and the gateway to Taroko Gorge's marble cliffs and Qingshui coastal drives.",
+        "description": "Laid-back east coast city near Qingshui coastal drives; its Taroko Gorge trails remain mostly closed since the 2024 earthquake.",
         "bestFor": [
           "nature",
           "hiking",
@@ -37228,7 +37223,7 @@
         "Get an EasyCard at the airport; it works on MRT, buses, trains, and 7-Eleven.",
         "Night markets are dinner: full meals of skewers and noodles for $5-8.",
         "Book THSR early-bird tickets 5-28 days out for up to 35 percent off.",
-        "Reserve Taroko Gorge trail permits and check trail status; sections close after quakes."
+        "Most Taroko Gorge trails remain closed after the 2024 earthquake; check the park website before routing through Hualien."
       ]
     },
     "imageUrl": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&h=600&fit=crop&q=80"
@@ -38198,7 +38193,7 @@
         },
         {
           "type": "BIXI bike share",
-          "description": "Montreal's docked bike network, April through November, with e-bikes at most stations.",
+          "description": "Montreal's docked bike network, now running year-round with a studded-tire winter fleet, with e-bikes at most stations.",
           "cost": "~$1 unlock plus ~$0.15/min"
         }
       ]
@@ -38728,7 +38723,7 @@
     "duration": 12,
     "itinerarySummary": "Loop from the cultural triangle's rock fortresses through hill country tea trains down to south-coast beaches",
     "considerations": "Two monsoon systems mean the best coast depends on season, and road travel is slow despite short distances",
-    "visaRequirements": "ETA required for US citizens, apply online before arrival, ~$50 for 30 days",
+    "visaRequirements": "ETA required for US citizens, apply online before arrival, free for 30 days",
     "countries": [
       "Sri Lanka"
     ],
@@ -40268,7 +40263,7 @@
       "sep": 0,
       "oct": 0,
       "nov": 0,
-      "dec": 0
+      "dec": 1
     },
     "bestTimeDescription": "December to March is driest for KL and Penang; June to August suits a Borneo add-on",
     "tags": [
@@ -40355,6 +40350,7 @@
         "Budget airline bags cost extra; pack carry-on only for internal hops"
       ]
     },
+    "imageUrl": "https://images.unsplash.com/photo-1554846157-b9e7eb178e02?w=800&h=600&fit=crop&q=80",
     "avgFlightPrices": {
       "JFK": {
         "jan": 1163,
@@ -40368,7 +40364,7 @@
         "sep": 1190,
         "oct": 1190,
         "nov": 1190,
-        "dec": 1666
+        "dec": 1916
       },
       "LAX": {
         "jan": 1095,
@@ -40382,7 +40378,7 @@
         "sep": 1120,
         "oct": 1120,
         "nov": 1120,
-        "dec": 1568
+        "dec": 1803
       },
       "ORD": {
         "jan": 1163,
@@ -40396,7 +40392,7 @@
         "sep": 1190,
         "oct": 1190,
         "nov": 1190,
-        "dec": 1666
+        "dec": 1916
       },
       "SFO": {
         "jan": 1061,
@@ -40410,7 +40406,7 @@
         "sep": 1085,
         "oct": 1085,
         "nov": 1085,
-        "dec": 1519
+        "dec": 1747
       },
       "MIA": {
         "jan": 1197,
@@ -40424,7 +40420,7 @@
         "sep": 1225,
         "oct": 1225,
         "nov": 1225,
-        "dec": 1715
+        "dec": 1972
       },
       "DEN": {
         "jan": 1129,
@@ -40438,7 +40434,7 @@
         "sep": 1155,
         "oct": 1155,
         "nov": 1155,
-        "dec": 1617
+        "dec": 1860
       },
       "SEA": {
         "jan": 1061,
@@ -40452,7 +40448,7 @@
         "sep": 1085,
         "oct": 1085,
         "nov": 1085,
-        "dec": 1519
+        "dec": 1747
       },
       "ATL": {
         "jan": 1197,
@@ -40466,7 +40462,7 @@
         "sep": 1225,
         "oct": 1225,
         "nov": 1225,
-        "dec": 1715
+        "dec": 1972
       },
       "LHR": {
         "jan": 890,
@@ -40480,7 +40476,7 @@
         "sep": 910,
         "oct": 910,
         "nov": 910,
-        "dec": 1274
+        "dec": 1465
       },
       "CDG": {
         "jan": 924,
@@ -40494,7 +40490,7 @@
         "sep": 945,
         "oct": 945,
         "nov": 945,
-        "dec": 1323
+        "dec": 1521
       },
       "FRA": {
         "jan": 890,
@@ -40508,7 +40504,7 @@
         "sep": 910,
         "oct": 910,
         "nov": 910,
-        "dec": 1274
+        "dec": 1465
       },
       "AMS": {
         "jan": 890,
@@ -40522,7 +40518,7 @@
         "sep": 910,
         "oct": 910,
         "nov": 910,
-        "dec": 1274
+        "dec": 1465
       },
       "MAD": {
         "jan": 924,
@@ -40536,7 +40532,7 @@
         "sep": 945,
         "oct": 945,
         "nov": 945,
-        "dec": 1323
+        "dec": 1521
       },
       "FCO": {
         "jan": 890,
@@ -40550,7 +40546,7 @@
         "sep": 910,
         "oct": 910,
         "nov": 910,
-        "dec": 1274
+        "dec": 1465
       },
       "NRT": {
         "jan": 684,
@@ -40564,7 +40560,7 @@
         "sep": 700,
         "oct": 700,
         "nov": 700,
-        "dec": 980
+        "dec": 1127
       },
       "PEK": {
         "jan": 650,
@@ -40578,7 +40574,7 @@
         "sep": 665,
         "oct": 665,
         "nov": 665,
-        "dec": 931
+        "dec": 1071
       },
       "SIN": {
         "jan": 479,
@@ -40592,7 +40588,7 @@
         "sep": 490,
         "oct": 490,
         "nov": 490,
-        "dec": 686
+        "dec": 789
       },
       "DXB": {
         "jan": 684,
@@ -40606,7 +40602,7 @@
         "sep": 700,
         "oct": 700,
         "nov": 700,
-        "dec": 980
+        "dec": 1127
       },
       "HKG": {
         "jan": 582,
@@ -40620,7 +40616,7 @@
         "sep": 595,
         "oct": 595,
         "nov": 595,
-        "dec": 833
+        "dec": 958
       },
       "ICN": {
         "jan": 684,
@@ -40634,7 +40630,7 @@
         "sep": 700,
         "oct": 700,
         "nov": 700,
-        "dec": 980
+        "dec": 1127
       },
       "BKK": {
         "jan": 513,
@@ -40648,7 +40644,7 @@
         "sep": 525,
         "oct": 525,
         "nov": 525,
-        "dec": 735
+        "dec": 845
       },
       "SYD": {
         "jan": 718,
@@ -40662,7 +40658,7 @@
         "sep": 735,
         "oct": 735,
         "nov": 735,
-        "dec": 1029
+        "dec": 1183
       },
       "MEL": {
         "jan": 753,
@@ -40676,7 +40672,7 @@
         "sep": 770,
         "oct": 770,
         "nov": 770,
-        "dec": 1078
+        "dec": 1240
       },
       "GRU": {
         "jan": 1300,
@@ -40690,7 +40686,7 @@
         "sep": 1330,
         "oct": 1330,
         "nov": 1330,
-        "dec": 1862
+        "dec": 2141
       },
       "EZE": {
         "jan": 1334,
@@ -40704,10 +40700,9 @@
         "sep": 1365,
         "oct": 1365,
         "nov": 1365,
-        "dec": 1911
+        "dec": 2198
       }
-    },
-    "imageUrl": "https://images.unsplash.com/photo-1554846157-b9e7eb178e02?w=800&h=600&fit=crop&q=80"
+    }
   },
   {
     "id": "laos",
@@ -45682,7 +45677,7 @@
     "duration": 8,
     "itinerarySummary": "Road-trip Transylvania's castles from Bran to Peles, wander medieval Brasov and Sibiu, and finish in Bucharest",
     "considerations": "Rural roads are slow and horse carts common, trains are cheap but dated, and summer weekends pack Bran Castle",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
+    "visaRequirements": "No visa required for US citizens up to 90 days; ETIAS travel authorization (about $22) phases in from late 2026",
     "countries": [
       "Romania"
     ],
@@ -45753,7 +45748,7 @@
     "neighborhoods": [
       {
         "name": "Brasov Old Town",
-        "description": "Gothic Black Church, Council Square cafes, and a base 30 minutes from Bran and Peles castles.",
+        "description": "Gothic Black Church, Council Square cafes, and a base 30 minutes from Bran castle and an hour from Peles.",
         "bestFor": [
           "castles base",
           "medieval streets",
@@ -46308,7 +46303,7 @@
         "luxury": "$100+"
       },
       "activities": "$5-15 fort entries, $100-200 desert camp with meals",
-      "transport": "$60-100/day 4x4 rental, fuel ~$1.60/gallon",
+      "transport": "$60-100/day 4x4 rental, fuel ~$2.25/gallon",
       "tips": [
         "Fuel is very cheap; distances are the real cost, so cluster sights by region",
         "Police checkpoints require a 4x4 to drive up Jebel Akhdar",
@@ -50762,7 +50757,7 @@
         {
           "type": "Walking the falls and bridge",
           "description": "Rainforest trails face the falls on both sides; the bridge crossing needs your passport.",
-          "cost": "Park entry $30-50/side"
+          "cost": "Park entry $50 Zimbabwe side, $20 Zambia side"
         },
         {
           "type": "Chobe day trip",
@@ -50782,7 +50777,7 @@
         "mid": "$40-70",
         "luxury": "$120+"
       },
-      "activities": "$30-50 park entry per side, $100-200 per activity",
+      "activities": "$50 Zimbabwe side or $20 Zambia side falls entry, $100-200 per activity",
       "transport": "$10-25/day in taxis",
       "tips": [
         "Buy the KAZA Univisa at the border to avoid paying two separate visas",
@@ -51213,7 +51208,7 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=800&h=600&fit=crop&q=80",
     "highlights": [
-      "19 Smithsonian museums, every one free",
+      "17 Smithsonian museums in DC, every one free",
       "Monuments lit up at night on the National Mall",
       "Watch Congress in session from the Capitol galleries",
       "Cherry blossoms ring the Tidal Basin in spring"
@@ -52747,7 +52742,7 @@
         },
         {
           "type": "GO train to Niagara",
-          "description": "Seasonal direct trains from Union Station to Niagara Falls, about 2 hours; buses otherwise.",
+          "description": "Direct trains run year-round from Union Station to Niagara Falls, about 2 hours, with extra trips on summer weekends.",
           "cost": "$15-20 each way"
         },
         {
