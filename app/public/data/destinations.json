@@ -494,7 +494,11 @@
         "Card acceptance is near-universal, but market stalls prefer cash."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1546874177-9e664107314e?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1546874177-9e664107314e?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 37.57,
+      "lng": 126.98
+    }
   },
   {
     "id": "istanbul-turkey",
@@ -990,7 +994,11 @@
         "Carry some lira cash for ferries, street food, and small shops; cards are common but not universal"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 41.01,
+      "lng": 28.98
+    }
   },
   {
     "id": "berlin-germany",
@@ -1488,7 +1496,11 @@
         "Sunday shopping is closed almost everywhere; stock groceries Saturday"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 52.52,
+      "lng": 13.41
+    }
   },
   {
     "id": "budapest-hungary",
@@ -1984,7 +1996,11 @@
         "Lunch menus (ebedmenu) at local spots run $8-10 for two courses"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1565426873118-a17ed65d74b9?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1565426873118-a17ed65d74b9?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 47.5,
+      "lng": 19.04
+    }
   },
   {
     "id": "portugal-azores",
@@ -2479,7 +2495,11 @@
         "Book Furnas thermal pools and Sete Cidades viewpoints for weekday mornings to beat tour buses."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 38.72,
+      "lng": -9.14
+    }
   },
   {
     "id": "la-paz",
@@ -2973,7 +2993,11 @@
         "Book Death Road or Uyuni add-ons locally, prices beat online rates"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1544142447-e43d0fe04bf2?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1544142447-e43d0fe04bf2?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -16.5,
+      "lng": -68.15
+    }
   },
   {
     "id": "poland",
@@ -3470,7 +3494,11 @@
         "Wieliczka and Auschwitz are easy cheap day trips from Krakow by bus."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 52.23,
+      "lng": 21.01
+    }
   },
   {
     "id": "hong-kong",
@@ -3967,7 +3995,11 @@
         "Take the Star Ferry at night instead of a paid harbor cruise for the same view."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 22.32,
+      "lng": 114.17
+    }
   },
   {
     "id": "georgia-tbilisi",
@@ -4464,7 +4496,11 @@
         "Check road conditions to Kazbegi in winter; the pass can close."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 41.72,
+      "lng": 44.79
+    }
   },
   {
     "id": "slovenia",
@@ -4958,7 +4994,11 @@
         "Tap water is excellent everywhere; skip bottled water"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1478088913771-e3a36f50bb63?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1478088913771-e3a36f50bb63?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 46.05,
+      "lng": 14.51
+    }
   },
   {
     "id": "aurora-borealis",
@@ -5458,7 +5498,11 @@
         "September and March offer strong activity with milder temperatures"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 64.84,
+      "lng": -147.72
+    }
   },
   {
     "id": "prague-czech",
@@ -5954,7 +5998,11 @@
         "Eat lunch specials (poledni menu) away from Old Town Square to halve prices"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1541849546-216549ae216d?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1541849546-216549ae216d?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 50.08,
+      "lng": 14.44
+    }
   },
   {
     "id": "morocco",
@@ -6450,7 +6498,11 @@
         "Carry small bills; taxis and stalls rarely break 200 dirham notes."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 31.63,
+      "lng": -8.01
+    }
   },
   {
     "id": "new-mexico-balloons",
@@ -6944,7 +6996,11 @@
         "October mornings are near freezing at the balloon field, layer up"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 35.69,
+      "lng": -105.94
+    }
   },
   {
     "id": "greece",
@@ -7440,7 +7496,11 @@
         "Reserve timed Acropolis tickets online to skip the ticket line."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 37.98,
+      "lng": 23.73
+    }
   },
   {
     "id": "new-orleans",
@@ -7938,7 +7998,11 @@
         "Skip the rental car; parking in the Quarter is scarce and $30-45/night."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1568693059993-a239b9cd4957?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1568693059993-a239b9cd4957?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 29.95,
+      "lng": -90.07
+    }
   },
   {
     "id": "seychelles",
@@ -8438,6 +8502,10 @@
         "nov": 2139,
         "dec": 2604
       }
+    },
+    "coordinates": {
+      "lat": -4.62,
+      "lng": 55.45
     }
   },
   {
@@ -8933,7 +9001,11 @@
         "Multi-day Colorado River raft trips book a year or more in advance; day trips from Page are easier"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1527333656061-ca7adf608ae1?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1527333656061-ca7adf608ae1?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 36.06,
+      "lng": -112.14
+    }
   },
   {
     "id": "croatia",
@@ -9428,7 +9500,11 @@
         "Dubrovnik parking is brutal; drop the rental car before you arrive"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1555990793-da11153b2473?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1555990793-da11153b2473?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 43.51,
+      "lng": 16.44
+    }
   },
   {
     "id": "carlsbad-cavern",
@@ -9924,7 +10000,11 @@
         "The cave stays 56F year-round, pack a layer even in July"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1637047868520-b0081dd1c11a?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1637047868520-b0081dd1c11a?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 32.18,
+      "lng": -104.44
+    }
   },
   {
     "id": "mexico-city",
@@ -10422,6 +10502,10 @@
         "nov": 1104,
         "dec": 1344
       }
+    },
+    "coordinates": {
+      "lat": 19.43,
+      "lng": -99.13
     }
   },
   {
@@ -10916,7 +11000,11 @@
         "Fill the tank before Parkway stretches, gas stations are off-route"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1489714966589-270c6efc0cb6?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1489714966589-270c6efc0cb6?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 33.75,
+      "lng": -84.39
+    }
   },
   {
     "id": "rio-de-janeiro",
@@ -11412,7 +11500,11 @@
         "Eat at por kilo buffets for big, cheap lunches priced by weight."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -22.91,
+      "lng": -43.17
+    }
   },
   {
     "id": "israel",
@@ -11907,7 +11999,11 @@
         "Book Masada sunrise tours or drive early; midday desert heat is brutal."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1552423314-cf29ab68ad73?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1552423314-cf29ab68ad73?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 31.77,
+      "lng": 35.21
+    }
   },
   {
     "id": "rome-italy",
@@ -12403,7 +12499,11 @@
         "Many churches are free and contain incredible art"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 41.9,
+      "lng": 12.5
+    }
   },
   {
     "id": "egypt-pyramids",
@@ -12900,7 +13000,11 @@
         "Book Abu Simbel and Valley of the Kings visits for early morning to beat heat and crowds."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 30.04,
+      "lng": 31.24
+    }
   },
   {
     "id": "austria",
@@ -13394,7 +13498,11 @@
         "Hallstatt is mobbed midday; sleep there or arrive before 9am and the crowds vanish"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 48.21,
+      "lng": 16.37
+    }
   },
   {
     "id": "new-york-city",
@@ -13891,7 +13999,11 @@
         "Hotel taxes and fees add 15%+; check the total before booking"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 40.71,
+      "lng": -74.01
+    }
   },
   {
     "id": "south-africa-kruger",
@@ -14388,7 +14500,11 @@
         "A Wild Card pass beats daily fees if you spend 5+ days in parks"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1521651201144-634f700b36ef?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1521651201144-634f700b36ef?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -26.2,
+      "lng": 28.05
+    }
   },
   {
     "id": "new-zealand",
@@ -14884,6 +15000,10 @@
         "nov": 2208,
         "dec": 3091
       }
+    },
+    "coordinates": {
+      "lat": -41.29,
+      "lng": 174.78
     }
   },
   {
@@ -15379,7 +15499,11 @@
         "Patagonia weather cancels plans; build a buffer day into each base"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1615214306010-d498716b2784?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1615214306010-d498716b2784?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -50.34,
+      "lng": -72.28
+    }
   },
   {
     "id": "indonesia-bali-java",
@@ -15876,7 +16000,11 @@
         "Base at Cemoro Lawang the night before a Bromo sunrise jeep tour."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -8.65,
+      "lng": 115.22
+    }
   },
   {
     "id": "india",
@@ -16371,7 +16499,11 @@
         "Eat busy, high-turnover street stalls and drink only bottled or filtered water."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 28.61,
+      "lng": 77.21
+    }
   },
   {
     "id": "chile",
@@ -16863,7 +16995,11 @@
         "Reserve Torres del Paine park entry online; gate sales are limited."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1478827387698-1527781a4887?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1478827387698-1527781a4887?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -33.45,
+      "lng": -70.67
+    }
   },
   {
     "id": "japan",
@@ -17359,7 +17495,11 @@
         "Visit during shoulder season for lower prices"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 35.68,
+      "lng": 139.69
+    }
   },
   {
     "id": "disneyland",
@@ -17854,7 +17994,11 @@
         "Bring refillable water bottles; any counter-service spot gives free cups of water"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1545580492-8859ba8323f0?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1545580492-8859ba8323f0?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 33.81,
+      "lng": -117.92
+    }
   },
   {
     "id": "las-vegas",
@@ -18350,7 +18494,11 @@
         "Drink prices on the Strip sting; happy hours and off-Strip bars save a lot"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 36.17,
+      "lng": -115.14
+    }
   },
   {
     "id": "charlotte",
@@ -18847,7 +18995,11 @@
         "Whitewater Center parking is extra; carpool or rideshare to dodge the fee"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1660585238415-517de72185d5?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1660585238415-517de72185d5?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 35.23,
+      "lng": -80.84
+    }
   },
   {
     "id": "charleston",
@@ -19344,7 +19496,11 @@
         "Fort Sumter boats and plantation tours sell out on weekends; reserve timed tickets online."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1623608103477-2b90432a3f85?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1623608103477-2b90432a3f85?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 32.78,
+      "lng": -79.93
+    }
   },
   {
     "id": "nashville",
@@ -19840,7 +19996,11 @@
         "Weeknight rates are far lower; weekends draw bachelorette crowds"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1545419913-775e3e82c7db?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1545419913-775e3e82c7db?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 36.16,
+      "lng": -86.78
+    }
   },
   {
     "id": "puerto-rico",
@@ -20336,7 +20496,11 @@
         "Eat at the Luquillo kiosks or lechoneras for cheap local plates."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1579687196544-08ae57ab5c11?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1579687196544-08ae57ab5c11?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 18.47,
+      "lng": -66.11
+    }
   },
   {
     "id": "bahamas",
@@ -20836,7 +21000,11 @@
         "Visit May-June or November for good weather without peak-season rates."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 25.06,
+      "lng": -77.35
+    }
   },
   {
     "id": "vancouver-victoria",
@@ -21330,7 +21498,11 @@
         "Prices are in CAD; the exchange rate makes posted prices roughly 25% cheaper in USD."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 49.28,
+      "lng": -123.12
+    }
   },
   {
     "id": "singapore",
@@ -21828,7 +22000,11 @@
         "The Supertree light show (7:45 and 8:45pm) and the Marina Bay waterfront are free every night"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 1.35,
+      "lng": 103.82
+    }
   },
   {
     "id": "dubai",
@@ -22327,7 +22503,11 @@
         "Alcohol is hotel-restaurant territory and heavily taxed; budget accordingly"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 25.2,
+      "lng": 55.27
+    }
   },
   {
     "id": "nova-scotia",
@@ -22822,7 +23002,11 @@
         "Fill the gas tank before the Cabot Trail; stations are sparse in the Highlands"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1526940946820-a61d0f92194e?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1526940946820-a61d0f92194e?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 44.65,
+      "lng": -63.57
+    }
   },
   {
     "id": "glacier-national-park",
@@ -23318,7 +23502,11 @@
         "The full road usually opens late June to mid-October; check plow status before booking shoulder-season trips."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1510942498794-3228abd301c3?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1510942498794-3228abd301c3?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 48.7,
+      "lng": -113.8
+    }
   },
   {
     "id": "banff",
@@ -23816,7 +24004,11 @@
         "Buy the Parks Canada Discovery Pass if staying more than 7 days"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 51.18,
+      "lng": -115.57
+    }
   },
   {
     "id": "belize-ambergris",
@@ -24315,7 +24507,11 @@
         "Groceries are imported and pricey; eat local street food and ceviche."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1722761478075-720dc58e63d1?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1722761478075-720dc58e63d1?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 17.92,
+      "lng": -87.96
+    }
   },
   {
     "id": "cuba",
@@ -24810,7 +25006,11 @@
         "Download offline maps and translations; internet is patchy and needs prepaid cards."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1500759285222-a95626b934cb?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 23.11,
+      "lng": -82.37
+    }
   },
   {
     "id": "alaska",
@@ -25307,7 +25507,11 @@
         "Denali charges a $15 per person entry fee good for 7 days; Kenai Fjords has no entrance fee at all"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1605415465800-59cfda79a675?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1605415465800-59cfda79a675?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 61.22,
+      "lng": -149.9
+    }
   },
   {
     "id": "iceland",
@@ -25804,7 +26008,11 @@
         "Credit cards accepted everywhere - no cash needed"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 64.15,
+      "lng": -21.94
+    }
   },
   {
     "id": "inca-trail",
@@ -26300,7 +26508,11 @@
         "Rent sleeping bags, poles, and layers in Cusco for a few dollars a day instead of flying them in"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -13.53,
+      "lng": -71.97
+    }
   },
   {
     "id": "switzerland",
@@ -26794,7 +27006,11 @@
         "Check mountain webcams before paying $100+ for a summit in clouds"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 46.69,
+      "lng": 7.87
+    }
   },
   {
     "id": "costa-rica",
@@ -27291,7 +27507,11 @@
         "Green season (May-Nov) cuts lodging 20-40% with mostly sunny mornings"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1536708880921-03a9306ec47d?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1536708880921-03a9306ec47d?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 9.93,
+      "lng": -84.08
+    }
   },
   {
     "id": "norway",
@@ -27787,7 +28007,11 @@
         "The Norway in a Nutshell route can be self-booked leg by leg for less than the package price."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 59.91,
+      "lng": 10.75
+    }
   },
   {
     "id": "colombia",
@@ -28281,6 +28505,10 @@
         "nov": 630,
         "dec": 1014
       }
+    },
+    "coordinates": {
+      "lat": 4.71,
+      "lng": -74.07
     }
   },
   {
@@ -28775,7 +29003,11 @@
         "Menu del dia lunches cost $3-5 for two courses and a drink."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -12.05,
+      "lng": -77.04
+    }
   },
   {
     "id": "fiji",
@@ -29275,7 +29507,11 @@
         "Bring a sevusevu gift (kava root) when visiting villages; buy it at Nadi market."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1530736822234-c8562cb0a710?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1530736822234-c8562cb0a710?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -17.8,
+      "lng": 177.42
+    }
   },
   {
     "id": "australia-east-coast",
@@ -29772,7 +30008,11 @@
         "Fuel and lodging drop noticeably outside Sydney; weight your nights north."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -16.92,
+      "lng": 145.77
+    }
   },
   {
     "id": "paris-france",
@@ -30269,7 +30509,11 @@
         "Skip taxis from CDG; the RER B or Roissybus reaches the center for $12-16"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 48.86,
+      "lng": 2.35
+    }
   },
   {
     "id": "london-uk",
@@ -30766,7 +31010,11 @@
         "Take the Elizabeth line from Heathrow; it is half the Heathrow Express price"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 51.51,
+      "lng": -0.13
+    }
   },
   {
     "id": "spain-barcelona-madrid",
@@ -31264,7 +31512,11 @@
         "Prado is free the last 2 hours daily; expect a queue but it moves"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 41.39,
+      "lng": 2.17
+    }
   },
   {
     "id": "thailand",
@@ -31762,7 +32014,11 @@
         "Avoid the west-coast islands in Sep-Oct monsoon; the gulf side (Samui) has a different rain season."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 13.76,
+      "lng": 100.5
+    }
   },
   {
     "id": "vietnam",
@@ -32257,7 +32513,11 @@
         "Book sleeper train berths a few days ahead in high season"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 16.05,
+      "lng": 108.21
+    }
   },
   {
     "id": "maldives",
@@ -32756,7 +33016,11 @@
         "Expect 10 percent service charge plus 17 percent TGST on resort bills."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 4.17,
+      "lng": 73.51
+    }
   },
   {
     "id": "hawaii",
@@ -33254,7 +33518,11 @@
         "Watch for resort fees and parking; they add $50-90/night to quoted rates."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1542259009477-d625272157b7?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1542259009477-d625272157b7?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 21.31,
+      "lng": -157.86
+    }
   },
   {
     "id": "amsterdam-netherlands",
@@ -33751,7 +34019,11 @@
         "Many cafes and market stalls are card-only (PIN), the reverse of the usual cash advice."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 52.37,
+      "lng": 4.9
+    }
   },
   {
     "id": "scotland",
@@ -34246,7 +34518,11 @@
         "On single-track roads, pull into passing places to let faster traffic by; never park in them"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1527675504868-9b014a3dacb6?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1527675504868-9b014a3dacb6?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 55.95,
+      "lng": -3.19
+    }
   },
   {
     "id": "ireland",
@@ -34741,7 +35017,11 @@
         "Pub lunch specials run 30-40% cheaper than the same kitchen at dinner"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 53.35,
+      "lng": -6.26
+    }
   },
   {
     "id": "cambodia-angkor-wat",
@@ -35238,7 +35518,11 @@
         "A licensed temple guide runs $30-40/day and is worth splitting"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1549463601-da058868e20d?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1549463601-da058868e20d?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 13.36,
+      "lng": 103.86
+    }
   },
   {
     "id": "kenya-safari",
@@ -35735,7 +36019,11 @@
         "Get the eVisa (ETA) online before flying and budget cash tips of about $10-20/day for your driver-guide."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -1.29,
+      "lng": 36.82
+    }
   },
   {
     "id": "tanzania-serengeti",
@@ -36233,7 +36521,11 @@
         "Bring clean, recent-series USD bills for fees, visas, and guide tips"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -3.39,
+      "lng": 36.68
+    }
   },
   {
     "id": "south-korea",
@@ -36730,7 +37022,11 @@
         "Kimbap shops and convenience stores make solid meals under $5."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 37.57,
+      "lng": 126.98
+    }
   },
   {
     "id": "taiwan",
@@ -37226,7 +37522,11 @@
         "Most Taroko Gorge trails remain closed after the 2024 earthquake; check the park website before routing through Hualien."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 25.03,
+      "lng": 121.57
+    }
   },
   {
     "id": "jordan-petra",
@@ -37721,7 +38021,11 @@
         "Dead Sea day passes at resort beaches ($25-50) beat staying overnight on a budget."
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1580834341580-8c17a3a630ca?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 31.95,
+      "lng": 35.93
+    }
   },
   {
     "id": "quebec-city-montreal",
@@ -38218,7 +38522,11 @@
         "Stay inside the walls in Quebec City for one or two nights; day-trip crowds empty out by 6pm"
       ]
     },
-    "imageUrl": "https://images.unsplash.com/photo-1558489580-c5cd54309773?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1558489580-c5cd54309773?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 45.5,
+      "lng": -73.57
+    }
   },
   {
     "id": "uzbekistan",
@@ -38715,7 +39023,11 @@
         "dec": 1512
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1605199423916-b725a00b324b?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1605199423916-b725a00b324b?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 41.3,
+      "lng": 69.24
+    }
   },
   {
     "id": "sri-lanka",
@@ -39212,7 +39524,11 @@
         "dec": 1739
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 6.93,
+      "lng": 79.86
+    }
   },
   {
     "id": "nepal",
@@ -39709,7 +40025,11 @@
         "dec": 1596
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 27.72,
+      "lng": 85.32
+    }
   },
   {
     "id": "philippines-palawan",
@@ -40205,7 +40525,11 @@
         "dec": 2310
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 9.74,
+      "lng": 118.74
+    }
   },
   {
     "id": "malaysia",
@@ -40702,6 +41026,10 @@
         "nov": 1365,
         "dec": 2198
       }
+    },
+    "coordinates": {
+      "lat": 3.14,
+      "lng": 101.69
     }
   },
   {
@@ -41198,7 +41526,11 @@
         "dec": 1980
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1593994603100-9cd7cb22aaf1?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1593994603100-9cd7cb22aaf1?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 19.89,
+      "lng": 102.14
+    }
   },
   {
     "id": "finland-lapland",
@@ -41695,7 +42027,11 @@
         "dec": 3091
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1505281906411-28d444dd417e?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1505281906411-28d444dd417e?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 66.5,
+      "lng": 25.73
+    }
   },
   {
     "id": "copenhagen-denmark",
@@ -42191,7 +42527,11 @@
         "dec": 2705
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 55.68,
+      "lng": 12.57
+    }
   },
   {
     "id": "stockholm-sweden",
@@ -42688,7 +43028,11 @@
         "dec": 2233
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1497217968520-7d8d60b7bc25?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1497217968520-7d8d60b7bc25?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 59.33,
+      "lng": 18.07
+    }
   },
   {
     "id": "namibia",
@@ -43185,7 +43529,11 @@
         "dec": 1890
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1505598872760-6090aa9ed603?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1505598872760-6090aa9ed603?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -22.56,
+      "lng": 17.08
+    }
   },
   {
     "id": "rwanda-gorillas",
@@ -43681,7 +44029,11 @@
         "dec": 2922
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -1.94,
+      "lng": 30.06
+    }
   },
   {
     "id": "jamaica",
@@ -44178,7 +44530,11 @@
         "dec": 1884
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1530225029356-e301a685e6b1?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 18.47,
+      "lng": -77.92
+    }
   },
   {
     "id": "guatemala",
@@ -44675,7 +45031,11 @@
         "dec": 1352
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1513873735612-3f2a20b4753e?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1513873735612-3f2a20b4753e?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 14.56,
+      "lng": -90.73
+    }
   },
   {
     "id": "panama",
@@ -45172,7 +45532,11 @@
         "dec": 1352
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1598041543955-0d88c390f3b5?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1598041543955-0d88c390f3b5?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 8.98,
+      "lng": -79.52
+    }
   },
   {
     "id": "french-polynesia",
@@ -45669,7 +46033,11 @@
         "dec": 2821
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1532408840957-031d8034aeef?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1532408840957-031d8034aeef?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -17.54,
+      "lng": -149.57
+    }
   },
   {
     "id": "romania-transylvania",
@@ -46166,7 +46534,11 @@
         "dec": 1470
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563480022552-193193750025?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1563480022552-193193750025?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 45.66,
+      "lng": 25.61
+    }
   },
   {
     "id": "oman",
@@ -46663,7 +47035,11 @@
         "dec": 2657
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1558542405-ae980563cf39?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1558542405-ae980563cf39?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 23.59,
+      "lng": 58.41
+    }
   },
   {
     "id": "ecuador-galapagos",
@@ -47160,7 +47536,11 @@
         "dec": 1594
       }
     },
-    "imageUrl": "https://images.unsplash.com/photo-1676910914506-39578e3446b1?w=800&h=600&fit=crop&q=80"
+    "imageUrl": "https://images.unsplash.com/photo-1676910914506-39578e3446b1?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -0.18,
+      "lng": -78.47
+    }
   },
   {
     "id": "amalfi-coast",
@@ -47657,6 +48037,10 @@
         "nov": 1595,
         "dec": 2233
       }
+    },
+    "coordinates": {
+      "lat": 40.63,
+      "lng": 14.6
     }
   },
   {
@@ -48154,6 +48538,10 @@
         "nov": 1450,
         "dec": 2030
       }
+    },
+    "coordinates": {
+      "lat": 44.6,
+      "lng": 11.8
     }
   },
   {
@@ -48651,6 +49039,10 @@
         "nov": 1600,
         "dec": 2240
       }
+    },
+    "coordinates": {
+      "lat": 44.42,
+      "lng": -110.59
     }
   },
   {
@@ -49148,6 +49540,10 @@
         "nov": 1215,
         "dec": 1701
       }
+    },
+    "coordinates": {
+      "lat": 35.47,
+      "lng": -97.52
     }
   },
   {
@@ -49645,6 +50041,10 @@
         "nov": 1400,
         "dec": 2254
       }
+    },
+    "coordinates": {
+      "lat": 48.14,
+      "lng": 11.58
     }
   },
   {
@@ -50142,6 +50542,10 @@
         "nov": 1600,
         "dec": 2240
       }
+    },
+    "coordinates": {
+      "lat": 39.9,
+      "lng": 116.41
     }
   },
   {
@@ -50639,6 +51043,10 @@
         "nov": 1242,
         "dec": 1739
       }
+    },
+    "coordinates": {
+      "lat": 20.63,
+      "lng": -87.07
     }
   },
   {
@@ -51137,6 +51545,10 @@
         "nov": 1350,
         "dec": 1890
       }
+    },
+    "coordinates": {
+      "lat": -17.92,
+      "lng": 25.86
     }
   },
   {
@@ -51633,6 +52045,10 @@
         "nov": 1200,
         "dec": 1680
       }
+    },
+    "coordinates": {
+      "lat": 38.91,
+      "lng": -77.04
     }
   },
   {
@@ -52129,6 +52545,10 @@
         "nov": 1200,
         "dec": 1680
       }
+    },
+    "coordinates": {
+      "lat": 44,
+      "lng": -71.5
     }
   },
   {
@@ -52627,6 +53047,10 @@
         "nov": 1620,
         "dec": 2268
       }
+    },
+    "coordinates": {
+      "lat": 43.7,
+      "lng": 7.27
     }
   },
   {
@@ -53123,6 +53547,10 @@
         "nov": 1200,
         "dec": 1680
       }
+    },
+    "coordinates": {
+      "lat": 43.65,
+      "lng": -79.38
     }
   },
   {
@@ -53620,6 +54048,10 @@
         "nov": 1610,
         "dec": 2254
       }
+    },
+    "coordinates": {
+      "lat": -64.5,
+      "lng": -62
     }
   }
 ]

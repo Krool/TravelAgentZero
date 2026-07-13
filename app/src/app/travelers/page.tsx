@@ -6,6 +6,7 @@ import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
 import { RetroCheckbox, RetroToggle } from '@/components/ui/RetroCheckbox';
 import { SearchInput } from '@/components/ui/SearchInput';
+import { TravelerPinMap } from '@/components/map/TravelerPinMap';
 import { useToast } from '@/hooks/useToast';
 import { Analytics } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
@@ -65,6 +66,9 @@ export default function TravelersPage() {
             Mark travelers as children to prioritize child-friendly destinations.
           </p>
         </div>
+
+        {/* Pin board: every visited destination, color-coded per traveler */}
+        <TravelerPinMap />
 
         {/* Add new traveler */}
         <RetroCard className="mb-6">

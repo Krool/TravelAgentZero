@@ -112,6 +112,13 @@ for (const d of destinations) {
     err(`[${tag}] imageUrl missing or not https`);
   }
 
+  // coordinates: required for the pin board map.
+  const co = d.coordinates;
+  if (!co || typeof co.lat !== 'number' || typeof co.lng !== 'number' ||
+      co.lat < -90 || co.lat > 90 || co.lng < -180 || co.lng > 180) {
+    err(`[${tag}] coordinates missing or out of range`);
+  }
+
   // avgFlightPrices: full 25-airport coverage, each a full 12-month curve.
   if (!d.avgFlightPrices) {
     err(`[${tag}] avgFlightPrices missing`);

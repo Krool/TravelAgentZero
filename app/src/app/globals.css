@@ -101,6 +101,49 @@ body {
   color: var(--retro-cyan);
 }
 
+/* Pin board: pins drop in, new pins ping */
+@keyframes pin-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pin {
+  outline: none;
+}
+
+.pin-drop-initial,
+.pin-drop-now {
+  animation: pin-drop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@keyframes pin-ping {
+  from { r: 4; opacity: 0.9; }
+  to { r: 22; opacity: 0; }
+}
+
+.pin-ping {
+  animation: pin-ping 0.9s ease-out 0.3s both;
+}
+
+.pin-head {
+  transition: r 0.15s ease;
+}
+
+.pin:hover .pin-head,
+.pin:focus-visible .pin-head {
+  r: 6;
+}
+
 /* Subtle grid background */
 .retro-grid {
   background-image:

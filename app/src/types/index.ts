@@ -211,6 +211,7 @@ export interface Destination {
   avgFlightPrices?: Partial<Record<AirportCode, MonthlyPricing>>;
   tags?: string[]; // searchable tags
   imageUrl?: string; // Optional: custom image URL for the destination
+  coordinates?: { lat: number; lng: number }; // representative point for the pin board map
   // NEW: Enriched content fields
   neighborhoods?: Neighborhood[];
   gettingAround?: GettingAround;
