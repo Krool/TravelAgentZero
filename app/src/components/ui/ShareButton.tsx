@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useToast } from '@/hooks/useToast';
 import { buildShareUrl, copyToClipboard, canNativeShare, nativeShare } from '@/lib/shareUtils';
 import { Analytics } from '@/lib/analytics';
@@ -23,29 +23,36 @@ export function ShareButton({
   variant = 'button',
 }: ShareButtonProps) {
   const toast = useToast();
+  const [busy, setBusy] = useState(false);
 
   const handleShare = useCallback(async () => {
-    const url = buildShareUrl(destinationId, preferences);
-    const title = `Travel Agent Zero - ${destinationName}`;
-    const text = `Check out ${destinationName} on Travel Agent Zero!`;
+    if (busy) return;
+    setBusy(true);
+    try {
+      const url = buildShareUrl(destinationId, preferences);
+      const title = `Travel Agent Zero - ${destinationName}`;
+      const text = `Check out ${destinationName} on Travel Agent Zero!`;
 
-    if (canNativeShare()) {
-      const shared = await nativeShare(title, text, url);
-      if (shared) {
-        Analytics.shareClicked('native');
-        toast.success('Shared successfully!');
-        return;
+      if (canNativeShare()) {
+        const shared = await nativeShare(title, text, url);
+        if (shared) {
+          Analytics.shareClicked('native');
+          toast.success('Shared successfully!');
+          return;
+        }
       }
-    }
 
-    const copied = await copyToClipboard(url);
-    if (copied) {
-      Analytics.shareClicked('clipboard');
-      toast.success('Link copied to clipboard!');
-    } else {
-      toast.error('Failed to copy link');
+      const copied = await copyToClipboard(url);
+      if (copied) {
+        Analytics.shareClicked('clipboard');
+        toast.success('Link copied to clipboard!');
+      } else {
+        toast.error('Failed to copy link');
+      }
+    } finally {
+      setBusy(false);
     }
-  }, [destinationId, destinationName, preferences, toast]);
+  }, [busy, destinationId, destinationName, preferences, toast]);
 
   if (variant === 'icon') {
     return (

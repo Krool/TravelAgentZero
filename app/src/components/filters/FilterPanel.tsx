@@ -24,10 +24,9 @@ import { cn } from '@/lib/utils';
 
 interface FilterPanelProps {
   className?: string;
-  collapsed?: boolean;
 }
 
-export function FilterPanel({ className, collapsed = false }: FilterPanelProps) {
+export function FilterPanel({ className }: FilterPanelProps) {
   const {
     preferences,
     travelers,
@@ -43,31 +42,6 @@ export function FilterPanel({ className, collapsed = false }: FilterPanelProps) 
   } = useAppStore();
 
   const hasChildren = hasChildTraveler(travelers, preferences.selectedTravelers);
-  const childCount = travelers
-    .filter(t => preferences.selectedTravelers.includes(t.id))
-    .filter(t => t.isChild)
-    .length;
-
-  if (collapsed) {
-    return (
-      <div className={cn('space-y-2', className)}>
-        <div className="flex flex-wrap gap-2">
-          <QuickChip
-            label={MONTH_NAMES[preferences.travelMonth]}
-            active
-          />
-          {hasChildren && <QuickChip label={`${childCount} Kid${childCount > 1 ? 's' : ''}`} active />}
-          <QuickChip
-            label={`${preferences.durationMin}-${preferences.durationMax}d`}
-            active
-          />
-          {preferences.maxFlightTime > 0 && (
-            <QuickChip label={`<${preferences.maxFlightTime}h flight`} active />
-          )}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className={cn('space-y-6', className)}>
@@ -293,20 +267,5 @@ function FilterSection({
       </h3>
       <div className="space-y-3">{children}</div>
     </div>
-  );
-}
-
-function QuickChip({ label, active }: { label: string; active?: boolean }) {
-  return (
-    <span
-      className={cn(
-        'px-2.5 py-1 text-xs rounded-full border',
-        active
-          ? 'border-retro-cyan/40 text-retro-cyan bg-retro-cyan/10'
-          : 'border-white/10 text-text-muted'
-      )}
-    >
-      {label}
-    </span>
   );
 }

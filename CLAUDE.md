@@ -38,12 +38,19 @@ runtime. **If this repo is ever renamed, both places need updating** - the
 `app/public/data/destinations.json` and `travelers.json` are the source of truth,
 fetched client-side by `AppProvider.tsx`. Types are in `app/src/types/index.ts`.
 
-- `scripts/build-data.js` fills flight times / average flight prices for all 25
-  home airports (`AIRPORT_HUBS`). Deterministic and idempotent - safe to re-run.
-- `scripts/validate-data.js` checks schema, ranges, and referential integrity
-  (traveler destination ids must exist in `destinations.json`). Gates CI; exits
-  non-zero on failure.
+- 95 destinations. Every record carries the full enriched schema: `highlights`,
+  `neighborhoods`, `gettingAround`, `costBreakdown`, and a verified `imageUrl`
+  (Unsplash, `w=800&h=600` crop - the UI derives the hero size from it). The
+  validator requires all of these, so a new destination must ship them.
+- A new destination must also include `flightTimes` for the 15 base airports
+  (JFK LAX ORD SFO LHR CDG FRA AMS NRT PEK SIN DXB HKG SYD GRU);
+  `scripts/build-data.js` fills the other 10 airports and all price curves.
+  Deterministic and idempotent - safe to re-run.
+- `scripts/validate-data.js` checks schema, ranges, enriched-content shape, and
+  referential integrity (traveler destination ids must exist in
+  `destinations.json`). Gates CI; exits non-zero on failure.
 - Flight times and prices are **modelled estimates**, not a live fare feed.
+  Neighborhood/cost content is editorial, written 2026-07; prices are ballpark.
 
 ## Repo map
 

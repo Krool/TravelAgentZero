@@ -60,10 +60,10 @@ export function Header() {
               <span className="text-bg-deep font-bold text-sm">T</span>
             </div>
             <div className="flex items-baseline gap-1.5">
-              <span className="font-bold text-lg text-text-primary tracking-tight">
+              <span className="display-title text-lg text-text-primary">
                 Travel Agent
               </span>
-              <span className="font-bold text-lg gradient-text">
+              <span className="display-title text-lg gradient-text">
                 Zero
               </span>
             </div>

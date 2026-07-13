@@ -70,6 +70,48 @@ for (const d of destinations) {
     if (typeof v !== 'number' || v < 0 || v > 30) err(`[${tag}] flightTimes.${a} missing/out-of-range: ${v}`);
   }
 
+  // Enriched content: required for every destination since the 2026-07 content
+  // pass, and shape-checked so a partial entry can't crash the detail page.
+  if (!Array.isArray(d.highlights) || d.highlights.length === 0 || d.highlights.some((h) => typeof h !== 'string' || !h.trim())) {
+    err(`[${tag}] highlights must be a non-empty array of strings`);
+  }
+  if (!Array.isArray(d.neighborhoods) || d.neighborhoods.length === 0) {
+    err(`[${tag}] neighborhoods must be a non-empty array`);
+  } else {
+    for (const n of d.neighborhoods) {
+      if (typeof n.name !== 'string' || typeof n.description !== 'string' || !Array.isArray(n.bestFor)) {
+        err(`[${tag}] neighborhood entries need name, description, bestFor[]`);
+      }
+    }
+  }
+  if (!d.gettingAround || typeof d.gettingAround.summary !== 'string' || !Array.isArray(d.gettingAround.options) || d.gettingAround.options.length === 0) {
+    err(`[${tag}] gettingAround needs summary and non-empty options[]`);
+  } else {
+    for (const o of d.gettingAround.options) {
+      if (typeof o.type !== 'string' || typeof o.description !== 'string') {
+        err(`[${tag}] gettingAround option entries need type and description`);
+      }
+    }
+  }
+  const cb = d.costBreakdown;
+  if (!cb || !cb.accommodation || !cb.meals || typeof cb.activities !== 'string' || typeof cb.transport !== 'string') {
+    err(`[${tag}] costBreakdown needs accommodation, meals, activities, transport`);
+  } else {
+    for (const grp of ['accommodation', 'meals']) {
+      for (const tier of ['budget', 'mid', 'luxury']) {
+        if (typeof cb[grp][tier] !== 'string' || !cb[grp][tier].trim()) err(`[${tag}] costBreakdown.${grp}.${tier} missing`);
+      }
+    }
+    if (cb.tips != null && (!Array.isArray(cb.tips) || cb.tips.some((t) => typeof t !== 'string'))) {
+      err(`[${tag}] costBreakdown.tips must be an array of strings`);
+    }
+  }
+
+  // imageUrl: every destination ships a verified image.
+  if (typeof d.imageUrl !== 'string' || !d.imageUrl.startsWith('https://')) {
+    err(`[${tag}] imageUrl missing or not https`);
+  }
+
   // avgFlightPrices: full 25-airport coverage, each a full 12-month curve.
   if (!d.avgFlightPrices) {
     err(`[${tag}] avgFlightPrices missing`);

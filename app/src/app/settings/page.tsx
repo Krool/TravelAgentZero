@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
@@ -86,12 +87,22 @@ export default function SettingsPage() {
     reader.readAsText(file);
   };
 
+  // Confirm-in-place (same pattern as removing a traveler): first click arms
+  // the button, second click within 4s clears. No native confirm() dialog.
+  const [confirmClear, setConfirmClear] = useState(false);
+  const confirmTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (confirmTimer.current) clearTimeout(confirmTimer.current); }, []);
+
   const handleClearData = () => {
-    if (confirm('Are you sure you want to clear all data? This cannot be undone.')) {
-      localStorage.removeItem('travel-agent-zero-storage');
-      toast.info('Data cleared. Reloading...');
-      setTimeout(() => window.location.reload(), 500);
+    if (!confirmClear) {
+      setConfirmClear(true);
+      confirmTimer.current = setTimeout(() => setConfirmClear(false), 4000);
+      return;
     }
+    if (confirmTimer.current) clearTimeout(confirmTimer.current);
+    localStorage.removeItem('travel-agent-zero-storage');
+    toast.info('Data cleared. Reloading...');
+    setTimeout(() => window.location.reload(), 500);
   };
 
   return (
@@ -99,7 +110,7 @@ export default function SettingsPage() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-text-primary mb-1">
+          <h1 className="display-title text-3xl text-text-primary mb-1">
             Settings
           </h1>
           <p className="text-text-secondary text-sm">
@@ -241,7 +252,7 @@ export default function SettingsPage() {
                 Clear all local data (cannot be undone)
               </p>
               <RetroButton variant="danger" onClick={handleClearData}>
-                Clear All Data
+                {confirmClear ? 'Click again to confirm' : 'Clear All Data'}
               </RetroButton>
             </div>
           </RetroCardBody>

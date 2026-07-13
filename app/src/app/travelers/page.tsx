@@ -57,7 +57,7 @@ export default function TravelersPage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-text-primary mb-1">
+          <h1 className="display-title text-3xl text-text-primary mb-1">
             Travelers
           </h1>
           <p className="text-text-secondary text-sm">

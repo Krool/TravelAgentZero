@@ -24,7 +24,7 @@ const PAGE_SIZE = 24;
 
 export default function HomePage() {
   const { destinations, travelers, preferences, isLoaded, setSearchQuery } = useAppStore();
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [showFilters, setShowFilters] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [sortMode, setSortMode] = useState<SortMode>('score');
@@ -183,27 +183,43 @@ export default function HomePage() {
         {/* Hero / Mission Briefing */}
         <div className="mb-8">
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-text-primary mb-1">
-              Explore Destinations
+            <p className="eyebrow text-retro-cyan mb-2">Mission Briefing</p>
+            <h1 className="display-title text-3xl sm:text-4xl text-text-primary mb-3">
+              Where next?
             </h1>
-            <p className="text-text-secondary text-sm">
-              Searching for trips in{' '}
-              <span className="text-retro-cyan font-medium">{MONTH_NAMES[preferences.travelMonth]}</span>
-              {hasChildren && (
-                <span className="text-retro-orange font-medium"> with {childCount} kid{childCount > 1 ? 's' : ''}</span>
-              )}
-              {' '}from{' '}
-              <span className="text-retro-cyan font-medium">{AIRPORT_HUBS[preferences.homeAirport].city}</span>
-              {preferences.maxFlightTime > 0 && (
-                <span className="text-text-muted"> (max {preferences.maxFlightTime}h)</span>
-              )}
-              <span className="text-text-muted ml-2">
-                · {allDisplayDestinations.length} results
-                {preferences.favorites.length > 0 && (
-                  <span className="ml-1.5">· <span className="text-retro-yellow">{preferences.favorites.length} saved</span></span>
-                )}
+            {/* Telemetry readout - current search parameters at a glance */}
+            <div className="telemetry flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              <span>
+                <span className="telemetry-key">Month:</span>{' '}
+                <span className="telemetry-value">{MONTH_NAMES[preferences.travelMonth]}</span>
               </span>
-            </p>
+              <span>
+                <span className="telemetry-key">Origin:</span>{' '}
+                <span className="telemetry-value">{AIRPORT_HUBS[preferences.homeAirport]?.city ?? preferences.homeAirport}</span>
+              </span>
+              {hasChildren && (
+                <span>
+                  <span className="telemetry-key">Crew:</span>{' '}
+                  <span className="text-retro-orange">{childCount} kid{childCount > 1 ? 's' : ''}</span>
+                </span>
+              )}
+              {preferences.maxFlightTime > 0 && (
+                <span>
+                  <span className="telemetry-key">Max flight:</span>{' '}
+                  <span className="telemetry-value">{preferences.maxFlightTime}h</span>
+                </span>
+              )}
+              <span>
+                <span className="telemetry-key">Matches:</span>{' '}
+                <span className="text-text-primary">{allDisplayDestinations.length}</span>
+              </span>
+              {preferences.favorites.length > 0 && (
+                <span>
+                  <span className="telemetry-key">Saved:</span>{' '}
+                  <span className="text-retro-yellow">{preferences.favorites.length}</span>
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Controls bar */}

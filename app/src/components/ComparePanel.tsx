@@ -82,7 +82,7 @@ export function ComparePanel() {
               {compareDestinations.map((dest, index) => {
                 if (!dest) return null;
                 const score = scores[index];
-                const flightHours = dest.flightTimes[preferences.homeAirport] || 0;
+                const flightHours = dest.flightTimes[preferences.homeAirport];
                 return (
                   <div key={dest.id} className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-3 relative">
                     <button
@@ -100,7 +100,7 @@ export function ComparePanel() {
                     <div className="grid grid-cols-2 gap-2 text-xs mt-2">
                       <div><span className="text-text-muted">Score: </span><span className="text-retro-cyan">{score ? Math.round((score.total / maxScore) * 100) : 0}%</span></div>
                       <div><span className="text-text-muted">Duration: </span><span className="text-text-primary">{formatDuration(dest.duration)}</span></div>
-                      <div><span className="text-text-muted">Flight: </span><span className="text-text-primary">{formatFlightTime(flightHours)}</span></div>
+                      <div><span className="text-text-muted">Flight: </span><span className="text-text-primary">{flightHours != null ? formatFlightTime(flightHours) : '-'}</span></div>
                       <div><span className="text-text-muted">Cost: </span><span className={cn(dest.cost <= 3 ? 'text-retro-green' : dest.cost <= 6 ? 'text-retro-orange' : 'text-retro-red')}>{'$'.repeat(Math.ceil(dest.cost / 2))}</span></div>
                     </div>
                   </div>
@@ -114,7 +114,7 @@ export function ComparePanel() {
             {compareDestinations.map((dest, index) => {
               if (!dest) return null;
               const score = scores[index];
-              const flightHours = dest.flightTimes[preferences.homeAirport] || 0;
+              const flightHours = dest.flightTimes[preferences.homeAirport];
 
               return (
                 <div
@@ -137,7 +137,7 @@ export function ComparePanel() {
                   <div className="grid grid-cols-2 gap-2 text-xs mb-3">
                     <div><span className="text-text-muted">Score: </span><span className="text-retro-cyan">{score ? Math.round((score.total / maxScore) * 100) : 0}%</span></div>
                     <div><span className="text-text-muted">Duration: </span><span className="text-text-primary">{formatDuration(dest.duration)}</span></div>
-                    <div><span className="text-text-muted">Flight: </span><span className="text-text-primary">{formatFlightTime(flightHours)}</span></div>
+                    <div><span className="text-text-muted">Flight: </span><span className="text-text-primary">{flightHours != null ? formatFlightTime(flightHours) : '-'}</span></div>
                     <div><span className="text-text-muted">Cost: </span><span className={cn(dest.cost <= 3 ? 'text-retro-green' : dest.cost <= 6 ? 'text-retro-orange' : 'text-retro-red')}>{'$'.repeat(Math.ceil(dest.cost / 2))}</span></div>
                   </div>
                   {score && (

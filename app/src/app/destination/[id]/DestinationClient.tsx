@@ -18,7 +18,7 @@ import { RetroTabs, useTabHash, Tab } from '@/components/ui/RetroTabs';
 import { ShareButton } from '@/components/ui/ShareButton';
 import { PrintButton, PrintableContent } from '@/components/PrintView';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
-import { AIRPORT_HUBS, AirportCode, UserPreferences, DEFAULT_PREFERENCES } from '@/types';
+import { AIRPORT_HUBS, AirportCode, UserPreferences, DEFAULT_PREFERENCES, getDestinationImageUrl } from '@/types';
 
 const TABS: Tab[] = [
   { id: 'overview', label: 'Overview', icon: '📋' },
@@ -60,6 +60,9 @@ export default function DestinationClient() {
     const filtered = filterDestinations(destinations, preferences, travelers);
     const sorted = sortDestinationsByScore(filtered, preferences, travelers);
     const currentIndex = sorted.findIndex(({ destination: d }) => d.id === destination.id);
+    // The current destination may be excluded by active filters (e.g. a shared
+    // link into a filtered-out place) - then there are no meaningful neighbors.
+    if (currentIndex === -1) return { prevDest: null, nextDest: null };
     return {
       prevDest: currentIndex > 0 ? sorted[currentIndex - 1].destination : null,
       nextDest: currentIndex < sorted.length - 1 ? sorted[currentIndex + 1].destination : null,
@@ -146,41 +149,53 @@ export default function DestinationClient() {
         Back to Destinations
       </Link>
 
-      {/* Header */}
+      {/* Hero */}
       <div className="mb-6">
-        <RetroCard className="p-6">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-            <div>
-              <h1 className="text-2xl font-bold text-text-primary mb-1">
-                {destination.name}
-              </h1>
-              <p className="text-text-secondary">
-                {destination.countries.join(', ')}
-                {destination.region && (
-                  <span className="text-text-muted"> · {destination.region}</span>
-                )}
+        <RetroCard className="overflow-hidden">
+          <div className="relative h-56 sm:h-72 md:h-80">
+            <img
+              src={getDestinationImageUrl(destination, 'hero')}
+              alt={destination.name}
+              className="w-full h-full object-cover"
+              decoding="async"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-deep via-bg-deep/50 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+              <p className="eyebrow text-retro-cyan mb-1.5">
+                {destination.region} · {destination.countries.join(', ')}
               </p>
-              <div className="flex flex-wrap items-center gap-3 mt-3 text-sm text-text-muted">
-                <span className="flex items-center gap-1">
-                  ⏱️ {formatDuration(destination.duration)}
-                </span>
-                <span className="flex items-center gap-1">
-                  {climateInfo.icon} {climateInfo.desc}
-                </span>
-                <span className="flex items-center gap-1">
-                  {typeInfo.icon} {typeInfo.desc}
-                </span>
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <h1 className="display-title text-3xl sm:text-4xl text-text-primary">
+                  {destination.name}
+                </h1>
+                <div className="shrink-0 flex items-center gap-3">
+                  <PrintButton destination={destination} preferences={preferences} />
+                  <ShareButton
+                    destinationId={destination.id}
+                    destinationName={destination.name}
+                    preferences={preferences}
+                  />
+                  <ScoreBadge value={score.total} max={maxScore} className="text-lg" />
+                </div>
               </div>
             </div>
-            <div className="shrink-0 flex items-center gap-3">
-              <PrintButton destination={destination} preferences={preferences} />
-              <ShareButton
-                destinationId={destination.id}
-                destinationName={destination.name}
-                preferences={preferences}
-              />
-              <ScoreBadge value={score.total} max={maxScore} className="text-lg" />
-            </div>
+          </div>
+          <div className="px-5 sm:px-6 py-3 border-t border-white/[0.06] flex flex-wrap items-center gap-x-4 gap-y-1.5 telemetry">
+            <span>
+              <span className="telemetry-key">Trip:</span>{' '}
+              <span className="telemetry-value">{formatDuration(destination.duration)}</span>
+            </span>
+            <span>
+              <span className="telemetry-key">Climate:</span>{' '}
+              <span className="telemetry-value">{climateInfo.icon} {climateInfo.desc}</span>
+            </span>
+            <span>
+              <span className="telemetry-key">Style:</span>{' '}
+              <span className="telemetry-value">{typeInfo.icon} {typeInfo.desc}</span>
+            </span>
           </div>
         </RetroCard>
       </div>
@@ -217,7 +232,7 @@ export default function DestinationClient() {
                   {durationRec.message}
                 </p>
                 <p className="text-xs text-text-muted mt-1">
-                  Flight from {AIRPORT_HUBS[preferences.homeAirport].city}: ~{flightHours}h · Suggested: {durationRec.recommended}+ days · This trip: {destination.duration} days
+                  Flight from {AIRPORT_HUBS[preferences.homeAirport]?.city ?? preferences.homeAirport}: ~{flightHours}h · Suggested: {durationRec.recommended}+ days · This trip: {destination.duration} days
                 </p>
               </div>
             </div>
@@ -315,6 +330,26 @@ function OverviewTab({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2 space-y-6">
+        {destination.highlights && destination.highlights.length > 0 && (
+          <RetroCard>
+            <RetroCardHeader>
+              <h2 className="font-semibold text-sm text-retro-green">
+                Why You&apos;ll Love It
+              </h2>
+            </RetroCardHeader>
+            <RetroCardBody>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                {destination.highlights.map((highlight, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-sm">
+                    <span className="text-retro-green mt-0.5 shrink-0">✦</span>
+                    <span className="text-text-primary">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </RetroCardBody>
+          </RetroCard>
+        )}
+
         <RetroCard>
           <RetroCardHeader>
             <h2 className="font-semibold text-sm text-retro-magenta">
@@ -372,6 +407,8 @@ function OverviewTab({
             <ScoreGauge value={score.safetyScore} max={8} label="Safety" size="sm" />
             <ScoreGauge value={score.durationMatch} max={8} label="Duration Fit" size="sm" />
             <ScoreGauge value={score.flightTime} max={5} label="Flight Time" size="sm" />
+            <ScoreGauge value={score.climateMatch} max={4} label="Climate Match" size="sm" />
+            <ScoreGauge value={score.typeMatch} max={3} label="Trip Style Match" size="sm" />
           </RetroCardBody>
         </RetroCard>
       </div>
@@ -461,7 +498,7 @@ function PlanningTab({
       <RetroCard>
         <RetroCardHeader>
           <h2 className="font-semibold text-sm text-retro-magenta">
-            Neighborhoods
+            Neighborhoods &amp; Areas
           </h2>
         </RetroCardHeader>
         <RetroCardBody>
@@ -471,9 +508,9 @@ function PlanningTab({
                 <div key={i} className="border-l-2 border-retro-cyan/20 pl-3">
                   <h3 className="font-semibold text-sm text-retro-cyan">{hood.name}</h3>
                   <p className="text-text-secondary text-sm mt-1">{hood.description}</p>
-                  {hood.bestFor.length > 0 && (
+                  {(hood.bestFor?.length ?? 0) > 0 && (
                     <div className="flex flex-wrap gap-1 mt-2">
-                      {hood.bestFor.map((tag, j) => (
+                      {hood.bestFor!.map((tag, j) => (
                         <span key={j} className="px-2 py-0.5 text-[10px] bg-white/[0.04] text-text-muted rounded-full">
                           {tag}
                         </span>
@@ -484,8 +521,8 @@ function PlanningTab({
               ))}
             </div>
           ) : (
-            <p className="text-text-muted italic text-sm">
-              Neighborhood information coming soon...
+            <p className="text-text-muted text-sm">
+              No area guide for this destination yet.
             </p>
           )}
         </RetroCardBody>
@@ -517,8 +554,8 @@ function PlanningTab({
               </div>
             </div>
           ) : (
-            <p className="text-text-muted italic text-sm">
-              Transportation information coming soon...
+            <p className="text-text-muted text-sm">
+              No transport guide for this destination yet.
             </p>
           )}
         </RetroCardBody>
@@ -644,8 +681,8 @@ function CostsTab({
                 </div>
               </div>
             ) : (
-              <p className="text-text-muted italic text-sm mt-4">
-                Detailed cost breakdown coming soon...
+              <p className="text-text-muted text-sm mt-4">
+                No detailed cost breakdown for this destination yet.
               </p>
             )}
           </div>
@@ -669,8 +706,8 @@ function CostsTab({
               ))}
             </ul>
           ) : (
-            <p className="text-text-muted italic text-sm">
-              Budget tips coming soon...
+            <p className="text-text-muted text-sm">
+              No budget tips for this destination yet.
             </p>
           )}
         </RetroCardBody>
@@ -788,7 +825,7 @@ function StatRow({
   max: number;
   inverted?: boolean;
 }) {
-  const displayValue = inverted ? max - value + 1 : value;
+  const displayValue = inverted ? max - value : value;
   const percentage = (displayValue / max) * 100;
 
   let color = 'var(--retro-green)';

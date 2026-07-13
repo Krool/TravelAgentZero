@@ -90,12 +90,12 @@ export function DestinationCard({
         glow
       >
         {/* Hero Image */}
-        <div className="h-40 relative overflow-hidden rounded-t-xl">
+        <div className="h-48 relative overflow-hidden rounded-t-xl">
           <img
             src={imageUrl}
             alt={destination.name}
-            width={400}
-            height={300}
+            width={800}
+            height={600}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             loading="lazy"
             decoding="async"
@@ -114,6 +114,13 @@ export function DestinationCard({
           {/* Score badge overlay */}
           <div className="absolute bottom-3 left-3">
             <ScoreBadge value={score.total} max={maxScore} />
+          </div>
+
+          {/* Region eyebrow */}
+          <div className="absolute bottom-3 right-3">
+            <span className="eyebrow text-white/80 bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
+              {destination.region}
+            </span>
           </div>
 
           {/* Action buttons */}
@@ -158,13 +165,21 @@ export function DestinationCard({
         <div className="p-4">
           {/* Header */}
           <div className="mb-3">
-            <h3 className="font-semibold text-base text-text-primary truncate group-hover:text-retro-cyan transition-colors">
+            <h3 className="display-title text-lg text-text-primary truncate group-hover:text-retro-cyan transition-colors">
               {destination.name}
             </h3>
             <p className="text-text-muted text-xs truncate mt-0.5">
               {destination.countries.join(', ')}
             </p>
           </div>
+
+          {/* Highlight teaser */}
+          {destination.highlights && destination.highlights.length > 0 && (
+            <p className="text-text-secondary text-xs mb-3 truncate">
+              <span className="text-retro-green mr-1">✦</span>
+              {destination.highlights[0]}
+            </p>
+          )}
 
           {/* Quick stats */}
           <div className="grid grid-cols-2 gap-2 mb-3 text-xs">
