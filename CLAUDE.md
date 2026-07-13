@@ -51,6 +51,10 @@ fetched client-side by `AppProvider.tsx`. Types are in `app/src/types/index.ts`.
   `destinations.json`). Gates CI; exits non-zero on failure.
 - Flight times and prices are **modelled estimates**, not a live fare feed.
   Neighborhood/cost content is editorial, written 2026-07; prices are ballpark.
+- Content was fact-audited 2026-07-12 (visa rules, seasons, named places).
+  visaRequirements is point-in-time data and rots - re-verify before trusting,
+  and re-audit the field periodically. ETIAS notes were deliberately left out
+  until the EU scheme actually launches.
 
 ## Repo map
 
