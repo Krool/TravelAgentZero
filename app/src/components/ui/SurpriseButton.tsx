@@ -56,7 +56,10 @@ export function SurpriseButton({ destinationIds, disabled, className }: Surprise
             isSpinning && 'animate-spin'
           )}
         >
-          🎲
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <rect x="3" y="3" width="18" height="18" rx="3" />
+            <path d="M8 8h.01M16 8h.01M12 12h.01M8 16h.01M16 16h.01" />
+          </svg>
         </span>
         <span className="hidden sm:inline">{isSpinning ? 'Picking...' : 'Surprise Me'}</span>
       </span>

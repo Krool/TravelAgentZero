@@ -44,7 +44,7 @@ export default function SettingsPage() {
     a.download = 'travel-agent-zero-backup.json';
     a.click();
     URL.revokeObjectURL(url);
-    toast.success('Data exported successfully!');
+    toast.success('Data exported');
   };
 
   const handleImportData = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,7 +79,7 @@ export default function SettingsPage() {
           travelers: data.travelers,
           preferences: { ...preferences, ...data.preferences },
         });
-        toast.success('Data imported successfully!');
+        toast.success('Data imported');
       } catch {
         toast.error('Failed to parse backup file');
       }

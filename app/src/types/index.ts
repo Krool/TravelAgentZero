@@ -351,19 +351,19 @@ export const MONTHS_ORDERED: Month[] = [
 // CLIMATE & TRIP TYPE LABELS
 // ============================================================================
 
-export const CLIMATE_OPTIONS: Record<Climate | 'Any', { label: string; icon: string }> = {
-  Any: { label: 'Any Climate', icon: '🌍' },
-  Hot: { label: 'Hot / Tropical', icon: '☀️' },
-  Cold: { label: 'Cold / Alpine', icon: '❄️' },
-  Temperate: { label: 'Temperate', icon: '🌤️' },
-  Mix: { label: 'Mixed Climate', icon: '🌡️' },
+export const CLIMATE_OPTIONS: Record<Climate | 'Any', { label: string }> = {
+  Any: { label: 'Any Climate' },
+  Hot: { label: 'Hot / Tropical' },
+  Cold: { label: 'Cold / Alpine' },
+  Temperate: { label: 'Temperate' },
+  Mix: { label: 'Mixed Climate' },
 };
 
-export const TRIP_TYPE_OPTIONS: Record<TripType | 'Any', { label: string; icon: string }> = {
-  Any: { label: 'Any Type', icon: '🗺️' },
-  Urban: { label: 'Urban / City', icon: '🏙️' },
-  Nature: { label: 'Nature / Outdoors', icon: '🌲' },
-  Mix: { label: 'Mix of Both', icon: '🏞️' },
+export const TRIP_TYPE_OPTIONS: Record<TripType | 'Any', { label: string }> = {
+  Any: { label: 'Any Type' },
+  Urban: { label: 'Urban / City' },
+  Nature: { label: 'Nature / Outdoors' },
+  Mix: { label: 'Mix of Both' },
 };
 
 // ============================================================================

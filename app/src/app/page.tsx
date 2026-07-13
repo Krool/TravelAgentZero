@@ -370,8 +370,14 @@ export default function HomePage() {
                   const emptyState = getEmptyStateMessage();
                   return (
                     <>
-                      <div className="text-4xl mb-4 opacity-60">
-                        {viewMode === 'favorites' ? '☆' : '🔍'}
+                      <div className="mb-4 opacity-60 flex justify-center">
+                        {viewMode === 'favorites' ? (
+                          <span className="text-4xl">☆</span>
+                        ) : (
+                          <svg className="w-10 h-10 text-text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                            <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
+                          </svg>
+                        )}
                       </div>
                       <div className="font-semibold text-text-primary text-lg mb-2">
                         {emptyState.title}

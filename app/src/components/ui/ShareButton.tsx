@@ -31,13 +31,13 @@ export function ShareButton({
     try {
       const url = buildShareUrl(destinationId, preferences);
       const title = `Travel Agent Zero - ${destinationName}`;
-      const text = `Check out ${destinationName} on Travel Agent Zero!`;
+      const text = `${destinationName} on Travel Agent Zero`;
 
       if (canNativeShare()) {
         const shared = await nativeShare(title, text, url);
         if (shared) {
           Analytics.shareClicked('native');
-          toast.success('Shared successfully!');
+          toast.success('Shared');
           return;
         }
       }
@@ -45,7 +45,7 @@ export function ShareButton({
       const copied = await copyToClipboard(url);
       if (copied) {
         Analytics.shareClicked('clipboard');
-        toast.success('Link copied to clipboard!');
+        toast.success('Link copied');
       } else {
         toast.error('Failed to copy link');
       }

@@ -9,39 +9,33 @@ import { useFocusTrap } from '@/hooks/useFocusTrap';
 const ONBOARDING_STEPS = [
   {
     id: 'welcome',
-    title: 'Welcome to Travel Agent Zero',
-    content: 'Your smart travel planning companion. Let me show you around!',
-    icon: '🚀',
+    title: 'Travel Agent Zero',
+    content: 'A destination planner that scores every trip against your preferences. A short tour of the main features follows.',
   },
   {
     id: 'scoring',
-    title: 'Smart Scoring System',
-    content: 'Destinations are scored based on your preferences - travel month, budget, safety, and more. Higher scores = better matches for you.',
-    icon: '📊',
+    title: 'Scoring',
+    content: 'Each destination gets a score from your travel month, budget, flight time, and safety settings. Higher scores are closer matches.',
   },
   {
     id: 'filters',
-    title: 'Powerful Filters',
-    content: 'Use the filters on the left (or tap "Filters" on mobile) to narrow down destinations by duration, climate, type, and more.',
-    icon: '🎛️',
+    title: 'Filters',
+    content: 'Narrow the list by duration, climate, trip type, and region. On mobile, open them with the Filters button.',
   },
   {
     id: 'travelers',
-    title: 'Track Your Crew',
-    content: 'Add travelers in the Travelers section to track who has visited where. Enable "New Places Only" to find fresh adventures!',
-    icon: '👥',
+    title: 'Travelers',
+    content: 'Add the people you travel with to record who has been where. Turn on "New Places Only" to hide destinations your group has already visited.',
   },
   {
     id: 'favorites',
-    title: 'Save Your Favorites',
-    content: 'Click the star on any destination to save it to your favorites. Compare up to 3 destinations side-by-side!',
-    icon: '⭐',
+    title: 'Favorites and compare',
+    content: 'Star a destination to save it. Add up to three to the compare panel to view them side by side.',
   },
   {
     id: 'shortcuts',
-    title: 'Keyboard Shortcuts',
-    content: 'Press "/" to search, "G" for grid view, "L" for list view, "F" to toggle filters. Escape closes panels.',
-    icon: '⌨️',
+    title: 'Keyboard shortcuts',
+    content: 'Press "/" to search, "G" for grid view, "L" for list view, "F" for filters. Escape closes panels.',
   },
 ];
 
@@ -123,7 +117,9 @@ export function Onboarding() {
 
         {/* Step content */}
         <div className="text-center mb-6">
-          <div className="text-4xl mb-4">{step.icon}</div>
+          <div className="font-mono text-xs text-retro-cyan tracking-widest mb-4">
+            {String(currentStep + 1).padStart(2, '0')} / {String(ONBOARDING_STEPS.length).padStart(2, '0')}
+          </div>
           <h2
             id="onboarding-title"
             className="font-bold text-lg text-text-primary mb-3"
@@ -135,13 +131,6 @@ export function Onboarding() {
           </p>
         </div>
 
-        {/* Step counter */}
-        <div className="text-center mb-6">
-          <span className="text-xs text-text-muted">
-            {currentStep + 1} of {ONBOARDING_STEPS.length}
-          </span>
-        </div>
-
         {/* Navigation */}
         <div className="flex gap-3 justify-center">
           {currentStep > 0 && (
@@ -150,7 +139,7 @@ export function Onboarding() {
             </RetroButton>
           )}
           <RetroButton onClick={handleNext}>
-            {isLastStep ? "Let's Go!" : 'Next'}
+            {isLastStep ? 'Done' : 'Next'}
           </RetroButton>
           {!isLastStep && (
             <RetroButton variant="ghost" size="sm" onClick={handleSkip}>
@@ -196,9 +185,11 @@ export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         </div>
 
         <div className="space-y-5">
-          {ONBOARDING_STEPS.map((step) => (
+          {ONBOARDING_STEPS.map((step, index) => (
             <div key={step.id} className="flex gap-4">
-              <div className="text-2xl shrink-0">{step.icon}</div>
+              <div className="font-mono text-xs text-retro-cyan shrink-0 pt-0.5 w-6">
+                {String(index + 1).padStart(2, '0')}
+              </div>
               <div>
                 <h3 className="font-semibold text-text-primary mb-1 text-sm">
                   {step.title}
@@ -240,7 +231,7 @@ export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         </div>
 
         <div className="mt-6 text-center">
-          <RetroButton onClick={onClose}>Got It!</RetroButton>
+          <RetroButton onClick={onClose}>Close</RetroButton>
         </div>
       </RetroCard>
     </div>

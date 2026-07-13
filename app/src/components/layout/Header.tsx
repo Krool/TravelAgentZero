@@ -150,7 +150,7 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            className="fixed top-0 right-0 h-full w-72 bg-bg-card-solid/95 backdrop-blur-xl border-l border-white/[0.06] z-50 md:hidden animate-slide-in-left shadow-2xl"
+            className="fixed top-0 right-0 h-full w-72 bg-bg-card border-l border-white/[0.06] z-50 md:hidden animate-slide-in-left shadow-2xl"
           >
             <div className="flex items-center justify-between p-5 border-b border-white/[0.06]">
               <span className="font-semibold text-sm text-text-secondary uppercase tracking-wider">Menu</span>

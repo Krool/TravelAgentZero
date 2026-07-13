@@ -21,10 +21,10 @@ import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
 import { AIRPORT_HUBS, AirportCode, UserPreferences, DEFAULT_PREFERENCES, getDestinationImageUrl } from '@/types';
 
 const TABS: Tab[] = [
-  { id: 'overview', label: 'Overview', icon: '📋' },
-  { id: 'planning', label: 'Planning', icon: '🗓️' },
-  { id: 'costs', label: 'Costs', icon: '💰' },
-  { id: 'notes', label: 'Your Notes', icon: '📝' },
+  { id: 'overview', label: 'Overview' },
+  { id: 'planning', label: 'Planning' },
+  { id: 'costs', label: 'Costs' },
+  { id: 'notes', label: 'Your Notes' },
 ];
 
 export default function DestinationClient() {
@@ -124,16 +124,16 @@ export default function DestinationClient() {
   const durationRec = getDurationRecommendation(destination.duration, flightHours);
 
   const climateInfo = {
-    Hot: { icon: '☀️', desc: 'Hot / Tropical' },
-    Cold: { icon: '❄️', desc: 'Cold / Alpine' },
-    Temperate: { icon: '🌤️', desc: 'Temperate' },
-    Mix: { icon: '🌡️', desc: 'Variable' },
+    Hot: { desc: 'Hot / Tropical' },
+    Cold: { desc: 'Cold / Alpine' },
+    Temperate: { desc: 'Temperate' },
+    Mix: { desc: 'Variable' },
   }[destination.climate];
 
   const typeInfo = {
-    Urban: { icon: '🏙️', desc: 'Urban / City' },
-    Nature: { icon: '🌲', desc: 'Nature / Outdoors' },
-    Mix: { icon: '🗺️', desc: 'Mixed Experience' },
+    Urban: { desc: 'Urban / City' },
+    Nature: { desc: 'Nature / Outdoors' },
+    Mix: { desc: 'Mixed Experience' },
   }[destination.type];
 
   return (
@@ -192,11 +192,11 @@ export default function DestinationClient() {
             </span>
             <span>
               <span className="telemetry-key">Climate:</span>{' '}
-              <span className="telemetry-value">{climateInfo.icon} {climateInfo.desc}</span>
+              <span className="telemetry-value">{climateInfo.desc}</span>
             </span>
             <span>
               <span className="telemetry-key">Style:</span>{' '}
-              <span className="telemetry-value">{typeInfo.icon} {typeInfo.desc}</span>
+              <span className="telemetry-value">{typeInfo.desc}</span>
             </span>
           </div>
         </RetroCard>
@@ -224,7 +224,7 @@ export default function DestinationClient() {
                   durationRec.status === 'poor' && 'bg-retro-red/15 text-retro-red'
                 )}
               >
-                {durationRec.status === 'good' ? '✓' : durationRec.status === 'warning' ? '⚠' : '✗'}
+                {durationRec.status === 'good' ? '✓' : durationRec.status === 'warning' ? '!' : '✗'}
               </div>
               <div>
                 <div className="text-xs text-text-muted uppercase tracking-wider mb-1 font-medium">

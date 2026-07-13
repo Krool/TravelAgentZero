@@ -61,19 +61,6 @@ export function DestinationCard({
     }
   };
 
-  const climateIcon = {
-    Hot: '☀️',
-    Cold: '❄️',
-    Temperate: '🌤️',
-    Mix: '🌡️',
-  }[destination.climate];
-
-  const typeIcon = {
-    Urban: '🏙️',
-    Nature: '🌲',
-    Mix: '🗺️',
-  }[destination.type];
-
   const imageUrl = getDestinationImageUrl(destination);
 
   return (
@@ -184,19 +171,27 @@ export function DestinationCard({
           {/* Quick stats */}
           <div className="grid grid-cols-2 gap-2 mb-3 text-xs">
             <div className="flex items-center gap-1.5 text-text-secondary">
-              <span className="text-[10px]">⏱️</span>
+              <svg className="w-3 h-3 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
+              </svg>
               <span>{formatDuration(destination.duration)}</span>
             </div>
             <div className="flex items-center gap-1.5 text-text-secondary">
-              <span className="text-[10px]">✈️</span>
+              <svg className="w-3 h-3 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 22-7z" />
+              </svg>
               <span>{formatFlightTime(destination.flightTimes[preferences.homeAirport] || 0)}</span>
             </div>
             <div className="flex items-center gap-1.5 text-text-secondary">
-              <span className="text-[10px]">{climateIcon}</span>
+              <svg className="w-3 h-3 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z" />
+              </svg>
               <span>{destination.climate}</span>
             </div>
             <div className="flex items-center gap-1.5 text-text-secondary">
-              <span className="text-[10px]">{typeIcon}</span>
+              <svg className="w-3 h-3 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z" /><path d="M8 2v16M16 6v16" />
+              </svg>
               <span>{destination.type}</span>
             </div>
           </div>
