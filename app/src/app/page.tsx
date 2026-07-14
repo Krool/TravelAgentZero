@@ -14,7 +14,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { ActiveFilterChips, FilterCountBadge } from '@/components/ui/ActiveFilterChips';
 import { SurpriseButton } from '@/components/ui/SurpriseButton';
 import { getActiveFilterCount } from '@/lib/filterUtils';
-import { cn } from '@/lib/utils';
+import { cn, assetPath } from '@/lib/utils';
 import { MONTH_NAMES, AIRPORT_HUBS, hasChildTraveler } from '@/types';
 
 type ViewMode = 'grid' | 'list' | 'favorites';
@@ -370,13 +370,18 @@ export default function HomePage() {
                   const emptyState = getEmptyStateMessage();
                   return (
                     <>
-                      <div className="mb-4 opacity-60 flex justify-center">
+                      <div className="mb-4 flex justify-center">
                         {viewMode === 'favorites' ? (
-                          <span className="text-4xl">☆</span>
+                          <span className="text-4xl opacity-60">☆</span>
                         ) : (
-                          <svg className="w-10 h-10 text-text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
-                          </svg>
+                          <img
+                            src={assetPath('/icons/travel/binoculars.png')}
+                            alt=""
+                            width={64}
+                            height={64}
+                            className="w-16 h-16 opacity-80"
+                            aria-hidden="true"
+                          />
                         )}
                       </div>
                       <div className="font-semibold text-text-primary text-lg mb-2">

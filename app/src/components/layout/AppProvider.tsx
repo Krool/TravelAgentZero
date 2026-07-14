@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import { Destination, Traveler } from '@/types';
 import { ToastContainer } from '@/components/ui/Toast';
-
-const basePath = process.env.NODE_ENV === 'production' ? '/TravelAgentZero' : '';
+import { assetPath } from '@/lib/utils';
 
 interface AppProviderProps {
   children: React.ReactNode;
@@ -33,7 +32,7 @@ export function AppProvider({ children }: AppProviderProps) {
   useEffect(() => {
     async function loadData() {
       try {
-        const destResponse = await fetch(`${basePath}/data/destinations.json`);
+        const destResponse = await fetch(assetPath('/data/destinations.json'));
         if (!destResponse.ok) throw new Error(`destinations.json ${destResponse.status}`);
         const destinations: Destination[] = await destResponse.json();
         if (!Array.isArray(destinations) || destinations.length === 0) {
@@ -43,7 +42,7 @@ export function AppProvider({ children }: AppProviderProps) {
 
         const currentTravelers = useAppStore.getState().travelers;
         if (currentTravelers.length === 0) {
-          const travelerResponse = await fetch(`${basePath}/data/travelers.json`);
+          const travelerResponse = await fetch(assetPath('/data/travelers.json'));
           if (!travelerResponse.ok) throw new Error(`travelers.json ${travelerResponse.status}`);
           const defaultTravelers: Traveler[] = await travelerResponse.json();
           if (!Array.isArray(defaultTravelers)) {

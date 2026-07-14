@@ -5,37 +5,44 @@ import { useAppStore } from '@/lib/store';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard } from '@/components/ui/RetroCard';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { assetPath } from '@/lib/utils';
 
 const ONBOARDING_STEPS = [
   {
     id: 'welcome',
     title: 'Travel Agent Zero',
     content: 'A destination planner that scores every trip against your preferences. A short tour of the main features follows.',
+    image: 'globe',
   },
   {
     id: 'scoring',
     title: 'Scoring',
     content: 'Each destination gets a score from your travel month, budget, flight time, and safety settings. Higher scores are closer matches.',
+    image: 'compass',
   },
   {
     id: 'filters',
     title: 'Filters',
     content: 'Narrow the list by duration, climate, trip type, and region. On mobile, open them with the Filters button.',
+    image: 'map',
   },
   {
     id: 'travelers',
     title: 'Travelers',
     content: 'Add the people you travel with to record who has been where. Turn on "New Places Only" to hide destinations your group has already visited.',
+    image: 'suitcase',
   },
   {
     id: 'favorites',
     title: 'Favorites and compare',
     content: 'Star a destination to save it. Add up to three to the compare panel to view them side by side.',
+    image: 'passport',
   },
   {
     id: 'shortcuts',
     title: 'Keyboard shortcuts',
     content: 'Press "/" to search, "G" for grid view, "L" for list view, "F" for filters. Escape closes panels.',
+    image: 'rocket',
   },
 ];
 
@@ -117,6 +124,14 @@ export function Onboarding() {
 
         {/* Step content */}
         <div className="text-center mb-6">
+          <img
+            src={assetPath(`/icons/travel/${step.image}.png`)}
+            alt=""
+            width={64}
+            height={64}
+            className="w-16 h-16 mx-auto mb-4"
+            aria-hidden="true"
+          />
           <div className="font-mono text-xs text-retro-cyan tracking-widest mb-4">
             {String(currentStep + 1).padStart(2, '0')} / {String(ONBOARDING_STEPS.length).padStart(2, '0')}
           </div>
@@ -185,11 +200,16 @@ export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         </div>
 
         <div className="space-y-5">
-          {ONBOARDING_STEPS.map((step, index) => (
+          {ONBOARDING_STEPS.map((step) => (
             <div key={step.id} className="flex gap-4">
-              <div className="font-mono text-xs text-retro-cyan shrink-0 pt-0.5 w-6">
-                {String(index + 1).padStart(2, '0')}
-              </div>
+              <img
+                src={assetPath(`/icons/travel/${step.image}.png`)}
+                alt=""
+                width={32}
+                height={32}
+                className="w-8 h-8 shrink-0"
+                aria-hidden="true"
+              />
               <div>
                 <h3 className="font-semibold text-text-primary mb-1 text-sm">
                   {step.title}

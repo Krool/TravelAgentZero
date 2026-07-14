@@ -4,6 +4,13 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
+// Same basePath rule as next.config.ts and AppProvider.tsx - the static export
+// is served from /TravelAgentZero on GitHub Pages.
+export function assetPath(path: string): string {
+  const basePath = process.env.NODE_ENV === 'production' ? '/TravelAgentZero' : '';
+  return `${basePath}${path}`;
+}
+
 export function slugify(text: string): string {
   return text
     .toLowerCase()

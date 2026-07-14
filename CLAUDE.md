@@ -28,10 +28,11 @@ deploy step exists or should be added without approval.
 `https://krool.github.io/TravelAgentZero/`. Opening `out/index.html` from disk, or
 serving `out/` at a domain root, 404s on assets.
 
-`app/src/components/layout/AppProvider.tsx` independently hardcodes the same
-`/TravelAgentZero` basePath string to fetch `public/data/*.json` client-side at
-runtime. **If this repo is ever renamed, both places need updating** - the
-`next.config.ts` constant and the `AppProvider.tsx` constant are not shared.
+`app/src/lib/utils.ts` has `assetPath()`, which independently hardcodes the
+same `/TravelAgentZero` string for all runtime asset URLs (data JSON fetches
+in `AppProvider.tsx`, sprite icons under `public/icons/travel/`). **If this
+repo is ever renamed, both places need updating** - the `next.config.ts`
+constant and the `assetPath()` constant are not shared.
 
 ## Data pipeline
 
