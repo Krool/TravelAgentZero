@@ -5,7 +5,7 @@ import { useAppStore } from '@/lib/store';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard } from '@/components/ui/RetroCard';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { assetPath } from '@/lib/utils';
+import { assetPath, cn } from '@/lib/utils';
 
 const ONBOARDING_STEPS = [
   {
@@ -62,7 +62,6 @@ export function Onboarding() {
 
   const focusTrapRef = useFocusTrap(isVisible && !hasSeenOnboarding);
 
-  const step = ONBOARDING_STEPS[currentStep];
   const isLastStep = currentStep === ONBOARDING_STEPS.length - 1;
 
   const handleSkip = () => {
@@ -122,45 +121,68 @@ export function Onboarding() {
           ))}
         </div>
 
-        {/* Step content */}
-        <div className="text-center mb-6">
-          <img
-            src={assetPath(`/icons/travel/${step.image}.png`)}
-            alt=""
-            width={64}
-            height={64}
-            className="w-16 h-16 mx-auto mb-4"
-            aria-hidden="true"
-          />
-          <div className="font-mono text-xs text-retro-cyan tracking-widest mb-4">
-            {String(currentStep + 1).padStart(2, '0')} / {String(ONBOARDING_STEPS.length).padStart(2, '0')}
-          </div>
-          <h2
-            id="onboarding-title"
-            className="font-bold text-lg text-text-primary mb-3"
-          >
-            {step.title}
-          </h2>
-          <p className="text-text-secondary text-sm leading-relaxed">
-            {step.content}
-          </p>
+        {/* Step content - every step is stacked in the same grid cell so the
+            card keeps the height of the tallest step instead of resizing */}
+        <div className="grid mb-6">
+          {ONBOARDING_STEPS.map((s, index) => (
+            <div
+              key={s.id}
+              className={cn(
+                'col-start-1 row-start-1 text-center',
+                index !== currentStep && 'invisible'
+              )}
+              aria-hidden={index !== currentStep}
+            >
+              <img
+                src={assetPath(`/icons/travel/${s.image}.png`)}
+                alt=""
+                width={64}
+                height={64}
+                className="w-16 h-16 mx-auto mb-4"
+                aria-hidden="true"
+              />
+              <div className="font-mono text-xs text-retro-cyan tracking-widest mb-4">
+                {String(index + 1).padStart(2, '0')} / {String(ONBOARDING_STEPS.length).padStart(2, '0')}
+              </div>
+              <h2
+                id={index === currentStep ? 'onboarding-title' : undefined}
+                className="font-bold text-lg text-text-primary mb-3"
+              >
+                {s.title}
+              </h2>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                {s.content}
+              </p>
+            </div>
+          ))}
         </div>
 
-        {/* Navigation */}
+        {/* Navigation - Back and Skip stay in the layout when inactive so the
+            row width never changes */}
         <div className="flex gap-3 justify-center">
-          {currentStep > 0 && (
-            <RetroButton variant="ghost" size="sm" onClick={handlePrev}>
-              Back
-            </RetroButton>
-          )}
+          <RetroButton
+            variant="ghost"
+            size="sm"
+            onClick={handlePrev}
+            className={currentStep === 0 ? 'invisible' : undefined}
+            disabled={currentStep === 0}
+            aria-hidden={currentStep === 0}
+          >
+            Back
+          </RetroButton>
           <RetroButton onClick={handleNext}>
             {isLastStep ? 'Done' : 'Next'}
           </RetroButton>
-          {!isLastStep && (
-            <RetroButton variant="ghost" size="sm" onClick={handleSkip}>
-              Skip
-            </RetroButton>
-          )}
+          <RetroButton
+            variant="ghost"
+            size="sm"
+            onClick={handleSkip}
+            className={isLastStep ? 'invisible' : undefined}
+            disabled={isLastStep}
+            aria-hidden={isLastStep}
+          >
+            Skip
+          </RetroButton>
         </div>
       </RetroCard>
     </div>
