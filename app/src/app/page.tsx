@@ -119,12 +119,20 @@ export default function HomePage() {
     setSearchQuery('');
   }, [setSearchQuery]);
 
-  useEffect(() => {
+  // Reset pagination whenever the active filters/sort/view change. Derived during
+  // render (rather than a useEffect) so the reset happens in the same commit as the
+  // filter change instead of triggering a second, cascading render.
+  const paginationKey = [
+    sortMode, viewMode, preferences.travelMonth, preferences.homeAirport, preferences.searchQuery,
+    preferences.regionPreference, preferences.temperaturePreference, preferences.typePreference,
+    preferences.budgetSensitivity, preferences.maxFlightTime, preferences.maxDanger,
+    preferences.durationMin, preferences.durationMax, preferences.visaFreeOnly, preferences.preferNewPlaces,
+  ].join('|');
+  const [prevPaginationKey, setPrevPaginationKey] = useState(paginationKey);
+  if (paginationKey !== prevPaginationKey) {
+    setPrevPaginationKey(paginationKey);
     setVisibleCount(PAGE_SIZE);
-  }, [sortMode, viewMode, preferences.travelMonth, preferences.homeAirport, preferences.searchQuery,
-      preferences.regionPreference, preferences.temperaturePreference, preferences.typePreference,
-      preferences.budgetSensitivity, preferences.maxFlightTime, preferences.maxDanger,
-      preferences.durationMin, preferences.durationMax, preferences.visaFreeOnly, preferences.preferNewPlaces]);
+  }
 
   const allDisplayDestinations = viewMode === 'favorites' ? favoriteDestinations : sortedDestinations;
   const displayDestinations = allDisplayDestinations.slice(0, visibleCount);

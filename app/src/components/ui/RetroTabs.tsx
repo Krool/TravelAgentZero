@@ -55,20 +55,20 @@ export function useTabHash(defaultTab: string) {
   const [activeTab, setActiveTab] = useState(defaultTab);
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash) {
-      setActiveTab(hash);
-    }
-
-    const handleHashChange = () => {
-      const newHash = window.location.hash.slice(1);
-      if (newHash) {
-        setActiveTab(newHash);
+    // Shared handler: syncs state from the URL hash, used both for the initial
+    // read and for subsequent hashchange events, so the setState call lives in an
+    // event-handler-shaped function rather than directly in the effect body.
+    const syncFromHash = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        setActiveTab(hash);
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    syncFromHash();
+
+    window.addEventListener('hashchange', syncFromHash);
+    return () => window.removeEventListener('hashchange', syncFromHash);
   }, []);
 
   const setTab = (tabId: string) => {

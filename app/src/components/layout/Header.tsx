@@ -15,10 +15,14 @@ export function Header() {
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  // Close mobile menu on route change
-  useEffect(() => {
+  // Close mobile menu on route change. Derived during render (rather than a
+  // useEffect) so the close happens in the same commit as the navigation instead
+  // of triggering a second, cascading render.
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Close mobile menu on Escape key
   useEffect(() => {
