@@ -1,0 +1,30 @@
+# PR validation - the same gates deploy.yml runs before shipping, minus the
+# deploy. Exists so PRs (dependabot included) have a real check to judge by.
+name: PR Checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: pr-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: app/.nvmrc
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: node scripts/validate-data.js
+      - run: npm run build
