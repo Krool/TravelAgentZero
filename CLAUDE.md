@@ -18,8 +18,8 @@ Zustand, statically exported and hosted on GitHub Pages. All app code lives unde
 
 Push to `main` triggers `.github/workflows/deploy.yml`: installs deps, runs
 `node scripts/validate-data.js`, runs `npm run build`, then publishes `app/out` to
-GitHub Pages. Live at **https://krool.github.io/TravelAgentZero/**. No manual
-deploy step exists or should be added without approval.
+GitHub Pages. Live at **https://krool.github.io/TravelAgentZero/**. The real deploy
+path is CI.
 
 ## Static export + basePath - two places to update
 
@@ -39,7 +39,7 @@ constant and the `assetPath()` constant are not shared.
 `app/public/data/destinations.json` and `travelers.json` are the source of truth,
 fetched client-side by `AppProvider.tsx`. Types are in `app/src/types/index.ts`.
 
-- 95 destinations. Every record carries the full enriched schema: `highlights`,
+- Every destination record carries the full enriched schema: `highlights`,
   `neighborhoods`, `gettingAround`, `costBreakdown`, and a verified `imageUrl`
   (Unsplash, `w=800&h=600` crop - the UI derives the hero size from it). The
   validator requires all of these, so a new destination must ship them.
