@@ -55,6 +55,7 @@ export function Header() {
   const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
   return (
+    <>
     <header className="border-b border-white/[0.06] bg-bg-deep/70 backdrop-blur-xl sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
@@ -138,8 +139,14 @@ export function Header() {
           </div>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Nav Drawer */}
+      {/* Mobile Nav Drawer - rendered as a sibling of <header>, not a child.
+          The header uses backdrop-blur, and a backdrop-filter ancestor becomes
+          the containing block for position:fixed descendants. Nesting the
+          drawer inside clipped it (and the backdrop) to the header's box, so
+          h-full/inset-0 resolved to the header height instead of the viewport,
+          leaving the drawer body transparent. */}
       {mobileMenuOpen && (
         <>
           {/* Backdrop */}
@@ -182,7 +189,7 @@ export function Header() {
           </div>
         </>
       )}
-    </header>
+    </>
   );
 }
 
