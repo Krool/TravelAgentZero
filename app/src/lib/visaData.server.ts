@@ -3,6 +3,10 @@ import path from 'path';
 import { CountryEntry, EntryRule, PassportCode, PASSPORTS } from '@/types';
 
 // Build-time reader for data/visas.json. Server components only: it uses fs.
+// Client components may import its types (`import type`), never its values.
+if (typeof window !== 'undefined') {
+  throw new Error('visaData.server.ts was bundled into client code');
+}
 
 interface VisaTable {
   verifiedAt: string;

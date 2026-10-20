@@ -8,7 +8,7 @@ import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/Retro
 import { RetroToggle } from '@/components/ui/RetroCheckbox';
 import { RetroSlider } from '@/components/ui/RetroSlider';
 import { RetroSelect } from '@/components/ui/RetroSelect';
-import { AIRPORT_HUBS, AirportCode } from '@/types';
+import { AIRPORT_HUBS, AirportCode, PASSPORTS } from '@/types';
 import { useSound } from '@/hooks/useSound';
 import { useToast } from '@/hooks/useToast';
 
@@ -93,7 +93,14 @@ export default function SettingsPage() {
             : {};
         useAppStore.setState((state) => ({
           travelers: data.travelers,
-          preferences: { ...preferences, ...data.preferences },
+          preferences: {
+            ...preferences,
+            ...data.preferences,
+            // Unknown passports would leave entry rules undefined.
+            passport: Object.hasOwn(PASSPORTS, data.preferences.passport)
+              ? data.preferences.passport
+              : preferences.passport,
+          },
           destinationNotes: { ...state.destinationNotes, ...notes },
         }));
         toast.success('Data imported');

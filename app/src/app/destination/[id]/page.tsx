@@ -95,7 +95,8 @@ export default async function DestinationPage({ params }: { params: Promise<{ id
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        // Escape "<" so data can never close the script tag early.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <DestinationClient destination={destination} entries={entries} />
     </>

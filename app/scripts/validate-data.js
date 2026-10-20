@@ -149,6 +149,22 @@ for (const d of destinations) {
 const PASSPORTS = ['US', 'GB', 'CA', 'AU', 'DE'];
 const ENTRY_STATUSES = ['domestic', 'none', 'eta', 'on-arrival', 'evisa', 'visa'];
 const visas = JSON.parse(fs.readFileSync(path.join(sourceDir, 'visas.json'), 'utf8'));
+// "Official source" links render as hrefs. Require https and a government-style
+// host; the named exceptions were each checked against the country's own
+// government pages (lookalike visa sites are a real scam vector).
+const OFFICIAL_HOST = /(^|\.)(gov|gob|go|govt|gouv|gv)\.[a-z]{2}$|\.gov$|(^|\.)gov\.[a-z]{2,3}$|europa\.eu$|(^|\.)canada\.ca$|(^|\.)gov\.uk$/;
+const SOURCE_EXCEPTIONS = [
+  'seychelles.govtas.com', // named by Tourism Seychelles as the only official portal
+  'brazil.vfsevisa.com',   // Brazil's e-visa processor, linked from gov.br consulate pages
+  'www.evisacuba.cu',      // MINREX's e-visa portal
+  'www.evisa.e-gov.kg',    // Kyrgyz government e-visa portal
+  'www.cookislands.travel',
+  'www.jordanpass.jo',
+  'www.irishimmigration.ie',
+  'www.consulat.ma',
+  'u.ae',
+  'www.ica.gov.sg', 'www.immd.gov.hk', 'passport.govmu.org', 'irembo.gov.rw',
+];
 const warnings = [];
 if (!visas.countries || typeof visas.countries !== 'object') {
   err('visas.json: countries missing');
@@ -159,6 +175,14 @@ if (!visas.countries || typeof visas.countries !== 'object') {
       if (!rule) { err(`visas.json: ${country} has no ${p} rule`); continue; }
       if (!ENTRY_STATUSES.includes(rule.status)) err(`visas.json: ${country}.${p} status invalid: ${rule.status}`);
       if (rule.days !== null && (typeof rule.days !== 'number' || rule.days <= 0)) err(`visas.json: ${country}.${p} days invalid: ${rule.days}`);
+    }
+    if (entry.source != null) {
+      let url;
+      try { url = new URL(entry.source); } catch { err(`visas.json: ${country} source is not a URL`); continue; }
+      if (url.protocol !== 'https:') err(`visas.json: ${country} source must be https`);
+      else if (!OFFICIAL_HOST.test(url.hostname) && !SOURCE_EXCEPTIONS.includes(url.hostname)) {
+        err(`visas.json: ${country} source host ${url.hostname} is not a government domain or a vetted exception`);
+      }
     }
   }
   for (const d of destinations) {
