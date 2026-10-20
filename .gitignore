@@ -24,3 +24,4 @@ Thumbs.db
 
 # Per-machine Claude Code permissions
 .claude/settings.local.json
+.claude/claims/

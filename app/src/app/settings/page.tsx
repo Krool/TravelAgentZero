@@ -11,6 +11,9 @@ import { AIRPORT_HUBS, AirportCode } from '@/types';
 import { useSound } from '@/hooks/useSound';
 import { useToast } from '@/hooks/useToast';
 
+// Imported notes longer than this are dropped rather than filling localStorage.
+const MAX_NOTE_LENGTH = 10_000;
+
 export default function SettingsPage() {
   const {
     soundEnabled,
@@ -77,11 +80,12 @@ export default function SettingsPage() {
           toast.error('Invalid traveler data in backup file');
           return;
         }
+        const knownIds = new Set(destinations.map((d) => d.id));
         const notes =
           data.destinationNotes && typeof data.destinationNotes === 'object'
             ? Object.fromEntries(
                 Object.entries(data.destinationNotes as Record<string, unknown>).filter(
-                  ([, v]) => typeof v === 'string'
+                  ([id, v]) => knownIds.has(id) && typeof v === 'string' && v.length <= MAX_NOTE_LENGTH
                 )
               ) as Record<string, string>
             : {};
