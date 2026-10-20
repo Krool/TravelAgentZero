@@ -2,6 +2,8 @@
 
 import { useCallback } from 'react';
 import { Destination, UserPreferences, MONTH_NAMES, MONTHS_ORDERED } from '@/types';
+import { EntryRequirements } from '@/components/EntryRequirements';
+import type { DestinationEntries } from '@/lib/visaData.server';
 import { formatDuration } from '@/lib/utils';
 import { useToast } from '@/hooks/useToast';
 
@@ -44,9 +46,11 @@ export function PrintButton({ destination, className }: PrintButtonProps) {
 export function PrintableContent({
   destination,
   preferences,
+  entries,
 }: {
   destination: Destination;
   preferences: UserPreferences;
+  entries: DestinationEntries;
 }) {
   const bestMonths = MONTHS_ORDERED.filter(m => destination.bestMonths[m] === 1);
 
@@ -105,8 +109,13 @@ export function PrintableContent({
 
       {/* Visa */}
       <div className="mb-8">
-        <h2 className="text-xl font-bold mb-2">Visa Requirements</h2>
-        <p>{destination.visaRequirements}</p>
+        <h2 className="text-xl font-bold mb-2">Entry Requirements</h2>
+        <EntryRequirements
+          entries={entries.byPassport[preferences.passport]}
+          passport={preferences.passport}
+          verifiedAt={entries.verifiedAt}
+          print
+        />
       </div>
 
       {/* Footer */}

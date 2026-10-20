@@ -105,7 +105,7 @@ function pruneModelledPrices(dest, flightTimes) {
   return kept;
 }
 
-const filePath = path.join(__dirname, '..', 'public', 'data', 'destinations.json');
+const filePath = path.join(__dirname, '..', 'data', 'destinations.json');
 const destinations = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 let flightAdds = 0;

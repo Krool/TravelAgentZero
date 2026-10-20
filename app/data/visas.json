@@ -1,0 +1,2554 @@
+{
+  "verifiedAt": "2026-10-20",
+  "passports": {
+    "US": "United States",
+    "GB": "United Kingdom",
+    "CA": "Canada",
+    "AU": "Australia",
+    "DE": "Germany (EU)"
+  },
+  "uncertain": [
+    "Schengen countries/US,GB,CA,AU: ETIAS officially due Q4 2026 but widely reported slipping to 2027; not live as of check, no confirmed date",
+    "China/GB,CA,AU,DE: 30-day visa-free scheme expires 2026-12-31 unless extended",
+    "South Korea/all: K-ETA exemption expires 2026-12-31",
+    "Mongolia/GB,CA,AU: temporary exemption ends 2026-12-31; CA stay reported as 30 or 90 days",
+    "Senegal/all: reciprocity e-visa adopted July 2025; GOV.UK still says visa-free 3 months, start date unconfirmed",
+    "Ghana/all: visa in advance confirmed for GB only; 60-day stay and e-visa availability not confirmed",
+    "Singapore/CA,AU: stay 30 to 90 days at officer discretion; 30 used",
+    "Oman/CA,AU: 14-day exemption confirmed for US/GB/DE, not found on a list for CA/AU",
+    "Namibia/all: April 2025 visa regime confirmed in general; per-nationality list not checked on official portal",
+    "Egypt/all: fee reported as USD 30 since March 2026, official portal not reachable",
+    "Ethiopia/all: e-visa fee varies by source; on-arrival eligibility for these passports unconfirmed",
+    "Laos, Cambodia, Zimbabwe/all: on-arrival fees vary by nationality and source",
+    "Zambia/all: visa waiver confirmed, but stay reported as 30 or 90 days",
+    "Tunisia/US,CA: some sources give 4 months; 90 used",
+    "Bolivia/GB,CA,AU,DE: assumed visa-free 90 days, not rechecked",
+    "Taiwan/GB,CA: 180 days from prior knowledge, not rechecked",
+    "France (French Polynesia)/DE: EU citizens visa-free; no fixed limit stated, not verified",
+    "Madagascar/all: e-visa vs on-arrival both offered; fees from secondary sources",
+    "Madagascar/source: official e-visa domain unclear (evisamada-mg.com vs evisamada.gov.mg); no link shown until confirmed"
+  ],
+  "countries": {
+    "Albania": {
+      "US": {
+        "status": "none",
+        "days": 365,
+        "note": "US citizens up to 1 year"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://punetejashtme.gov.al/en/"
+    },
+    "Argentina": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Also covers Antarctica cruises from Ushuaia"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Also covers Antarctica cruises from Ushuaia"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Also covers Antarctica cruises from Ushuaia"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Also covers Antarctica cruises from Ushuaia"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "Also covers Antarctica cruises from Ushuaia"
+      },
+      "source": "https://www.argentina.gob.ar/migraciones"
+    },
+    "Australia": {
+      "US": {
+        "status": "eta",
+        "days": 90,
+        "note": "ETA subclass 601 via app"
+      },
+      "GB": {
+        "status": "eta",
+        "days": 90,
+        "note": "eVisitor, free"
+      },
+      "CA": {
+        "status": "eta",
+        "days": 90,
+        "note": "ETA subclass 601 via app"
+      },
+      "AU": {
+        "status": "domestic",
+        "days": null,
+        "note": "Own country"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 90,
+        "note": "eVisitor, free"
+      },
+      "source": "https://immi.homeaffairs.gov.au/"
+    },
+    "Austria": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Bahamas": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.bahamas.gov.bs/"
+    },
+    "Belize": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "Extendable monthly"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "Extendable monthly"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "Extendable monthly"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "Extendable monthly"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "Extendable monthly"
+      },
+      "source": "https://www.immigration.gov.bz/"
+    },
+    "Bhutan": {
+      "US": {
+        "status": "evisa",
+        "days": null,
+        "note": "Visa USD 40 plus Sustainable Development Fee USD 100 per night through 2027-08-31"
+      },
+      "GB": {
+        "status": "evisa",
+        "days": null,
+        "note": "Visa USD 40 plus Sustainable Development Fee USD 100 per night through 2027-08-31"
+      },
+      "CA": {
+        "status": "evisa",
+        "days": null,
+        "note": "Visa USD 40 plus Sustainable Development Fee USD 100 per night through 2027-08-31"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": null,
+        "note": "Visa USD 40 plus Sustainable Development Fee USD 100 per night through 2027-08-31"
+      },
+      "DE": {
+        "status": "evisa",
+        "days": null,
+        "note": "Visa USD 40 plus Sustainable Development Fee USD 100 per night through 2027-08-31"
+      },
+      "source": "https://visit.doi.gov.bt/"
+    },
+    "Bolivia": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Visa requirement dropped 2025-12-01"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.cancilleria.gob.bo/"
+    },
+    "Botswana": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.gov.bw/"
+    },
+    "Brazil": {
+      "US": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa required since 2025-04-10 (USD 80.90)"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa required since 2025-04-10 (USD 80.90)"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa required since 2025-04-10 (USD 80.90)"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://brazil.vfsevisa.com/"
+    },
+    "Cambodia": {
+      "US": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30; e-visa also available; e-Arrival card"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30; e-visa also available; e-Arrival card"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30; e-visa also available; e-Arrival card"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30; e-visa also available; e-Arrival card"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30; e-visa also available; e-Arrival card"
+      },
+      "source": "https://www.evisa.gov.kh/"
+    },
+    "Canada": {
+      "US": {
+        "status": "none",
+        "days": 180
+      },
+      "GB": {
+        "status": "eta",
+        "days": 180,
+        "note": "Canada eTA for air arrivals (CAD 7)"
+      },
+      "CA": {
+        "status": "domestic",
+        "days": null,
+        "note": "Own country"
+      },
+      "AU": {
+        "status": "eta",
+        "days": 180,
+        "note": "Canada eTA for air arrivals (CAD 7)"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 180,
+        "note": "Canada eTA for air arrivals (CAD 7)"
+      },
+      "source": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html"
+    },
+    "Chile": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.chile.gob.cl/"
+    },
+    "China": {
+      "US": {
+        "status": "visa",
+        "days": 30,
+        "note": "Tourist L visa; 240-hour visa-free transit to a third country only"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "Visa-free since 2026-02-17, through 2026-12-31"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "Visa-free since 2026-02-17, through 2026-12-31"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "Unilateral visa-free through 2026-12-31"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "Unilateral visa-free through 2026-12-31"
+      },
+      "source": "https://www.gov.uk/foreign-travel-advice/china/entry-requirements"
+    },
+    "Colombia": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Extendable to 180 per year; Check-MIG form"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Extendable to 180 per year; Check-MIG form"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Extendable to 180 per year; Check-MIG form"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Extendable to 180 per year; Check-MIG form"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "Extendable to 180 per year; Check-MIG form"
+      },
+      "source": "https://www.migracioncolombia.gov.co/"
+    },
+    "Cook Islands": {
+      "US": {
+        "status": "none",
+        "days": 31
+      },
+      "GB": {
+        "status": "none",
+        "days": 31
+      },
+      "CA": {
+        "status": "none",
+        "days": 31
+      },
+      "AU": {
+        "status": "none",
+        "days": 31
+      },
+      "DE": {
+        "status": "none",
+        "days": 31
+      },
+      "source": "https://www.cookislands.travel/"
+    },
+    "Costa Rica": {
+      "US": {
+        "status": "none",
+        "days": 180
+      },
+      "GB": {
+        "status": "none",
+        "days": 180
+      },
+      "CA": {
+        "status": "none",
+        "days": 180
+      },
+      "AU": {
+        "status": "none",
+        "days": 180
+      },
+      "DE": {
+        "status": "none",
+        "days": 180
+      },
+      "source": "https://www.migracion.go.cr/"
+    },
+    "Croatia": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Cuba": {
+      "US": {
+        "status": "evisa",
+        "days": 30,
+        "note": "Tourism banned by US law; must fit one of 12 OFAC categories; Cuban e-visa plus D'Viajeros form"
+      },
+      "GB": {
+        "status": "evisa",
+        "days": 30,
+        "note": "E-visa mandatory since 2025-07-01; D'Viajeros form and medical insurance"
+      },
+      "CA": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa included in ticket on direct flights from Canada; D'Viajeros form"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": 30,
+        "note": "E-visa mandatory since 2025-07-01; D'Viajeros form and medical insurance"
+      },
+      "DE": {
+        "status": "evisa",
+        "days": 30,
+        "note": "E-visa mandatory since 2025-07-01; D'Viajeros form and medical insurance"
+      },
+      "source": "https://www.evisacuba.cu/"
+    },
+    "Czech Republic": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Denmark": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Dominican Republic": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "Tourist card included in airfare; e-Ticket form"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "Tourist card included in airfare; e-Ticket form"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "Tourist card included in airfare; e-Ticket form"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "Tourist card included in airfare; e-Ticket form"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "Tourist card included in airfare; e-Ticket form"
+      },
+      "source": "https://eticket.migracion.gob.do/"
+    },
+    "Ecuador": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.cancilleria.gob.ec/"
+    },
+    "Egypt": {
+      "US": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30 (raised 2026); e-visa also available; Sinai-only stamp free"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30 (raised 2026); e-visa also available; Sinai-only stamp free"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30 (raised 2026); e-visa also available; Sinai-only stamp free"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30 (raised 2026); e-visa also available; Sinai-only stamp free"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "About USD 30 (raised 2026); e-visa also available; Sinai-only stamp free"
+      },
+      "source": "https://www.visa2egypt.gov.eg/"
+    },
+    "Ethiopia": {
+      "US": {
+        "status": "evisa",
+        "days": 30,
+        "note": "Apply on evisa.gov.et before travel"
+      },
+      "GB": {
+        "status": "evisa",
+        "days": 30,
+        "note": "Apply on evisa.gov.et before travel"
+      },
+      "CA": {
+        "status": "evisa",
+        "days": 30,
+        "note": "Apply on evisa.gov.et before travel"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": 30,
+        "note": "Apply on evisa.gov.et before travel"
+      },
+      "DE": {
+        "status": "evisa",
+        "days": 30,
+        "note": "Apply on evisa.gov.et before travel"
+      },
+      "source": "https://www.evisa.gov.et/"
+    },
+    "Fiji": {
+      "US": {
+        "status": "none",
+        "days": 120
+      },
+      "GB": {
+        "status": "none",
+        "days": 120
+      },
+      "CA": {
+        "status": "none",
+        "days": 120
+      },
+      "AU": {
+        "status": "none",
+        "days": 120
+      },
+      "DE": {
+        "status": "none",
+        "days": 120
+      },
+      "source": "https://www.immigration.gov.fj/"
+    },
+    "Finland": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "France": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "France (French Polynesia)": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Separate from Schengen 90-day count"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Separate from Schengen 90-day count"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Separate from Schengen 90-day count"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Separate from Schengen 90-day count"
+      },
+      "DE": {
+        "status": "none",
+        "days": null,
+        "note": "EU citizens need no visa"
+      },
+      "source": "https://www.polynesie-francaise.pref.gouv.fr/"
+    },
+    "Georgia": {
+      "US": {
+        "status": "none",
+        "days": 365,
+        "note": "Up to 1 year visa-free"
+      },
+      "GB": {
+        "status": "none",
+        "days": 365,
+        "note": "Up to 1 year visa-free"
+      },
+      "CA": {
+        "status": "none",
+        "days": 365,
+        "note": "Up to 1 year visa-free"
+      },
+      "AU": {
+        "status": "none",
+        "days": 365,
+        "note": "Up to 1 year visa-free"
+      },
+      "DE": {
+        "status": "none",
+        "days": 365,
+        "note": "Up to 1 year visa-free"
+      },
+      "source": "https://www.geoconsul.gov.ge/en/NonVisaCountries"
+    },
+    "Germany": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "Own country"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Ghana": {
+      "US": {
+        "status": "visa",
+        "days": 60,
+        "note": "Apply via Ghana mission in advance; yellow fever certificate required"
+      },
+      "GB": {
+        "status": "visa",
+        "days": 60,
+        "note": "Apply via Ghana mission in advance; yellow fever certificate required"
+      },
+      "CA": {
+        "status": "visa",
+        "days": 60,
+        "note": "Apply via Ghana mission in advance; yellow fever certificate required"
+      },
+      "AU": {
+        "status": "visa",
+        "days": 60,
+        "note": "Apply via Ghana mission in advance; yellow fever certificate required"
+      },
+      "DE": {
+        "status": "visa",
+        "days": 60,
+        "note": "Apply via Ghana mission in advance; yellow fever certificate required"
+      },
+      "source": "https://www.gov.uk/foreign-travel-advice/ghana/entry-requirements"
+    },
+    "Greece": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Guatemala": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "CA-4 area shared 90 days with Honduras, El Salvador, Nicaragua"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "CA-4 area shared 90 days with Honduras, El Salvador, Nicaragua"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "CA-4 area shared 90 days with Honduras, El Salvador, Nicaragua"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "CA-4 area shared 90 days with Honduras, El Salvador, Nicaragua"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "CA-4 area shared 90 days with Honduras, El Salvador, Nicaragua"
+      },
+      "source": "https://igm.gob.gt/"
+    },
+    "Hong Kong": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 180
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.immd.gov.hk/eng/services/visas/visit-transit/visit-visa-entry-permit.html"
+    },
+    "Hungary": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Iceland": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EEA/EFTA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "India": {
+      "US": {
+        "status": "evisa",
+        "days": 180,
+        "note": "E-Tourist visa; 30-day, 1-year and 5-year options"
+      },
+      "GB": {
+        "status": "evisa",
+        "days": 180,
+        "note": "E-Tourist visa; 30-day, 1-year and 5-year options"
+      },
+      "CA": {
+        "status": "evisa",
+        "days": 180,
+        "note": "E-Tourist visa; 30-day, 1-year and 5-year options"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-Tourist visa; 30-day, 1-year and 5-year options"
+      },
+      "DE": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-Tourist visa; 30-day, 1-year and 5-year options"
+      },
+      "source": "https://indianvisaonline.gov.in/evisa/"
+    },
+    "Indonesia": {
+      "US": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "IDR 500,000, e-VoA online; Bali levy IDR 150,000"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "IDR 500,000, e-VoA online; Bali levy IDR 150,000"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "IDR 500,000, e-VoA online; Bali levy IDR 150,000"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "IDR 500,000, e-VoA online; Bali levy IDR 150,000"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "IDR 500,000, e-VoA online; Bali levy IDR 150,000"
+      },
+      "source": "https://evisa.imigrasi.go.id/"
+    },
+    "Ireland": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "domestic",
+        "days": null,
+        "note": "Common Travel Area"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU free movement"
+      },
+      "source": "https://www.irishimmigration.ie/"
+    },
+    "Israel": {
+      "US": {
+        "status": "eta",
+        "days": 90,
+        "note": "ETA-IL required since 2025-01-01 (ILS 25)"
+      },
+      "GB": {
+        "status": "eta",
+        "days": 90,
+        "note": "ETA-IL required since 2025-01-01 (ILS 25)"
+      },
+      "CA": {
+        "status": "eta",
+        "days": 90,
+        "note": "ETA-IL required since 2025-01-01 (ILS 25)"
+      },
+      "AU": {
+        "status": "eta",
+        "days": 90,
+        "note": "ETA-IL required since 2025-01-01 (ILS 25)"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 90,
+        "note": "ETA-IL required since 2025-01-01 (ILS 25)"
+      },
+      "source": "https://israel-entry.piba.gov.il/"
+    },
+    "Italy": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Jamaica": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.pica.gov.jm/"
+    },
+    "Japan": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.mofa.go.jp/j_info/visit/visa/short/novisa.html"
+    },
+    "Jordan": {
+      "US": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "JOD 40; waived with Jordan Pass and minimum stay"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "JOD 40; waived with Jordan Pass and minimum stay"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "JOD 40; waived with Jordan Pass and minimum stay"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "JOD 40; waived with Jordan Pass and minimum stay"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "JOD 40; waived with Jordan Pass and minimum stay"
+      },
+      "source": "https://www.jordanpass.jo/"
+    },
+    "Kazakhstan": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "90 days max in any 180"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "90 days max in any 180"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "90 days max in any 180"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "90 days max in any 180"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "90 days max in any 180"
+      },
+      "source": "https://www.gov.kz/memleket/entities/mfa"
+    },
+    "Kenya": {
+      "US": {
+        "status": "eta",
+        "days": 90,
+        "note": "Kenya eTA required since 2024-01-05"
+      },
+      "GB": {
+        "status": "eta",
+        "days": 90,
+        "note": "Kenya eTA required since 2024-01-05"
+      },
+      "CA": {
+        "status": "eta",
+        "days": 90,
+        "note": "Kenya eTA required since 2024-01-05"
+      },
+      "AU": {
+        "status": "eta",
+        "days": 90,
+        "note": "Kenya eTA required since 2024-01-05"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 90,
+        "note": "Kenya eTA required since 2024-01-05"
+      },
+      "source": "https://www.etakenya.go.ke/"
+    },
+    "Kyrgyzstan": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "30 in 60 days since 2025-12-31 (was 60)"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "30 in 60 days since 2025-12-31 (was 60)"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "30 in 60 days since 2025-12-31 (was 60)"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "30 in 60 days since 2025-12-31 (was 60)"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "30 in 60 days since 2025-12-31 (was 60)"
+      },
+      "source": "https://www.evisa.e-gov.kg/"
+    },
+    "Laos": {
+      "US": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Fee varies by nationality; e-visa also available"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Fee varies by nationality; e-visa also available"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Fee varies by nationality; e-visa also available"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Fee varies by nationality; e-visa also available"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Fee varies by nationality; e-visa also available"
+      },
+      "source": "https://laoevisa.gov.la/"
+    },
+    "Madagascar": {
+      "US": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa or on arrival; 15-day fee EUR 30 since 2026-02-16"
+      },
+      "GB": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa or on arrival; 15-day fee EUR 30 since 2026-02-16"
+      },
+      "CA": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa or on arrival; 15-day fee EUR 30 since 2026-02-16"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa or on arrival; 15-day fee EUR 30 since 2026-02-16"
+      },
+      "DE": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa or on arrival; 15-day fee EUR 30 since 2026-02-16"
+      }
+    },
+    "Malaysia": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "MDAC arrival card 3 days before"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "MDAC arrival card 3 days before"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "MDAC arrival card 3 days before"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "MDAC arrival card 3 days before"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "MDAC arrival card 3 days before"
+      },
+      "source": "https://imigresen-online.imi.gov.my/mdac/main"
+    },
+    "Maldives": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "Free 30-day permit on arrival; IMUGA form"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "Free 30-day permit on arrival; IMUGA form"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "Free 30-day permit on arrival; IMUGA form"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "Free 30-day permit on arrival; IMUGA form"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "Free 30-day permit on arrival; IMUGA form"
+      },
+      "source": "https://imuga.immigration.gov.mv/"
+    },
+    "Mauritius": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://passport.govmu.org/"
+    },
+    "Mexico": {
+      "US": {
+        "status": "none",
+        "days": 180,
+        "note": "Stay length set by officer, up to 180 days"
+      },
+      "GB": {
+        "status": "none",
+        "days": 180,
+        "note": "Stay length set by officer, up to 180 days"
+      },
+      "CA": {
+        "status": "none",
+        "days": 180,
+        "note": "Stay length set by officer, up to 180 days"
+      },
+      "AU": {
+        "status": "none",
+        "days": 180,
+        "note": "Stay length set by officer, up to 180 days"
+      },
+      "DE": {
+        "status": "none",
+        "days": 180,
+        "note": "Stay length set by officer, up to 180 days"
+      },
+      "source": "https://www.inm.gob.mx/"
+    },
+    "Monaco": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "Open border with France; EU citizens enter freely"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Mongolia": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "Visa-free tourism through 2026-12-31"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "Visa-free tourism through 2026-12-31"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "Visa-free tourism through 2026-12-31"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "Standing bilateral exemption"
+      },
+      "source": "https://www.gov.uk/foreign-travel-advice/mongolia/entry-requirements"
+    },
+    "Montenegro": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.gov.me/en/mvp"
+    },
+    "Morocco": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.consulat.ma/"
+    },
+    "Namibia": {
+      "US": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Visa required since 2025-04-01; N$1,600 on arrival or via e-services"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Visa required since 2025-04-01; N$1,600 on arrival or via e-services"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Visa required since 2025-04-01; N$1,600 on arrival or via e-services"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Visa required since 2025-04-01; N$1,600 on arrival or via e-services"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Visa required since 2025-04-01; N$1,600 on arrival or via e-services"
+      },
+      "source": "https://eservices.mhaiss.gov.na/"
+    },
+    "Nepal": {
+      "US": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "USD 30/50/125 for 15/30/90 days"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "USD 30/50/125 for 15/30/90 days"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "USD 30/50/125 for 15/30/90 days"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "USD 30/50/125 for 15/30/90 days"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "USD 30/50/125 for 15/30/90 days"
+      },
+      "source": "https://www.immigration.gov.np/"
+    },
+    "Netherlands": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "New Zealand": {
+      "US": {
+        "status": "eta",
+        "days": 90,
+        "note": "NZeTA plus tourist levy (IVL)"
+      },
+      "GB": {
+        "status": "eta",
+        "days": 180,
+        "note": "NZeTA plus tourist levy (IVL)"
+      },
+      "CA": {
+        "status": "eta",
+        "days": 90,
+        "note": "NZeTA plus tourist levy (IVL)"
+      },
+      "AU": {
+        "status": "domestic",
+        "days": null,
+        "note": "Trans-Tasman arrangement; live and work freely"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 90,
+        "note": "NZeTA plus tourist levy (IVL)"
+      },
+      "source": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/nzeta"
+    },
+    "Norway": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EEA/EFTA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Oman": {
+      "US": {
+        "status": "none",
+        "days": 14,
+        "note": "Longer stays need an e-visa"
+      },
+      "GB": {
+        "status": "none",
+        "days": 14,
+        "note": "Longer stays need an e-visa"
+      },
+      "CA": {
+        "status": "none",
+        "days": 14,
+        "note": "Longer stays need an e-visa"
+      },
+      "AU": {
+        "status": "none",
+        "days": 14,
+        "note": "Longer stays need an e-visa"
+      },
+      "DE": {
+        "status": "none",
+        "days": 14,
+        "note": "Longer stays need an e-visa"
+      },
+      "source": "https://evisa.rop.gov.om/"
+    },
+    "Panama": {
+      "US": {
+        "status": "none",
+        "days": 180
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 180
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.migracion.gob.pa/"
+    },
+    "Peru": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Officer may grant up to 183 days"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Officer may grant up to 183 days"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Officer may grant up to 183 days"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Officer may grant up to 183 days"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "Officer may grant up to 183 days"
+      },
+      "source": "https://www.gob.pe/migraciones"
+    },
+    "Philippines": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "eTravel registration before arrival"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "eTravel registration before arrival"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "eTravel registration before arrival"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "eTravel registration before arrival"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "eTravel registration before arrival"
+      },
+      "source": "https://etravel.gov.ph/"
+    },
+    "Poland": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Portugal": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Romania": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU free movement; full Schengen member since 2025-01-01"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Rwanda": {
+      "US": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "USD 50; e-visa also available"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Free 30-day visa on arrival for Commonwealth citizens"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Free 30-day visa on arrival for Commonwealth citizens"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "Free 30-day visa on arrival for Commonwealth citizens"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 30,
+        "note": "USD 50; e-visa also available"
+      },
+      "source": "https://irembo.gov.rw/"
+    },
+    "Saint Lucia": {
+      "US": {
+        "status": "none",
+        "days": 42
+      },
+      "GB": {
+        "status": "none",
+        "days": 42
+      },
+      "CA": {
+        "status": "none",
+        "days": 42
+      },
+      "AU": {
+        "status": "none",
+        "days": 42
+      },
+      "DE": {
+        "status": "none",
+        "days": 42
+      },
+      "source": "https://www.govt.lc/"
+    },
+    "Senegal": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Reciprocity e-visa adopted 2025 but not yet in force"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Reciprocity e-visa adopted 2025 but not yet in force"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Reciprocity e-visa adopted 2025 but not yet in force"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Reciprocity e-visa adopted 2025 but not yet in force"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "Reciprocity e-visa adopted 2025 but not yet in force"
+      },
+      "source": "https://www.gov.uk/foreign-travel-advice/senegal/entry-requirements"
+    },
+    "Seychelles": {
+      "US": {
+        "status": "eta",
+        "days": 90,
+        "note": "Travel Authorisation required before departure"
+      },
+      "GB": {
+        "status": "eta",
+        "days": 90,
+        "note": "Travel Authorisation required before departure"
+      },
+      "CA": {
+        "status": "eta",
+        "days": 90,
+        "note": "Travel Authorisation required before departure"
+      },
+      "AU": {
+        "status": "eta",
+        "days": 90,
+        "note": "Travel Authorisation required before departure"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 90,
+        "note": "Travel Authorisation required before departure"
+      },
+      "source": "https://seychelles.govtas.com/"
+    },
+    "Singapore": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "SG Arrival Card 3 days before"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "SG Arrival Card 3 days before"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "SG Arrival Card; officer sets stay"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "SG Arrival Card; officer sets stay"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "SG Arrival Card 3 days before"
+      },
+      "source": "https://www.ica.gov.sg/enter-transit-depart/entering-singapore"
+    },
+    "Slovenia": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "South Africa": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.dha.gov.za/"
+    },
+    "South Korea": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "K-ETA exempt through 2026-12-31"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "K-ETA exempt through 2026-12-31"
+      },
+      "CA": {
+        "status": "none",
+        "days": 180,
+        "note": "K-ETA exempt through 2026-12-31"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "K-ETA exempt through 2026-12-31"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "K-ETA exempt through 2026-12-31"
+      },
+      "source": "https://www.mofa.go.kr/us-hagatna-en/brd/m_5521/view.do?seq=761689"
+    },
+    "Spain": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Sri Lanka": {
+      "US": {
+        "status": "eta",
+        "days": 30,
+        "note": "ETA free of charge since 2026-05-25; double entry"
+      },
+      "GB": {
+        "status": "eta",
+        "days": 30,
+        "note": "ETA free of charge since 2026-05-25; double entry"
+      },
+      "CA": {
+        "status": "eta",
+        "days": 30,
+        "note": "ETA free of charge since 2026-05-25; double entry"
+      },
+      "AU": {
+        "status": "eta",
+        "days": 30,
+        "note": "ETA free of charge since 2026-05-25; double entry"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 30,
+        "note": "ETA free of charge since 2026-05-25; double entry"
+      },
+      "source": "https://www.eta.gov.lk/"
+    },
+    "Sweden": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EU/EEA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Switzerland": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Schengen 90 in 180 days; EES biometric registration at border; ETIAS not yet live"
+      },
+      "DE": {
+        "status": "domestic",
+        "days": null,
+        "note": "EEA/EFTA free movement"
+      },
+      "source": "https://travel-europe.europa.eu/en/ees"
+    },
+    "Taiwan": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 180
+      },
+      "CA": {
+        "status": "none",
+        "days": 180
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.boca.gov.tw/"
+    },
+    "Tanzania": {
+      "US": {
+        "status": "evisa",
+        "days": 90,
+        "note": "US citizens: USD 100 multiple-entry, 12 months"
+      },
+      "GB": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa USD 50; also on arrival"
+      },
+      "CA": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa USD 50; also on arrival"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa USD 50; also on arrival"
+      },
+      "DE": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa USD 50; also on arrival"
+      },
+      "source": "https://visa.immigration.go.tz/"
+    },
+    "Thailand": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "Exemption cut from 60 to 30 days on 2026-09-15; tourism only; TDAC form 3 days before"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "Exemption cut from 60 to 30 days on 2026-09-15; tourism only; TDAC form 3 days before"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "Exemption cut from 60 to 30 days on 2026-09-15; tourism only; TDAC form 3 days before"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "Exemption cut from 60 to 30 days on 2026-09-15; tourism only; TDAC form 3 days before"
+      },
+      "DE": {
+        "status": "none",
+        "days": 30,
+        "note": "Exemption cut from 60 to 30 days on 2026-09-15; tourism only; TDAC form 3 days before"
+      },
+      "source": "https://www.gov.uk/foreign-travel-advice/thailand/entry-requirements"
+    },
+    "Tunisia": {
+      "US": {
+        "status": "none",
+        "days": 90
+      },
+      "GB": {
+        "status": "none",
+        "days": 90
+      },
+      "CA": {
+        "status": "none",
+        "days": 90
+      },
+      "AU": {
+        "status": "none",
+        "days": 90
+      },
+      "DE": {
+        "status": "none",
+        "days": 90
+      },
+      "source": "https://www.diplomatie.gov.tn/"
+    },
+    "Turkey": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "90 in 180 days"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "90 in 180 days"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "90 in 180 days"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Visa-free since 2026-04-17; e-visa no longer needed"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "90 in 180 days; national ID card accepted"
+      },
+      "source": "https://www.mfa.gov.tr/visa-information-for-foreigners.en.mfa"
+    },
+    "United Arab Emirates": {
+      "US": {
+        "status": "none",
+        "days": 30,
+        "note": "Free entry stamp on arrival"
+      },
+      "GB": {
+        "status": "none",
+        "days": 30,
+        "note": "Free entry stamp on arrival"
+      },
+      "CA": {
+        "status": "none",
+        "days": 30,
+        "note": "Free entry stamp on arrival"
+      },
+      "AU": {
+        "status": "none",
+        "days": 30,
+        "note": "Free entry stamp on arrival"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "Free entry stamp; 90 in 180 days"
+      },
+      "source": "https://u.ae/en/information-and-services/visa-and-emirates-id"
+    },
+    "United Kingdom": {
+      "US": {
+        "status": "eta",
+        "days": 180,
+        "note": "UK ETA required (GBP 20 since 2026-04-08), valid 2 years"
+      },
+      "GB": {
+        "status": "domestic",
+        "days": null,
+        "note": "Own country"
+      },
+      "CA": {
+        "status": "eta",
+        "days": 180,
+        "note": "UK ETA required (GBP 20 since 2026-04-08), valid 2 years"
+      },
+      "AU": {
+        "status": "eta",
+        "days": 180,
+        "note": "UK ETA required (GBP 20 since 2026-04-08), valid 2 years"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 180,
+        "note": "UK ETA required since 2025-04-02 (GBP 20)"
+      },
+      "source": "https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta"
+    },
+    "United States": {
+      "US": {
+        "status": "domestic",
+        "days": null,
+        "note": "Own country"
+      },
+      "GB": {
+        "status": "eta",
+        "days": 90,
+        "note": "ESTA required (USD 40 since 2025-09-30)"
+      },
+      "CA": {
+        "status": "none",
+        "days": 180,
+        "note": "No ESTA needed"
+      },
+      "AU": {
+        "status": "eta",
+        "days": 90,
+        "note": "ESTA required (USD 40 since 2025-09-30)"
+      },
+      "DE": {
+        "status": "eta",
+        "days": 90,
+        "note": "ESTA required (USD 40 since 2025-09-30)"
+      },
+      "source": "https://esta.cbp.dhs.gov/"
+    },
+    "Uzbekistan": {
+      "US": {
+        "status": "none",
+        "days": 30
+      },
+      "GB": {
+        "status": "none",
+        "days": 30
+      },
+      "CA": {
+        "status": "none",
+        "days": 30
+      },
+      "AU": {
+        "status": "none",
+        "days": 30
+      },
+      "DE": {
+        "status": "none",
+        "days": 30
+      },
+      "source": "https://e-visa.gov.uz/"
+    },
+    "Vietnam": {
+      "US": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa up to 90 days (USD 25 single entry)"
+      },
+      "GB": {
+        "status": "none",
+        "days": 45,
+        "note": "Visa-free 45 days; e-visa for longer"
+      },
+      "CA": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa up to 90 days (USD 25 single entry)"
+      },
+      "AU": {
+        "status": "evisa",
+        "days": 90,
+        "note": "E-visa up to 90 days (USD 25 single entry)"
+      },
+      "DE": {
+        "status": "none",
+        "days": 45,
+        "note": "Visa-free 45 days; e-visa for longer"
+      },
+      "source": "https://evisa.gov.vn/"
+    },
+    "Zambia": {
+      "US": {
+        "status": "none",
+        "days": 90,
+        "note": "Visa waiver; KAZA UniVisa covers Zimbabwe add-on"
+      },
+      "GB": {
+        "status": "none",
+        "days": 90,
+        "note": "Visa waiver; KAZA UniVisa covers Zimbabwe add-on"
+      },
+      "CA": {
+        "status": "none",
+        "days": 90,
+        "note": "Visa waiver; KAZA UniVisa covers Zimbabwe add-on"
+      },
+      "AU": {
+        "status": "none",
+        "days": 90,
+        "note": "Visa waiver; KAZA UniVisa covers Zimbabwe add-on"
+      },
+      "DE": {
+        "status": "none",
+        "days": 90,
+        "note": "Visa waiver; KAZA UniVisa covers Zimbabwe add-on"
+      },
+      "source": "https://www.zambiaimmigration.gov.zm/"
+    },
+    "Zimbabwe": {
+      "US": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Fee varies by nationality; e-visa and KAZA UniVisa available"
+      },
+      "GB": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Fee varies by nationality; e-visa and KAZA UniVisa available"
+      },
+      "CA": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Fee varies by nationality; e-visa and KAZA UniVisa available"
+      },
+      "AU": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Fee varies by nationality; e-visa and KAZA UniVisa available"
+      },
+      "DE": {
+        "status": "on-arrival",
+        "days": 90,
+        "note": "Fee varies by nationality; e-visa and KAZA UniVisa available"
+      },
+      "source": "https://www.evisa.gov.zw/"
+    }
+  }
+}

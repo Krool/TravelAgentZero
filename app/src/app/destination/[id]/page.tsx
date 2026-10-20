@@ -1,11 +1,13 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import DestinationClient from './DestinationClient';
+import { getDestinationEntries } from '@/lib/visaData.server';
 import { Destination } from '@/types';
 
 async function getDestinations(): Promise<Destination[]> {
-  const filePath = path.join(process.cwd(), 'public', 'data', 'destinations.json');
+  const filePath = path.join(process.cwd(), 'data', 'destinations.json');
   const fileContents = await fs.readFile(filePath, 'utf8');
   return JSON.parse(fileContents);
 }
@@ -64,10 +66,11 @@ export default async function DestinationPage({ params }: { params: Promise<{ id
   const { id } = await params;
   const destinations = await getDestinations();
   const destination = destinations.find((d) => d.id === id);
+  if (!destination) notFound();
+  const entries = await getDestinationEntries(destination.countries);
 
-  // Structured data server-rendered into the static HTML - the page body
-  // itself is client-rendered, so this is what crawlers reliably see.
-  const jsonLd = destination && [
+  // Structured data for crawlers, alongside the pre-rendered page body.
+  const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'TouristDestination',
@@ -90,13 +93,11 @@ export default async function DestinationPage({ params }: { params: Promise<{ id
 
   return (
     <>
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      )}
-      <DestinationClient />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DestinationClient destination={destination} entries={entries} />
     </>
   );
 }

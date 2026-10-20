@@ -24,15 +24,17 @@ const REGIONS = [
   'Middle East', 'Central Asia', 'South Asia', 'Southeast Asia', 'East Asia',
   'Africa', 'Oceania',
 ];
-const REQUIRED_STRINGS = ['id', 'name', 'itinerarySummary', 'considerations', 'visaRequirements', 'bestTimeDescription'];
+const REQUIRED_STRINGS = ['id', 'name', 'itinerarySummary', 'considerations', 'bestTimeDescription'];
 const SCORE_FIELDS = ['easeWithChild', 'urgency', 'danger', 'cost'];
 
+// Source data lives in app/data; travelers.json is served as-is from public/data.
+const sourceDir = path.join(__dirname, '..', 'data');
 const dataDir = path.join(__dirname, '..', 'public', 'data');
 const errors = [];
 const err = (msg) => errors.push(msg);
 
 // --- Destinations ---------------------------------------------------------
-const destinations = JSON.parse(fs.readFileSync(path.join(dataDir, 'destinations.json'), 'utf8'));
+const destinations = JSON.parse(fs.readFileSync(path.join(sourceDir, 'destinations.json'), 'utf8'));
 if (!Array.isArray(destinations)) throw new Error('destinations.json is not an array');
 
 const ids = new Set();
@@ -143,6 +145,34 @@ for (const d of destinations) {
   }
 }
 
+// --- Entry requirements (data/visas.json) ----------------------------------
+const PASSPORTS = ['US', 'GB', 'CA', 'AU', 'DE'];
+const ENTRY_STATUSES = ['domestic', 'none', 'eta', 'on-arrival', 'evisa', 'visa'];
+const visas = JSON.parse(fs.readFileSync(path.join(sourceDir, 'visas.json'), 'utf8'));
+const warnings = [];
+if (!visas.countries || typeof visas.countries !== 'object') {
+  err('visas.json: countries missing');
+} else {
+  for (const [country, entry] of Object.entries(visas.countries)) {
+    for (const p of PASSPORTS) {
+      const rule = entry[p];
+      if (!rule) { err(`visas.json: ${country} has no ${p} rule`); continue; }
+      if (!ENTRY_STATUSES.includes(rule.status)) err(`visas.json: ${country}.${p} status invalid: ${rule.status}`);
+      if (rule.days !== null && (typeof rule.days !== 'number' || rule.days <= 0)) err(`visas.json: ${country}.${p} days invalid: ${rule.days}`);
+    }
+  }
+  for (const d of destinations) {
+    for (const c of d.countries || []) {
+      if (!visas.countries[c]) err(`[${d.id}] country "${c}" has no entry in visas.json`);
+    }
+  }
+}
+// Entry rules rot. Warn rather than fail, so an unrelated deploy is not
+// blocked, once the table is over a year old.
+const ageDays = (Date.now() - Date.parse(visas.verifiedAt)) / 86400000;
+if (!(ageDays >= 0)) err(`visas.json: verifiedAt invalid: ${visas.verifiedAt}`);
+else if (ageDays > 365) warnings.push(`visas.json last verified ${visas.verifiedAt} (${Math.round(ageDays)} days ago) - re-audit it`);
+
 // --- Travelers ------------------------------------------------------------
 const travelers = JSON.parse(fs.readFileSync(path.join(dataDir, 'travelers.json'), 'utf8'));
 if (!Array.isArray(travelers)) throw new Error('travelers.json is not an array');
@@ -159,9 +189,10 @@ for (const t of travelers) {
 }
 
 // --- Report ---------------------------------------------------------------
+for (const w of warnings) console.warn('validate-data: WARNING - ' + w);
 if (errors.length) {
   console.error(`validate-data: FAILED with ${errors.length} error(s):`);
   for (const e of errors) console.error('  - ' + e);
   process.exit(1);
 }
-console.log(`validate-data: OK - ${destinations.length} destinations, ${travelers.length} travelers, all 25 airports covered.`);
+console.log(`validate-data: OK - ${destinations.length} destinations, ${travelers.length} travelers, ${Object.keys(visas.countries).length} visa countries, all 25 airports covered.`);

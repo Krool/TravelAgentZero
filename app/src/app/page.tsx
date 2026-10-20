@@ -1,7 +1,8 @@
 'use client';
 
-import { useMemo, useState, useEffect, useCallback } from 'react';
+import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
 import { useAppStore } from '@/lib/store';
+import { LoadingScreen } from '@/components/layout/AppProvider';
 import { filterDestinations, sortDestinationsByScore } from '@/lib/scoring';
 import { DestinationCard, DestinationCardCompact } from '@/components/destinations/DestinationCard';
 import { FilterPanel } from '@/components/filters/FilterPanel';
@@ -17,19 +18,45 @@ import { getActiveFilterCount } from '@/lib/filterUtils';
 import { cn, assetPath } from '@/lib/utils';
 import { MONTH_NAMES, AIRPORT_HUBS, hasChildTraveler, getChildCount } from '@/types';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { ViewMode, SortMode, HomeUrlState, encodeHomeState, decodeHomeState, setLastHomeSearch } from '@/lib/homeUrlState';
 
-type ViewMode = 'grid' | 'list' | 'favorites';
-type SortMode = 'score' | 'name' | 'cost' | 'flight' | 'duration';
 
 const PAGE_SIZE = 24;
 
+function initialUrlState(): HomeUrlState {
+  return typeof window === 'undefined' ? { prefs: {} } : decodeHomeState(window.location.search);
+}
+
 export default function HomePage() {
-  const { destinations, travelers, preferences, isLoaded, setSearchQuery } = useAppStore();
-  const [viewMode, setViewMode] = useState<ViewMode>('grid');
+  const { destinations, travelers, preferences, isLoaded, setSearchQuery, setPreferences } = useAppStore();
+  // Lazy initializers run on the client's first render; the list itself only
+  // renders after the catalog loads, so this can't cause a hydration mismatch.
+  const [viewMode, setViewMode] = useState<ViewMode>(() => initialUrlState().view ?? 'grid');
   const [showFilters, setShowFilters] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
-  const [sortMode, setSortMode] = useState<SortMode>('score');
+  const [sortMode, setSortMode] = useState<SortMode>(() => initialUrlState().sort ?? 'score');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const urlApplied = useRef(false);
+
+  // Adopt filters from the URL once the saved state and catalog are in, so a
+  // bookmarked or shared link wins over whatever was saved last time. (Sort and
+  // view are read from the URL in their useState initializers above.)
+  useEffect(() => {
+    if (!isLoaded || urlApplied.current) return;
+    const { prefs } = decodeHomeState(window.location.search);
+    if (Object.keys(prefs).length > 0) setPreferences(prefs);
+    urlApplied.current = true;
+  }, [isLoaded, setPreferences]);
+
+  // Then keep the URL in step with the search, without adding history entries.
+  useEffect(() => {
+    if (!isLoaded || !urlApplied.current) return;
+    const search = encodeHomeState(preferences, sortMode, viewMode);
+    setLastHomeSearch(search);
+    if (search !== window.location.search) {
+      window.history.replaceState(null, '', `${window.location.pathname}${search}${window.location.hash}`);
+    }
+  }, [isLoaded, preferences, sortMode, viewMode]);
 
   const hasChildren = hasChildTraveler(travelers, preferences.selectedTravelers);
   const childCount = getChildCount(travelers, preferences.selectedTravelers);
@@ -188,7 +215,7 @@ export default function HomePage() {
   };
 
   if (!isLoaded) {
-    return null;
+    return <LoadingScreen />;
   }
 
   return (

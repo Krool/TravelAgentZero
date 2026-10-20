@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import {
-  Destination,
+  DestinationSummary,
   Traveler,
   UserPreferences,
   DEFAULT_PREFERENCES,
@@ -18,10 +18,14 @@ import { Analytics } from '@/lib/analytics';
 
 interface AppStore {
   // Data
-  destinations: Destination[];
+  destinations: DestinationSummary[];
   travelers: Traveler[];
   preferences: UserPreferences;
   isLoaded: boolean;
+  // True once saved state has been read from localStorage. Pages render
+  // defaults (matching the static HTML) until then, so anything that depends
+  // on saved preferences should wait for this.
+  hydrated: boolean;
 
   // Sound settings
   soundEnabled: boolean;
@@ -36,9 +40,10 @@ interface AppStore {
   destinationNotes: Record<string, string>;
 
   // Actions - Data loading
-  setDestinations: (destinations: Destination[]) => void;
+  setDestinations: (destinations: DestinationSummary[]) => void;
   setTravelers: (travelers: Traveler[]) => void;
   setIsLoaded: (loaded: boolean) => void;
+  setHydrated: () => void;
 
   // Actions - Preferences
   setPreferences: (preferences: Partial<UserPreferences>) => void;
@@ -98,6 +103,7 @@ export const useAppStore = create<AppStore>()(
       travelers: [],
       preferences: DEFAULT_PREFERENCES,
       isLoaded: false,
+      hydrated: false,
       soundEnabled: false,
       soundVolume: 0.08, // Reduced default volume
       hasSeenOnboarding: false,
@@ -126,6 +132,7 @@ export const useAppStore = create<AppStore>()(
         }),
       setTravelers: (travelers) => set({ travelers }),
       setIsLoaded: (loaded) => set({ isLoaded: loaded }),
+      setHydrated: () => set({ hydrated: true }),
 
       // Preferences
       setPreferences: (newPrefs) =>
@@ -344,6 +351,11 @@ export const useAppStore = create<AppStore>()(
     {
       name: 'travel-agent-zero-storage',
       version: 2, // Increment version for migration
+      // Pages are statically pre-rendered with default state. Reading
+      // localStorage during the first client render would make it differ
+      // from that HTML (a hydration mismatch), so AppProvider rehydrates
+      // in an effect instead.
+      skipHydration: true,
       partialize: (state) => ({
         travelers: state.travelers,
         // The search box is per-visit; don't bring a stale query back on reload.

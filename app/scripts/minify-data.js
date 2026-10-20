@@ -1,7 +1,7 @@
 // minify-data.js - postbuild step: rewrite out/data/*.json without whitespace.
 //
-// public/data stays pretty-printed for readable diffs; the static export ships
-// the compact form. Runs automatically after `npm run build` (npm postbuild).
+// public/data/travelers.json stays pretty-printed for readable diffs; the
+// static export ships the compact form. Runs automatically after `npm run build` (npm postbuild).
 
 const fs = require('fs');
 const path = require('path');

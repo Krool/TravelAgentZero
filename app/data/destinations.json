@@ -5,7 +5,6 @@
     "duration": 8,
     "itinerarySummary": "Explore Seoul palaces and markets, Gyeongju and Busan, then hop to Hong Kong for skyline views, dim sum and Victoria Peak",
     "considerations": "Two-city trip needs an extra flight; both cities are well connected by high speed rail and metro",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "South Korea",
       "Hong Kong"
@@ -198,7 +197,6 @@
     "duration": 7,
     "itinerarySummary": "Explore the Grand Bazaar Hagia Sophia Blue Mosque and Bosphorus",
     "considerations": "Straddles Europe and Asia so offers both western and eastern cultural elements",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Turkey"
     ],
@@ -390,7 +388,6 @@
     "duration": 8,
     "itinerarySummary": "Historic sites modern art museums nightlife districts and a global food scene",
     "considerations": "English is widely spoken but public transit requires basic navigation skills",
-    "visaRequirements": "No visa required for US citizens for stays under 90 days",
     "countries": [
       "Germany"
     ],
@@ -584,7 +581,6 @@
     "duration": 7,
     "itinerarySummary": "Visit thermal baths castles ruin bars and Danube river attractions",
     "considerations": "EU country but uses Hungarian forint not the euro",
-    "visaRequirements": "No visa required for US citizens for up to 90 days in Schengen",
     "countries": [
       "Hungary"
     ],
@@ -776,7 +772,6 @@
     "duration": 9,
     "itinerarySummary": "Split time between Lisbon Porto and a flight to the Azores for hiking and hot springs",
     "considerations": "Azores flights limited and weather can shift quickly on islands",
-    "visaRequirements": "No visa required for US citizens under 90 days in Schengen",
     "countries": [
       "Portugal"
     ],
@@ -967,7 +962,6 @@
     "duration": 7,
     "itinerarySummary": "Visit Bolivia's high altitude capital and nearby moon valley and cable cars",
     "considerations": "High elevation may require acclimatization travel infrastructure may be limited",
-    "visaRequirements": "No visa required for US citizens up to 90 days; free SIGEMIG online pre-registration required before arrival",
     "countries": [
       "Bolivia"
     ],
@@ -1157,7 +1151,6 @@
     "duration": 9,
     "itinerarySummary": "Warsaw Krakow and historical sites along with beautiful countryside",
     "considerations": "Cold weather outside of peak months",
-    "visaRequirements": "Visa not required for US citizens up to 90 days",
     "countries": [
       "Poland"
     ],
@@ -1350,9 +1343,8 @@
     "duration": 8,
     "itinerarySummary": "Explore Kowloon Victoria Peak street markets and enjoy day trips to nearby islands",
     "considerations": "Safe and calm for tourists; the 2020 national security law ended street protests, so avoid political activity and expressions",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
-      "China"
+      "Hong Kong"
     ],
     "region": "East Asia",
     "climate": "Temperate",
@@ -1543,7 +1535,6 @@
     "duration": 9,
     "itinerarySummary": "Explore Tbilisi's old town wine regions and Caucasus mountain villages",
     "considerations": "Ongoing tensions near borders avoid Russian and South Ossetian regions",
-    "visaRequirements": "No visa required for US citizens for up to one year",
     "countries": [
       "Georgia"
     ],
@@ -1736,7 +1727,6 @@
     "duration": 8,
     "itinerarySummary": "Ljubljana Lake Bled and the Julian Alps with natural beauty and compact urban centers",
     "considerations": "Public transport may be limited in rural areas",
-    "visaRequirements": "Visa not required for US citizens up to 90 days",
     "countries": [
       "Slovenia"
     ],
@@ -1926,7 +1916,6 @@
     "duration": 6,
     "itinerarySummary": "Visit Fairbanks Yellowknife or Iceland to view the northern lights",
     "considerations": "Requires dark skies and clear weather plan around moon phase and cloud forecasts",
-    "visaRequirements": "Depends on country US passport holders typically do not need a visa",
     "countries": [
       "United States",
       "Canada",
@@ -2122,7 +2111,6 @@
     "duration": 7,
     "itinerarySummary": "Visit Prague Castle Old Town Charles Bridge and enjoy Czech beer and food",
     "considerations": "Gets very crowded in summer shoulder seasons are more comfortable",
-    "visaRequirements": "No visa required for US citizens up to 90 days in Schengen",
     "countries": [
       "Czech Republic"
     ],
@@ -2314,7 +2302,6 @@
     "duration": 9,
     "itinerarySummary": "Visit Marrakech the Atlas Mountains and the Sahara Desert by guided tour or self-drive",
     "considerations": "Dress modestly in rural areas check travel advisories near Western Sahara",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Morocco"
     ],
@@ -2506,7 +2493,6 @@
     "duration": 6,
     "itinerarySummary": "Visit Santa Fe art scene and attend Albuquerque Balloon Fiesta",
     "considerations": "Balloon Fiesta runs in early October book far in advance",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -2696,7 +2682,6 @@
     "duration": 9,
     "itinerarySummary": "Visit Athens and island hop through Santorini Naxos or Crete",
     "considerations": "Very hot in summer ferry schedules vary by season",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Greece"
     ],
@@ -2888,7 +2873,6 @@
     "duration": 6,
     "itinerarySummary": "Experience jazz French Quarter history and local cuisine",
     "considerations": "Humidity and hurricane season in summer and fall",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -3082,7 +3066,6 @@
     "duration": 8,
     "itinerarySummary": "Short island getaway with beaches reef snorkeling some hiking on Mahe and Praslin",
     "considerations": "October is Creole Festival time trade-wind transitions lodging scarce without booking early",
-    "visaRequirements": "Visa-free for 30 days as US citizen; digital Travel Authorization (about 10 EUR) required before arrival",
     "countries": [
       "Seychelles"
     ],
@@ -3234,7 +3217,6 @@
     "duration": 6,
     "itinerarySummary": "Hiking rim views and possible river rafting in Arizona's natural wonder",
     "considerations": "Summer heat can be extreme plan for hydration and sun protection",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -3425,7 +3407,6 @@
     "duration": 9,
     "itinerarySummary": "Coastal towns national parks and historic sites with Mediterranean climate",
     "considerations": "Overtourism can affect peak months",
-    "visaRequirements": "Visa not required for US citizens up to 90 days",
     "countries": [
       "Croatia"
     ],
@@ -3616,7 +3597,6 @@
     "duration": 6,
     "itinerarySummary": "Roadtrip to southern New Mexico to explore caves and desert scenery",
     "considerations": "Remote location with few nearby large cities or airports",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -3808,7 +3788,6 @@
     "duration": 7,
     "itinerarySummary": "Explore historic center museums art markets and nearby pyramids",
     "considerations": "High altitude air quality and traffic congestion may affect comfort",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Mexico"
     ],
@@ -3958,7 +3937,6 @@
     "duration": 9,
     "itinerarySummary": "Drive through Georgia Tennessee the Carolinas and Blue Ridge Parkway",
     "considerations": "Plan stops carefully for attractions versus long stretches of road",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -4148,7 +4126,6 @@
     "duration": 8,
     "itinerarySummary": "Visit Sugarloaf Christ the Redeemer Ipanema Copacabana and hike in Tijuca",
     "considerations": "Higher crime risk in some neighborhoods and summer is very hot",
-    "visaRequirements": "eVisa required starting 2025",
     "countries": [
       "Brazil"
     ],
@@ -4354,7 +4331,6 @@
     "duration": 9,
     "itinerarySummary": "Tour Jerusalem Tel Aviv the Dead Sea and religious landmarks",
     "considerations": "Ongoing regional tensions and elevated travel advisories",
-    "visaRequirements": "ETA-IL travel authorization required for US citizens before travel, about $7, valid 2 years; stays up to 90 days",
     "countries": [
       "Israel"
     ],
@@ -4545,7 +4521,6 @@
     "duration": 8,
     "itinerarySummary": "Visit the Colosseum Vatican Roman Forum and enjoy food and piazzas",
     "considerations": "Can be crowded in summer and some attractions require advance booking",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Italy"
     ],
@@ -4737,7 +4712,6 @@
     "duration": 9,
     "itinerarySummary": "Visit Cairo Giza Luxor and Nile River temples with optional cruise",
     "considerations": "Travel advisories in effect and safety protocols vary by region",
-    "visaRequirements": "eVisa available online for US travelers",
     "countries": [
       "Egypt"
     ],
@@ -4930,7 +4904,6 @@
     "duration": 8,
     "itinerarySummary": "Vienna Salzburg and the Alps rich in music culture and scenic views",
     "considerations": "Peak season can be crowded especially in summer",
-    "visaRequirements": "Visa not required for US citizens up to 90 days",
     "countries": [
       "Austria"
     ],
@@ -5120,7 +5093,6 @@
     "duration": 6,
     "itinerarySummary": "Explore Manhattan museums Broadway Central Park and neighborhoods across the boroughs",
     "considerations": "Can be expensive lodging and dining high priced during holidays and summer",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -5313,7 +5285,6 @@
     "duration": 10,
     "itinerarySummary": "Visit Cape Town drive the Garden Route and go on safari in Kruger",
     "considerations": "Malaria precautions may be required for Kruger travel advisories vary",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "South Africa"
     ],
@@ -5506,7 +5477,6 @@
     "duration": 10,
     "itinerarySummary": "Urban culture in Auckland Wellington Rotorua waterfalls and Southern Alps day trips scenic drives spa and wine",
     "considerations": "Long overnight flight and jet lag to overcome always-changing weather",
-    "visaRequirements": "NZeTA required for US citizens, NZ$17-23 plus NZ$100 visitor levy; stays up to 90 days",
     "countries": [
       "New Zealand"
     ],
@@ -5654,7 +5624,6 @@
     "duration": 10,
     "itinerarySummary": "Explore Buenos Aires then fly to Patagonia for glaciers and hiking",
     "considerations": "Domestic flights often needed between regions and seasons are reversed from the US",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Argentina"
     ],
@@ -5845,7 +5814,6 @@
     "duration": 10,
     "itinerarySummary": "Relax in Bali explore rice terraces and temples then visit Borobudur and Mount Bromo in Java",
     "considerations": "High humidity and tropical weather plan accordingly for dry season",
-    "visaRequirements": "Visa on arrival available for US citizens",
     "countries": [
       "Indonesia"
     ],
@@ -6038,7 +6006,6 @@
     "duration": 10,
     "itinerarySummary": "Explore Delhi Agra Jaipur then head to Kerala or Goa for nature and relaxation",
     "considerations": "Some areas can be overwhelming for first time travelers prepare for sensory overload and check travel advisories for regional safety",
-    "visaRequirements": "E visa required for US citizens",
     "countries": [
       "India"
     ],
@@ -6229,7 +6196,6 @@
     "duration": 10,
     "itinerarySummary": "From Santiago to the Atacama Desert and Patagonia spanning desert glaciers and vineyards",
     "considerations": "Long internal flights may be needed to see multiple regions",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Chile"
     ],
@@ -6417,7 +6383,6 @@
     "duration": 10,
     "itinerarySummary": "Visit Tokyo Kyoto and Hiroshima plus temples onsens and high speed rail",
     "considerations": "Cultural etiquette is important respect customs and language barriers",
-    "visaRequirements": "No visa required for US citizens for stays under 90 days",
     "countries": [
       "Japan"
     ],
@@ -6609,7 +6574,6 @@
     "duration": 4,
     "itinerarySummary": "Classic family amusement park in Anaheim with multiple themed lands",
     "considerations": "Can be very crowded and hot during summer and school holidays",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -6800,7 +6764,6 @@
     "duration": 4,
     "itinerarySummary": "Casino hopping shows fine dining and nearby desert excursions",
     "considerations": "Extremely hot in summer and weekends are very crowded",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -6992,7 +6955,6 @@
     "duration": 5,
     "itinerarySummary": "Walkable uptown district with museums plus local food and southern charm",
     "considerations": "Best visited in spring or fall to avoid summer humidity",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -7185,7 +7147,6 @@
     "duration": 5,
     "itinerarySummary": "Antebellum architecture carriage rides and Lowcountry cuisine",
     "considerations": "Warm and humid summers and potential for hurricanes in fall",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -7378,7 +7339,6 @@
     "duration": 5,
     "itinerarySummary": "Visit country music landmarks live shows and southern cuisine spots",
     "considerations": "Crowds increase during music festivals and holidays",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -7570,7 +7530,6 @@
     "duration": 6,
     "itinerarySummary": "Explore Old San Juan El Yunque Rainforest and island beaches",
     "considerations": "US territory no passport needed for citizens but hurricane season runs June to November",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -7762,7 +7721,6 @@
     "duration": 6,
     "itinerarySummary": "Relax at beach resorts go snorkeling or diving and island hop by ferry",
     "considerations": "Hurricane season runs from June to November travel in winter is best",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Bahamas"
     ],
@@ -7944,7 +7902,6 @@
     "duration": 6,
     "itinerarySummary": "Explore downtown Vancouver and ferry to Victoria for gardens and coastal walks",
     "considerations": "Border crossing into Canada may require passport and customs time",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Canada"
     ],
@@ -8134,7 +8091,6 @@
     "duration": 7,
     "itinerarySummary": "Visit Marina Bay Gardens Little India Chinatown and Sentosa Island",
     "considerations": "Strict rules and fines apply for minor infractions cleanliness is highly enforced",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Singapore"
     ],
@@ -8328,7 +8284,6 @@
     "duration": 7,
     "itinerarySummary": "Visit the Burj Khalifa Desert Safari Dubai Mall and Palm Jumeirah",
     "considerations": "Hot weather conservative dress expected in some areas",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United Arab Emirates"
     ],
@@ -8523,7 +8478,6 @@
     "duration": 7,
     "itinerarySummary": "Explore Halifax Bay of Fundy and Cape Breton Island by car",
     "considerations": "Driving required to access many key natural sights",
-    "visaRequirements": "No visa or eTA required for US citizens; a valid US passport is enough",
     "countries": [
       "Canada"
     ],
@@ -8700,7 +8654,6 @@
     "duration": 7,
     "itinerarySummary": "Hiking Going to the Sun Road lakes and wildlife in Montana's flagship park",
     "considerations": "Limited seasonal access and some areas require timed entry permits",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -8892,7 +8845,6 @@
     "duration": 7,
     "itinerarySummary": "Hike turquoise lakes and mountain trails in the Canadian Rockies",
     "considerations": "Requires car rental for full access some roads may close early due to snow",
-    "visaRequirements": "No visa or eTA required for US citizens, valid passport only",
     "countries": [
       "Canada"
     ],
@@ -9086,7 +9038,6 @@
     "duration": 7,
     "itinerarySummary": "Snorkeling reef diving and beach time in a laid back Caribbean setting",
     "considerations": "Mosquitoes and humidity are high in wet season plan for dry season travel",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Belize"
     ],
@@ -9267,7 +9218,6 @@
     "duration": 7,
     "itinerarySummary": "Explore Havana Vinales and Trinidad with cultural stops and beach time",
     "considerations": "US citizens must qualify under permitted travel categories and keep records",
-    "visaRequirements": "eVisa required for US citizens; it replaced the paper tourist card in July 2025",
     "countries": [
       "Cuba"
     ],
@@ -9458,7 +9408,6 @@
     "duration": 8,
     "itinerarySummary": "Cruise the coast or road trip through Denali National Park and glaciers",
     "considerations": "Weather can be unpredictable and many areas are remote",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -9651,7 +9600,6 @@
     "duration": 8,
     "itinerarySummary": "Drive the Ring Road visit waterfalls hot springs and volcanic landscapes",
     "considerations": "Weather can be unpredictable pack layers and plan backup activities",
-    "visaRequirements": "No visa required for US citizens under 90 days",
     "countries": [
       "Iceland"
     ],
@@ -9844,7 +9792,6 @@
     "duration": 8,
     "itinerarySummary": "Trek to Machu Picchu through Sacred Valley and high Andean passes",
     "considerations": "Permits required and hiking at altitude can be challenging",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Peru"
     ],
@@ -10036,7 +9983,6 @@
     "duration": 8,
     "itinerarySummary": "Ride scenic trains visit the Alps and explore Zurich Lucerne and Interlaken",
     "considerations": "Very expensive destination with excellent public transportation",
-    "visaRequirements": "No visa required for US citizens under 90 days",
     "countries": [
       "Switzerland"
     ],
@@ -10226,7 +10172,6 @@
     "duration": 9,
     "itinerarySummary": "Explore cloud forests beaches and volcanoes around Arenal and Monteverde",
     "considerations": "Rainy season lasts from May to November best to go during dry months",
-    "visaRequirements": "No visa required for US citizens for stays up to 180 days",
     "countries": [
       "Costa Rica"
     ],
@@ -10419,7 +10364,6 @@
     "duration": 9,
     "itinerarySummary": "Cruise fjords visit Oslo Bergen and scenic rail journeys",
     "considerations": "Very expensive and weather can be unpredictable in shoulder seasons",
-    "visaRequirements": "No visa required for US citizens under 90 days",
     "countries": [
       "Norway"
     ],
@@ -10611,7 +10555,6 @@
     "duration": 10,
     "itinerarySummary": "Colonial towns jungle treks and city life in Medellin and Cartagena",
     "considerations": "Some regions may be unsafe due to local conflicts check travel advisories",
-    "visaRequirements": "Visa not required for stays under 90 days for US citizens",
     "countries": [
       "Colombia"
     ],
@@ -10757,7 +10700,6 @@
     "duration": 10,
     "itinerarySummary": "Explore Lima Sacred Valley and Machu Picchu without trekking the trail",
     "considerations": "High altitude in Cusco and Sacred Valley may require adjustment time",
-    "visaRequirements": "No visa required for US citizens for stays under 90 days",
     "countries": [
       "Peru"
     ],
@@ -10947,7 +10889,6 @@
     "duration": 11,
     "itinerarySummary": "Relaxing island escape with beaches snorkeling and volcano hikes",
     "considerations": "Watch for dengue outbreak mid-year petty theft in towns CDC Level 1 cyclone season Nov-Apr",
-    "visaRequirements": "No visa required up to 4 months",
     "countries": [
       "Fiji"
     ],
@@ -11143,7 +11084,6 @@
     "duration": 12,
     "itinerarySummary": "Snorkel the reef visit Sydney and roadtrip up or down the east coast",
     "considerations": "Long travel time and reef is experiencing bleaching events",
-    "visaRequirements": "ETA (subclass 601) required for US citizens, about AUD 20 via the Australian ETA app",
     "countries": [
       "Australia"
     ],
@@ -11336,7 +11276,6 @@
     "duration": 7,
     "itinerarySummary": "Visit the Eiffel Tower Louvre Museum Notre-Dame and wander the old neighborhoods and cafes",
     "considerations": "Can be crowded in summer book popular attractions in advance",
-    "visaRequirements": "No visa required for US citizens up to 90 days in Schengen",
     "countries": [
       "France"
     ],
@@ -11529,7 +11468,6 @@
     "duration": 7,
     "itinerarySummary": "Explore Big Ben Buckingham Palace the British Museum Tower of London and West End shows",
     "considerations": "Weather can be unpredictable pack layers and an umbrella",
-    "visaRequirements": "No visa for US citizens under 6 months but a UK ETA must be approved online before travel",
     "countries": [
       "United Kingdom"
     ],
@@ -11722,7 +11660,6 @@
     "duration": 9,
     "itinerarySummary": "Visit Gaudi architecture in Barcelona then take high-speed rail to Madrid for museums and tapas",
     "considerations": "Very hot in summer siesta culture means some shops close midday",
-    "visaRequirements": "No visa required for US citizens up to 90 days in Schengen",
     "countries": [
       "Spain"
     ],
@@ -11916,7 +11853,6 @@
     "duration": 10,
     "itinerarySummary": "Visit Bangkok temples then explore Chiang Mai and relax on islands like Phuket or Koh Samui",
     "considerations": "Monsoon season varies by region respectful dress at temples required",
-    "visaRequirements": "No visa required for US citizens up to 60 days; complete the free Thailand Digital Arrival Card online within 72 hours before arrival",
     "countries": [
       "Thailand"
     ],
@@ -12110,7 +12046,6 @@
     "duration": 12,
     "itinerarySummary": "Travel from Hanoi through Ha Long Bay to Hue Hoi An and Ho Chi Minh City",
     "considerations": "Long country requires internal flights or overnight trains weather varies by region",
-    "visaRequirements": "E-visa required for US citizens",
     "countries": [
       "Vietnam"
     ],
@@ -12301,7 +12236,6 @@
     "duration": 7,
     "itinerarySummary": "Overwater bungalows quiet beaches and reef snorkeling and diving in the Indian Ocean",
     "considerations": "Very expensive destination best as a honeymoon or special occasion trip",
-    "visaRequirements": "No visa required for US citizens up to 30 days",
     "countries": [
       "Maldives"
     ],
@@ -12496,7 +12430,6 @@
     "duration": 8,
     "itinerarySummary": "Island hop between Oahu Maui Big Island and Kauai for beaches volcanoes and tropical adventures",
     "considerations": "Can be expensive inter-island flights add up quickly",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "United States"
     ],
@@ -12690,7 +12623,6 @@
     "duration": 5,
     "itinerarySummary": "Explore canals museums like Van Gogh and Anne Frank plus day trips to tulip fields and windmills",
     "considerations": "Very bike-friendly city but watch for cyclists when walking",
-    "visaRequirements": "No visa required for US citizens up to 90 days in Schengen",
     "countries": [
       "Netherlands"
     ],
@@ -12869,7 +12801,6 @@
     "duration": 8,
     "itinerarySummary": "Visit Edinburgh castles explore the Highlands and Isle of Skye and sample whisky",
     "considerations": "Weather is unpredictable midges can be annoying in summer",
-    "visaRequirements": "No visa but a UK ETA (about $27, apply online before travel) required for US citizens for stays under 6 months",
     "countries": [
       "United Kingdom"
     ],
@@ -13074,7 +13005,6 @@
     "duration": 8,
     "itinerarySummary": "Explore Dublin drive the Ring of Kerry and Wild Atlantic Way visit historic castles and pubs",
     "considerations": "Rain is frequent pack waterproof layers driving on the left side",
-    "visaRequirements": "No visa required for US citizens for stays under 90 days",
     "countries": [
       "Ireland"
     ],
@@ -13265,7 +13195,6 @@
     "duration": 7,
     "itinerarySummary": "Explore the ancient temples of Angkor Wat visit Phnom Penh and experience Cambodian culture",
     "considerations": "Hot and humid landmine awareness in rural areas stick to marked paths",
-    "visaRequirements": "E-visa or visa on arrival for US citizens",
     "countries": [
       "Cambodia"
     ],
@@ -13458,7 +13387,6 @@
     "duration": 9,
     "itinerarySummary": "Experience the Great Migration in Masai Mara visit Lake Nakuru and explore Nairobi",
     "considerations": "Safari timing matters for wildlife best during migration July-October",
-    "visaRequirements": "eTA required for US citizens, about $34, apply online at least 3 days before travel",
     "countries": [
       "Kenya"
     ],
@@ -13651,7 +13579,6 @@
     "duration": 10,
     "itinerarySummary": "Safari in Serengeti and Ngorongoro Crater then relax on Zanzibar beaches",
     "considerations": "Yellow fever vaccination recommended safari and beach combo is popular",
-    "visaRequirements": "Visa required for US citizens, $100 multiple-entry, apply online as an eVisa or on arrival",
     "countries": [
       "Tanzania"
     ],
@@ -13845,7 +13772,6 @@
     "duration": 9,
     "itinerarySummary": "Explore Seoul visit ancient temples DMZ tour Jeju Island and experience K-culture",
     "considerations": "Very modern and safe excellent public transportation English widely spoken",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "South Korea"
     ],
@@ -14038,7 +13964,6 @@
     "duration": 8,
     "itinerarySummary": "Visit Taipei night markets Sun Moon Lake Alishan and explore temples and food scenes",
     "considerations": "Typhoon season June to October very friendly locals excellent food",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Taiwan"
     ],
@@ -14230,7 +14155,6 @@
     "duration": 7,
     "itinerarySummary": "Visit ancient Petra float in the Dead Sea explore Wadi Rum desert and Amman",
     "considerations": "Stable country in volatile region very hot in summer dress modestly",
-    "visaRequirements": "Visa on arrival available for US citizens",
     "countries": [
       "Jordan"
     ],
@@ -14421,7 +14345,6 @@
     "duration": 6,
     "itinerarySummary": "Explore French Canadian culture historic Old Quebec big-city Montreal and local cuisine",
     "considerations": "French is primary language winters are very cold fall foliage spectacular",
-    "visaRequirements": "No visa required for US citizens",
     "countries": [
       "Canada"
     ],
@@ -14614,7 +14537,6 @@
     "duration": 10,
     "itinerarySummary": "Follow the Silk Road through Samarkand, Bukhara, and Khiva with a start or finish in Tashkent",
     "considerations": "Summer heat is brutal, English is limited outside hotels, and cash is still king in smaller towns",
-    "visaRequirements": "eVisa required for US citizens, ~$20 for 30 days",
     "countries": [
       "Uzbekistan"
     ],
@@ -14763,7 +14685,6 @@
     "duration": 12,
     "itinerarySummary": "Loop from the cultural triangle's rock fortresses through hill country tea trains down to south-coast beaches",
     "considerations": "Two monsoon systems mean the best coast depends on season, and road travel is slow despite short distances",
-    "visaRequirements": "ETA required for US citizens, apply online before arrival, free for 30 days",
     "countries": [
       "Sri Lanka"
     ],
@@ -14912,7 +14833,6 @@
     "duration": 12,
     "itinerarySummary": "Explore Kathmandu valley's temples, relax lakeside in Pokhara, and trek into the Annapurna or Everest foothills",
     "considerations": "Altitude, rough roads, and flight-delay-prone weather demand buffer days, and trekking requires real fitness",
-    "visaRequirements": "Visa on arrival for US citizens, $30 for 15 days or $50 for 30 days",
     "countries": [
       "Nepal"
     ],
@@ -15061,7 +14981,6 @@
     "duration": 8,
     "itinerarySummary": "Island-hop the limestone lagoons of El Nido and dive the WWII wrecks and clear lakes around Coron",
     "considerations": "Getting there takes multiple legs, boat tours cancel in rough weather, and peak season crowds the famous lagoons",
-    "visaRequirements": "No visa required for US citizens up to 30 days",
     "countries": [
       "Philippines"
     ],
@@ -15209,7 +15128,6 @@
     "duration": 10,
     "itinerarySummary": "Eat through Kuala Lumpur and Penang's hawker scene, then add rainforest and orangutans in Borneo",
     "considerations": "It is hot and humid year-round with daily downpours, and the Borneo leg adds internal flights",
-    "visaRequirements": "No visa required for US citizens up to 90 days; complete the digital arrival card online",
     "countries": [
       "Malaysia"
     ],
@@ -15358,7 +15276,6 @@
     "duration": 7,
     "itinerarySummary": "Slow down in Luang Prabang's temple-lined old quarter, swim Kuang Si Falls, and drift along the Mekong",
     "considerations": "March to April smoke haze from crop burning can ruin views, and infrastructure is basic outside main towns",
-    "visaRequirements": "Visa on arrival ~$35-40 or eVisa ~$50 for US citizens, 30 days",
     "countries": [
       "Laos"
     ],
@@ -15506,7 +15423,6 @@
     "duration": 5,
     "itinerarySummary": "Chase the aurora from a glass igloo, drive a husky sled, and visit Santa's village on the Arctic Circle",
     "considerations": "Deep winter means -4F cold and short daylight, aurora sightings are never guaranteed, and peak season books out months ahead",
-    "visaRequirements": "No visa required for US citizens up to 90 days (Schengen)",
     "countries": [
       "Finland"
     ],
@@ -15655,7 +15571,6 @@
     "duration": 4,
     "itinerarySummary": "Bike between design museums, Tivoli Gardens, canal-side food halls, and some of Europe's best restaurants",
     "considerations": "One of Europe's most expensive cities, and gray drizzle is common outside the short summer",
-    "visaRequirements": "No visa required for US citizens up to 90 days (Schengen)",
     "countries": [
       "Denmark"
     ],
@@ -15803,7 +15718,6 @@
     "duration": 5,
     "itinerarySummary": "Wander Gamla Stan's medieval lanes, tour the Vasa warship, and ferry out into the archipelago",
     "considerations": "Prices are high, winter days are short and dark, and archipelago ferries thin out outside summer",
-    "visaRequirements": "No visa required for US citizens up to 90 days (Schengen)",
     "countries": [
       "Sweden"
     ],
@@ -15952,7 +15866,6 @@
     "duration": 12,
     "itinerarySummary": "Self-drive from Windhoek to the Sossusvlei dunes, Etosha safari waterholes, and the Skeleton Coast",
     "considerations": "Long gravel-road drives between sights and lodges book out months ahead in dry season",
-    "visaRequirements": "Visa on arrival for US citizens, ~$90 for up to 90 days",
     "countries": [
       "Namibia"
     ],
@@ -16101,7 +16014,6 @@
     "duration": 6,
     "itinerarySummary": "Trek to a mountain gorilla family in Volcanoes National Park, then explore Kigali's memorials, markets, and coffee scene",
     "considerations": "Gorilla permits cost $1,500 per person, sell out months ahead, and treks require hiking at altitude with a minimum age of 15",
-    "visaRequirements": "Visa on arrival for US citizens, $50 for 30 days",
     "countries": [
       "Rwanda"
     ],
@@ -16249,7 +16161,6 @@
     "duration": 7,
     "itinerarySummary": "Split time between Negril's cliffs and Seven Mile Beach, Blue Mountain coffee hikes, and reggae and jerk food culture",
     "considerations": "Stick to tourist areas and licensed drivers; Kingston needs street smarts and hurricane season runs June to November",
-    "visaRequirements": "No visa required for US citizens up to 6 months",
     "countries": [
       "Jamaica"
     ],
@@ -16398,7 +16309,6 @@
     "duration": 9,
     "itinerarySummary": "Wander Antigua's colonial streets, boat between Lake Atitlan's volcano-ringed villages, and climb Tikal's Maya pyramids at dawn",
     "considerations": "Chicken-bus and shuttle travel is slow, petty crime requires common sense, and Tikal means a flight or long drive north",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Guatemala"
     ],
@@ -16547,7 +16457,6 @@
     "duration": 9,
     "itinerarySummary": "Watch ships transit the canal from Panama City's skyline, then island-hop Bocas del Toro and sail the San Blas with Guna hosts",
     "considerations": "San Blas visits run on rustic Guna-run boats and cabins with basic comfort, and city-to-islands hops need small domestic flights",
-    "visaRequirements": "No visa required for US citizens up to 180 days",
     "countries": [
       "Panama"
     ],
@@ -16696,7 +16605,6 @@
     "duration": 10,
     "itinerarySummary": "Hop from Tahiti to Moorea's lagoon and Bora Bora for snorkeling, ray and shark swims, and an overwater bungalow stay",
     "considerations": "Overwater resorts and inter-island flights make this one of the priciest beach trips on Earth, and November to April is humid cyclone season",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "France (French Polynesia)"
     ],
@@ -16845,7 +16753,6 @@
     "duration": 8,
     "itinerarySummary": "Road-trip Transylvania's castles from Bran to Peles, wander medieval Brasov and Sibiu, and finish in Bucharest",
     "considerations": "Rural roads are slow and horse carts common, trains are cheap but dated, and summer weekends pack Bran Castle",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Romania"
     ],
@@ -16994,7 +16901,6 @@
     "duration": 8,
     "itinerarySummary": "Explore Muscat's souq and Grand Mosque, camp under dunes in the Wahiba Sands, and swim turquoise wadis between mountain forts",
     "considerations": "Summer heat is brutal from May to September, sights are spread out so you'll drive a lot, and wadi swims need modest dress",
-    "visaRequirements": "Visa-free for US citizens up to 14 days; eVisa ~$50 for longer stays",
     "countries": [
       "Oman"
     ],
@@ -17143,7 +17049,6 @@
     "duration": 10,
     "itinerarySummary": "Acclimatize in Quito's colonial old town, then fly to the Galapagos for a wildlife cruise or island-hopping among sea lions, tortoises, and boobies",
     "considerations": "Quito sits at 9,350 feet and needs altitude care, mainland cities require street smarts, and Galapagos entry fees and cruises push costs up fast",
-    "visaRequirements": "No visa required for US citizens up to 90 days; Galapagos requires a $20 transit card and $200 park fee",
     "countries": [
       "Ecuador"
     ],
@@ -17292,7 +17197,6 @@
     "duration": 8,
     "itinerarySummary": "Base in Sorrento or Positano for the cliff towns, take a boat day to Capri, visit Ravello's gardens, and spend a day in the ruins of Pompeii",
     "considerations": "Cliff roads and buses are jammed in July and August, and most towns are built on steep stairs",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Italy"
     ],
@@ -17441,7 +17345,6 @@
     "duration": 10,
     "itinerarySummary": "Split the trip between Venice's canals, Florence's Renaissance museums, and day trips to Tuscan hill towns like Siena and San Gimignano",
     "considerations": "Venice charges a day-tripper access fee on peak dates and both cities are heavily crowded June through August",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Italy"
     ],
@@ -17590,7 +17493,6 @@
     "duration": 8,
     "itinerarySummary": "Loop the geyser basins and Grand Prismatic, watch wolves and bison in Lamar Valley, then hike and paddle beneath the Tetons",
     "considerations": "In-park lodging books out 6 to 12 months ahead and most park roads close from November to April",
-    "visaRequirements": "None for US citizens (domestic travel)",
     "countries": [
       "United States"
     ],
@@ -17739,7 +17641,6 @@
     "duration": 15,
     "itinerarySummary": "Drive roughly 2,400 miles from Chicago to Santa Monica through diners, neon motels, Cadillac Ranch, and the Southwest deserts",
     "considerations": "Long daily drives with sparse services on rural stretches, and Mojave summer heat regularly tops 110F",
-    "visaRequirements": "None for US citizens (domestic travel)",
     "countries": [
       "United States"
     ],
@@ -17888,7 +17789,6 @@
     "duration": 8,
     "itinerarySummary": "Beer halls and museums in Munich, a day trip to Neuschwanstein Castle, and hiking or cable cars in the Bavarian Alps",
     "considerations": "Oktoberfest in late September triples hotel prices and Neuschwanstein tickets sell out days ahead",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "Germany"
     ],
@@ -18037,7 +17937,6 @@
     "duration": 12,
     "itinerarySummary": "Walk the Great Wall and Forbidden City in Beijing, then ride the high-speed train to Shanghai for the Bund and its skyline",
     "considerations": "US citizens need a visa in advance, many Western apps are blocked without a VPN, and mobile payment apps are near-essential",
-    "visaRequirements": "Tourist visa required for US citizens, ~$140, apply in advance",
     "countries": [
       "China"
     ],
@@ -18186,7 +18085,6 @@
     "duration": 8,
     "itinerarySummary": "Swim in cenotes, tour the Mayan ruins at Chichen Itza and Tulum, and ferry to Isla Mujeres for reef snorkeling",
     "considerations": "Sargassum seaweed can cover beaches from May to October and hurricane season runs June through November",
-    "visaRequirements": "No visa required for US citizens up to 180 days",
     "countries": [
       "Mexico"
     ],
@@ -18335,7 +18233,6 @@
     "duration": 5,
     "itinerarySummary": "See the falls from both the Zambia and Zimbabwe sides, walk the 1905 bridge, and take a day trip to Chobe for elephants and river safaris",
     "considerations": "Water flow varies hugely by season, hot months are draining, and the Chobe day trip means an early border crossing into Botswana",
-    "visaRequirements": "KAZA Univisa (~$50) covers both Zambia and Zimbabwe and allows Chobe day trips",
     "countries": [
       "Zambia",
       "Zimbabwe",
@@ -18485,7 +18382,6 @@
     "duration": 5,
     "itinerarySummary": "Work through the Smithsonian museums, walk the monuments on the National Mall, and tour the Capitol",
     "considerations": "Summers are hot and humid, cherry blossom weeks are packed, and White House and Capitol tours need advance requests",
-    "visaRequirements": "No visa needed, domestic travel for US citizens",
     "countries": [
       "United States"
     ],
@@ -18633,7 +18529,6 @@
     "duration": 7,
     "itinerarySummary": "Start with two days in Boston, then drive north through Vermont and New Hampshire for peak foliage, small towns, and mountain roads",
     "considerations": "Peak color lasts about two weeks and shifts year to year, foliage-season lodging books out months ahead at premium rates, and weekends jam the popular routes",
-    "visaRequirements": "No visa needed, domestic travel for US citizens",
     "countries": [
       "United States"
     ],
@@ -18781,7 +18676,6 @@
     "duration": 8,
     "itinerarySummary": "Base in Nice for old-town markets and beaches, ride the coastal train to Cannes and Monaco, and day-trip to perched Provence villages",
     "considerations": "July and August bring peak crowds and prices, many beaches are pebble rather than sand, and village day trips go much easier with a car",
-    "visaRequirements": "No visa required for US citizens up to 90 days",
     "countries": [
       "France",
       "Monaco"
@@ -18931,7 +18825,6 @@
     "duration": 5,
     "itinerarySummary": "Explore Toronto's markets, islands, and CN Tower, then train down to Niagara for the falls and a wine-country afternoon",
     "considerations": "Niagara's tourist strip is heavily commercialized, winters are cold with reduced boat service, and summer weekends crowd both the falls and the GO trains",
-    "visaRequirements": "No visa required for US citizens, passport needed for entry into Canada",
     "countries": [
       "Canada"
     ],
@@ -19079,7 +18972,6 @@
     "duration": 14,
     "itinerarySummary": "Sail from Ushuaia across the Drake Passage for daily Zodiac landings among penguin colonies, glaciers, and whale-filled channels",
     "considerations": "Access is by expedition cruise only, the Drake Passage crossing takes two rough days each way, the season runs only November to March, and evacuation insurance is mandatory",
-    "visaRequirements": "No visa for Antarctica; US citizens enter Argentina visa-free for the Ushuaia departure",
     "countries": [
       "Argentina"
     ],
@@ -19220,6 +19112,2227 @@
     "coordinates": {
       "lat": -64.5,
       "lng": -62
+    }
+  },
+  {
+    "id": "kyrgyzstan",
+    "name": "Kyrgyzstan",
+    "duration": 12,
+    "itinerarySummary": "Start in Bishkek, hike Ala-Archa, circle Issyk-Kul to Karakol, then ride or trek to the yurt camps at Song-Kol",
+    "considerations": "Roads are rough and distances long, mountain weather turns fast, and comfort outside Bishkek and Karakol is basic",
+    "countries": [
+      "Kyrgyzstan"
+    ],
+    "region": "Central Asia",
+    "climate": "Mix",
+    "type": "Nature",
+    "easeWithChild": 4,
+    "urgency": 5,
+    "danger": 2,
+    "cost": 2,
+    "flightTimes": {
+      "JFK": 17,
+      "LAX": 20,
+      "ORD": 18,
+      "SFO": 20,
+      "LHR": 9,
+      "CDG": 9,
+      "FRA": 8,
+      "AMS": 9,
+      "NRT": 12,
+      "PEK": 7,
+      "SIN": 11,
+      "DXB": 4,
+      "HKG": 9,
+      "SYD": 19,
+      "GRU": 25,
+      "MIA": 18,
+      "DEN": 19,
+      "SEA": 20,
+      "ATL": 18,
+      "MAD": 9,
+      "FCO": 8,
+      "ICN": 12,
+      "BKK": 12,
+      "MEL": 20,
+      "EZE": 26
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 0,
+      "may": 0,
+      "jun": 1,
+      "jul": 1,
+      "aug": 1,
+      "sep": 1,
+      "oct": 0,
+      "nov": 0,
+      "dec": 0
+    },
+    "bestTimeDescription": "June to September, when high passes open and herders move to the summer pastures",
+    "tags": [
+      "mountains",
+      "trekking",
+      "yurts",
+      "horseback",
+      "lakes",
+      "budget",
+      "nomadic",
+      "adventure"
+    ],
+    "highlights": [
+      "Sleeping in herders' yurts beside Song-Kol at 3,000 m",
+      "Day hikes in Ala-Archa National Park an hour from Bishkek",
+      "The red sandstone cliffs of Jeti-Oguz and Skazka canyon",
+      "Multi-day treks from Karakol to Altyn-Arashan hot springs and Ala-Kul lake"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Bishkek",
+        "description": "Leafy Soviet-planned capital with Ala-Too Square, Osh Bazaar, and the easiest base for arranging drivers and permits.",
+        "bestFor": [
+          "arrival",
+          "markets",
+          "logistics"
+        ]
+      },
+      {
+        "name": "Karakol",
+        "description": "Town at the east end of Issyk-Kul with a wooden Dungan mosque and trailheads into the Terskey Ala-Too range.",
+        "bestFor": [
+          "trekking",
+          "hot springs",
+          "winter skiing"
+        ]
+      },
+      {
+        "name": "Song-Kol",
+        "description": "High alpine lake ringed by summer pastures, reached by rough road or on horseback, with family-run yurt stays.",
+        "bestFor": [
+          "nomadic culture",
+          "horse riding",
+          "stargazing"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "No useful rail network. Shared taxis and marshrutkas link towns cheaply; a private driver is worth it for Song-Kol and remote valleys.",
+      "options": [
+        {
+          "type": "Marshrutka",
+          "description": "Minibuses that leave when full from Bishkek's Western and Eastern bus stations to Karakol, Cholpon-Ata, and Naryn.",
+          "cost": "$5-10/intercity trip"
+        },
+        {
+          "type": "Shared taxi",
+          "description": "Faster than marshrutkas on the same routes. Pay per seat or buy the whole car.",
+          "cost": "$10-20/seat"
+        },
+        {
+          "type": "Private driver",
+          "description": "Book through a guesthouse or a community tourism office for multi-day loops to Song-Kol and Tash Rabat.",
+          "cost": "$60-100/day"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$10-25",
+        "mid": "$40-80",
+        "luxury": "$120+"
+      },
+      "meals": {
+        "budget": "$5-10",
+        "mid": "$15-25",
+        "luxury": "$40+"
+      },
+      "activities": "$20-50/day for horses, guides, or yurt stays with meals",
+      "transport": "$10-20/day by shared transport, more with a private driver",
+      "tips": [
+        "Yurt stays usually include dinner and breakfast in the price",
+        "Carry cash in som; cards rarely work outside Bishkek",
+        "Hire horses and guides locally in Kochkor or Karakol rather than prebooking from abroad",
+        "Bring warm layers even in July; nights at Song-Kol drop near freezing"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1489421382202-f7ec0cfd96f7?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 42.87,
+      "lng": 74.59
+    }
+  },
+  {
+    "id": "kazakhstan-almaty",
+    "name": "Almaty & Kazakhstan",
+    "duration": 8,
+    "itinerarySummary": "Base in Almaty for Kok-Tobe and the Green Bazaar, then day trips to Big Almaty Lake, Charyn Canyon, and the Kolsai Lakes",
+    "considerations": "Day trips involve long drives on mixed roads, the Big Almaty Lake area sits near a border zone, and Russian is more useful than English",
+    "countries": [
+      "Kazakhstan"
+    ],
+    "region": "Central Asia",
+    "climate": "Mix",
+    "type": "Mix",
+    "easeWithChild": 5,
+    "urgency": 4,
+    "danger": 2,
+    "cost": 3,
+    "flightTimes": {
+      "JFK": 16,
+      "LAX": 19,
+      "ORD": 17,
+      "SFO": 19,
+      "LHR": 7,
+      "CDG": 8,
+      "FRA": 6,
+      "AMS": 8,
+      "NRT": 10,
+      "PEK": 6,
+      "SIN": 10,
+      "DXB": 5,
+      "HKG": 8,
+      "SYD": 18,
+      "GRU": 25,
+      "MIA": 17,
+      "DEN": 18,
+      "SEA": 19,
+      "ATL": 17,
+      "MAD": 8,
+      "FCO": 6,
+      "ICN": 10,
+      "BKK": 11,
+      "MEL": 19,
+      "EZE": 26
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 0,
+      "may": 1,
+      "jun": 1,
+      "jul": 0,
+      "aug": 0,
+      "sep": 1,
+      "oct": 1,
+      "nov": 0,
+      "dec": 0
+    },
+    "bestTimeDescription": "May to June and September to October for mild hiking weather; December to March for skiing at Shymbulak",
+    "tags": [
+      "mountains",
+      "lakes",
+      "canyons",
+      "hiking",
+      "skiing",
+      "city",
+      "markets",
+      "soviet architecture"
+    ],
+    "highlights": [
+      "Turquoise Big Almaty Lake at 2,500 m, under an hour from the city",
+      "The red rock walls of Charyn Canyon's Valley of Castles",
+      "Cable car from Medeu to the Shymbulak ski resort",
+      "Horse meat, dried fruit, and kurt at the Green Bazaar"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Central Almaty (Panfilov Park)",
+        "description": "Tree-lined grid around the wooden Zenkov Cathedral, Arbat pedestrian street, and the Green Bazaar.",
+        "bestFor": [
+          "first-timers",
+          "walking",
+          "food"
+        ]
+      },
+      {
+        "name": "Medeu & Shymbulak",
+        "description": "Mountain suburb with the high-altitude Medeu skating rink and a gondola up to Shymbulak's ski runs and hiking trails.",
+        "bestFor": [
+          "skiing",
+          "hiking",
+          "families"
+        ]
+      },
+      {
+        "name": "Kolsai & Kaindy Lakes",
+        "description": "Forested lakes near Saty village, about five hours east, with the sunken spruce trunks of Lake Kaindy.",
+        "bestFor": [
+          "nature",
+          "overnight trips",
+          "photography"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Almaty is easy with ride-hailing and buses. Canyons and lakes need a tour or a hired car with driver.",
+      "options": [
+        {
+          "type": "Ride-hailing",
+          "description": "Yandex Go and inDrive are cheap and widely used, and avoid fare haggling.",
+          "cost": "$2-6/ride"
+        },
+        {
+          "type": "Metro & bus",
+          "description": "One metro line plus a dense bus network. Pay with an Onay card or by bank card on board.",
+          "cost": "$0.40/ride"
+        },
+        {
+          "type": "Day tour or driver",
+          "description": "Shared group tours run daily to Charyn Canyon and the Kolsai Lakes; private drivers cost more but set the pace.",
+          "cost": "$40-80/person shared, $100-150/day private"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$15-35",
+        "mid": "$60-120",
+        "luxury": "$200+"
+      },
+      "meals": {
+        "budget": "$5-12",
+        "mid": "$20-35",
+        "luxury": "$60+"
+      },
+      "activities": "$40-80/day trip, $40-60/day ski pass",
+      "transport": "$5-10/day in the city",
+      "tips": [
+        "Combine Charyn Canyon and the Kolsai Lakes in one two-day tour to save on transport",
+        "Lift tickets at Shymbulak cost a fraction of Alpine prices",
+        "Bring your passport on mountain trips; police checkpoints near border zones ask for it",
+        "Pair with Bishkek in Kyrgyzstan, about four hours by road"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1572940734104-684309ed7ac9?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 43.24,
+      "lng": 76.89
+    }
+  },
+  {
+    "id": "mongolia",
+    "name": "Mongolia",
+    "duration": 12,
+    "itinerarySummary": "Overland loop from Ulaanbaatar through Gorkhi-Terelj, Kharkhorin, and the Gobi dunes, staying in family gers",
+    "considerations": "Long days on unpaved tracks in a van, basic toilets at camps, and very little runs on schedule outside Ulaanbaatar",
+    "countries": [
+      "Mongolia"
+    ],
+    "region": "East Asia",
+    "climate": "Mix",
+    "type": "Nature",
+    "easeWithChild": 3,
+    "urgency": 6,
+    "danger": 2,
+    "cost": 4,
+    "flightTimes": {
+      "JFK": 19,
+      "LAX": 16,
+      "ORD": 18,
+      "SFO": 16,
+      "LHR": 14,
+      "CDG": 15,
+      "FRA": 12,
+      "AMS": 15,
+      "NRT": 6,
+      "PEK": 3,
+      "SIN": 11,
+      "DXB": 11,
+      "HKG": 5,
+      "SYD": 16,
+      "GRU": 29,
+      "MIA": 20,
+      "DEN": 17,
+      "SEA": 15,
+      "ATL": 20,
+      "MAD": 15,
+      "FCO": 12,
+      "ICN": 6,
+      "BKK": 10,
+      "MEL": 17,
+      "EZE": 28
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 0,
+      "may": 0,
+      "jun": 1,
+      "jul": 1,
+      "aug": 1,
+      "sep": 1,
+      "oct": 0,
+      "nov": 0,
+      "dec": 0
+    },
+    "bestTimeDescription": "June to September; Naadam festival runs July 11-13 and books up early",
+    "tags": [
+      "steppe",
+      "desert",
+      "nomadic",
+      "horseback",
+      "camping",
+      "festivals",
+      "remote",
+      "adventure"
+    ],
+    "highlights": [
+      "Wrestling, archery, and horse racing at the Naadam festival",
+      "The singing dunes of Khongoryn Els in the Gobi",
+      "Erdene Zuu monastery at the old capital of Kharkhorin",
+      "Overnights with herder families in traditional gers"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Ulaanbaatar",
+        "description": "Sprawling capital with Gandan Monastery, the National Museum, and the Chinggis Khaan statue on Sukhbaatar Square.",
+        "bestFor": [
+          "arrival",
+          "museums",
+          "tour booking"
+        ]
+      },
+      {
+        "name": "Gobi Desert (Umnugovi)",
+        "description": "Southern desert with the dunes of Khongoryn Els, the ice-lined Yolyn Am gorge, and the dinosaur-fossil cliffs of Bayanzag.",
+        "bestFor": [
+          "dunes",
+          "camel rides",
+          "landscapes"
+        ]
+      },
+      {
+        "name": "Gorkhi-Terelj National Park",
+        "description": "Granite outcrops and river valleys about 90 minutes from Ulaanbaatar, with ger camps and easy riding.",
+        "bestFor": [
+          "short trips",
+          "horse riding",
+          "families"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Outside the capital there are few paved roads. Most visitors hire a driver and guide in a Russian UAZ van or Land Cruiser.",
+      "options": [
+        {
+          "type": "Driver and guide tour",
+          "description": "Multi-day overland trips booked through Ulaanbaatar guesthouses or agencies, including fuel, camps, and meals.",
+          "cost": "$80-200/person/day"
+        },
+        {
+          "type": "Domestic flights",
+          "description": "Hunnu Air and Aero Mongolia reach Dalanzadgad in the Gobi and Murun near Khuvsgul Lake, saving days of driving.",
+          "cost": "$150-300 one way"
+        },
+        {
+          "type": "Taxi in Ulaanbaatar",
+          "description": "Cheap but traffic is heavy. Use the UBCab app to avoid negotiating.",
+          "cost": "$3-8/ride"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$15-30",
+        "mid": "$60-120",
+        "luxury": "$200+"
+      },
+      "meals": {
+        "budget": "$5-10",
+        "mid": "$15-30",
+        "luxury": "$50+"
+      },
+      "activities": "$20-40/day for horses or camels",
+      "transport": "$80-200/day for a driver, guide, and vehicle split across the group",
+      "tips": [
+        "Join a group in Ulaanbaatar guesthouses to split the cost of a van",
+        "Naadam hotel prices in Ulaanbaatar spike; book months ahead",
+        "Bring cash for camps and small towns",
+        "Pack layers; Gobi days are hot and nights cold, even in summer"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1575415868394-e3b78f3e9b3f?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 47.92,
+      "lng": 106.92
+    }
+  },
+  {
+    "id": "ghana",
+    "name": "Ghana",
+    "duration": 10,
+    "itinerarySummary": "Accra's markets and beaches, the slave castles at Cape Coast and Elmina, the Kakum canopy walk, and Ashanti culture in Kumasi",
+    "considerations": "Yellow fever vaccination proof is required at entry, malaria prophylaxis is advised, and Accra traffic eats hours",
+    "countries": [
+      "Ghana"
+    ],
+    "region": "Africa",
+    "climate": "Hot",
+    "type": "Mix",
+    "easeWithChild": 4,
+    "urgency": 4,
+    "danger": 3,
+    "cost": 4,
+    "flightTimes": {
+      "JFK": 11,
+      "LAX": 17,
+      "ORD": 14,
+      "SFO": 18,
+      "LHR": 7,
+      "CDG": 7,
+      "FRA": 9,
+      "AMS": 7,
+      "NRT": 22,
+      "PEK": 20,
+      "SIN": 17,
+      "DXB": 9,
+      "HKG": 18,
+      "SYD": 26,
+      "GRU": 14,
+      "MIA": 12,
+      "DEN": 15,
+      "SEA": 18,
+      "ATL": 12,
+      "MAD": 6,
+      "FCO": 8,
+      "ICN": 22,
+      "BKK": 18,
+      "MEL": 27,
+      "EZE": 15
+    },
+    "bestMonths": {
+      "jan": 1,
+      "feb": 1,
+      "mar": 1,
+      "apr": 0,
+      "may": 0,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 0,
+      "oct": 0,
+      "nov": 1,
+      "dec": 1
+    },
+    "bestTimeDescription": "November to March dry season, with dusty Harmattan haze from December to February",
+    "tags": [
+      "history",
+      "beaches",
+      "markets",
+      "culture",
+      "music",
+      "rainforest",
+      "heritage",
+      "warm"
+    ],
+    "highlights": [
+      "Cape Coast and Elmina castles, UNESCO-listed slave-trade forts",
+      "The rope-bridge canopy walkway in Kakum National Park",
+      "Kejetia market and the Manhyia Palace Museum in Kumasi",
+      "Jollof, kelewele, and highlife bars in Accra's Osu district"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Osu (Accra)",
+        "description": "Busy strip of restaurants, bars, and shops along Oxford Street, close to the Independence Square and the coast.",
+        "bestFor": [
+          "nightlife",
+          "food",
+          "first-timers"
+        ]
+      },
+      {
+        "name": "Jamestown (Accra)",
+        "description": "Old fishing quarter with a lighthouse, colonial-era ruins, street murals, and the annual Chale Wote art festival.",
+        "bestFor": [
+          "history",
+          "street art",
+          "photography"
+        ]
+      },
+      {
+        "name": "Cape Coast",
+        "description": "Coastal town built around Cape Coast Castle, a short drive from Elmina and the Kakum rainforest.",
+        "bestFor": [
+          "heritage",
+          "beaches",
+          "day trips"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Intercity buses and ride-hailing cover most trips; a hired driver makes the coast and Kumasi loop simpler.",
+      "options": [
+        {
+          "type": "Intercity bus",
+          "description": "VIP and STC coaches run air-conditioned services between Accra, Cape Coast, and Kumasi.",
+          "cost": "$8-15/trip"
+        },
+        {
+          "type": "Ride-hailing",
+          "description": "Uber and Bolt work in Accra and Kumasi and avoid fare haggling with street taxis.",
+          "cost": "$3-10/ride"
+        },
+        {
+          "type": "Trotro",
+          "description": "Shared minibuses on fixed routes. Very cheap and crowded, best for short hops.",
+          "cost": "$0.50-2/ride"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$20-40",
+        "mid": "$70-140",
+        "luxury": "$250+"
+      },
+      "meals": {
+        "budget": "$5-10",
+        "mid": "$15-30",
+        "luxury": "$50+"
+      },
+      "activities": "$10-30/site including castle tours and Kakum",
+      "transport": "$10-30/day, $60-90/day with a private driver",
+      "tips": [
+        "Carry your yellow fever card; it is checked on arrival",
+        "Book guided castle tours on site; the guides are part of the entry fee",
+        "Mobile money (MTN MoMo) is widely used, but carry cedis for markets",
+        "Imported goods are pricey, local chop bars are cheap"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1742476126735-cba186771cf2?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 5.6,
+      "lng": -0.19
+    }
+  },
+  {
+    "id": "senegal",
+    "name": "Senegal",
+    "duration": 9,
+    "itinerarySummary": "Dakar's markets and music, a ferry to Goree Island, colonial Saint-Louis, and the mangrove creeks of the Sine-Saloum Delta",
+    "considerations": "Hot and humid in the rainy season, malaria risk outside Dakar, and check advisories before traveling to the Casamance",
+    "countries": [
+      "Senegal"
+    ],
+    "region": "Africa",
+    "climate": "Hot",
+    "type": "Mix",
+    "easeWithChild": 4,
+    "urgency": 4,
+    "danger": 3,
+    "cost": 4,
+    "flightTimes": {
+      "JFK": 8,
+      "LAX": 15,
+      "ORD": 12,
+      "SFO": 15,
+      "LHR": 9,
+      "CDG": 6,
+      "FRA": 9,
+      "AMS": 9,
+      "NRT": 22,
+      "PEK": 20,
+      "SIN": 19,
+      "DXB": 11,
+      "HKG": 19,
+      "SYD": 27,
+      "GRU": 13,
+      "MIA": 9,
+      "DEN": 13,
+      "SEA": 15,
+      "ATL": 9,
+      "MAD": 5,
+      "FCO": 8,
+      "ICN": 22,
+      "BKK": 20,
+      "MEL": 28,
+      "EZE": 14
+    },
+    "bestMonths": {
+      "jan": 1,
+      "feb": 1,
+      "mar": 1,
+      "apr": 1,
+      "may": 0,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 0,
+      "oct": 0,
+      "nov": 1,
+      "dec": 1
+    },
+    "bestTimeDescription": "November to April dry season, which is also peak time for migrating birds at Djoudj",
+    "tags": [
+      "history",
+      "music",
+      "beaches",
+      "birdwatching",
+      "culture",
+      "mangroves",
+      "warm",
+      "food"
+    ],
+    "highlights": [
+      "Goree Island and the House of Slaves, a short ferry ride from Dakar",
+      "The colonial grid and fishing quarter of Saint-Louis, a UNESCO site",
+      "Pirogue trips through the Sine-Saloum Delta mangroves",
+      "Pelicans and flamingos at Djoudj National Bird Sanctuary"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Plateau (Dakar)",
+        "description": "Downtown with Place de l'Independance, Kermel and Sandaga markets, and the ferry terminal for Goree.",
+        "bestFor": [
+          "first-timers",
+          "markets",
+          "logistics"
+        ]
+      },
+      {
+        "name": "Almadies & Ngor (Dakar)",
+        "description": "Western tip of the city with surf breaks, seafood restaurants, and pirogues out to Ngor Island.",
+        "bestFor": [
+          "beaches",
+          "surfing",
+          "nightlife"
+        ]
+      },
+      {
+        "name": "Saint-Louis",
+        "description": "Former colonial capital on an island in the Senegal River, with faded balconied houses and the Guet Ndar fishing quarter.",
+        "bestFor": [
+          "history",
+          "architecture",
+          "jazz festival"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Sept-place shared taxis and buses connect the main towns; a car with driver is easiest for the delta and northern parks.",
+      "options": [
+        {
+          "type": "Sept-place taxi",
+          "description": "Shared seven-seat station wagons that leave from garages when full. Cheap and direct between towns.",
+          "cost": "$5-15/seat"
+        },
+        {
+          "type": "Goree ferry",
+          "description": "Frequent 20-minute crossings from the Dakar port terminal. Foreigners pay a higher fixed fare.",
+          "cost": "about $9 round trip"
+        },
+        {
+          "type": "Car with driver",
+          "description": "Arranged through hotels or agencies, useful for Sine-Saloum and Djoudj where public transport thins out.",
+          "cost": "$60-100/day"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$20-40",
+        "mid": "$70-130",
+        "luxury": "$200+"
+      },
+      "meals": {
+        "budget": "$4-10",
+        "mid": "$15-30",
+        "luxury": "$50+"
+      },
+      "activities": "$10-40/excursion including pirogue trips",
+      "transport": "$10-25/day by shared transport",
+      "tips": [
+        "Wave and Orange Money are widely used; carry CFA francs for markets and taxis",
+        "Agree on taxi fares before getting in",
+        "Thieboudienne, the national rice and fish dish, is cheapest at lunchtime",
+        "Ask before photographing people, especially in markets"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1528047705243-ebb19baf436f?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 14.69,
+      "lng": -17.45
+    }
+  },
+  {
+    "id": "madagascar",
+    "name": "Madagascar",
+    "duration": 14,
+    "itinerarySummary": "Lemur forests at Andasibe and Ranomafana, the canyons of Isalo, the Avenue of the Baobabs at Morondava, and beaches on Nosy Be",
+    "considerations": "Roads are slow and domestic flights change schedules often, so build in buffer days; cyclone season runs January to March",
+    "countries": [
+      "Madagascar"
+    ],
+    "region": "Africa",
+    "climate": "Hot",
+    "type": "Nature",
+    "easeWithChild": 3,
+    "urgency": 8,
+    "danger": 4,
+    "cost": 5,
+    "flightTimes": {
+      "JFK": 22,
+      "LAX": 27,
+      "ORD": 23,
+      "SFO": 27,
+      "LHR": 15,
+      "CDG": 11,
+      "FRA": 15,
+      "AMS": 14,
+      "NRT": 20,
+      "PEK": 18,
+      "SIN": 14,
+      "DXB": 10,
+      "HKG": 16,
+      "SYD": 18,
+      "GRU": 18,
+      "MIA": 23,
+      "DEN": 24,
+      "SEA": 27,
+      "ATL": 23,
+      "MAD": 10,
+      "FCO": 14,
+      "ICN": 20,
+      "BKK": 15,
+      "MEL": 19,
+      "EZE": 19
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 1,
+      "may": 1,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 1,
+      "oct": 1,
+      "nov": 1,
+      "dec": 0
+    },
+    "bestTimeDescription": "April to May and September to November, dry and warm with active wildlife and no cyclones",
+    "tags": [
+      "wildlife",
+      "lemurs",
+      "rainforest",
+      "baobabs",
+      "beaches",
+      "hiking",
+      "remote",
+      "adventure"
+    ],
+    "highlights": [
+      "Hearing the indri's call at dawn in Andasibe-Mantadia National Park",
+      "Sunset on the Avenue of the Baobabs near Morondava",
+      "Sandstone canyons and natural pools in Isalo National Park",
+      "Snorkeling and whale sharks off Nosy Be in the season"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Antananarivo",
+        "description": "Hilly capital where most trips start, with the Rova royal palace and the Lemurs' Park on the outskirts.",
+        "bestFor": [
+          "arrival",
+          "history",
+          "logistics"
+        ]
+      },
+      {
+        "name": "Andasibe",
+        "description": "Village on the edge of eastern rainforest reserves, about four hours from the capital, with night walks for chameleons.",
+        "bestFor": [
+          "lemurs",
+          "rainforest",
+          "guided walks"
+        ]
+      },
+      {
+        "name": "Nosy Be",
+        "description": "Northwest island with beach resorts, ylang-ylang plantations, and boat trips to the Lokobe reserve and Nosy Tanikely.",
+        "bestFor": [
+          "beaches",
+          "snorkeling",
+          "relaxing"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Distances are huge and roads poor. Most visitors hire a car with driver and use domestic flights to skip the longest legs.",
+      "options": [
+        {
+          "type": "Car with driver",
+          "description": "The standard way to travel the RN7 south to Ranomafana and Isalo. Self-drive is uncommon.",
+          "cost": "$70-110/day"
+        },
+        {
+          "type": "Domestic flights",
+          "description": "Tsaradia flies from Antananarivo to Nosy Be, Morondava, and Fort Dauphin. Reconfirm the day before.",
+          "cost": "$150-350 one way"
+        },
+        {
+          "type": "Taxi-brousse",
+          "description": "Shared minibuses between towns. Very cheap, very slow, and often overnight.",
+          "cost": "$5-25/trip"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$15-35",
+        "mid": "$50-120",
+        "luxury": "$250+"
+      },
+      "meals": {
+        "budget": "$4-8",
+        "mid": "$12-25",
+        "luxury": "$40+"
+      },
+      "activities": "$20-50/park per day including mandatory local guides",
+      "transport": "$70-110/day with a driver, plus domestic flights",
+      "tips": [
+        "Park entry and guide fees are paid separately; budget for both",
+        "Domestic flights are the biggest cost; book a route that avoids backtracking",
+        "Carry euros or dollars to change; ATMs are scarce outside main towns",
+        "Bring a headlamp for night walks to see mouse lemurs and chameleons"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1570742544137-3a469196c32b?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -18.88,
+      "lng": 47.51
+    }
+  },
+  {
+    "id": "mauritius",
+    "name": "Mauritius",
+    "duration": 9,
+    "itinerarySummary": "Lagoon beaches around Le Morne and Grand Baie, hikes in Black River Gorges, the Chamarel coloured earths, and a catamaran to Ile aux Cerfs",
+    "considerations": "Cyclone risk from January to March, resort prices dominate the budget, and driving is on the left",
+    "countries": [
+      "Mauritius"
+    ],
+    "region": "Africa",
+    "climate": "Hot",
+    "type": "Nature",
+    "easeWithChild": 8,
+    "urgency": 3,
+    "danger": 1,
+    "cost": 6,
+    "flightTimes": {
+      "JFK": 20,
+      "LAX": 25,
+      "ORD": 21,
+      "SFO": 25,
+      "LHR": 12,
+      "CDG": 12,
+      "FRA": 13,
+      "AMS": 14,
+      "NRT": 17,
+      "PEK": 16,
+      "SIN": 7,
+      "DXB": 7,
+      "HKG": 12,
+      "SYD": 15,
+      "GRU": 18,
+      "MIA": 21,
+      "DEN": 22,
+      "SEA": 25,
+      "ATL": 21,
+      "MAD": 11,
+      "FCO": 12,
+      "ICN": 17,
+      "BKK": 8,
+      "MEL": 16,
+      "EZE": 19
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 1,
+      "may": 1,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 1,
+      "oct": 1,
+      "nov": 1,
+      "dec": 0
+    },
+    "bestTimeDescription": "April to May and September to November, warm and dry outside cyclone season",
+    "tags": [
+      "beach",
+      "island",
+      "tropical",
+      "snorkeling",
+      "hiking",
+      "resorts",
+      "family",
+      "kitesurfing"
+    ],
+    "highlights": [
+      "The lagoon and UNESCO-listed mountain at Le Morne",
+      "Seven Coloured Earths and the waterfall at Chamarel",
+      "Trails and viewpoints in Black River Gorges National Park",
+      "Giant water lilies at the Pamplemousses botanical garden"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Grand Baie",
+        "description": "Northern resort town with calm water, restaurants, and boat trips to the offshore islets.",
+        "bestFor": [
+          "families",
+          "nightlife",
+          "boat trips"
+        ]
+      },
+      {
+        "name": "Le Morne & Black River",
+        "description": "Southwest coast with the island's best lagoon beaches, kitesurf spots, and access to the gorges and Chamarel.",
+        "bestFor": [
+          "beaches",
+          "kitesurfing",
+          "hiking"
+        ]
+      },
+      {
+        "name": "Port Louis",
+        "description": "Compact capital with the Central Market, the Aapravasi Ghat UNESCO site, and the Caudan Waterfront.",
+        "bestFor": [
+          "markets",
+          "history",
+          "street food"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "A rental car is the easiest way to cover the island; buses are cheap but slow, and the Metro Express light rail serves the central corridor.",
+      "options": [
+        {
+          "type": "Rental car",
+          "description": "Drive on the left. The island is about two hours end to end.",
+          "cost": "$30-60/day"
+        },
+        {
+          "type": "Bus",
+          "description": "Island-wide network from Port Louis and Curepipe hubs. Service thins out after dark.",
+          "cost": "$0.50-1.50/ride"
+        },
+        {
+          "type": "Metro Express",
+          "description": "Light rail linking Port Louis, Rose Hill, Quatre Bornes, and Curepipe.",
+          "cost": "$1-2/ride"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$40-80",
+        "mid": "$120-250",
+        "luxury": "$400+"
+      },
+      "meals": {
+        "budget": "$8-15",
+        "mid": "$25-50",
+        "luxury": "$100+"
+      },
+      "activities": "$30-80/excursion including catamaran days",
+      "transport": "$30-60/day rental car",
+      "tips": [
+        "Guesthouses and self-catering apartments cost a fraction of the resorts",
+        "Eat dholl puri and roti from street stalls in Port Louis",
+        "Book catamaran trips locally rather than through resorts",
+        "Reef shoes help on coral-lined lagoon beaches"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1513415277900-a62401e19be4?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -20.16,
+      "lng": 57.5
+    }
+  },
+  {
+    "id": "ethiopia",
+    "name": "Ethiopia",
+    "duration": 12,
+    "itinerarySummary": "Addis Ababa, the rock-hewn churches of Lalibela, Gondar's castles, Lake Tana monasteries, and the Simien Mountains",
+    "considerations": "Conflict in the Amhara region has repeatedly closed access to Lalibela and Gondar, so check current advisories; Addis sits at 2,300 m",
+    "countries": [
+      "Ethiopia"
+    ],
+    "region": "Africa",
+    "climate": "Mix",
+    "type": "Mix",
+    "easeWithChild": 3,
+    "urgency": 5,
+    "danger": 6,
+    "cost": 3,
+    "flightTimes": {
+      "JFK": 13,
+      "LAX": 19,
+      "ORD": 16,
+      "SFO": 19,
+      "LHR": 8,
+      "CDG": 8,
+      "FRA": 7,
+      "AMS": 9,
+      "NRT": 15,
+      "PEK": 11,
+      "SIN": 9,
+      "DXB": 4,
+      "HKG": 11,
+      "SYD": 17,
+      "GRU": 14,
+      "MIA": 14,
+      "DEN": 17,
+      "SEA": 19,
+      "ATL": 14,
+      "MAD": 7,
+      "FCO": 6,
+      "ICN": 15,
+      "BKK": 10,
+      "MEL": 18,
+      "EZE": 15
+    },
+    "bestMonths": {
+      "jan": 1,
+      "feb": 1,
+      "mar": 0,
+      "apr": 0,
+      "may": 0,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 0,
+      "oct": 1,
+      "nov": 1,
+      "dec": 1
+    },
+    "bestTimeDescription": "October to February dry season; Meskel falls in late September and Timkat on January 19",
+    "tags": [
+      "history",
+      "churches",
+      "mountains",
+      "trekking",
+      "festivals",
+      "coffee",
+      "unesco",
+      "religious"
+    ],
+    "highlights": [
+      "The twelfth-century rock-hewn churches of Lalibela",
+      "Gelada monkeys and escarpment views in the Simien Mountains",
+      "Fasil Ghebbi, the royal castle compound in Gondar",
+      "Coffee ceremonies and injera in Addis Ababa"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Addis Ababa (Piassa & Merkato)",
+        "description": "Old commercial center near Merkato, one of Africa's largest open-air markets, and the National Museum with the Lucy fossil.",
+        "bestFor": [
+          "arrival",
+          "markets",
+          "museums"
+        ]
+      },
+      {
+        "name": "Lalibela",
+        "description": "Highland town built around eleven monolithic churches carved down into the rock, still in active use.",
+        "bestFor": [
+          "history",
+          "pilgrimage",
+          "festivals"
+        ]
+      },
+      {
+        "name": "Simien Mountains (Debark)",
+        "description": "Trailhead town for multi-day treks along the escarpment, with mandatory scouts and park permits.",
+        "bestFor": [
+          "trekking",
+          "wildlife",
+          "landscapes"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Domestic flights on Ethiopian Airlines link the historic circuit; roads are long and slow. Addis has ride-hailing.",
+      "options": [
+        {
+          "type": "Domestic flights",
+          "description": "Ethiopian Airlines serves Lalibela, Gondar, Bahir Dar, and Axum. Fares are much lower if you arrive on an Ethiopian international ticket.",
+          "cost": "$60-150 one way with the discount"
+        },
+        {
+          "type": "Long-distance bus",
+          "description": "Selam and Sky Bus run coaches from Addis to Bahir Dar and Gondar. Early starts and long days.",
+          "cost": "$10-25/trip"
+        },
+        {
+          "type": "Ride-hailing in Addis",
+          "description": "Ride and Feres apps work in the capital and avoid fare negotiation.",
+          "cost": "$2-8/ride"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$15-35",
+        "mid": "$50-120",
+        "luxury": "$200+"
+      },
+      "meals": {
+        "budget": "$3-8",
+        "mid": "$10-25",
+        "luxury": "$40+"
+      },
+      "activities": "$50 Lalibela church ticket, $20-40/day for Simien guides and scouts",
+      "transport": "$60-150/domestic flight, $10-20/day local",
+      "tips": [
+        "Fly into Ethiopia on Ethiopian Airlines to unlock cheaper domestic fares",
+        "Hire an official guide at Lalibela; the churches are hard to read without one",
+        "Fasting days mean vegan food is easy to find on Wednesdays and Fridays",
+        "Ethiopia uses its own calendar and clock; confirm times in international format"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1572888195250-3037a59d3578?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 9.03,
+      "lng": 38.74
+    }
+  },
+  {
+    "id": "tunisia",
+    "name": "Tunisia",
+    "duration": 8,
+    "itinerarySummary": "Tunis medina and Sidi Bou Said, Carthage ruins, the El Jem amphitheatre, then south to Saharan oases and Djerba",
+    "considerations": "The dinar is a closed currency, so exchange on arrival and keep receipts. Avoid the Libyan and western Algerian border zones flagged in the US travel advisory. Summer in the south is very hot",
+    "countries": [
+      "Tunisia"
+    ],
+    "region": "Africa",
+    "climate": "Hot",
+    "type": "Mix",
+    "easeWithChild": 6,
+    "urgency": 4,
+    "danger": 4,
+    "cost": 3,
+    "flightTimes": {
+      "JFK": 11,
+      "LAX": 15,
+      "ORD": 12,
+      "SFO": 15,
+      "LHR": 3,
+      "CDG": 2,
+      "FRA": 3,
+      "AMS": 3,
+      "NRT": 17,
+      "PEK": 15,
+      "SIN": 15,
+      "DXB": 7,
+      "HKG": 16,
+      "SYD": 23,
+      "GRU": 16,
+      "MIA": 12,
+      "DEN": 13,
+      "SEA": 15,
+      "ATL": 12,
+      "MAD": 1,
+      "FCO": 2,
+      "ICN": 17,
+      "BKK": 16,
+      "MEL": 24,
+      "EZE": 17
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 1,
+      "apr": 1,
+      "may": 1,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 1,
+      "oct": 1,
+      "nov": 1,
+      "dec": 0
+    },
+    "bestTimeDescription": "March to May and September to November",
+    "tags": [
+      "desert",
+      "roman ruins",
+      "medina",
+      "beaches",
+      "history",
+      "star wars"
+    ],
+    "highlights": [
+      "Roman Carthage and the colossal amphitheatre at El Jem",
+      "Blue-and-white lanes of Sidi Bou Said above the Gulf of Tunis",
+      "Sahara dunes at Douz and the troglodyte homes of Matmata",
+      "Low prices for Mediterranean beaches and good food"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Sidi Bou Said & La Marsa (Tunis)",
+        "description": "Clifftop village of whitewashed houses and blue doors, a short TGM train ride from central Tunis and next to the Carthage ruins.",
+        "bestFor": [
+          "photography",
+          "cafes",
+          "first-timers"
+        ]
+      },
+      {
+        "name": "Medina of Tunis",
+        "description": "UNESCO-listed old city of souks, mosques, and restored dar guesthouses around the Zitouna Mosque.",
+        "bestFor": [
+          "culture",
+          "shopping",
+          "history"
+        ]
+      },
+      {
+        "name": "Djerba",
+        "description": "Flat southern island with sandy beaches, the Houmt Souk market, and the El Ghriba synagogue.",
+        "bestFor": [
+          "families",
+          "beaches",
+          "relaxation"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Trains link the coast, louages cover everywhere else. A car or driver makes the desert south far easier.",
+      "options": [
+        {
+          "type": "SNCFT Train",
+          "description": "Coastal line from Tunis to Sousse, El Jem, and Sfax. Cheap, slow, and comfortable in first class.",
+          "cost": "$5-15/trip"
+        },
+        {
+          "type": "Louage",
+          "description": "Shared minibus taxis that leave when full. Fastest public option between towns.",
+          "cost": "$3-15/trip"
+        },
+        {
+          "type": "Car with driver",
+          "description": "Best for the Sahara circuit through Tozeur, Douz, and Matmata.",
+          "cost": "$80-150/day"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$25-50",
+        "mid": "$60-120",
+        "luxury": "$180+"
+      },
+      "meals": {
+        "budget": "$8-15",
+        "mid": "$20-35",
+        "luxury": "$60+"
+      },
+      "activities": "$5-15/site, $60-120 desert excursions",
+      "transport": "$5-15/day public, $80+/day with driver",
+      "tips": [
+        "Dinars cannot be bought abroad, so withdraw at airport ATMs",
+        "Carthage, El Jem, and Dougga sites are a few dollars each",
+        "Beach resorts in Hammamet and Djerba discount heavily outside summer",
+        "Agree louage and taxi fares before setting off"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1723579632461-3ba5840fa422?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 36.81,
+      "lng": 10.18
+    }
+  },
+  {
+    "id": "dominican-republic",
+    "name": "Dominican Republic",
+    "duration": 7,
+    "itinerarySummary": "Colonial Santo Domingo, Punta Cana beaches, Saona Island, and whale watching or waterfalls on the Samana Peninsula",
+    "considerations": "Hurricane season runs June to November. Use registered taxis or Uber, especially at night. Complete the free e-Ticket entry form online before flying",
+    "countries": [
+      "Dominican Republic"
+    ],
+    "region": "Caribbean",
+    "climate": "Hot",
+    "type": "Mix",
+    "easeWithChild": 8,
+    "urgency": 3,
+    "danger": 4,
+    "cost": 4,
+    "flightTimes": {
+      "JFK": 4,
+      "LAX": 8,
+      "ORD": 5,
+      "SFO": 9,
+      "LHR": 10,
+      "CDG": 10,
+      "FRA": 11,
+      "AMS": 11,
+      "NRT": 19,
+      "PEK": 21,
+      "SIN": 25,
+      "DXB": 17,
+      "HKG": 22,
+      "SYD": 25,
+      "GRU": 10,
+      "MIA": 2,
+      "DEN": 6,
+      "SEA": 9,
+      "ATL": 3,
+      "MAD": 9,
+      "FCO": 11,
+      "ICN": 19,
+      "BKK": 26,
+      "MEL": 26,
+      "EZE": 11
+    },
+    "bestMonths": {
+      "jan": 1,
+      "feb": 1,
+      "mar": 1,
+      "apr": 1,
+      "may": 0,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 0,
+      "oct": 0,
+      "nov": 0,
+      "dec": 1
+    },
+    "bestTimeDescription": "December to April, humpback whales in Samana Bay January to March",
+    "tags": [
+      "beaches",
+      "all-inclusive",
+      "colonial",
+      "whales",
+      "family",
+      "tropical"
+    ],
+    "highlights": [
+      "The oldest European-built city streets in the Americas",
+      "Long white-sand beaches at Bavaro and Juanillo",
+      "Humpback whales calving in Samana Bay each winter",
+      "Jumping and sliding down the 27 Waterfalls of Damajagua"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Zona Colonial (Santo Domingo)",
+        "description": "UNESCO-listed grid of 16th-century streets around the Catedral Primada and Alcazar de Colon, now full of bars and boutique hotels.",
+        "bestFor": [
+          "history",
+          "nightlife",
+          "food"
+        ]
+      },
+      {
+        "name": "Punta Cana & Bavaro",
+        "description": "East coast resort strip with calm water, big all-inclusives, and day trips to Saona Island.",
+        "bestFor": [
+          "families",
+          "beaches",
+          "all-inclusive"
+        ]
+      },
+      {
+        "name": "Las Terrenas (Samana)",
+        "description": "Laid-back beach town near Los Haitises National Park and the El Limon waterfall.",
+        "bestFor": [
+          "couples",
+          "nature",
+          "whale watching"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Intercity coaches are good and cheap. Resorts arrange transfers; rent a car only if you are comfortable with aggressive driving.",
+      "options": [
+        {
+          "type": "Caribe Tours / Metro Tours",
+          "description": "Air-conditioned coaches between Santo Domingo, Puerto Plata, Samana, and other cities.",
+          "cost": "$6-15/trip"
+        },
+        {
+          "type": "Uber / Taxi",
+          "description": "Uber works in Santo Domingo, Santiago, and Punta Cana. Agree taxi fares in advance.",
+          "cost": "$5-30/ride"
+        },
+        {
+          "type": "Rental Car",
+          "description": "Useful for the Samana Peninsula and north coast. Roads are good, driving is chaotic.",
+          "cost": "$40-70/day"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$35-70",
+        "mid": "$100-200",
+        "luxury": "$350+ all-inclusive"
+      },
+      "meals": {
+        "budget": "$10-20",
+        "mid": "$30-50",
+        "luxury": "$90+"
+      },
+      "activities": "$60-120/excursion, $60-80 whale watching",
+      "transport": "$10-30/day plus resort transfers",
+      "tips": [
+        "All-inclusive rates drop sharply after Easter",
+        "Book Saona Island trips locally rather than at the resort desk",
+        "Eat at comedores for la bandera, rice, beans, and stewed meat",
+        "Carry small US dollar or peso notes for tips"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1740880976215-ef7d8f02725e?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 18.47,
+      "lng": -69.89
+    }
+  },
+  {
+    "id": "st-lucia",
+    "name": "St Lucia",
+    "duration": 7,
+    "itinerarySummary": "Hike Gros Piton, soak at Sulphur Springs, snorkel Anse Chastanet, and split time between Soufriere and Rodney Bay",
+    "considerations": "Hewanorra airport is in the far south, about 90 minutes from Rodney Bay by winding road. Rainy season runs June to November with hurricane risk. Many hotels are on steep hillsides",
+    "countries": [
+      "Saint Lucia"
+    ],
+    "region": "Caribbean",
+    "climate": "Hot",
+    "type": "Nature",
+    "easeWithChild": 7,
+    "urgency": 3,
+    "danger": 3,
+    "cost": 7,
+    "flightTimes": {
+      "JFK": 5,
+      "LAX": 9,
+      "ORD": 6,
+      "SFO": 10,
+      "LHR": 9,
+      "CDG": 11,
+      "FRA": 12,
+      "AMS": 12,
+      "NRT": 22,
+      "PEK": 23,
+      "SIN": 27,
+      "DXB": 19,
+      "HKG": 24,
+      "SYD": 27,
+      "GRU": 12,
+      "MIA": 3,
+      "DEN": 7,
+      "SEA": 10,
+      "ATL": 4,
+      "MAD": 10,
+      "FCO": 12,
+      "ICN": 22,
+      "BKK": 28,
+      "MEL": 28,
+      "EZE": 13
+    },
+    "bestMonths": {
+      "jan": 1,
+      "feb": 1,
+      "mar": 1,
+      "apr": 1,
+      "may": 1,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 0,
+      "oct": 0,
+      "nov": 0,
+      "dec": 1
+    },
+    "bestTimeDescription": "December to May, the dry season",
+    "tags": [
+      "volcanic",
+      "hiking",
+      "beaches",
+      "snorkeling",
+      "romantic",
+      "tropical"
+    ],
+    "highlights": [
+      "The twin volcanic spires of Gros Piton and Petit Piton",
+      "Mud baths at the drive-in Sulphur Springs volcano",
+      "Reef snorkeling right off the beach at Anse Chastanet",
+      "Friday night street party in Gros Islet"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Soufriere",
+        "description": "Old French town under the Pitons, close to Sulphur Springs, Diamond Falls, and the Tet Paul Nature Trail.",
+        "bestFor": [
+          "hiking",
+          "couples",
+          "scenery"
+        ]
+      },
+      {
+        "name": "Rodney Bay & Gros Islet",
+        "description": "Northern hub with Reduit Beach, marina restaurants, and Pigeon Island National Landmark.",
+        "bestFor": [
+          "families",
+          "nightlife",
+          "first-timers"
+        ]
+      },
+      {
+        "name": "Marigot Bay",
+        "description": "Sheltered yacht harbour ringed by palms, with a small beach reached by water taxi.",
+        "bestFor": [
+          "sailing",
+          "relaxation",
+          "dining"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "One coastal road links the island. Taxis are fixed-rate and pricey; local minibuses are cheap but stop early in the evening.",
+      "options": [
+        {
+          "type": "Taxi",
+          "description": "Fixed-rate fares, mostly quoted in US dollars. Confirm the price before getting in.",
+          "cost": "$100-120 Hewanorra to Rodney Bay"
+        },
+        {
+          "type": "Minibus",
+          "description": "Privately run vans with route numbers, flagged down on the main road.",
+          "cost": "$1-4/ride"
+        },
+        {
+          "type": "Water Taxi",
+          "description": "Boats between Soufriere, Marigot Bay, and beaches the road does not reach.",
+          "cost": "$20-60/trip"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$80-140",
+        "mid": "$200-400",
+        "luxury": "$700+"
+      },
+      "meals": {
+        "budget": "$15-25",
+        "mid": "$45-70",
+        "luxury": "$120+"
+      },
+      "activities": "$10-20/site, $50 Gros Piton guide fee",
+      "transport": "$40-100/day in taxis, much less by minibus",
+      "tips": [
+        "Fly into Hewanorra and stay in the south to cut transfer costs",
+        "Eastern Caribbean dollars are pegged at 2.70 to the US dollar",
+        "Sulphur Springs, Diamond Falls, and Tet Paul can be done in one day",
+        "May and early December are cheaper and usually still dry"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1706645616928-1902d9a6b929?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 13.85,
+      "lng": -61.06
+    }
+  },
+  {
+    "id": "cook-islands",
+    "name": "Cook Islands",
+    "duration": 9,
+    "itinerarySummary": "Snorkel and paddle Muri Lagoon on Rarotonga, hike the Cross-Island Track, then fly to Aitutaki for a lagoon cruise to One Foot Island",
+    "considerations": "Flights are limited: Air New Zealand flies Los Angeles to Rarotonga about weekly, most other routes go via Auckland. Little nightlife and few resort amenities compared with Fiji or Tahiti",
+    "countries": [
+      "Cook Islands"
+    ],
+    "region": "Oceania",
+    "climate": "Hot",
+    "type": "Nature",
+    "easeWithChild": 8,
+    "urgency": 4,
+    "danger": 1,
+    "cost": 7,
+    "flightTimes": {
+      "JFK": 17,
+      "LAX": 10,
+      "ORD": 16,
+      "SFO": 13,
+      "LHR": 26,
+      "CDG": 27,
+      "FRA": 27,
+      "AMS": 27,
+      "NRT": 18,
+      "PEK": 20,
+      "SIN": 16,
+      "DXB": 22,
+      "HKG": 17,
+      "SYD": 7,
+      "GRU": 22,
+      "MIA": 18,
+      "DEN": 15,
+      "SEA": 13,
+      "ATL": 18,
+      "MAD": 27,
+      "FCO": 27,
+      "ICN": 18,
+      "BKK": 17,
+      "MEL": 8,
+      "EZE": 23
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 0,
+      "may": 1,
+      "jun": 1,
+      "jul": 1,
+      "aug": 1,
+      "sep": 1,
+      "oct": 1,
+      "nov": 0,
+      "dec": 0
+    },
+    "bestTimeDescription": "May to October, the cooler dry season",
+    "tags": [
+      "lagoon",
+      "islands",
+      "snorkeling",
+      "polynesian",
+      "quiet",
+      "tropical"
+    ],
+    "highlights": [
+      "Aitutaki's turquoise lagoon and the sandbar at One Foot Island",
+      "Shallow, calm snorkeling in Muri Lagoon",
+      "Saturday morning Punanga Nui Market in Avarua",
+      "Polynesian dance and feast at an Island Night show"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Muri (Rarotonga)",
+        "description": "Southeast coast lagoon with motu islets, kayak rentals, and most of the island's cafes and resorts.",
+        "bestFor": [
+          "families",
+          "snorkeling",
+          "first-timers"
+        ]
+      },
+      {
+        "name": "Avarua (Rarotonga)",
+        "description": "Small capital on the north coast, home to the market, the airport, and the start of the Cross-Island Track.",
+        "bestFor": [
+          "markets",
+          "hiking",
+          "culture"
+        ]
+      },
+      {
+        "name": "Aitutaki",
+        "description": "Low-key island 50 minutes north by plane, wrapped around one of the Pacific's largest lagoons.",
+        "bestFor": [
+          "couples",
+          "lagoon cruises",
+          "relaxation"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Rarotonga has one 32km ring road with a bus in each direction. Aitutaki is a short domestic flight.",
+      "options": [
+        {
+          "type": "Island Bus",
+          "description": "Clockwise and anti-clockwise buses circle Rarotonga roughly hourly.",
+          "cost": "$4-6/ride"
+        },
+        {
+          "type": "Scooter / Car Rental",
+          "description": "The easiest way to explore. Check current licence rules when booking.",
+          "cost": "$20-60/day"
+        },
+        {
+          "type": "Air Rarotonga",
+          "description": "Several daily flights from Rarotonga to Aitutaki, plus day-trip packages.",
+          "cost": "$250-400 return"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$60-110",
+        "mid": "$150-300",
+        "luxury": "$500+"
+      },
+      "meals": {
+        "budget": "$20-30",
+        "mid": "$45-70",
+        "luxury": "$110+"
+      },
+      "activities": "$60-120 lagoon cruises, $50-80 Island Nights",
+      "transport": "$20-60/day plus $250-400 Aitutaki flight",
+      "tips": [
+        "Prices are in New Zealand dollars, so check the exchange rate",
+        "Self-catering units with kitchens save a lot on food",
+        "The Cross-Island Track is free, but go with a guide after rain",
+        "Book Aitutaki lagoon cruises a few days ahead in July and August"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1672964424280-31698eba5eca?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": -21.21,
+      "lng": -159.78
+    }
+  },
+  {
+    "id": "albania",
+    "name": "Albania",
+    "duration": 8,
+    "itinerarySummary": "Tirana, the Ottoman towns of Berat and Gjirokaster, the Riviera from Dhermi to Ksamil, Butrint, and the Theth to Valbona hike in the Alps",
+    "considerations": "Roads are improving but mountain routes are slow and driving is erratic. Cash is still needed outside cities. Ksamil and the Riviera are packed in July and August",
+    "countries": [
+      "Albania"
+    ],
+    "region": "Southern Europe",
+    "climate": "Temperate",
+    "type": "Mix",
+    "easeWithChild": 6,
+    "urgency": 6,
+    "danger": 2,
+    "cost": 3,
+    "flightTimes": {
+      "JFK": 11,
+      "LAX": 15,
+      "ORD": 12,
+      "SFO": 15,
+      "LHR": 3,
+      "CDG": 3,
+      "FRA": 2,
+      "AMS": 3,
+      "NRT": 15,
+      "PEK": 13,
+      "SIN": 14,
+      "DXB": 5,
+      "HKG": 14,
+      "SYD": 22,
+      "GRU": 16,
+      "MIA": 12,
+      "DEN": 13,
+      "SEA": 15,
+      "ATL": 12,
+      "MAD": 3,
+      "FCO": 2,
+      "ICN": 15,
+      "BKK": 15,
+      "MEL": 23,
+      "EZE": 17
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 0,
+      "may": 1,
+      "jun": 1,
+      "jul": 0,
+      "aug": 0,
+      "sep": 1,
+      "oct": 1,
+      "nov": 0,
+      "dec": 0
+    },
+    "bestTimeDescription": "May to June and September to October",
+    "tags": [
+      "beaches",
+      "mountains",
+      "hiking",
+      "ottoman",
+      "affordable",
+      "off the beaten path"
+    ],
+    "highlights": [
+      "Clear Ionian water at Ksamil for a fraction of Greek prices",
+      "Stone Ottoman towns at Berat and Gjirokaster, both UNESCO-listed",
+      "Greek and Roman ruins at Butrint National Park",
+      "The Theth to Valbona pass through the Albanian Alps"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Blloku (Tirana)",
+        "description": "Former communist elite enclave, now the capital's cafe, bar, and restaurant district.",
+        "bestFor": [
+          "nightlife",
+          "food",
+          "first-timers"
+        ]
+      },
+      {
+        "name": "Berat",
+        "description": "The 'town of a thousand windows', with white Ottoman houses stacked below a lived-in hilltop castle.",
+        "bestFor": [
+          "history",
+          "photography",
+          "culture"
+        ]
+      },
+      {
+        "name": "Ksamil & Saranda",
+        "description": "Southern Riviera base with small islands, beach clubs, and easy access to Butrint and the Blue Eye spring.",
+        "bestFor": [
+          "beaches",
+          "families",
+          "swimming"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Buses and furgons reach most towns but schedules are loose. A rental car is the easiest way to cover the Riviera and mountains.",
+      "options": [
+        {
+          "type": "Bus / Furgon",
+          "description": "Intercity buses and shared minibuses from Tirana's regional terminals. Cash only.",
+          "cost": "$3-15/trip"
+        },
+        {
+          "type": "Rental Car",
+          "description": "Best for the Riviera and Llogara Pass. Expect slow mountain roads and creative overtaking.",
+          "cost": "$30-60/day"
+        },
+        {
+          "type": "Koman Lake Ferry",
+          "description": "Seasonal ferry through a flooded gorge, the usual approach to Valbona.",
+          "cost": "$10-20"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$25-45",
+        "mid": "$60-110",
+        "luxury": "$180+"
+      },
+      "meals": {
+        "budget": "$8-15",
+        "mid": "$20-35",
+        "luxury": "$60+"
+      },
+      "activities": "$3-10/site",
+      "transport": "$5-15/day public, $30-60/day car",
+      "tips": [
+        "Carry lek in cash for buses, guesthouses, and village restaurants",
+        "Visit the Riviera in June or September for warm water and fewer crowds",
+        "Guesthouses in Theth include dinner and breakfast in the price",
+        "Beach loungers in Ksamil are paid; free stretches fill early"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1668954946928-d066b8623d95?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 41.33,
+      "lng": 19.82
+    }
+  },
+  {
+    "id": "montenegro",
+    "name": "Montenegro",
+    "duration": 7,
+    "itinerarySummary": "Kotor and Perast on the Bay of Kotor, Budva's old town, Lovcen, Ostrog Monastery, and Durmitor National Park with rafting on the Tara",
+    "considerations": "Kotor is crowded when cruise ships dock, so check the port schedule. Visitors must register their stay within 24 hours; hotels do this for you. Mountain roads are narrow and slow",
+    "countries": [
+      "Montenegro"
+    ],
+    "region": "Southern Europe",
+    "climate": "Temperate",
+    "type": "Mix",
+    "easeWithChild": 7,
+    "urgency": 5,
+    "danger": 2,
+    "cost": 4,
+    "flightTimes": {
+      "JFK": 11,
+      "LAX": 15,
+      "ORD": 12,
+      "SFO": 15,
+      "LHR": 3,
+      "CDG": 3,
+      "FRA": 2,
+      "AMS": 3,
+      "NRT": 15,
+      "PEK": 13,
+      "SIN": 14,
+      "DXB": 6,
+      "HKG": 14,
+      "SYD": 22,
+      "GRU": 16,
+      "MIA": 12,
+      "DEN": 13,
+      "SEA": 15,
+      "ATL": 12,
+      "MAD": 3,
+      "FCO": 2,
+      "ICN": 15,
+      "BKK": 15,
+      "MEL": 23,
+      "EZE": 17
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 0,
+      "apr": 0,
+      "may": 1,
+      "jun": 1,
+      "jul": 0,
+      "aug": 0,
+      "sep": 1,
+      "oct": 1,
+      "nov": 0,
+      "dec": 0
+    },
+    "bestTimeDescription": "May to June and September to early October",
+    "tags": [
+      "fjord-like bay",
+      "old towns",
+      "mountains",
+      "rafting",
+      "beaches",
+      "compact"
+    ],
+    "highlights": [
+      "Walled Kotor and the 1,350-step climb to its fortress",
+      "Boat out to Our Lady of the Rocks off Perast",
+      "Glacial lakes and peaks of Durmitor National Park",
+      "Rafting the Tara River Canyon, one of Europe's deepest"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Kotor Old Town",
+        "description": "Venetian-era maze of squares and churches at the head of the bay, enclosed by walls climbing the mountain behind.",
+        "bestFor": [
+          "history",
+          "photography",
+          "first-timers"
+        ]
+      },
+      {
+        "name": "Perast",
+        "description": "One-street baroque village on the bay, quieter than Kotor once day-trippers leave.",
+        "bestFor": [
+          "couples",
+          "relaxation",
+          "scenery"
+        ]
+      },
+      {
+        "name": "Zabljak (Durmitor)",
+        "description": "Mountain town beside the Black Lake, base for hiking Durmitor and rafting the Tara.",
+        "bestFor": [
+          "hiking",
+          "adventure",
+          "nature"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "The country is small: Kotor to Zabljak is about 3-4 hours. Coastal buses are frequent; a car opens up the interior.",
+      "options": [
+        {
+          "type": "Bus",
+          "description": "Frequent coastal buses linking Herceg Novi, Kotor, Budva, and Bar, plus daily runs inland.",
+          "cost": "$3-12/trip"
+        },
+        {
+          "type": "Rental Car",
+          "description": "Best for Lovcen, Ostrog, and Durmitor. Expect hairpin bends and summer coast traffic.",
+          "cost": "$35-70/day"
+        },
+        {
+          "type": "Boat / Water Taxi",
+          "description": "Bay boats from Kotor and Perast to Our Lady of the Rocks and coastal beaches.",
+          "cost": "$6-30/trip"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$30-60",
+        "mid": "$80-150",
+        "luxury": "$300+"
+      },
+      "meals": {
+        "budget": "$10-18",
+        "mid": "$25-45",
+        "luxury": "$80+"
+      },
+      "activities": "$10-20/site, $50-80 Tara rafting",
+      "transport": "$5-15/day bus, $35-70/day car",
+      "tips": [
+        "Montenegro uses the euro, but prices run well below Croatia",
+        "Climb Kotor's fortress early to beat heat and the cruise crowds",
+        "Stay in Perast or Dobrota for bay views without old-town noise",
+        "A small city tax per night is added at most lodgings"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1590147175614-b5df7b440985?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 42.42,
+      "lng": 18.77
+    }
+  },
+  {
+    "id": "bhutan",
+    "name": "Bhutan",
+    "duration": 9,
+    "itinerarySummary": "Hike to Paro Taktsang, cross Dochula Pass to Punakha Dzong, explore Thimphu, and see the Phobjikha Valley",
+    "considerations": "Every tourist pays a Sustainable Development Fee of $100 per adult per night (half price ages 6-11, free under 6), set at this rate through August 2027. A licensed guide must accompany you at all times, so most visitors book through a tour operator. Paro airport has limited flights from Delhi, Bangkok, Kathmandu, and Singapore",
+    "countries": [
+      "Bhutan"
+    ],
+    "region": "South Asia",
+    "climate": "Mix",
+    "type": "Mix",
+    "easeWithChild": 3,
+    "urgency": 5,
+    "danger": 1,
+    "cost": 9,
+    "flightTimes": {
+      "JFK": 22,
+      "LAX": 24,
+      "ORD": 23,
+      "SFO": 23,
+      "LHR": 15,
+      "CDG": 16,
+      "FRA": 15,
+      "AMS": 16,
+      "NRT": 12,
+      "PEK": 10,
+      "SIN": 6,
+      "DXB": 8,
+      "HKG": 8,
+      "SYD": 15,
+      "GRU": 29,
+      "MIA": 23,
+      "DEN": 24,
+      "SEA": 23,
+      "ATL": 23,
+      "MAD": 16,
+      "FCO": 15,
+      "ICN": 12,
+      "BKK": 5,
+      "MEL": 16,
+      "EZE": 28
+    },
+    "bestMonths": {
+      "jan": 0,
+      "feb": 0,
+      "mar": 1,
+      "apr": 1,
+      "may": 1,
+      "jun": 0,
+      "jul": 0,
+      "aug": 0,
+      "sep": 1,
+      "oct": 1,
+      "nov": 1,
+      "dec": 0
+    },
+    "bestTimeDescription": "March to May and September to November, timed to the Paro or Thimphu tsechu festivals",
+    "tags": [
+      "himalaya",
+      "monasteries",
+      "buddhist",
+      "hiking",
+      "festivals",
+      "remote"
+    ],
+    "highlights": [
+      "The cliffside Tiger's Nest monastery above the Paro Valley",
+      "Punakha Dzong at the meeting of two rivers",
+      "Masked dance festivals at the Paro and Thimphu tsechus",
+      "Black-necked cranes wintering in the Phobjikha Valley"
+    ],
+    "neighborhoods": [
+      {
+        "name": "Paro",
+        "description": "Valley with the only international airport, the Rinpung Dzong, and the trailhead for Tiger's Nest.",
+        "bestFor": [
+          "hiking",
+          "first-timers",
+          "festivals"
+        ]
+      },
+      {
+        "name": "Thimphu",
+        "description": "Small capital with the Tashichho Dzong, the hilltop Buddha Dordenma statue, and a weekend market.",
+        "bestFor": [
+          "culture",
+          "markets",
+          "crafts"
+        ]
+      },
+      {
+        "name": "Punakha",
+        "description": "Warmer, lower valley over Dochula Pass, home to the country's most striking dzong and rice terraces.",
+        "bestFor": [
+          "photography",
+          "history",
+          "scenery"
+        ]
+      }
+    ],
+    "gettingAround": {
+      "summary": "Tourists travel with a licensed guide, almost always in a private car with driver arranged by the tour operator.",
+      "options": [
+        {
+          "type": "Private car and driver",
+          "description": "Standard for all itineraries. Mountain roads are slow: Thimphu to Punakha takes about 3 hours.",
+          "cost": "$100-150/day"
+        },
+        {
+          "type": "Licensed guide",
+          "description": "Required at all times for tourists, including at dzongs and monasteries.",
+          "cost": "$50-80/day"
+        },
+        {
+          "type": "Drukair / Bhutan Airlines",
+          "description": "The only carriers into Paro, plus occasional domestic hops to Bumthang.",
+          "cost": "$300-700 return from Delhi or Bangkok"
+        }
+      ]
+    },
+    "costBreakdown": {
+      "accommodation": {
+        "budget": "$60-100",
+        "mid": "$150-300",
+        "luxury": "$1,000+"
+      },
+      "meals": {
+        "budget": "$15-25",
+        "mid": "$30-50",
+        "luxury": "$100+"
+      },
+      "activities": "$100/night Sustainable Development Fee, $10-20/site entry",
+      "transport": "$150-230/day for car, driver, and guide",
+      "tips": [
+        "Budget the $100/night SDF on top of hotel and guide costs",
+        "Kids 6-11 pay half SDF and under 6 pay none",
+        "Shoulder months like late November and early March are quieter",
+        "Book festival dates a year ahead; hotels and flights sell out"
+      ]
+    },
+    "imageUrl": "https://images.unsplash.com/photo-1743402063949-ad3c824c2484?w=800&h=600&fit=crop&q=80",
+    "coordinates": {
+      "lat": 27.47,
+      "lng": 89.64
     }
   }
 ]

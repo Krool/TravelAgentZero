@@ -17,6 +17,8 @@ import {
   DESTINATION_REGIONS,
   DestinationRegion,
   FLIGHT_TIME_OPTIONS,
+  PASSPORTS,
+  PassportCode,
   hasChildTraveler,
 } from '@/types';
 import { cn } from '@/lib/utils';
@@ -128,6 +130,16 @@ export function FilterPanel({ className }: FilterPanelProps) {
         </RetroSelect>
 
         <RetroSelect
+          label="Passport"
+          value={preferences.passport}
+          onChange={(e) => setPreferences({ passport: e.target.value as PassportCode })}
+        >
+          {Object.entries(PASSPORTS).map(([code, name]) => (
+            <option key={code} value={code}>{name}</option>
+          ))}
+        </RetroSelect>
+
+        <RetroSelect
           label="Max Flight Time"
           value={String(preferences.maxFlightTime || 0)}
           onChange={(e) => setMaxFlightTime(Number(e.target.value))}
@@ -222,7 +234,7 @@ export function FilterPanel({ className }: FilterPanelProps) {
         />
 
         <RetroToggle
-          label="Visa-Free Only (US passport)"
+          label="Visa-Free Only"
           checked={preferences.visaFreeOnly}
           onChange={(e) =>
             setPreferences({ visaFreeOnly: e.target.checked })

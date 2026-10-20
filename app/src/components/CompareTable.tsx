@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useEffect } from 'react';
+import { isVisaFree, ENTRY_LABEL } from '@/lib/visa';
 import Link from 'next/link';
 import { useAppStore } from '@/lib/store';
 import { calculateScore, getMaxPossibleScore } from '@/lib/scoring';
@@ -209,11 +210,10 @@ export function CompareTable({ isOpen, onClose }: CompareTableProps) {
               <TableRow label="Visa">
                 {compareDestinations.map((dest, i) => (
                   <td key={i} className="text-center p-2 text-xs">
-                    {dest?.visaRequirements.toLowerCase().includes('visa-free') ||
-                     dest?.visaRequirements.toLowerCase().includes('no visa') ? (
-                      <span className="text-retro-green">Visa-Free</span>
-                    ) : (
-                      <span className="text-text-muted">Required</span>
+                    {dest && (
+                      <span className={isVisaFree(dest.entryStatus[preferences.passport]) ? 'text-retro-green' : 'text-retro-orange'}>
+                        {ENTRY_LABEL[dest.entryStatus[preferences.passport]]}
+                      </span>
                     )}
                   </td>
                 ))}

@@ -6,6 +6,24 @@ MVP is shipped and live on GitHub Pages: https://krool.github.io/TravelAgentZero
 
 ## Recently done
 
+Follow-up pass (2026-10-20, later):
+
+- **Data split**: source moved to `app/data/`; the browser fetches a generated
+  140KB index instead of the full catalog. Pages no longer wait on it: detail
+  pages are pre-rendered with their full content (neighborhoods, costs, entry
+  rules), and the store rehydrates after first render to avoid hydration
+  mismatches.
+- **Structured entry rules**: `data/visas.json`, 94 countries x 5 passports
+  (US/UK/CA/AU/DE) with status, max stay, note and official source. Passport
+  picker in filters and on the detail page; "Visa-Free Only" uses it.
+- **15 new destinations** (123 total): Kyrgyzstan, Kazakhstan, Mongolia, Ghana,
+  Senegal, Madagascar, Mauritius, Ethiopia, Tunisia, Dominican Republic,
+  St Lucia, Cook Islands, Albania, Montenegro, Bhutan.
+- **Home URL state**: filters, passport, sort and view are in the query string;
+  links are shareable and the back link returns to the same list.
+- **worldDots.ts** 44KB -> 3.3KB run-length encoding, with
+  `scripts/encode-world-dots.js` to regenerate.
+
 Review pass (2026-10-20):
 
 - **Bugs**: sample travelers no longer auto-selected on first visit (they were
@@ -56,15 +74,7 @@ A review/modernization pass (2026-07-01) covering:
   output, prompt export) but never built. No `/itinerary` route or prompt
   generator exists.
 - **Known, deferred items**:
-  - `destinations.json` (367KB shipped) is still fetched eagerly and gates every
-    page, including `/privacy` and `/settings`; destination pages export as a
-    "Loading" shell. Next step: split a list payload (card + scoring fields)
-    from per-destination detail (`neighborhoods`, `gettingAround`,
-    `costBreakdown`, ~189KB) and render detail into the static HTML.
-  - `visaRequirements` is US-passport free text; restructure to
-    `{status, days, note, verifiedAt}` so it can be dated and filtered.
-  - Regional coverage is US-heavy (21 of 108); thin on Central Asia, Caribbean,
-    Oceania, West/North Africa.
-  - Home-page filters/sort/view are not in the URL.
-  - `worldDots.ts` is 44KB with no generator in the repo.
+  - Visa rules expiring 2026-12-31 (China's visa-free list, Korea K-ETA
+    exemption, Mongolia) need a re-check in January; see `uncertain` in
+    `app/data/visas.json`.
   - `og-preview.png` is 243KB, larger than necessary for an OG image.

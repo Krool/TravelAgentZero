@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useAppStore } from '@/lib/store';
+import { LoadingScreen } from '@/components/layout/AppProvider';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
 import { RetroToggle } from '@/components/ui/RetroCheckbox';
@@ -28,6 +29,7 @@ export default function SettingsPage() {
     reduceEffects,
     setReduceEffects,
     destinationNotes,
+    hydrated,
   } = useAppStore();
 
   const { play } = useSound();
@@ -120,6 +122,8 @@ export default function SettingsPage() {
     setTimeout(() => window.location.reload(), 500);
   };
 
+
+  if (!hydrated) return <LoadingScreen />;
   return (
     <div className="container mx-auto px-4 py-6">
       <div className="max-w-2xl mx-auto">

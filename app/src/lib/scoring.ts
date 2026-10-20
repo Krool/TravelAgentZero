@@ -1,4 +1,5 @@
-import { Destination, UserPreferences, Traveler, MONTHS_ORDERED, hasChildTraveler, BudgetSensitivity } from '@/types';
+import { isVisaFree } from '@/lib/visa';
+import { DestinationCore, DestinationSummary, UserPreferences, Traveler, MONTHS_ORDERED, hasChildTraveler, BudgetSensitivity } from '@/types';
 
 export interface ScoreBreakdown {
   total: number;
@@ -29,7 +30,7 @@ export const WEIGHTS = {
 };
 
 /** 1 for a best month, 0.5 for a month next to one (shoulder season), else 0. */
-function getMonthFit(destination: Destination, month: UserPreferences['travelMonth']): number {
+function getMonthFit(destination: DestinationCore, month: UserPreferences['travelMonth']): number {
   if (destination.bestMonths[month] === 1) return 1;
   const i = MONTHS_ORDERED.indexOf(month);
   const prev = MONTHS_ORDERED[(i + 11) % 12];
@@ -54,7 +55,7 @@ function getBudgetMultiplier(budget: BudgetSensitivity, cost: number): number {
 }
 
 export function calculateScore(
-  destination: Destination,
+  destination: DestinationCore,
   preferences: UserPreferences,
   travelers: Traveler[]
 ): ScoreBreakdown {
@@ -165,11 +166,11 @@ export function getMaxPossibleScore(): number {
   return Object.values(WEIGHTS).reduce((a, b) => a + b, 0);
 }
 
-export function filterDestinations(
-  destinations: Destination[],
+export function filterDestinations<D extends DestinationSummary>(
+  destinations: D[],
   preferences: UserPreferences,
   travelers: Traveler[]
-): Destination[] {
+): D[] {
   return destinations.filter(dest => {
     // Filter by search query (with fallback for missing/undefined field)
     const searchQuery = preferences.searchQuery ?? '';
@@ -195,12 +196,9 @@ export function filterDestinations(
       return false;
     }
 
-    // Filter by visa if required
-    if (preferences.visaFreeOnly) {
-      const visaLower = dest.visaRequirements.toLowerCase();
-      if (!visaLower.includes('no visa') && !visaLower.includes('visa-free') && !visaLower.includes('visa not required')) {
-        return false;
-      }
+    // Visa-free for the user's passport (an online authorization still counts)
+    if (preferences.visaFreeOnly && !isVisaFree(dest.entryStatus[preferences.passport ?? 'US'])) {
+      return false;
     }
 
     // Filter by climate
@@ -251,11 +249,11 @@ export function filterDestinations(
   });
 }
 
-export function sortDestinationsByScore(
-  destinations: Destination[],
+export function sortDestinationsByScore<D extends DestinationSummary>(
+  destinations: D[],
   preferences: UserPreferences,
   travelers: Traveler[]
-): { destination: Destination; score: ScoreBreakdown }[] {
+): { destination: D; score: ScoreBreakdown }[] {
   return destinations
     .map(dest => ({
       destination: dest,

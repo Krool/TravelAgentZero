@@ -7,11 +7,12 @@ Zustand, statically exported and hosted on GitHub Pages. All app code lives unde
 ## Commands (run from `app/`)
 
 - `npm run dev` - local dev server
-- `npm run build` - `next build`, static export to `app/out`; the `postbuild`
-  hook (`scripts/minify-data.js`) then minifies `out/data/*.json`
+- `npm run build` - `next build`, static export to `app/out`. `prebuild` writes
+  the browser index (`scripts/build-index.js`); `postbuild` minifies
+  `out/data/*.json`
 - `npm run lint` - eslint
-- `npm run validate` - `node scripts/validate-data.js`, checks `public/data/*.json`
-- `npm run build:data` - `node scripts/build-data.js`, enriches `destinations.json`
+- `npm run validate` - `node scripts/validate-data.js`, checks `data/*.json` and travelers
+- `npm run build:data` - `node scripts/build-data.js`, enriches `data/destinations.json`
 - `npm run deploy` - local helper only (`next build` + writes `out/.nojekyll`); it
   does not publish anything. The real deploy path is CI (below).
 
@@ -37,37 +38,15 @@ constant and the `assetPath()` constant are not shared.
 
 ## Data pipeline
 
-`app/public/data/destinations.json` and `travelers.json` are the source of truth,
-fetched client-side by `AppProvider.tsx`. Types are in `app/src/types/index.ts`.
-
-- Every destination record carries the full enriched schema: `highlights`,
-  `neighborhoods`, `gettingAround`, `costBreakdown`, and a verified `imageUrl`
-  (Unsplash, `w=800&h=600` crop - the UI derives the hero size from it). The
-  validator requires all of these, so a new destination must ship them.
-- A new destination must also include `flightTimes` for the 15 base airports
-  (JFK LAX ORD SFO LHR CDG FRA AMS NRT PEK SIN DXB HKG SYD GRU);
-  `scripts/build-data.js` fills the other 10 airports. Deterministic and
-  idempotent - safe to re-run.
-- Flight prices are **computed at runtime** by `app/src/lib/pricing.ts` from
-  cost, flight time and `bestMonths`. `avgFlightPrices` in the JSON holds only
-  hand-seeded overrides (mostly JFK/LAX/SFO); `build-data.js` prunes any curve
-  the model reproduces. The model is duplicated in `build-data.js`
-  (`modelPriceCurve`) - change both together. Read prices via
-  `getFlightPrices()`, never `avgFlightPrices` directly.
-- `scripts/validate-data.js` checks schema, ranges, enriched-content shape, and
-  referential integrity (traveler destination ids must exist in
-  `destinations.json`). Gates CI; exits non-zero on failure.
-- Flight times and prices are **modelled estimates**, not a live fare feed.
-  Neighborhood/cost content is editorial, written 2026-07; prices are ballpark.
-- Content was fact-audited 2026-07-12 (visa rules, seasons, named places).
-  visaRequirements is point-in-time data and rots - re-verify before trusting,
-  and re-audit the field periodically. ETIAS notes were deliberately left out
-  until the EU scheme actually launches.
+Source of truth is `app/data/` (`destinations.json`, `visas.json`); the browser
+fetches a generated index, and detail pages are built from the full records.
+Details, the hydration rule, and how to add a destination: `app/data/CLAUDE.md`.
 
 ## Repo map
 
 - Routes: `/` (browse + filter + score), `/destination/[id]` (detail page),
-  `/travelers` (traveler profiles / visit history), `/settings`. There is **no**
+  `/travelers` (traveler profiles / visit history), `/settings`. Home-page
+  filters, sort and view live in the URL query (`src/lib/homeUrlState.ts`). There is **no**
   `/compare` or `/itinerary` route - comparison is an in-page
   `ComparePanel`/`CompareTable` (`app/src/components/ComparePanel.tsx`,
   `CompareTable.tsx`), not a separate page.

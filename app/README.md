@@ -31,41 +31,42 @@ npm run lint    # eslint
 
 ## Data model
 
-The app is driven by two static JSON files under `public/data/`, fetched client-side
-at runtime (see `src/components/layout/AppProvider.tsx`):
+Source data lives in `data/` and is never served directly:
 
-- `destinations.json` - the destination catalog: scores (cost, danger, ease with
-  child, etc.), best-visit months, flight times per home airport, enriched content
-  (neighborhoods, getting around, cost breakdown, highlights), and a few
-  hand-seeded flight price curves. All other prices are modelled at runtime by
+- `data/destinations.json` - the destination catalog: scores (cost, danger, ease
+  with child, etc.), best-visit months, flight times per home airport, enriched
+  content (neighborhoods, getting around, cost breakdown, highlights), and a few
+  hand-seeded flight price curves. Other prices are modelled at runtime by
   `src/lib/pricing.ts`.
-- `travelers.json` - two sample travelers with visit history and ratings. They
-  load on a first visit but start unselected, so they never shape a new user's
-  results until ticked.
+- `data/visas.json` - entry requirements per country for five passports (US, UK,
+  Canada, Australia, Germany as the EU stand-in), with a verification date and
+  official source links.
+- `public/data/travelers.json` - two sample travelers. They load on a first visit
+  but start unselected.
 
-Types for both are defined in `src/types/index.ts`, along with the scoring weights
-in `src/lib/scoring.ts`.
+`scripts/build-index.js` (run automatically before `dev` and `build`) writes
+`public/data/destinations-index.json`, the only catalog the browser fetches: the
+list and scoring fields plus a per-passport visa status. Detail pages are built
+from the full records at build time, so their content is in the static HTML.
+
+Types are in `src/types/index.ts`; scoring weights in `src/lib/scoring.ts`.
 
 ## Data pipeline
 
-Two scripts under `scripts/` keep `destinations.json` complete and consistent:
-
 ```bash
-npm run build:data   # scripts/build-data.js - enrich destinations.json
-npm run validate      # scripts/validate-data.js - validate the data files
+npm run build:data   # scripts/build-data.js - fill flight times, prune modelled prices
+npm run validate     # scripts/validate-data.js - validate the data files
 ```
 
-- `build:data` fills in flight times for all 25 selectable home airports
-  (`AIRPORT_HUBS` in `src/types/index.ts`) and prunes any stored price curve the
-  runtime price model reproduces exactly. It's deterministic and idempotent, so
-  re-running is safe.
-- `validate` checks schema, value ranges, and referential integrity (e.g. traveler
-  records referencing real destination ids) across both data files, and exits
-  non-zero on any failure. CI runs this before building (see
-  `.github/workflows/deploy.yml`).
+- `build:data` fills in flight times for all 25 selectable home airports and
+  prunes any stored price curve the runtime model reproduces. Deterministic and
+  idempotent.
+- `validate` checks schema, ranges, visa-table coverage, and referential
+  integrity, warns when the visa table is over a year old, and exits non-zero on
+  failure. CI runs it before building.
 
-**Flight times and prices are modelled estimates**, not a live fare feed. They're a
-planning aid for relative comparison, not a source of truth for booking.
+**Flight times and prices are modelled estimates**, not a live fare feed, and
+**entry rules change** - the detail page links each country's official source.
 
 ## Build / static export
 

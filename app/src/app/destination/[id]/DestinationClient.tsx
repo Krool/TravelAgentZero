@@ -1,12 +1,15 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useMemo } from 'react';
 import { useAppStore } from '@/lib/store';
 import { getFlightPrices, getAllFlightPrices } from '@/lib/pricing';
 import { calculateScore, getMaxPossibleScore, WEIGHTS, getDurationRecommendation, filterDestinations, sortDestinationsByScore } from '@/lib/scoring';
 import { decodeShareParams } from '@/lib/shareUtils';
+import { getLastHomeSearch } from '@/lib/homeUrlState';
+import type { DestinationEntries } from '@/lib/visaData.server';
+import { EntryRequirements } from '@/components/EntryRequirements';
+import { RetroSelect } from '@/components/ui/RetroSelect';
 import { Analytics } from '@/lib/analytics';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
@@ -19,7 +22,7 @@ import { RetroTabs, useTabHash, Tab } from '@/components/ui/RetroTabs';
 import { ShareButton } from '@/components/ui/ShareButton';
 import { PrintButton, PrintableContent } from '@/components/PrintView';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
-import { AIRPORT_HUBS, AirportCode, UserPreferences, DEFAULT_PREFERENCES, getDestinationImageUrl } from '@/types';
+import { AIRPORT_HUBS, AirportCode, Destination, PassportCode, PASSPORTS, UserPreferences, DEFAULT_PREFERENCES, getDestinationImageUrl } from '@/types';
 
 const TABS: Tab[] = [
   { id: 'overview', label: 'Overview' },
@@ -28,17 +31,24 @@ const TABS: Tab[] = [
   { id: 'notes', label: 'Your Notes' },
 ];
 
-export default function DestinationClient() {
-  const params = useParams();
-  const router = useRouter();
-  const id = params.id as string;
+// The full record (including detail-only fields) comes from the server
+// component at build time, so the page content is in the static HTML. Anything
+// that depends on saved preferences waits for `hydrated` to avoid rendering
+// defaults that differ from what the user saved.
+export default function DestinationClient({
+  destination,
+  entries,
+}: {
+  destination: Destination;
+  entries: DestinationEntries;
+}) {
   const [activeTab, setActiveTab] = useTabHash('overview');
 
   const {
     destinations,
     travelers,
     preferences,
-    isLoaded,
+    hydrated,
     setTravelerVisited,
     setTravelerRating,
     setTravelMonth,
@@ -47,17 +57,12 @@ export default function DestinationClient() {
     setDestinationNote,
   } = useAppStore();
 
-  const destination = useMemo(() => {
-    return destinations.find((d) => d.id === id);
-  }, [destinations, id]);
-
-  const score = useMemo(() => {
-    if (!destination) return null;
-    return calculateScore(destination, preferences, travelers);
-  }, [destination, preferences, travelers]);
+  const score = useMemo(
+    () => calculateScore(destination, preferences, travelers),
+    [destination, preferences, travelers]
+  );
 
   const { prevDest, nextDest } = useMemo(() => {
-    if (!destination) return { prevDest: null, nextDest: null };
     const filtered = filterDestinations(destinations, preferences, travelers);
     const sorted = sortDestinationsByScore(filtered, preferences, travelers);
     const currentIndex = sorted.findIndex(({ destination: d }) => d.id === destination.id);
@@ -74,7 +79,7 @@ export default function DestinationClient() {
   // Reads window.location.search rather than useSearchParams() to avoid the
   // Suspense-boundary requirement that would deopt this statically-exported page.
   useEffect(() => {
-    if (!isLoaded || typeof window === 'undefined') return;
+    if (!hydrated || typeof window === 'undefined') return;
     // Only adopt a shared link's context if the visitor hasn't set their own
     // month/airport/duration yet. Never silently overwrite saved settings for
     // a returning user who opens someone else's link.
@@ -93,32 +98,11 @@ export default function DestinationClient() {
     if (Object.keys(patch).length > 0) setPreferences(patch);
     // Run once when data becomes available; not on every preference change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoaded]);
+  }, [hydrated]);
 
-  // Count a detail-page view once the destination resolves.
   useEffect(() => {
-    if (destination) Analytics.destinationViewed(destination.id);
-  }, [destination]);
-
-  if (!isLoaded) return null;
-
-  if (!destination || !score) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <RetroCard className="p-12 text-center">
-          <div className="w-12 h-12 rounded-xl bg-retro-red/15 flex items-center justify-center mx-auto mb-4">
-            <span className="text-retro-red text-xl">!</span>
-          </div>
-          <div className="font-semibold text-text-primary text-lg mb-2">
-            Destination not found
-          </div>
-          <RetroButton onClick={() => router.push('/')}>
-            Back to destinations
-          </RetroButton>
-        </RetroCard>
-      </div>
-    );
-  }
+    Analytics.destinationViewed(destination.id);
+  }, [destination.id]);
 
   const maxScore = getMaxPossibleScore();
   const flightHours = destination.flightTimes[preferences.homeAirport] ?? 0;
@@ -141,7 +125,7 @@ export default function DestinationClient() {
     <div className="container mx-auto px-4 py-6">
       {/* Back button */}
       <Link
-        href="/"
+        href={`/${getLastHomeSearch()}`}
         className="inline-flex items-center gap-2 text-text-secondary hover:text-retro-cyan text-sm mb-5 transition-colors"
       >
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -181,7 +165,7 @@ export default function DestinationClient() {
                     destinationName={destination.name}
                     preferences={preferences}
                   />
-                  <ScoreBadge value={score.total} max={maxScore} className="text-lg" />
+                  {hydrated && <ScoreBadge value={score.total} max={maxScore} className="text-lg" />}
                 </div>
               </div>
             </div>
@@ -204,7 +188,7 @@ export default function DestinationClient() {
       </div>
 
       {/* Duration Recommendation */}
-      {flightHours > 0 && (
+      {hydrated && flightHours > 0 && (
         <div className="mb-6">
           <RetroCard
             variant={
@@ -252,7 +236,7 @@ export default function DestinationClient() {
       {activeTab === 'overview' && (
         <OverviewTab
           destination={destination}
-          score={score}
+          score={hydrated ? score : null}
           maxScore={maxScore}
         />
       )}
@@ -262,6 +246,8 @@ export default function DestinationClient() {
           destination={destination}
           preferences={preferences}
           setTravelMonth={setTravelMonth}
+          entries={entries}
+          setPassport={(passport) => setPreferences({ passport })}
         />
       )}
 
@@ -315,7 +301,7 @@ export default function DestinationClient() {
         </div>
       )}
 
-      <PrintableContent destination={destination} preferences={preferences} />
+      {hydrated && <PrintableContent destination={destination} preferences={preferences} entries={entries} />}
     </div>
   );
 }
@@ -326,8 +312,8 @@ function OverviewTab({
   score,
   maxScore,
 }: {
-  destination: ReturnType<typeof useAppStore.getState>['destinations'][0];
-  score: NonNullable<ReturnType<typeof calculateScore>>;
+  destination: Destination;
+  score: ReturnType<typeof calculateScore> | null;
   maxScore: number;
 }) {
   return (
@@ -402,6 +388,7 @@ function OverviewTab({
             </h2>
           </RetroCardHeader>
           <RetroCardBody className="space-y-3">
+            {score ? (<>
             <ScoreGauge value={score.monthMatch} max={WEIGHTS.monthMatch} label="Month Match" size="sm" />
             <ScoreGauge value={score.newPlace} max={WEIGHTS.newPlace} label="New Place Bonus" size="sm" />
             <ScoreGauge value={score.personalRating} max={WEIGHTS.personalRating} label="Personal Rating" size="sm" />
@@ -412,6 +399,9 @@ function OverviewTab({
             <ScoreGauge value={score.flightTime} max={WEIGHTS.flightTime} label="Flight Time" size="sm" />
             <ScoreGauge value={score.climateMatch} max={WEIGHTS.climateMatch} label="Climate Match" size="sm" />
             <ScoreGauge value={score.typeMatch} max={WEIGHTS.typeMatch} label="Trip Style Match" size="sm" />
+            </>) : (
+              <p className="text-text-muted text-xs">Scoring against your saved preferences...</p>
+            )}
           </RetroCardBody>
         </RetroCard>
       </div>
@@ -424,10 +414,14 @@ function PlanningTab({
   destination,
   preferences,
   setTravelMonth,
+  entries,
+  setPassport,
 }: {
-  destination: ReturnType<typeof useAppStore.getState>['destinations'][0];
+  destination: Destination;
   preferences: ReturnType<typeof useAppStore.getState>['preferences'];
   setTravelMonth: (month: typeof preferences.travelMonth) => void;
+  entries: DestinationEntries;
+  setPassport: (passport: PassportCode) => void;
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -456,13 +450,24 @@ function PlanningTab({
       <RetroCard>
         <RetroCardHeader>
           <h2 className="font-semibold text-sm text-retro-cyan">
-            Visa Requirements
+            Entry Requirements
           </h2>
         </RetroCardHeader>
-        <RetroCardBody>
-          <p className="text-text-primary text-sm">
-            {destination.visaRequirements}
-          </p>
+        <RetroCardBody className="space-y-4">
+          <RetroSelect
+            label="Passport"
+            value={preferences.passport}
+            onChange={(e) => setPassport(e.target.value as PassportCode)}
+          >
+            {Object.entries(PASSPORTS).map(([code, name]) => (
+              <option key={code} value={code}>{name}</option>
+            ))}
+          </RetroSelect>
+          <EntryRequirements
+            entries={entries.byPassport[preferences.passport]}
+            passport={preferences.passport}
+            verifiedAt={entries.verifiedAt}
+          />
         </RetroCardBody>
       </RetroCard>
 
@@ -572,7 +577,7 @@ function CostsTab({
   destination,
   preferences,
 }: {
-  destination: ReturnType<typeof useAppStore.getState>['destinations'][0];
+  destination: Destination;
   preferences: ReturnType<typeof useAppStore.getState>['preferences'];
 }) {
   return (
@@ -709,7 +714,7 @@ function NotesTab({
   note,
   setNote,
 }: {
-  destination: ReturnType<typeof useAppStore.getState>['destinations'][0];
+  destination: Destination;
   travelers: ReturnType<typeof useAppStore.getState>['travelers'];
   setTravelerVisited: (travelerId: string, destinationId: string, visited: boolean) => void;
   setTravelerRating: (travelerId: string, destinationId: string, rating: number) => void;

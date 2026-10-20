@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { useAppStore } from '@/lib/store';
+import { LoadingScreen } from '@/components/layout/AppProvider';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { RetroCard, RetroCardBody, RetroCardHeader } from '@/components/ui/RetroCard';
 import { RetroCheckbox, RetroToggle } from '@/components/ui/RetroCheckbox';
@@ -21,6 +22,7 @@ export default function TravelersPage() {
     toggleTraveler,
     setTravelerVisited,
     setTravelerIsChild,
+    isLoaded,
   } = useAppStore();
 
   const [newTravelerName, setNewTravelerName] = useState('');
@@ -53,6 +55,8 @@ export default function TravelersPage() {
     );
   }, [destinations, destinationSearch]);
 
+
+  if (!isLoaded) return <LoadingScreen />;
   return (
     <div className="container mx-auto px-4 py-6">
       <div className="max-w-4xl mx-auto">

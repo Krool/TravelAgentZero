@@ -191,8 +191,7 @@ export interface Destination {
   duration: number;
   itinerarySummary: string;
   considerations: string;
-  visaRequirements: string;
-  countries: string[];
+  countries: string[]; // names must match keys in data/visas.json
   region: DestinationRegion;
   climate: Climate;
   type: TripType;
@@ -216,10 +215,61 @@ export interface Destination {
   highlights?: string[]; // "Why you'll love it"
 }
 
+// Fields only the detail page shows. They are left out of the browser-fetched
+// index (scripts/build-index.js - keep its DETAIL_KEYS in sync) and rendered
+// into each destination's static HTML instead.
+export type DestinationDetailKey =
+  | 'neighborhoods'
+  | 'gettingAround'
+  | 'costBreakdown'
+  | 'avgFlightPrices'
+  | 'considerations'
+  | 'bestTimeDescription'
+  | 'urgency';
+
+/** The fields shared by the source record and the index (no detail, no derived). */
+export type DestinationCore = Omit<Destination, DestinationDetailKey>;
+
+/** What the store holds: everything browsing, filtering and scoring need. */
+export type DestinationSummary = DestinationCore & {
+  // Most restrictive entry rule across the destination's countries, per
+  // passport. Added by scripts/build-index.js from data/visas.json.
+  entryStatus: Record<PassportCode, EntryStatus>;
+};
+
+// ============================================================================
+// ENTRY REQUIREMENTS (data/visas.json)
+// ============================================================================
+
+export type PassportCode = 'US' | 'GB' | 'CA' | 'AU' | 'DE';
+
+export const PASSPORTS: Record<PassportCode, string> = {
+  US: 'United States',
+  GB: 'United Kingdom',
+  CA: 'Canada',
+  AU: 'Australia',
+  DE: 'Germany (EU)',
+};
+
+export type EntryStatus = 'domestic' | 'none' | 'eta' | 'on-arrival' | 'evisa' | 'visa';
+
+export interface EntryRule {
+  status: EntryStatus;
+  days: number | null; // typical max tourist stay
+  note?: string;
+}
+
+/** One country's rule for one passport, as shown on the detail page. */
+export interface CountryEntry {
+  country: string;
+  rule: EntryRule;
+  source?: string;
+}
+
 // Destination images live in destinations.json (imageUrl, verified Unsplash
 // crops at w=800&h=600). The helper derives larger variants for hero use.
 export function getDestinationImageUrl(
-  destination: Destination,
+  destination: DestinationCore,
   size: 'card' | 'hero' = 'card'
 ): string {
   const url = destination.imageUrl;
@@ -278,6 +328,7 @@ export interface UserPreferences {
   // Filters
   preferNewPlaces: boolean;
   visaFreeOnly: boolean;
+  passport: PassportCode; // drives entry requirements and the visa filter
 
   // Search & UI state
   searchQuery: string;
@@ -373,6 +424,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   // Filters
   preferNewPlaces: true,
   visaFreeOnly: false,
+  passport: 'US',
 
   // Search & UI
   searchQuery: '',

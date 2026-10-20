@@ -123,10 +123,10 @@ export async function nativeShare(title: string, text: string, url: string): Pro
 }
 
 // Validation helpers
-function isValidMonth(month: string): boolean {
+export function isValidMonth(month: string): boolean {
   return (MONTHS_ORDERED as string[]).includes(month);
 }
 
-function isValidAirport(code: string): boolean {
+export function isValidAirport(code: string): boolean {
   return Object.hasOwn(AIRPORT_HUBS, code);
 }

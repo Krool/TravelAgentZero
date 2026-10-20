@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Destination, UserPreferences, MAX_COMPARE, getDestinationImageUrl } from '@/types';
+import { DestinationSummary, UserPreferences, MAX_COMPARE, getDestinationImageUrl } from '@/types';
 import { ScoreBreakdown } from '@/lib/scoring';
 import { RetroCard } from '@/components/ui/RetroCard';
 import { ScoreBadge } from '@/components/ui/ScoreGauge';
@@ -13,14 +13,14 @@ import { useAppStore } from '@/lib/store';
 import { useToast } from '@/hooks/useToast';
 
 interface DestinationCardProps {
-  destination: Destination;
+  destination: DestinationSummary;
   score: ScoreBreakdown;
   preferences: UserPreferences;
   className?: string;
 }
 
 /** Favorite/compare toggles shared by the grid and list cards. */
-function useCardActions(destination: Destination, preferences: UserPreferences) {
+function useCardActions(destination: DestinationSummary, preferences: UserPreferences) {
   const { toggleFavorite, toggleCompare } = useAppStore();
   const toast = useToast();
   const isFavorite = preferences.favorites.includes(destination.id);

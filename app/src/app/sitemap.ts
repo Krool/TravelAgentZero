@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://krool.github.io/TravelAgentZero';
 
   // Load destinations for dynamic routes
-  const filePath = path.join(process.cwd(), 'public', 'data', 'destinations.json');
+  const filePath = path.join(process.cwd(), 'data', 'destinations.json');
   const fileContents = await fs.readFile(filePath, 'utf8');
   const destinations: Destination[] = JSON.parse(fileContents);
 
