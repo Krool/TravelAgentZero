@@ -1,6 +1,6 @@
 'use client';
 
-import { MonthlyPricing, Month, MONTH_SHORT, formatPrice } from '@/types';
+import { MonthlyPricing, Month, MONTH_SHORT, MONTHS_ORDERED, formatPrice } from '@/types';
 import { cn } from '@/lib/utils';
 
 interface PriceHeatmapProps {
@@ -21,53 +21,13 @@ function getPriceColor(price: number, min: number, max: number): string {
   return 'var(--retro-red)';
 }
 
-export function PriceHeatmapInline({
-  prices,
-  selectedMonth,
-  className,
-}: PriceHeatmapProps) {
-  const months: Month[] = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-  const values = months.map(m => prices[m]);
-  const min = Math.min(...values);
-  const max = Math.max(...values);
-
-  return (
-    <div
-      className={cn('flex gap-[3px]', className)}
-      role="img"
-      aria-label={`Flight prices by month, ${formatPrice(min)} to ${formatPrice(max)}`}
-      title="Flight price by month"
-    >
-      {months.map((month) => {
-        const price = prices[month];
-        const isSelected = month === selectedMonth;
-
-        return (
-          <div
-            key={month}
-            className={cn(
-              'w-2 h-3 rounded-sm transition-all',
-              isSelected && 'ring-1 ring-white scale-110'
-            )}
-            style={{
-              backgroundColor: getPriceColor(price, min, max),
-              opacity: isSelected ? 1 : 0.7,
-            }}
-            title={`${MONTH_SHORT[month]}: ${formatPrice(price)}`}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 export function PriceHeatmap({
   prices,
   selectedMonth,
   className,
   showLabels = true,
 }: PriceHeatmapProps) {
-  const months: Month[] = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+  const months = MONTHS_ORDERED;
   const values = months.map(m => prices[m]);
   const min = Math.min(...values);
   const max = Math.max(...values);

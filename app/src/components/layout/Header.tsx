@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAppStore } from '@/lib/store';
 import { useSound } from '@/hooks/useSound';
-import { RetroButton } from '@/components/ui/RetroButton';
 import { cn } from '@/lib/utils';
 
 export function Header() {

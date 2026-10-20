@@ -4,7 +4,8 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useMemo } from 'react';
 import { useAppStore } from '@/lib/store';
-import { calculateScore, getMaxPossibleScore, getDurationRecommendation, filterDestinations, sortDestinationsByScore } from '@/lib/scoring';
+import { getFlightPrices, getAllFlightPrices } from '@/lib/pricing';
+import { calculateScore, getMaxPossibleScore, WEIGHTS, getDurationRecommendation, filterDestinations, sortDestinationsByScore } from '@/lib/scoring';
 import { decodeShareParams } from '@/lib/shareUtils';
 import { Analytics } from '@/lib/analytics';
 import { RetroButton } from '@/components/ui/RetroButton';
@@ -174,7 +175,7 @@ export default function DestinationClient() {
                   {destination.name}
                 </h1>
                 <div className="shrink-0 flex items-center gap-3">
-                  <PrintButton destination={destination} preferences={preferences} className="hidden sm:block" />
+                  <PrintButton destination={destination} className="hidden sm:block" />
                   <ShareButton
                     destinationId={destination.id}
                     destinationName={destination.name}
@@ -401,16 +402,16 @@ function OverviewTab({
             </h2>
           </RetroCardHeader>
           <RetroCardBody className="space-y-3">
-            <ScoreGauge value={score.monthMatch} max={20} label="Month Match" size="sm" />
-            <ScoreGauge value={score.newPlace} max={15} label="New Place Bonus" size="sm" />
-            <ScoreGauge value={score.personalRating} max={15} label="Personal Rating" size="sm" />
-            <ScoreGauge value={score.childFriendly} max={12} label="Child Friendly" size="sm" />
-            <ScoreGauge value={score.costMatch} max={10} label="Budget Fit" size="sm" />
-            <ScoreGauge value={score.safetyScore} max={8} label="Safety" size="sm" />
-            <ScoreGauge value={score.durationMatch} max={8} label="Duration Fit" size="sm" />
-            <ScoreGauge value={score.flightTime} max={5} label="Flight Time" size="sm" />
-            <ScoreGauge value={score.climateMatch} max={4} label="Climate Match" size="sm" />
-            <ScoreGauge value={score.typeMatch} max={3} label="Trip Style Match" size="sm" />
+            <ScoreGauge value={score.monthMatch} max={WEIGHTS.monthMatch} label="Month Match" size="sm" />
+            <ScoreGauge value={score.newPlace} max={WEIGHTS.newPlace} label="New Place Bonus" size="sm" />
+            <ScoreGauge value={score.personalRating} max={WEIGHTS.personalRating} label="Personal Rating" size="sm" />
+            <ScoreGauge value={score.childFriendly} max={WEIGHTS.childFriendly} label="Child Friendly" size="sm" />
+            <ScoreGauge value={score.costMatch} max={WEIGHTS.costMatch} label="Budget Fit" size="sm" />
+            <ScoreGauge value={score.safetyScore} max={WEIGHTS.safetyScore} label="Safety" size="sm" />
+            <ScoreGauge value={score.durationMatch} max={WEIGHTS.durationMatch} label="Duration Fit" size="sm" />
+            <ScoreGauge value={score.flightTime} max={WEIGHTS.flightTime} label="Flight Time" size="sm" />
+            <ScoreGauge value={score.climateMatch} max={WEIGHTS.climateMatch} label="Climate Match" size="sm" />
+            <ScoreGauge value={score.typeMatch} max={WEIGHTS.typeMatch} label="Trip Style Match" size="sm" />
           </RetroCardBody>
         </RetroCard>
       </div>
@@ -574,49 +575,30 @@ function CostsTab({
   destination: ReturnType<typeof useAppStore.getState>['destinations'][0];
   preferences: ReturnType<typeof useAppStore.getState>['preferences'];
 }) {
-  const hasPrices = destination.avgFlightPrices && destination.avgFlightPrices[preferences.homeAirport];
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {hasPrices ? (
-        <RetroCard className="lg:col-span-2">
-          <RetroCardHeader>
-            <h2 className="font-semibold text-sm text-retro-yellow">
-              Estimated Flight Prices
-            </h2>
-          </RetroCardHeader>
-          <RetroCardBody>
-            <PriceHeatmap
-              prices={destination.avgFlightPrices![preferences.homeAirport]!}
+      <RetroCard className="lg:col-span-2">
+        <RetroCardHeader>
+          <h2 className="font-semibold text-sm text-retro-yellow">
+            Estimated Flight Prices
+          </h2>
+        </RetroCardHeader>
+        <RetroCardBody>
+          <PriceHeatmap
+            prices={getFlightPrices(destination, preferences.homeAirport)}
+            selectedMonth={preferences.travelMonth}
+          />
+          <div className="mt-4 pt-4 border-t border-white/[0.06]">
+            <AirportPriceComparison
+              prices={getAllFlightPrices(destination)}
               selectedMonth={preferences.travelMonth}
             />
-            {Object.keys(destination.avgFlightPrices!).length > 1 && (
-              <div className="mt-4 pt-4 border-t border-white/[0.06]">
-                <AirportPriceComparison
-                  prices={destination.avgFlightPrices!}
-                  selectedMonth={preferences.travelMonth}
-                />
-              </div>
-            )}
-            <p className="text-[10px] text-text-muted mt-3">
-              * Prices are estimates based on historical averages. Actual prices may vary.
-            </p>
-          </RetroCardBody>
-        </RetroCard>
-      ) : (
-        <RetroCard>
-          <RetroCardHeader>
-            <h2 className="font-semibold text-sm text-retro-yellow">
-              Flight Prices
-            </h2>
-          </RetroCardHeader>
-          <RetroCardBody>
-            <p className="text-text-muted italic text-sm">
-              Flight price data not available for this destination.
-            </p>
-          </RetroCardBody>
-        </RetroCard>
-      )}
+          </div>
+          <p className="text-[10px] text-text-muted mt-3">
+            * Modelled from cost level, flight time and season. Not live fares; use them to compare, not to budget.
+          </p>
+        </RetroCardBody>
+      </RetroCard>
 
       <RetroCard>
         <RetroCardHeader>

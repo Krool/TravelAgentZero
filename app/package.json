@@ -9,9 +9,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "postbuild": "node scripts/minify-data.js",
     "lint": "eslint",
-    "deploy": "next build && node -e \"require('fs').writeFileSync('out/.nojekyll','')\"",
+    "deploy": "npm run build && node -e \"require('fs').writeFileSync('out/.nojekyll','')\"",
     "validate": "node scripts/validate-data.js",
     "build:data": "node scripts/build-data.js"
   },
@@ -28,7 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.0.5",
+    "eslint-config-next": "^16.2.10",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

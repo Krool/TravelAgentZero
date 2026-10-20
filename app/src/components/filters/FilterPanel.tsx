@@ -5,7 +5,6 @@ import { RetroSelect } from '@/components/ui/RetroSelect';
 import { RetroCheckbox, RetroToggle } from '@/components/ui/RetroCheckbox';
 import { RetroSlider, RetroDualSlider } from '@/components/ui/RetroSlider';
 import { RetroButton } from '@/components/ui/RetroButton';
-import { SearchInput } from '@/components/ui/SearchInput';
 import {
   MONTH_NAMES,
   AIRPORT_HUBS,
@@ -33,10 +32,11 @@ export function FilterPanel({ className }: FilterPanelProps) {
     setPreferences,
     setTravelMonth,
     setHomeAirport,
-    setSearchQuery,
     setRegionPreference,
     setBudgetSensitivity,
     setMaxFlightTime,
+    setClimatePreference,
+    setTripTypePreference,
     toggleTraveler,
     resetPreferences,
   } = useAppStore();
@@ -45,16 +45,6 @@ export function FilterPanel({ className }: FilterPanelProps) {
 
   return (
     <div className={cn('space-y-6', className)}>
-      {/* Search */}
-      <div className="space-y-2">
-        <SearchInput
-          value={preferences.searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onClear={() => setSearchQuery('')}
-          placeholder="Search destinations..."
-        />
-      </div>
-
       {/* Section: When */}
       <FilterSection title="When">
         <RetroSelect
@@ -104,6 +94,11 @@ export function FilterPanel({ className }: FilterPanelProps) {
                   />
                 </div>
               ))}
+              {preferences.selectedTravelers.length === 0 && (
+                <p className="text-xs text-text-muted mt-2">
+                  Tick who is going to hide places they have visited and use their ratings.
+                </p>
+              )}
               {hasChildren && (
                 <p className="text-xs text-retro-orange mt-2 flex items-center gap-1">
                   <span>*</span> Child-friendly destinations prioritized
@@ -165,11 +160,7 @@ export function FilterPanel({ className }: FilterPanelProps) {
         <RetroSelect
           label="Climate"
           value={preferences.temperaturePreference}
-          onChange={(e) =>
-            setPreferences({
-              temperaturePreference: e.target.value as Climate | 'Any',
-            })
-          }
+          onChange={(e) => setClimatePreference(e.target.value as Climate | 'Any')}
         >
           <option value="Any">Any Climate</option>
           <option value="Hot">Hot / Tropical</option>
@@ -181,11 +172,7 @@ export function FilterPanel({ className }: FilterPanelProps) {
         <RetroSelect
           label="Trip Style"
           value={preferences.typePreference}
-          onChange={(e) =>
-            setPreferences({
-              typePreference: e.target.value as TripType | 'Any',
-            })
-          }
+          onChange={(e) => setTripTypePreference(e.target.value as TripType | 'Any')}
         >
           <option value="Any">Any Style</option>
           <option value="Urban">Urban / City</option>
@@ -219,6 +206,9 @@ export function FilterPanel({ className }: FilterPanelProps) {
             setPreferences({ maxDanger: Number(e.target.value) })
           }
         />
+        <p className="text-xs text-text-muted -mt-1">
+          1 = very safe, 10 = high risk. Destinations above this are hidden.
+        </p>
       </FilterSection>
 
       {/* Section: Filters */}
@@ -232,7 +222,7 @@ export function FilterPanel({ className }: FilterPanelProps) {
         />
 
         <RetroToggle
-          label="Visa-Free Only"
+          label="Visa-Free Only (US passport)"
           checked={preferences.visaFreeOnly}
           onChange={(e) =>
             setPreferences({ visaFreeOnly: e.target.checked })
@@ -247,7 +237,7 @@ export function FilterPanel({ className }: FilterPanelProps) {
         className="w-full"
         onClick={resetPreferences}
       >
-        Reset All Filters
+        Reset Filters
       </RetroButton>
     </div>
   );

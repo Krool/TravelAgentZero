@@ -24,6 +24,7 @@ export default function SettingsPage() {
     destinations,
     reduceEffects,
     setReduceEffects,
+    destinationNotes,
   } = useAppStore();
 
   const { play } = useSound();
@@ -33,6 +34,7 @@ export default function SettingsPage() {
     const data = {
       travelers,
       preferences,
+      destinationNotes,
       exportedAt: new Date().toISOString(),
     };
     const blob = new Blob([JSON.stringify(data, null, 2)], {
@@ -75,10 +77,19 @@ export default function SettingsPage() {
           toast.error('Invalid traveler data in backup file');
           return;
         }
-        useAppStore.setState({
+        const notes =
+          data.destinationNotes && typeof data.destinationNotes === 'object'
+            ? Object.fromEntries(
+                Object.entries(data.destinationNotes as Record<string, unknown>).filter(
+                  ([, v]) => typeof v === 'string'
+                )
+              ) as Record<string, string>
+            : {};
+        useAppStore.setState((state) => ({
           travelers: data.travelers,
           preferences: { ...preferences, ...data.preferences },
-        });
+          destinationNotes: { ...state.destinationNotes, ...notes },
+        }));
         toast.success('Data imported');
       } catch {
         toast.error('Failed to parse backup file');
@@ -208,7 +219,7 @@ export default function SettingsPage() {
 
             <div className="pt-2">
               <RetroButton variant="ghost" size="sm" onClick={resetPreferences}>
-                Reset All Preferences
+                Reset Filters
               </RetroButton>
             </div>
           </RetroCardBody>

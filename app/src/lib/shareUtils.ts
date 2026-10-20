@@ -1,4 +1,4 @@
-import { UserPreferences, Month, AirportCode } from '@/types';
+import { UserPreferences, Month, AirportCode, MONTHS_ORDERED, AIRPORT_HUBS } from '@/types';
 
 export interface ShareParams {
   month?: Month;
@@ -124,16 +124,9 @@ export async function nativeShare(title: string, text: string, url: string): Pro
 
 // Validation helpers
 function isValidMonth(month: string): boolean {
-  const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-  return months.includes(month);
+  return (MONTHS_ORDERED as string[]).includes(month);
 }
 
 function isValidAirport(code: string): boolean {
-  const airports = [
-    'JFK', 'LAX', 'ORD', 'SFO', 'MIA', 'DEN', 'SEA', 'ATL',
-    'LHR', 'CDG', 'FRA', 'AMS', 'MAD', 'FCO',
-    'NRT', 'PEK', 'SIN', 'DXB', 'HKG', 'ICN', 'BKK',
-    'SYD', 'MEL', 'GRU', 'EZE'
-  ];
-  return airports.includes(code);
+  return Object.hasOwn(AIRPORT_HUBS, code);
 }

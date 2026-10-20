@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useToastStore, Toast as ToastType } from '@/lib/toastStore';
 import { cn } from '@/lib/utils';
 
@@ -100,4 +100,3 @@ export function ToastContainer() {
   );
 }
 
-export { useToastStore } from '@/lib/toastStore';

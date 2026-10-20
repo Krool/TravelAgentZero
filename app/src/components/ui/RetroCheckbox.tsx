@@ -83,6 +83,7 @@ export const RetroToggle = forwardRef<HTMLInputElement, RetroCheckboxProps>(
               'w-10 h-[22px] rounded-full transition-all duration-300',
               'bg-white/[0.08] border border-white/10',
               'peer-checked:bg-retro-cyan/20 peer-checked:border-retro-cyan/40',
+              'peer-focus-visible:ring-2 peer-focus-visible:ring-retro-cyan/70',
               'group-hover:border-white/20',
               className
             )}

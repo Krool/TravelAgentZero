@@ -132,8 +132,9 @@ export function ScoreBadge({
         className
       )}
       style={{
-        backgroundColor: `${color}15`,
-        border: `1px solid ${color}40`,
+        // color is a CSS var, so hex-alpha suffixes don't work; mix instead.
+        backgroundColor: `color-mix(in srgb, ${color} 8%, transparent)`,
+        border: `1px solid color-mix(in srgb, ${color} 25%, transparent)`,
         color: color,
       }}
     >

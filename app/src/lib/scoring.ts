@@ -1,4 +1,4 @@
-import { Destination, UserPreferences, Traveler, Month, hasChildTraveler, BudgetSensitivity } from '@/types';
+import { Destination, UserPreferences, Traveler, MONTHS_ORDERED, hasChildTraveler, BudgetSensitivity } from '@/types';
 
 export interface ScoreBreakdown {
   total: number;
@@ -14,18 +14,28 @@ export interface ScoreBreakdown {
   typeMatch: number;
 }
 
-const WEIGHTS = {
-  monthMatch: 20,      // Is it a good time to visit?
-  newPlace: 15,        // Haven't been before
-  personalRating: 15,  // User's own interest rating
+// Sums to 100. Exported so the UI reads the maxima instead of hardcoding them.
+export const WEIGHTS = {
+  monthMatch: 20,      // Good time to visit (half credit in a shoulder month)
+  newPlace: 10,        // Nobody selected has been (only varies with "New Places Only" off)
+  personalRating: 15,  // Selected travelers' interest rating
   childFriendly: 12,   // If kids coming (auto-detected from travelers)
   costMatch: 10,       // Within budget preference
   durationMatch: 8,    // Fits trip length
-  flightTime: 5,       // Shorter = better
-  safetyScore: 8,      // Within danger threshold
-  climateMatch: 4,     // Matches temperature preference
-  typeMatch: 3,        // Matches urban/nature preference
+  flightTime: 12,      // Shorter = better
+  safetyScore: 8,      // Lower risk = better
+  climateMatch: 3,     // Matches temperature preference
+  typeMatch: 2,        // Matches urban/nature preference
 };
+
+/** 1 for a best month, 0.5 for a month next to one (shoulder season), else 0. */
+function getMonthFit(destination: Destination, month: UserPreferences['travelMonth']): number {
+  if (destination.bestMonths[month] === 1) return 1;
+  const i = MONTHS_ORDERED.indexOf(month);
+  const prev = MONTHS_ORDERED[(i + 11) % 12];
+  const next = MONTHS_ORDERED[(i + 1) % 12];
+  return destination.bestMonths[prev] === 1 || destination.bestMonths[next] === 1 ? 0.5 : 0;
+}
 
 /**
  * Map new budget sensitivity to scoring logic
@@ -55,22 +65,14 @@ export function calculateScore(
   // Auto-detect if children are traveling (replaces kidsIncluded toggle)
   const hasChildren = hasChildTraveler(travelers, preferences.selectedTravelers);
 
-  // Month matching (0 or 1 from data * weight)
-  const monthValue = destination.bestMonths[preferences.travelMonth];
-  const monthMatch = monthValue * WEIGHTS.monthMatch;
+  const monthMatch = getMonthFit(destination, preferences.travelMonth) * WEIGHTS.monthMatch;
 
-  // New place bonus - check if new to ALL selected travelers
-  let newPlace = 0;
-  if (preferences.preferNewPlaces && selectedTravelers.length > 0) {
-    const isNewToAll = selectedTravelers.every(traveler => {
-      const travelerData = traveler.destinations[destination.id];
-      return !travelerData?.hasVisited;
-    });
-    newPlace = isNewToAll ? WEIGHTS.newPlace : 0;
-  } else if (preferences.preferNewPlaces) {
-    // No travelers selected, assume it's new
-    newPlace = WEIGHTS.newPlace;
-  }
+  // New place bonus - new to ALL selected travelers. With "New Places Only" on,
+  // visited places are filtered out, so this only separates results when it's off.
+  const isNewToAll = selectedTravelers.every(traveler =>
+    !traveler.destinations[destination.id]?.hasVisited
+  );
+  const newPlace = isNewToAll ? WEIGHTS.newPlace : 0;
 
   // Personal rating average from selected travelers
   let personalRating = 0;
@@ -116,15 +118,9 @@ export function calculateScore(
     durationMatch *= 0.5;
   }
 
-  // Safety score - penalize if over threshold
-  let safetyScore = 0;
-  if (destination.danger <= preferences.maxDanger) {
-    safetyScore = WEIGHTS.safetyScore;
-  } else {
-    // Gradually reduce score for more dangerous destinations
-    const overBy = destination.danger - preferences.maxDanger;
-    safetyScore = Math.max(0, WEIGHTS.safetyScore - (overBy * 2));
-  }
+  // Safety - lower risk earns more. Anything over maxDanger is filtered out,
+  // so a flat "within threshold" score would be the same for every result.
+  const safetyScore = Math.max(0, (10 - destination.danger) / 9) * WEIGHTS.safetyScore;
 
   // Climate match
   let climateMatch = 0;
@@ -266,10 +262,6 @@ export function sortDestinationsByScore(
       score: calculateScore(dest, preferences, travelers),
     }))
     .sort((a, b) => b.score.total - a.score.total);
-}
-
-export function isGoodMonth(destination: Destination, month: Month): boolean {
-  return destination.bestMonths[month] === 1;
 }
 
 /**

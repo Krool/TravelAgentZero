@@ -15,7 +15,8 @@ import { ActiveFilterChips, FilterCountBadge } from '@/components/ui/ActiveFilte
 import { SurpriseButton } from '@/components/ui/SurpriseButton';
 import { getActiveFilterCount } from '@/lib/filterUtils';
 import { cn, assetPath } from '@/lib/utils';
-import { MONTH_NAMES, AIRPORT_HUBS, hasChildTraveler } from '@/types';
+import { MONTH_NAMES, AIRPORT_HUBS, hasChildTraveler, getChildCount } from '@/types';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 type ViewMode = 'grid' | 'list' | 'favorites';
 type SortMode = 'score' | 'name' | 'cost' | 'flight' | 'duration';
@@ -31,10 +32,18 @@ export default function HomePage() {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const hasChildren = hasChildTraveler(travelers, preferences.selectedTravelers);
-  const childCount = travelers
-    .filter(t => preferences.selectedTravelers.includes(t.id))
-    .filter(t => t.isChild)
-    .length;
+  const childCount = getChildCount(travelers, preferences.selectedTravelers);
+  const filtersTrapRef = useFocusTrap(showFilters);
+
+  // Lock page scroll behind the full-screen mobile filter dialog.
+  useEffect(() => {
+    if (!showFilters) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [showFilters]);
 
   const sortedDestinations = useMemo(() => {
     if (!isLoaded) return [];
@@ -51,8 +60,9 @@ export default function HomePage() {
         case 'cost':
           return a.destination.cost - b.destination.cost;
         case 'flight': {
-          const fa = a.destination.flightTimes[preferences.homeAirport] || 99;
-          const fb = b.destination.flightTimes[preferences.homeAirport] || 99;
+          // ?? not ||: a 0 (local) is the shortest flight, not missing data.
+          const fa = a.destination.flightTimes[preferences.homeAirport] ?? 99;
+          const fb = b.destination.flightTimes[preferences.homeAirport] ?? 99;
           return fa - fb;
         }
         case 'duration':
@@ -74,6 +84,13 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Escape closes panels even while typing in a field.
+      if (e.key === 'Escape') {
+        setShowFilters(false);
+        setShowHelp(false);
+        return;
+      }
+
       if (
         document.activeElement?.tagName === 'INPUT' ||
         document.activeElement?.tagName === 'TEXTAREA'
@@ -103,10 +120,6 @@ export default function HomePage() {
           break;
         case '?':
           setShowHelp(true);
-          break;
-        case 'escape':
-          setShowFilters(false);
-          setShowHelp(false);
           break;
       }
     };
@@ -180,7 +193,7 @@ export default function HomePage() {
 
   return (
     <ErrorBoundary>
-      <div className={cn("container mx-auto px-4 py-6", preferences.compareList.length > 0 && "pb-80")}>
+      <div className={cn("container mx-auto px-4 py-6", preferences.compareList.length > 0 && "pb-24 md:pb-80")}>
         <a href="#destinations" className="skip-link">
           Skip to destinations
         </a>
@@ -220,6 +233,7 @@ export default function HomePage() {
               <span>
                 <span className="telemetry-key">Matches:</span>{' '}
                 <span className="text-text-primary">{allDisplayDestinations.length}</span>
+                <span className="text-text-muted"> of {destinations.length}</span>
               </span>
               {preferences.favorites.length > 0 && (
                 <span>
@@ -416,7 +430,7 @@ export default function HomePage() {
                 })()}
               </RetroCard>
             ) : viewMode === 'list' ? (
-              <div className="space-y-1.5" role="list" aria-label="Destinations list">
+              <div className="space-y-1.5">
                 {/* List header */}
                 <div className="flex items-center gap-4 px-3 py-2 text-xs text-text-muted uppercase border-b border-white/[0.06] mb-2">
                   <div className="w-14 shrink-0 text-center">Score</div>
@@ -433,23 +447,17 @@ export default function HomePage() {
                     destination={destination}
                     score={score}
                     preferences={preferences}
-                    travelers={travelers}
                   />
                 ))}
               </div>
             ) : (
-              <div
-                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
-                role="list"
-                aria-label="Destinations grid"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
                 {displayDestinations.map(({ destination, score }) => (
                   <DestinationCard
                     key={destination.id}
                     destination={destination}
                     score={score}
                     preferences={preferences}
-                    travelers={travelers}
                   />
                 ))}
               </div>
@@ -475,6 +483,7 @@ export default function HomePage() {
         {/* Mobile filter panel */}
         {showFilters && (
           <div
+            ref={filtersTrapRef}
             className="fixed inset-0 bg-bg-deep/95 backdrop-blur-sm z-50 lg:hidden overflow-auto animate-fade-in"
             role="dialog"
             aria-modal="true"

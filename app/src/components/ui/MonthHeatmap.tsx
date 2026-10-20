@@ -1,6 +1,6 @@
 'use client';
 
-import { MonthlyData, Month, MONTH_SHORT } from '@/types';
+import { MonthlyData, Month, MONTH_SHORT, MONTHS_ORDERED } from '@/types';
 import { cn } from '@/lib/utils';
 
 interface MonthHeatmapProps {
@@ -11,7 +11,7 @@ interface MonthHeatmapProps {
   className?: string;
 }
 
-const MONTHS: Month[] = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+const MONTHS = MONTHS_ORDERED;
 
 export function MonthHeatmap({
   data,

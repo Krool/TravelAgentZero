@@ -2,9 +2,7 @@ import {
   UserPreferences,
   DEFAULT_PREFERENCES,
   MONTH_NAMES,
-  DESTINATION_REGIONS,
-  AIRPORT_HUBS,
-  Month,
+  BUDGET_OPTIONS,
 } from '@/types';
 
 export interface ActiveFilter {
@@ -62,15 +60,10 @@ export function getActiveFilters(preferences: UserPreferences): ActiveFilter[] {
 
   // Budget
   if (preferences.budgetSensitivity !== DEFAULT_PREFERENCES.budgetSensitivity) {
-    const budgetLabels = {
-      flexible: 'Flexible',
-      moderate: 'Moderate',
-      strict: 'Strict',
-    };
     filters.push({
       key: 'budgetSensitivity',
       label: 'Budget',
-      value: budgetLabels[preferences.budgetSensitivity],
+      value: BUDGET_OPTIONS[preferences.budgetSensitivity].label,
       clearAction: 'budgetSensitivity',
     });
   }
@@ -98,6 +91,16 @@ export function getActiveFilters(preferences: UserPreferences): ActiveFilter[] {
     });
   }
 
+  // Max risk
+  if (preferences.maxDanger !== DEFAULT_PREFERENCES.maxDanger) {
+    filters.push({
+      key: 'maxDanger',
+      label: 'Risk',
+      value: `<= ${preferences.maxDanger}`,
+      clearAction: 'maxDanger',
+    });
+  }
+
   // Visa-Free Only
   if (preferences.visaFreeOnly) {
     filters.push({
@@ -118,16 +121,6 @@ export function getActiveFilters(preferences: UserPreferences): ActiveFilter[] {
     });
   }
 
-  // Home Airport (if different from default)
-  if (preferences.homeAirport !== DEFAULT_PREFERENCES.homeAirport) {
-    filters.push({
-      key: 'homeAirport',
-      label: 'From',
-      value: preferences.homeAirport,
-      clearAction: 'homeAirport',
-    });
-  }
-
   return filters;
 }
 
@@ -136,14 +129,4 @@ export function getActiveFilters(preferences: UserPreferences): ActiveFilter[] {
  */
 export function getActiveFilterCount(preferences: UserPreferences): number {
   return getActiveFilters(preferences).length;
-}
-
-/**
- * Get default value for a preference key
- */
-export function getDefaultValue(key: keyof UserPreferences | 'durationRange'): unknown {
-  if (key === 'durationRange') {
-    return { min: DEFAULT_PREFERENCES.durationMin, max: DEFAULT_PREFERENCES.durationMax };
-  }
-  return DEFAULT_PREFERENCES[key as keyof UserPreferences];
 }

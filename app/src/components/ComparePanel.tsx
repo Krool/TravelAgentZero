@@ -3,12 +3,13 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useAppStore } from '@/lib/store';
-import { calculateScore, getMaxPossibleScore } from '@/lib/scoring';
+import { calculateScore, getMaxPossibleScore, WEIGHTS } from '@/lib/scoring';
 import { RetroButton } from '@/components/ui/RetroButton';
 import { ScoreGauge } from '@/components/ui/ScoreGauge';
 import { MonthHeatmap } from '@/components/ui/MonthHeatmap';
 import { CompareTable } from '@/components/CompareTable';
 import { formatDuration, formatFlightTime, cn } from '@/lib/utils';
+import { MAX_COMPARE } from '@/types';
 
 export function ComparePanel() {
   const {
@@ -51,7 +52,7 @@ export function ComparePanel() {
               <span className="font-semibold text-sm text-retro-magenta">
                 Comparing {preferences.compareList.length} Destinations
               </span>
-              <CompareSlotIndicator count={preferences.compareList.length} max={3} />
+              <CompareSlotIndicator count={preferences.compareList.length} max={MAX_COMPARE} />
             </div>
             <div className="flex items-center gap-2">
               <RetroButton
@@ -142,9 +143,9 @@ export function ComparePanel() {
                   </div>
                   {score && (
                     <div className="space-y-1.5">
-                      <ScoreGauge value={score.monthMatch} max={20} label="Month" size="sm" animate={false} />
-                      <ScoreGauge value={score.childFriendly} max={12} label="Kid-Friendly" size="sm" animate={false} />
-                      <ScoreGauge value={score.safetyScore} max={8} label="Safety" size="sm" animate={false} />
+                      <ScoreGauge value={score.monthMatch} max={WEIGHTS.monthMatch} label="Month" size="sm" animate={false} />
+                      <ScoreGauge value={score.childFriendly} max={WEIGHTS.childFriendly} label="Kid-Friendly" size="sm" animate={false} />
+                      <ScoreGauge value={score.safetyScore} max={WEIGHTS.safetyScore} label="Safety" size="sm" animate={false} />
                     </div>
                   )}
                   <div className="mt-3">

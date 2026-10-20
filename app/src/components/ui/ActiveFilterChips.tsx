@@ -7,7 +7,7 @@ import { useSound } from '@/hooks/useSound';
 import { cn } from '@/lib/utils';
 
 export function ActiveFilterChips() {
-  const { preferences, setPreferences } = useAppStore();
+  const { preferences, setPreferences, resetPreferences } = useAppStore();
   const { play } = useSound();
   const activeFilters = getActiveFilters(preferences);
 
@@ -15,59 +15,19 @@ export function ActiveFilterChips() {
 
   const handleClearFilter = (filter: ActiveFilter) => {
     play('click');
-
-    switch (filter.clearAction) {
-      case 'travelMonth':
-        setPreferences({ travelMonth: DEFAULT_PREFERENCES.travelMonth });
-        break;
-      case 'regionPreference':
-        setPreferences({ regionPreference: 'Any' });
-        break;
-      case 'temperaturePreference':
-        setPreferences({ temperaturePreference: 'Any' });
-        break;
-      case 'typePreference':
-        setPreferences({ typePreference: 'Any' });
-        break;
-      case 'budgetSensitivity':
-        setPreferences({ budgetSensitivity: DEFAULT_PREFERENCES.budgetSensitivity });
-        break;
-      case 'maxFlightTime':
-        setPreferences({ maxFlightTime: 0 });
-        break;
-      case 'durationRange':
-        setPreferences({
-          durationMin: DEFAULT_PREFERENCES.durationMin,
-          durationMax: DEFAULT_PREFERENCES.durationMax,
-        });
-        break;
-      case 'visaFreeOnly':
-        setPreferences({ visaFreeOnly: false });
-        break;
-      case 'preferNewPlaces':
-        setPreferences({ preferNewPlaces: DEFAULT_PREFERENCES.preferNewPlaces });
-        break;
-      case 'homeAirport':
-        setPreferences({ homeAirport: DEFAULT_PREFERENCES.homeAirport });
-        break;
+    if (filter.clearAction === 'durationRange') {
+      setPreferences({
+        durationMin: DEFAULT_PREFERENCES.durationMin,
+        durationMax: DEFAULT_PREFERENCES.durationMax,
+      });
+    } else {
+      setPreferences({ [filter.clearAction]: DEFAULT_PREFERENCES[filter.clearAction] });
     }
   };
 
   const handleClearAll = () => {
     play('click');
-    setPreferences({
-      travelMonth: DEFAULT_PREFERENCES.travelMonth,
-      regionPreference: 'Any',
-      temperaturePreference: 'Any',
-      typePreference: 'Any',
-      budgetSensitivity: DEFAULT_PREFERENCES.budgetSensitivity,
-      maxFlightTime: 0,
-      durationMin: DEFAULT_PREFERENCES.durationMin,
-      durationMax: DEFAULT_PREFERENCES.durationMax,
-      visaFreeOnly: false,
-      preferNewPlaces: DEFAULT_PREFERENCES.preferNewPlaces,
-      homeAirport: DEFAULT_PREFERENCES.homeAirport,
-    });
+    resetPreferences();
   };
 
   return (

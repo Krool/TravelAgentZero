@@ -50,6 +50,11 @@ for (const d of destinations) {
   names.add(d.name);
 
   if (!Array.isArray(d.countries) || d.countries.length === 0) err(`[${tag}] countries must be a non-empty array`);
+  else if (d.countries.some((c) => typeof c !== 'string' || !c.trim())) err(`[${tag}] countries entries must be non-empty strings`);
+  // tags feed search; optional, but must be non-empty strings when present.
+  if (d.tags != null && (!Array.isArray(d.tags) || d.tags.some((t) => typeof t !== 'string' || !t.trim()))) {
+    err(`[${tag}] tags must be an array of non-empty strings`);
+  }
   if (!CLIMATES.includes(d.climate)) err(`[${tag}] invalid climate "${d.climate}"`);
   if (!TYPES.includes(d.type)) err(`[${tag}] invalid type "${d.type}"`);
   if (!REGIONS.includes(d.region)) err(`[${tag}] invalid region "${d.region}"`);
@@ -63,6 +68,9 @@ for (const d of destinations) {
   for (const m of MONTHS) {
     if (d.bestMonths[m] !== 0 && d.bestMonths[m] !== 1) err(`[${tag}] bestMonths.${m} must be 0 or 1, got ${d.bestMonths[m]}`);
   }
+
+  // A destination with no good month can never earn month points.
+  if (d.bestMonths && !MONTHS.some((m) => d.bestMonths[m] === 1)) err(`[${tag}] bestMonths has no good month`);
 
   // flightTimes: full 25-airport coverage, each a sane number of hours.
   for (const a of AIRPORTS) {
@@ -119,15 +127,17 @@ for (const d of destinations) {
     err(`[${tag}] coordinates missing or out of range`);
   }
 
-  // avgFlightPrices: full 25-airport coverage, each a full 12-month curve.
-  if (!d.avgFlightPrices) {
-    err(`[${tag}] avgFlightPrices missing`);
-  } else {
-    for (const a of AIRPORTS) {
-      const curve = d.avgFlightPrices[a];
-      if (!curve) { err(`[${tag}] avgFlightPrices.${a} missing`); continue; }
-      for (const m of MONTHS) {
-        if (typeof curve[m] !== 'number' || curve[m] <= 0) err(`[${tag}] avgFlightPrices.${a}.${m} invalid: ${curve[m]}`);
+  // avgFlightPrices: optional hand-seeded overrides (the app models the rest
+  // at runtime). Any curve present must be a known airport with 12 months.
+  if (d.avgFlightPrices != null) {
+    if (typeof d.avgFlightPrices !== 'object') {
+      err(`[${tag}] avgFlightPrices must be an object`);
+    } else {
+      for (const [a, curve] of Object.entries(d.avgFlightPrices)) {
+        if (!AIRPORTS.includes(a)) { err(`[${tag}] avgFlightPrices.${a} is not a known airport`); continue; }
+        for (const m of MONTHS) {
+          if (typeof curve[m] !== 'number' || curve[m] <= 0) err(`[${tag}] avgFlightPrices.${a}.${m} invalid: ${curve[m]}`);
+        }
       }
     }
   }

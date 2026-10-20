@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -9,6 +10,12 @@ import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 
 // GA only loads in production so local dev / preview builds never pollute the
 // live analytics property.
+// Self-hosted at build time by next/font: no render-blocking request to
+// fonts.googleapis.com. Each exposes a CSS variable used in globals.css.
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-inter", display: "swap" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-space-grotesk", display: "swap" });
+const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-space-mono", display: "swap" });
+
 const isProd = process.env.NODE_ENV === "production";
 const GA_ID = "G-SXG8M67HPV";
 
@@ -47,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}>
       <body className="antialiased">
         <script
           type="application/ld+json"

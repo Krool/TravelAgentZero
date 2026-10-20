@@ -25,9 +25,8 @@ Open http://localhost:3000.
 Other scripts:
 
 ```bash
-npm run build   # next build -> static export in ./out
-npm run lint     # eslint
-npm start        # serve a production build (next start)
+npm run build   # next build -> static export in ./out, then minifies out/data/*.json
+npm run lint    # eslint
 ```
 
 ## Data model
@@ -36,11 +35,13 @@ The app is driven by two static JSON files under `public/data/`, fetched client-
 at runtime (see `src/components/layout/AppProvider.tsx`):
 
 - `destinations.json` - the destination catalog: scores (cost, danger, ease with
-  child, etc.), best-visit months, flight times and average flight prices per home
-  airport, and optional enriched content (neighborhoods, getting around, cost
-  breakdown, highlights).
-- `travelers.json` - the default traveler roster and each traveler's per-destination
-  visit history and rating.
+  child, etc.), best-visit months, flight times per home airport, enriched content
+  (neighborhoods, getting around, cost breakdown, highlights), and a few
+  hand-seeded flight price curves. All other prices are modelled at runtime by
+  `src/lib/pricing.ts`.
+- `travelers.json` - two sample travelers with visit history and ratings. They
+  load on a first visit but start unselected, so they never shape a new user's
+  results until ticked.
 
 Types for both are defined in `src/types/index.ts`, along with the scoring weights
 in `src/lib/scoring.ts`.
@@ -54,10 +55,10 @@ npm run build:data   # scripts/build-data.js - enrich destinations.json
 npm run validate      # scripts/validate-data.js - validate the data files
 ```
 
-- `build:data` fills in flight times and average flight prices for all 25
-  selectable home airports (`AIRPORT_HUBS` in `src/types/index.ts`). It's
-  deterministic and idempotent - existing values are preserved, so re-running is
-  safe.
+- `build:data` fills in flight times for all 25 selectable home airports
+  (`AIRPORT_HUBS` in `src/types/index.ts`) and prunes any stored price curve the
+  runtime price model reproduces exactly. It's deterministic and idempotent, so
+  re-running is safe.
 - `validate` checks schema, value ranges, and referential integrity (e.g. traveler
   records referencing real destination ids) across both data files, and exits
   non-zero on any failure. CI runs this before building (see

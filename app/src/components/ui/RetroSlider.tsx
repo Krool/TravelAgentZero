@@ -1,6 +1,6 @@
 'use client';
 
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { InputHTMLAttributes, forwardRef, useId } from 'react';
 import { cn } from '@/lib/utils';
 
 interface RetroSliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
@@ -11,13 +11,15 @@ interface RetroSliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, '
 }
 
 export const RetroSlider = forwardRef<HTMLInputElement, RetroSliderProps>(
-  ({ className, label, showValue = true, valuePrefix = '', valueSuffix = '', value, ...props }, ref) => {
+  ({ className, label, showValue = true, valuePrefix = '', valueSuffix = '', value, id, ...props }, ref) => {
+    const generatedId = useId();
+    const inputId = id ?? generatedId;
     return (
       <div className="w-full">
         {(label || showValue) && (
           <div className="flex justify-between items-center mb-2">
             {label && (
-              <label className="text-text-secondary text-xs">
+              <label htmlFor={inputId} className="text-text-secondary text-xs">
                 {label}
               </label>
             )}
@@ -30,6 +32,7 @@ export const RetroSlider = forwardRef<HTMLInputElement, RetroSliderProps>(
         )}
         <input
           ref={ref}
+          id={inputId}
           type="range"
           value={value}
           className={cn(
@@ -46,6 +49,7 @@ export const RetroSlider = forwardRef<HTMLInputElement, RetroSliderProps>(
             '[&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-retro-cyan',
             '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
             'focus:outline-none',
+            '[&:focus-visible::-webkit-slider-thumb]:ring-2 [&:focus-visible::-webkit-slider-thumb]:ring-white [&:focus-visible::-moz-range-thumb]:ring-2 [&:focus-visible::-moz-range-thumb]:ring-white',
             className
           )}
           {...props}
@@ -128,7 +132,7 @@ export function RetroDualSlider({
           aria-valuetext={`${valuePrefix}${minValue}${valueSuffix}`}
           onChange={(e) => {
             const value = Number(e.target.value);
-            if (value < maxValue) onMinChange(value);
+            if (value <= maxValue) onMinChange(value);
           }}
           className={cn(
             'absolute top-1 w-full h-4 appearance-none bg-transparent cursor-pointer',
@@ -143,6 +147,7 @@ export function RetroDualSlider({
             '[&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-retro-cyan',
             '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
             '[&::-moz-range-thumb]:pointer-events-auto',
+            '[&:focus-visible::-webkit-slider-thumb]:ring-2 [&:focus-visible::-webkit-slider-thumb]:ring-white [&:focus-visible::-moz-range-thumb]:ring-2 [&:focus-visible::-moz-range-thumb]:ring-white',
             minOnTop ? 'z-20' : 'z-10'
           )}
         />
@@ -161,7 +166,7 @@ export function RetroDualSlider({
           aria-valuetext={`${valuePrefix}${maxValue}${valueSuffix}`}
           onChange={(e) => {
             const value = Number(e.target.value);
-            if (value > minValue) onMaxChange(value);
+            if (value >= minValue) onMaxChange(value);
           }}
           className={cn(
             'absolute top-1 w-full h-4 appearance-none bg-transparent cursor-pointer',
@@ -176,6 +181,7 @@ export function RetroDualSlider({
             '[&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-retro-magenta',
             '[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer',
             '[&::-moz-range-thumb]:pointer-events-auto',
+            '[&:focus-visible::-webkit-slider-thumb]:ring-2 [&:focus-visible::-webkit-slider-thumb]:ring-white [&:focus-visible::-moz-range-thumb]:ring-2 [&:focus-visible::-moz-range-thumb]:ring-white',
             minOnTop ? 'z-10' : 'z-20'
           )}
         />

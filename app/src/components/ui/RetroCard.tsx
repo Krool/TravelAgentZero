@@ -73,22 +73,3 @@ export function RetroCardBody({
     </div>
   );
 }
-
-// Card footer component
-export function RetroCardFooter({
-  className,
-  children,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn(
-        'px-5 py-3.5 border-t border-white/[0.06] bg-white/[0.02]',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}

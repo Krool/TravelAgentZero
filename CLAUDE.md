@@ -7,7 +7,8 @@ Zustand, statically exported and hosted on GitHub Pages. All app code lives unde
 ## Commands (run from `app/`)
 
 - `npm run dev` - local dev server
-- `npm run build` - `next build`, static export to `app/out`
+- `npm run build` - `next build`, static export to `app/out`; the `postbuild`
+  hook (`scripts/minify-data.js`) then minifies `out/data/*.json`
 - `npm run lint` - eslint
 - `npm run validate` - `node scripts/validate-data.js`, checks `public/data/*.json`
 - `npm run build:data` - `node scripts/build-data.js`, enriches `destinations.json`
@@ -45,8 +46,14 @@ fetched client-side by `AppProvider.tsx`. Types are in `app/src/types/index.ts`.
   validator requires all of these, so a new destination must ship them.
 - A new destination must also include `flightTimes` for the 15 base airports
   (JFK LAX ORD SFO LHR CDG FRA AMS NRT PEK SIN DXB HKG SYD GRU);
-  `scripts/build-data.js` fills the other 10 airports and all price curves.
-  Deterministic and idempotent - safe to re-run.
+  `scripts/build-data.js` fills the other 10 airports. Deterministic and
+  idempotent - safe to re-run.
+- Flight prices are **computed at runtime** by `app/src/lib/pricing.ts` from
+  cost, flight time and `bestMonths`. `avgFlightPrices` in the JSON holds only
+  hand-seeded overrides (mostly JFK/LAX/SFO); `build-data.js` prunes any curve
+  the model reproduces. The model is duplicated in `build-data.js`
+  (`modelPriceCurve`) - change both together. Read prices via
+  `getFlightPrices()`, never `avgFlightPrices` directly.
 - `scripts/validate-data.js` checks schema, ranges, enriched-content shape, and
   referential integrity (traveler destination ids must exist in
   `destinations.json`). Gates CI; exits non-zero on failure.
@@ -64,7 +71,8 @@ fetched client-side by `AppProvider.tsx`. Types are in `app/src/types/index.ts`.
   `/compare` or `/itinerary` route - comparison is an in-page
   `ComparePanel`/`CompareTable` (`app/src/components/ComparePanel.tsx`,
   `CompareTable.tsx`), not a separate page.
-- Scoring algorithm and weights: `app/src/lib/scoring.ts`.
+- Scoring algorithm and weights: `app/src/lib/scoring.ts`. `WEIGHTS` is exported
+  and sums to 100; UI gauges read their maxima from it, so don't hardcode them.
 - Shared types (`Destination`, `Traveler`, `UserPreferences`, `AirportCode`, etc.):
   `app/src/types/index.ts`.
 - `PLAN.md` (repo root) is the original planning doc from the initial build and has

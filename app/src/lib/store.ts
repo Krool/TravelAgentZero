@@ -10,9 +10,9 @@ import {
   TravelerData,
   DestinationRegion,
   BudgetSensitivity,
+  MAX_COMPARE,
   Climate,
   TripType,
-  hasChildTraveler,
 } from '@/types';
 import { Analytics } from '@/lib/analytics';
 
@@ -34,9 +34,6 @@ interface AppStore {
 
   // Personal notes per destination
   destinationNotes: Record<string, string>;
-
-  // Computed - check if any selected traveler is a child
-  hasChildrenSelected: () => boolean;
 
   // Actions - Data loading
   setDestinations: (destinations: Destination[]) => void;
@@ -67,7 +64,6 @@ interface AppStore {
   // Actions - Travelers
   addTraveler: (name: string, isChild?: boolean) => boolean;
   removeTraveler: (id: string) => void;
-  updateTraveler: (id: string, updates: Partial<Omit<Traveler, 'id' | 'destinations'>>) => void;
   setTravelerIsChild: (id: string, isChild: boolean) => void;
   updateTravelerDestination: (
     travelerId: string,
@@ -102,18 +98,12 @@ export const useAppStore = create<AppStore>()(
       travelers: [],
       preferences: DEFAULT_PREFERENCES,
       isLoaded: false,
-      soundEnabled: true,
+      soundEnabled: false,
       soundVolume: 0.08, // Reduced default volume
       hasSeenOnboarding: false,
       compareViewExpanded: false,
       reduceEffects: false,
       destinationNotes: {},
-
-      // Computed - check if any selected traveler is a child
-      hasChildrenSelected: () => {
-        const state = get();
-        return hasChildTraveler(state.travelers, state.preferences.selectedTravelers);
-      },
 
       // Data loading. Reconcile persisted compare/favorite ids against the
       // freshly loaded catalog so a renamed/removed destination can't leave a
@@ -169,7 +159,18 @@ export const useAppStore = create<AppStore>()(
           };
         }),
 
-      resetPreferences: () => set({ preferences: DEFAULT_PREFERENCES }),
+      // Resets the filters only. Favorites, the compare list, the traveler
+      // selection and the home airport are the user's data, not filters.
+      resetPreferences: () =>
+        set((state) => ({
+          preferences: {
+            ...DEFAULT_PREFERENCES,
+            homeAirport: state.preferences.homeAirport,
+            selectedTravelers: state.preferences.selectedTravelers,
+            favorites: state.preferences.favorites,
+            compareList: state.preferences.compareList,
+          },
+        })),
 
       // New filter preferences
       setRegionPreference: (region) => {
@@ -230,8 +231,8 @@ export const useAppStore = create<AppStore>()(
       toggleCompare: (destinationId) => {
         const compareList = get().preferences.compareList;
         const has = compareList.includes(destinationId);
-        // Max 3 items - at the cap, adding is a silent no-op (no event).
-        if (!has && compareList.length >= 3) return;
+        // At the cap, adding is a silent no-op (no event).
+        if (!has && compareList.length >= MAX_COMPARE) return;
         set((state) => ({
           preferences: {
             ...state.preferences,
@@ -284,13 +285,6 @@ export const useAppStore = create<AppStore>()(
               (tid) => tid !== id
             ),
           },
-        })),
-
-      updateTraveler: (id, updates) =>
-        set((state) => ({
-          travelers: state.travelers.map((traveler) =>
-            traveler.id === id ? { ...traveler, ...updates } : traveler
-          ),
         })),
 
       setTravelerIsChild: (id, isChild) =>
@@ -352,7 +346,8 @@ export const useAppStore = create<AppStore>()(
       version: 2, // Increment version for migration
       partialize: (state) => ({
         travelers: state.travelers,
-        preferences: state.preferences,
+        // The search box is per-visit; don't bring a stale query back on reload.
+        preferences: { ...state.preferences, searchQuery: '' },
         soundEnabled: state.soundEnabled,
         soundVolume: state.soundVolume,
         hasSeenOnboarding: state.hasSeenOnboarding,
@@ -389,6 +384,16 @@ export const useAppStore = create<AppStore>()(
         }
 
         return state as { travelers: Traveler[]; preferences: UserPreferences; soundEnabled: boolean; soundVolume: number; hasSeenOnboarding: boolean };
+      },
+      // Deep-merge preferences so a field added after the user's last visit
+      // gets its default instead of coming back undefined.
+      merge: (persisted, current) => {
+        const saved = (persisted ?? {}) as Partial<AppStore>;
+        return {
+          ...current,
+          ...saved,
+          preferences: { ...DEFAULT_PREFERENCES, ...saved.preferences },
+        };
       },
     }
   )

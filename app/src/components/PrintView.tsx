@@ -7,11 +7,10 @@ import { useToast } from '@/hooks/useToast';
 
 interface PrintButtonProps {
   destination: Destination;
-  preferences: UserPreferences;
   className?: string;
 }
 
-export function PrintButton({ destination, preferences, className }: PrintButtonProps) {
+export function PrintButton({ destination, className }: PrintButtonProps) {
   const toast = useToast();
 
   const handlePrint = useCallback(() => {

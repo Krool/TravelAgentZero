@@ -1,14 +1,14 @@
 // build-data.js - reproducible enrichment pass for destinations.json
 //
-// Fills flight-time and average-price coverage for ALL 25 selectable home
-// airports (AIRPORT_HUBS in src/types/index.ts). The raw dataset historically
-// only carried 15 airports of flight times and 3 airports of prices, which
-// silently broke filtering/scoring for the other home-airport choices.
+// 1. Fills flight times for ALL 25 selectable home airports (AIRPORT_HUBS in
+//    src/types/index.ts). The raw dataset only carried 15 airports.
+// 2. Prunes avgFlightPrices down to hand-seeded curves. The app models every
+//    other airport at runtime (src/lib/pricing.ts), so a stored curve that the
+//    model reproduces exactly is dead weight and is removed.
 //
-// Flight times and prices are MODELLED ESTIMATES, consistent with how the
-// original 15 airports were seeded - this is a planning aid, not a fare feed.
-// The script is deterministic and idempotent: existing values are preserved,
-// only missing airports are added, so re-running is safe.
+// Flight times and prices are MODELLED ESTIMATES - a planning aid, not a fare
+// feed. The script is deterministic and idempotent: existing flight times are
+// preserved, so re-running is safe.
 //
 // Usage:  node scripts/build-data.js
 // Verify: node scripts/validate-data.js
@@ -72,41 +72,44 @@ function fillFlightTimes(dest) {
 }
 
 // Seasonal price curve: summer + December cost more, deep winter costs less,
-// and in-season months carry a premium. Mirrors the original price model.
-function generatePriceCurve(basePrice, bestMonths) {
+// and in-season months carry a premium. Keep in sync with modelPriceCurve()
+// in src/lib/pricing.ts - the app computes the same curve at runtime.
+function modelPriceCurve(dest, flightTimes, code) {
+  const costBase = 400 + dest.cost * 100;
+  const fh = flightTimes[code] ?? 12;
+  // Distance-scaled base: a local hop ~0.65x, a 20h haul ~1.65x.
+  const base = Math.round(costBase * (0.65 + fh / 20));
   const prices = {};
   MONTHS.forEach((month, index) => {
     let multiplier = 1.0;
     if (index >= 5 && index <= 7) multiplier = 1.3;      // Jun-Aug
     if (index === 11) multiplier = 1.4;                  // December
     if (index === 0 || index === 1) multiplier = 0.85;   // Jan-Feb
-    if (bestMonths[month] === 1) multiplier *= 1.15;     // in-season premium
-    prices[month] = Math.round(basePrice * multiplier);
+    if (dest.bestMonths[month] === 1) multiplier *= 1.15; // in-season premium
+    prices[month] = Math.round(base * multiplier);
   });
   return prices;
 }
 
-function fillPrices(dest, flightTimes) {
-  const prices = { ...(dest.avgFlightPrices || {}) };
-  const costBase = 400 + dest.cost * 100;
+// Keep only curves the model does not reproduce (the hand-seeded overrides).
+function pruneModelledPrices(dest, flightTimes) {
+  const stored = dest.avgFlightPrices || {};
+  const kept = {};
   for (const code of ALL_AIRPORTS) {
-    if (prices[code]) continue; // keep existing curves (JFK/LAX/SFO)
-    const fh = flightTimes[code] ?? 12;
-    // Distance-scaled base: a local hop ~0.65x, a 20h haul ~1.65x.
-    const base = Math.round(costBase * (0.65 + fh / 20));
-    prices[code] = generatePriceCurve(base, dest.bestMonths);
+    const curve = stored[code];
+    if (!curve) continue;
+    const model = modelPriceCurve(dest, flightTimes, code);
+    if (MONTHS.every((m) => curve[m] === model[m])) continue;
+    kept[code] = curve;
   }
-  // Emit in a stable airport order for clean diffs.
-  const ordered = {};
-  for (const code of ALL_AIRPORTS) if (prices[code]) ordered[code] = prices[code];
-  return ordered;
+  return kept;
 }
 
 const filePath = path.join(__dirname, '..', 'public', 'data', 'destinations.json');
 const destinations = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 let flightAdds = 0;
-let priceAirportsAdded = 0;
+let pricesPruned = 0;
 
 const updated = destinations.map((dest) => {
   const beforeFt = Object.keys(dest.flightTimes).length;
@@ -114,13 +117,15 @@ const updated = destinations.map((dest) => {
   flightAdds += Object.keys(flightTimes).length - beforeFt;
 
   const beforePrices = Object.keys(dest.avgFlightPrices || {}).length;
-  const avgFlightPrices = fillPrices(dest, flightTimes);
-  priceAirportsAdded += Object.keys(avgFlightPrices).length - beforePrices;
+  const avgFlightPrices = pruneModelledPrices(dest, flightTimes);
+  pricesPruned += beforePrices - Object.keys(avgFlightPrices).length;
 
-  return { ...dest, flightTimes, avgFlightPrices };
+  const next = { ...dest, flightTimes, avgFlightPrices };
+  if (Object.keys(avgFlightPrices).length === 0) delete next.avgFlightPrices;
+  return next;
 });
 
 fs.writeFileSync(filePath, JSON.stringify(updated, null, 2) + '\n');
 console.log(
-  `build-data: ${updated.length} destinations | +${flightAdds} flight-time entries | +${priceAirportsAdded} price-airport curves`
+  `build-data: ${updated.length} destinations | +${flightAdds} flight-time entries | -${pricesPruned} modelled price curves pruned`
 );

@@ -57,8 +57,6 @@ export const AIRPORT_HUBS: Record<AirportCode, AirportInfo> = {
 // CLIMATE, TRIP TYPE & TIME TYPES
 // ============================================================================
 
-export type ClimateType = 'tropical' | 'arid' | 'temperate' | 'cold' | 'mixed';
-export type TripStyle = 'urban' | 'nature' | 'beach' | 'adventure' | 'cultural' | 'mixed';
 export type Month = 'jan' | 'feb' | 'mar' | 'apr' | 'may' | 'jun' | 'jul' | 'aug' | 'sep' | 'oct' | 'nov' | 'dec';
 
 // Legacy type aliases for backward compatibility
@@ -138,8 +136,6 @@ export interface MonthlyPricing {
   dec: number;
 }
 
-export type PriceLevel = 'budget' | 'moderate' | 'expensive' | 'luxury';
-
 // ============================================================================
 // TRAVELER TYPES
 // ============================================================================
@@ -207,7 +203,8 @@ export interface Destination {
   flightTimes: Partial<Record<AirportCode, number>>; // Partial to allow missing airports
   bestMonths: MonthlyData;
   bestTimeDescription: string;
-  // NEW: Historical average flight prices from major airports
+  // Hand-seeded price curves only. Other airports are modelled at runtime
+  // by src/lib/pricing.ts - read prices through getFlightPrices(), not this.
   avgFlightPrices?: Partial<Record<AirportCode, MonthlyPricing>>;
   tags?: string[]; // searchable tags
   imageUrl?: string; // Optional: custom image URL for the destination
@@ -248,17 +245,9 @@ export const BUDGET_OPTIONS: Record<BudgetSensitivity, { label: string; descript
   strict: { label: 'Strict', description: 'Looking for the best value' },
 };
 
-// Legacy alias
-export type CostSensitivity = 'none' | 'a_little' | 'very';
-
 // ============================================================================
 // USER PREFERENCES
 // ============================================================================
-
-export interface FlightTimeRange {
-  min: number;
-  max: number;
-}
 
 export interface UserPreferences {
   // When
@@ -279,7 +268,6 @@ export interface UserPreferences {
 
   // Budget
   budgetSensitivity: BudgetSensitivity;
-  maxFlightPrice?: number; // Optional max price filter
 
   // Flight time filter
   maxFlightTime: number; // in hours, 0 = no limit
@@ -295,17 +283,6 @@ export interface UserPreferences {
   searchQuery: string;
   favorites: string[];
   compareList: string[];
-
-  // Legacy field (kept for migration)
-  costSensitivity?: CostSensitivity;
-}
-
-export interface AppState {
-  destinations: Destination[];
-  travelers: Traveler[];
-  preferences: UserPreferences;
-  soundEnabled: boolean;
-  soundVolume: number;
 }
 
 // ============================================================================
@@ -348,25 +325,6 @@ export const MONTHS_ORDERED: Month[] = [
 ];
 
 // ============================================================================
-// CLIMATE & TRIP TYPE LABELS
-// ============================================================================
-
-export const CLIMATE_OPTIONS: Record<Climate | 'Any', { label: string }> = {
-  Any: { label: 'Any Climate' },
-  Hot: { label: 'Hot / Tropical' },
-  Cold: { label: 'Cold / Alpine' },
-  Temperate: { label: 'Temperate' },
-  Mix: { label: 'Mixed Climate' },
-};
-
-export const TRIP_TYPE_OPTIONS: Record<TripType | 'Any', { label: string }> = {
-  Any: { label: 'Any Type' },
-  Urban: { label: 'Urban / City' },
-  Nature: { label: 'Nature / Outdoors' },
-  Mix: { label: 'Mix of Both' },
-};
-
-// ============================================================================
 // FLIGHT TIME OPTIONS
 // ============================================================================
 
@@ -379,13 +337,16 @@ export const FLIGHT_TIME_OPTIONS = [
   { value: 20, label: 'Under 20 hours' },
 ];
 
+/** Most destinations the compare panel holds at once. */
+export const MAX_COMPARE = 3;
+
 // ============================================================================
 // DEFAULT PREFERENCES
 // ============================================================================
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
-  // When
-  travelMonth: 'oct',
+  // When - the current month, evaluated in the browser when the app loads
+  travelMonth: MONTHS_ORDERED[new Date().getMonth()],
   durationMin: 6,
   durationMax: 9,
 

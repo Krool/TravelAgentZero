@@ -1,10 +1,35 @@
 # Status
 
-As of 2026-07-01.
+As of 2026-10-20.
 
 MVP is shipped and live on GitHub Pages: https://krool.github.io/TravelAgentZero/
 
 ## Recently done
+
+Review pass (2026-10-20):
+
+- **Bugs**: sample travelers no longer auto-selected on first visit (they were
+  filtering and scoring a new user's results); "Reset" keeps favorites, compare
+  list, traveler selection and home airport; Escape now closes the help modal and
+  mobile filters (`'escape'` never matched); mobile filter dialog traps focus and
+  locks scroll; score badge background/border fixed (hex-alpha on a CSS var was
+  invalid); persisted preferences deep-merge with defaults; local (0h) flights no
+  longer sort last; favorite/compare buttons moved out of the card `<a>`.
+- **Scoring**: month is graded (shoulder month = half), safety scales with risk,
+  flight time weighs 12 (was 5), new-place bonus only varies when "New Places
+  Only" is off. Weights exported and still sum to 100.
+- **Usability**: default month = current month, sound off by default and no
+  hover sounds, labels tied to selects/sliders, visible focus on sliders and
+  toggles, single trip length selectable, one search box, search not persisted,
+  "Risk" filter chip, "Matches: X of 108", "(US passport)" on the visa filter,
+  notes included in export/import.
+- **Data/bloat**: modelled price curves (2,483 of 2,700) removed from the JSON
+  and computed at runtime; shipped JSON minified at build. destinations.json
+  1.26MB -> 525KB source / 367KB shipped. Fonts self-hosted via next/font. ~310
+  lines of dead CSS, 9 unused icons, and ~200 lines of dead code removed. The 5
+  premature ETIAS notes removed (launch still unconfirmed).
+
+Earlier review/modernization pass (2026-07-01):
 
 A review/modernization pass (2026-07-01) covering:
 
@@ -30,15 +55,16 @@ A review/modernization pass (2026-07-01) covering:
 - **LLM itinerary generation** - planned in `PLAN.md` (day-by-day AI itinerary
   output, prompt export) but never built. No `/itinerary` route or prompt
   generator exists.
-- **Content enrichment gap** - `neighborhoods`, `gettingAround`, and
-  `costBreakdown` fields exist in the schema but are only populated for 3 of the
-  77 destinations (`rome-italy`, `japan`, `iceland`). Per-destination content
-  backfill for the remaining 74 is outstanding.
-- **Known, deferred performance items** (now the top follow-up):
-  - `destinations.json` is fetched eagerly client-side and blocks first paint.
-    Full 25-airport price backfill grew it to ~624KB raw (~66KB gzip over the
-    wire). Recommended fix: split a lightweight list payload from the
-    per-destination price/detail payload, or lazy-load prices on the Costs tab.
-  - Google Fonts are loaded via a render-blocking `@import` (switch to
-    `next/font`).
+- **Known, deferred items**:
+  - `destinations.json` (367KB shipped) is still fetched eagerly and gates every
+    page, including `/privacy` and `/settings`; destination pages export as a
+    "Loading" shell. Next step: split a list payload (card + scoring fields)
+    from per-destination detail (`neighborhoods`, `gettingAround`,
+    `costBreakdown`, ~189KB) and render detail into the static HTML.
+  - `visaRequirements` is US-passport free text; restructure to
+    `{status, days, note, verifiedAt}` so it can be dated and filtered.
+  - Regional coverage is US-heavy (21 of 108); thin on Central Asia, Caribbean,
+    Oceania, West/North Africa.
+  - Home-page filters/sort/view are not in the URL.
+  - `worldDots.ts` is 44KB with no generator in the repo.
   - `og-preview.png` is 243KB, larger than necessary for an OG image.

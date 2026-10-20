@@ -1,6 +1,6 @@
 'use client';
 
-import { SelectHTMLAttributes, forwardRef } from 'react';
+import { SelectHTMLAttributes, forwardRef, useId } from 'react';
 import { cn } from '@/lib/utils';
 import { useSound } from '@/hooks/useSound';
 
@@ -10,8 +10,10 @@ interface RetroSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export const RetroSelect = forwardRef<HTMLSelectElement, RetroSelectProps>(
-  ({ className, label, sound = true, onChange, children, ...props }, ref) => {
+  ({ className, label, sound = true, onChange, children, id, ...props }, ref) => {
     const { play } = useSound();
+    const generatedId = useId();
+    const selectId = id ?? generatedId;
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       if (sound) play('select');
@@ -21,12 +23,13 @@ export const RetroSelect = forwardRef<HTMLSelectElement, RetroSelectProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-text-secondary text-xs mb-1.5">
+          <label htmlFor={selectId} className="block text-text-secondary text-xs mb-1.5">
             {label}
           </label>
         )}
         <select
           ref={ref}
+          id={selectId}
           className={cn(
             'w-full bg-bg-dark border border-white/10 rounded-lg',
             'text-text-primary text-sm',

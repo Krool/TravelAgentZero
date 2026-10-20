@@ -15,7 +15,6 @@ export function AppProvider({ children }: AppProviderProps) {
     setDestinations,
     setTravelers,
     setIsLoaded,
-    setSelectedTravelers,
     reduceEffects,
   } = useAppStore();
   const [loading, setLoading] = useState(true);
@@ -32,7 +31,12 @@ export function AppProvider({ children }: AppProviderProps) {
   useEffect(() => {
     async function loadData() {
       try {
-        const destResponse = await fetch(assetPath('/data/destinations.json'));
+        // Fetch both files in parallel; travelers.json is only needed on a first visit.
+        const needTravelers = useAppStore.getState().travelers.length === 0;
+        const [destResponse, travelerResponse] = await Promise.all([
+          fetch(assetPath('/data/destinations.json')),
+          needTravelers ? fetch(assetPath('/data/travelers.json')) : null,
+        ]);
         if (!destResponse.ok) throw new Error(`destinations.json ${destResponse.status}`);
         const destinations: Destination[] = await destResponse.json();
         if (!Array.isArray(destinations) || destinations.length === 0) {
@@ -40,29 +44,32 @@ export function AppProvider({ children }: AppProviderProps) {
         }
         setDestinations(destinations);
 
-        const currentTravelers = useAppStore.getState().travelers;
-        if (currentTravelers.length === 0) {
-          const travelerResponse = await fetch(assetPath('/data/travelers.json'));
+        if (travelerResponse) {
           if (!travelerResponse.ok) throw new Error(`travelers.json ${travelerResponse.status}`);
           const defaultTravelers: Traveler[] = await travelerResponse.json();
           if (!Array.isArray(defaultTravelers)) {
             throw new Error('travelers.json is malformed');
           }
+          // Sample travelers are loaded as examples but left unselected, so a new
+          // user's results and scores are not shaped by someone else's history.
           setTravelers(defaultTravelers);
-          setSelectedTravelers(defaultTravelers.map(t => t.id));
         }
 
         setIsLoaded(true);
       } catch (err) {
         console.error('Failed to load data:', err);
-        setError('Failed to load destination data. Please reload the page.');
+        setError(
+          typeof navigator !== 'undefined' && !navigator.onLine
+            ? 'You appear to be offline. Reconnect and try again.'
+            : 'Failed to load destination data. Please reload the page.'
+        );
       } finally {
         setLoading(false);
       }
     }
 
     loadData();
-  }, [setDestinations, setTravelers, setIsLoaded, setSelectedTravelers]);
+  }, [setDestinations, setTravelers, setIsLoaded]);
 
   if (loading) {
     return <LoadingScreen />;

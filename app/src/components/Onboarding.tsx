@@ -17,7 +17,7 @@ const ONBOARDING_STEPS = [
   {
     id: 'scoring',
     title: 'Scoring',
-    content: 'Each destination gets a score from your travel month, budget, flight time, and safety settings. Higher scores are closer matches.',
+    content: 'Each destination gets a score out of 100, mostly from season, your travelers\' ratings, kid-friendliness, budget, and flight time. Open a destination to see the full breakdown.',
     image: 'compass',
   },
   {
@@ -191,6 +191,15 @@ export function Onboarding() {
 
 export function HelpModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const helpFocusTrapRef = useFocusTrap(isOpen);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
