@@ -29,15 +29,14 @@ export function ScoreGauge({
     && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const shouldAnimate = animate && !prefersReducedMotion;
 
-  const [displayValue, setDisplayValue] = useState(shouldAnimate ? 0 : value);
+  // Only the animation lives in state; without it the value is shown directly.
+  const [animatedValue, setDisplayValue] = useState(0);
+  const displayValue = shouldAnimate ? animatedValue : value;
   const percentage = (displayValue / max) * 100;
   const color = getScoreColor(displayValue, max);
 
   useEffect(() => {
-    if (!shouldAnimate) {
-      setDisplayValue(value);
-      return;
-    }
+    if (!shouldAnimate) return;
 
     const duration = 800;
     const steps = 30;
