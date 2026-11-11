@@ -8,7 +8,7 @@ export const dynamic = 'force-static';
 // Bump when destination content meaningfully changes. A `new Date()` here
 // would churn every lastmod on every deploy, which teaches crawlers the
 // field is meaningless.
-const CONTENT_UPDATED = new Date('2026-07-12');
+const CONTENT_UPDATED = new Date('2026-10-20');
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://krool.github.io/TravelAgentZero';

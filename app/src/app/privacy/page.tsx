@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy | Travel Agent Zero',
+  title: 'Privacy',
   description: 'How Travel Agent Zero handles your data: local-only storage and privacy-friendly, consent-gated analytics.',
   alternates: { canonical: 'https://krool.github.io/TravelAgentZero/privacy/' },
 };

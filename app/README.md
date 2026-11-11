@@ -1,6 +1,6 @@
 # Travel Agent Zero
 
-A retro-futuristic travel planning companion. Browse and filter roughly 77 curated
+A retro-futuristic travel planning companion. Browse and filter over 120 curated
 destinations, score them against your own preferences with a weighted algorithm,
 track per-traveler visit history and ratings, and compare destinations side by side.
 

@@ -4,7 +4,7 @@
   "description": "A retro-futuristic travel planning companion",
   "private": true,
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "predev": "node scripts/build-index.js",
@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "next": "16.2.10",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

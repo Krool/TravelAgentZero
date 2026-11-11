@@ -30,9 +30,6 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   metadataBase: new URL("https://krool.github.io/TravelAgentZero"),
   alternates: { canonical: "https://krool.github.io/TravelAgentZero/" },
-  icons: {
-    icon: "/favicon.ico",
-  },
   openGraph: {
     type: "website",
     url: "https://krool.github.io/TravelAgentZero/",
