@@ -232,31 +232,35 @@ export default function DestinationClient({
         <RetroTabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
-      {/* Tab Content */}
-      {activeTab === 'overview' && (
+      {/* Tab Content. The three editorial panels are always rendered and the
+          inactive ones hidden, so the static HTML carries all of them. Notes
+          is the visitor's own data and renders only when opened. */}
+      <div hidden={activeTab !== 'overview'}>
         <OverviewTab
           destination={destination}
           score={hydrated ? score : null}
           maxScore={maxScore}
         />
-      )}
+      </div>
 
-      {activeTab === 'planning' && (
+      <div hidden={activeTab !== 'planning'}>
         <PlanningTab
           destination={destination}
           preferences={preferences}
+          hydrated={hydrated}
           setTravelMonth={setTravelMonth}
           entries={entries}
           setPassport={(passport) => setPreferences({ passport })}
         />
-      )}
+      </div>
 
-      {activeTab === 'costs' && (
+      <div hidden={activeTab !== 'costs'}>
         <CostsTab
           destination={destination}
           preferences={preferences}
+          hydrated={hydrated}
         />
-      )}
+      </div>
 
       {activeTab === 'notes' && (
         <NotesTab
@@ -413,12 +417,16 @@ function OverviewTab({
 function PlanningTab({
   destination,
   preferences,
+  hydrated,
   setTravelMonth,
   entries,
   setPassport,
 }: {
   destination: Destination;
   preferences: ReturnType<typeof useAppStore.getState>['preferences'];
+  // The default travel month is the current month, which differs between the
+  // build and the visitor's clock: no month is marked until saved state is in.
+  hydrated: boolean;
   setTravelMonth: (month: typeof preferences.travelMonth) => void;
   entries: DestinationEntries;
   setPassport: (passport: PassportCode) => void;
@@ -437,7 +445,7 @@ function PlanningTab({
           </p>
           <MonthHeatmap
             data={destination.bestMonths}
-            selectedMonth={preferences.travelMonth}
+            selectedMonth={hydrated ? preferences.travelMonth : undefined}
             onMonthClick={(month) => setTravelMonth(month)}
             size="lg"
           />
@@ -576,9 +584,11 @@ function PlanningTab({
 function CostsTab({
   destination,
   preferences,
+  hydrated,
 }: {
   destination: Destination;
   preferences: ReturnType<typeof useAppStore.getState>['preferences'];
+  hydrated: boolean; // see PlanningTab: the month waits for saved state
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -591,14 +601,16 @@ function CostsTab({
         <RetroCardBody>
           <PriceHeatmap
             prices={getFlightPrices(destination, preferences.homeAirport)}
-            selectedMonth={preferences.travelMonth}
+            selectedMonth={hydrated ? preferences.travelMonth : undefined}
           />
-          <div className="mt-4 pt-4 border-t border-white/[0.06]">
-            <AirportPriceComparison
-              prices={getAllFlightPrices(destination)}
-              selectedMonth={preferences.travelMonth}
-            />
-          </div>
+          {hydrated && (
+            <div className="mt-4 pt-4 border-t border-white/[0.06]">
+              <AirportPriceComparison
+                prices={getAllFlightPrices(destination)}
+                selectedMonth={preferences.travelMonth}
+              />
+            </div>
+          )}
           <p className="text-[10px] text-text-muted mt-3">
             * Modelled from cost level, flight time and season. Not live fares; use them to compare, not to budget.
           </p>

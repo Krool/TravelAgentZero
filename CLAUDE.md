@@ -36,6 +36,24 @@ in `AppProvider.tsx`, sprite icons under `public/icons/travel/`). **If this
 repo is ever renamed, both places need updating** - the `next.config.ts`
 constant and the `assetPath()` constant are not shared.
 
+A Windows build writes the per-segment prefetch payloads nested
+(`out/privacy/__next.privacy/__PAGE__.txt`); Linux CI writes them flat
+(`__next.privacy.__PAGE__.txt`), which is what the browser requests. A local
+static server over a Windows-built `out/` therefore 404s those prefetches
+unless it maps the names. The deployed site is not affected.
+
+## What the static HTML must carry
+
+- `src/app/page.tsx` is a server component: it renders a directory of every
+  destination (links, by region) and passes it to `HomeClient.tsx`, which shows
+  it under the loading bar until the catalog loads. It is the only place the
+  home HTML links the detail pages; do not drop it.
+- `DestinationClient.tsx` renders the Overview, Planning and Costs panels
+  together and sets `hidden` on the inactive ones. Do not go back to
+  `activeTab === 'x' &&`: that leaves only one panel in the HTML. Anything in
+  those panels that depends on the travel month must wait for `hydrated` (the
+  default month is the current month, so build and browser disagree).
+
 ## Data pipeline
 
 Source of truth is `app/data/` (`destinations.json`, `visas.json`); the browser

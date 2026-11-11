@@ -52,4 +52,16 @@
   `verifiedAt`, and re-check every `source` link is the real government site
   (lookalike visa sites are common; Madagascar's link was left out for that
   reason).
-- ETIAS is not modelled as required until the EU scheme actually launches.
+- A country re-checked after `verifiedAt` carries its own `checkedAt`
+  (2026-11-10: China, South Korea, Mongolia, Georgia, Cuba, Namibia). A detail
+  page prints the oldest date among its countries. On a full re-audit, bump
+  `verifiedAt` and drop the per-country dates.
+- As of 2026-11-10 none of the 2026-12-31 expiries had a published extension.
+  Re-check in the first week of January 2027: if Korea's lapses, its rows
+  become `eta`; if China's or Mongolia's lapse, the affected rows become `visa`
+  (Mongolia has an e-visa).
+- ETIAS is not modelled as required until the EU scheme actually launches
+  (European Commission, 2026-11-10: not in operation, no start date).
+- Some official portals are unreachable from US networks (evisacuba.cu,
+  eservices.mhaiss.gov.na). When one cannot be loaded, link the GOV.UK
+  entry-requirements page, which names the portal, and say so in `uncertain`.

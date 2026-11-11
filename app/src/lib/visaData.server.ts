@@ -10,7 +10,8 @@ if (typeof window !== 'undefined') {
 
 interface VisaTable {
   verifiedAt: string;
-  countries: Record<string, Record<PassportCode, EntryRule> & { source?: string }>;
+  // checkedAt: set on a country re-checked after the table's verifiedAt.
+  countries: Record<string, Record<PassportCode, EntryRule> & { source?: string; checkedAt?: string }>;
 }
 
 let table: Promise<VisaTable> | null = null;
@@ -36,5 +37,8 @@ export async function getDestinationEntries(countries: string[]): Promise<Destin
       return { country, rule: entry[passport], source: entry.source };
     });
   }
-  return { verifiedAt, byPassport };
+  // The page shows one "Checked" date: the oldest check among its countries.
+  // ISO dates sort as strings.
+  const checked = countries.map((country) => rules[country].checkedAt ?? verifiedAt).sort()[0] ?? verifiedAt;
+  return { verifiedAt: checked, byPassport };
 }

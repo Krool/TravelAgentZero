@@ -27,7 +27,7 @@ function initialUrlState(): HomeUrlState {
   return typeof window === 'undefined' ? { prefs: {} } : decodeHomeState(window.location.search);
 }
 
-export default function HomePage() {
+export default function HomeClient({ directory }: { directory: React.ReactNode }) {
   const { destinations, travelers, preferences, isLoaded, setSearchQuery, setPreferences } = useAppStore();
   // Lazy initializers run on the client's first render; the list itself only
   // renders after the catalog loads, so this can't cause a hydration mismatch.
@@ -214,8 +214,21 @@ export default function HomePage() {
     };
   };
 
+  // Until the catalog loads, show the server-rendered directory (page.tsx)
+  // under the loading bar, with the same heading the loaded page keeps.
   if (!isLoaded) {
-    return <LoadingScreen />;
+    return (
+      <>
+        <div className="container mx-auto px-4 pt-6">
+          <p className="eyebrow text-retro-cyan mb-2">Mission Briefing</p>
+          <h1 className="display-title text-3xl sm:text-4xl text-text-primary">
+            Where next?
+          </h1>
+        </div>
+        <LoadingScreen />
+        {directory}
+      </>
+    );
   }
 
   return (

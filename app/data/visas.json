@@ -8,15 +8,15 @@
     "DE": "Germany (EU)"
   },
   "uncertain": [
-    "Schengen countries/US,GB,CA,AU: ETIAS officially due Q4 2026 but widely reported slipping to 2027; not live as of check, no confirmed date",
-    "China/GB,CA,AU,DE: 30-day visa-free scheme expires 2026-12-31 unless extended",
-    "South Korea/all: K-ETA exemption expires 2026-12-31",
-    "Mongolia/GB,CA,AU: temporary exemption ends 2026-12-31; CA stay reported as 30 or 90 days",
+    "Schengen countries/US,GB,CA,AU: ETIAS not in operation and no start date set (European Commission, checked 2026-11-10); the EU says it will give several months notice",
+    "China/GB,CA,AU,DE: 30-day visa-free scheme ends 2026-12-31; no extension published as of 2026-11-10 (last year's was announced 2025-11-03)",
+    "South Korea/all: K-ETA exemption ends 2026-12-31; no extension published as of 2026-11-10 (last year's was posted 2025-12-23). Without one, K-ETA applies from 2027-01-01",
+    "Mongolia/GB,CA,AU: temporary exemption ends 2026-12-31; no extension published as of 2026-11-10; CA stay reported as 30 or 90 days",
     "Senegal/all: reciprocity e-visa adopted July 2025; GOV.UK still says visa-free 3 months, start date unconfirmed",
     "Ghana/all: visa in advance confirmed for GB only; 60-day stay and e-visa availability not confirmed",
     "Singapore/CA,AU: stay 30 to 90 days at officer discretion; 30 used",
     "Oman/CA,AU: 14-day exemption confirmed for US/GB/DE, not found on a list for CA/AU",
-    "Namibia/all: April 2025 visa regime confirmed in general; per-nationality list not checked on official portal",
+    "Namibia/all: visa regime, on-arrival option and N$1,600 fee confirmed on GOV.UK 2026-11-10; stay is \"the period requested\", 90 used; official portal eservices.mhaiss.gov.na/visaonarrival did not resolve from here, so GOV.UK is linked",
     "Egypt/all: fee reported as USD 30 since March 2026, official portal not reachable",
     "Ethiopia/all: e-visa fee varies by source; on-arrival eligibility for these passports unconfirmed",
     "Laos, Cambodia, Zimbabwe/all: on-arrival fees vary by nationality and source",
@@ -26,7 +26,9 @@
     "Taiwan/GB,CA: 180 days from prior knowledge, not rechecked",
     "France (French Polynesia)/DE: EU citizens visa-free; no fixed limit stated, not verified",
     "Madagascar/all: e-visa vs on-arrival both offered; fees from secondary sources",
-    "Madagascar/source: official e-visa domain unclear (evisamada-mg.com vs evisamada.gov.mg); no link shown until confirmed"
+    "Madagascar/source: official e-visa domain unclear (evisamada-mg.com vs evisamada.gov.mg); no link shown until confirmed",
+    "Cuba/US,GB,AU: stay shown as 30 days; the German Foreign Office gives 90 for the same e-visa and GOV.UK states no length",
+    "Cuba/source: official portal evisacuba.cu/en/inicio was unreachable 2026-11-10 (reported offline since 2026-10-29), so GOV.UK is linked"
   ],
   "countries": {
     "Albania": {
@@ -376,23 +378,24 @@
       "GB": {
         "status": "none",
         "days": 30,
-        "note": "Visa-free since 2026-02-17, through 2026-12-31"
+        "note": "Visa-free since 2026-02-17, through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "CA": {
         "status": "none",
         "days": 30,
-        "note": "Visa-free since 2026-02-17, through 2026-12-31"
+        "note": "Visa-free since 2026-02-17, through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "AU": {
         "status": "none",
         "days": 30,
-        "note": "Unilateral visa-free through 2026-12-31"
+        "note": "Unilateral visa-free through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "DE": {
         "status": "none",
         "days": 30,
-        "note": "Unilateral visa-free through 2026-12-31"
+        "note": "Unilateral visa-free through 2026-12-31; no extension announced as of 2026-11-10"
       },
+      "checkedAt": "2026-11-10",
       "source": "https://www.gov.uk/foreign-travel-advice/china/entry-requirements"
     },
     "Colombia": {
@@ -520,10 +523,11 @@
       },
       "DE": {
         "status": "evisa",
-        "days": 30,
+        "days": 90,
         "note": "E-visa mandatory since 2025-07-01; D'Viajeros form and medical insurance"
       },
-      "source": "https://www.evisacuba.cu/"
+      "checkedAt": "2026-11-10",
+      "source": "https://www.gov.uk/foreign-travel-advice/cuba/entry-requirements"
     },
     "Czech Republic": {
       "US": {
@@ -821,7 +825,8 @@
         "days": 365,
         "note": "Up to 1 year visa-free"
       },
-      "source": "https://www.geoconsul.gov.ge/en/NonVisaCountries"
+      "checkedAt": "2026-11-10",
+      "source": "https://geoconsul.gov.ge/en/entering-georgia"
     },
     "Germany": {
       "US": {
@@ -1507,23 +1512,24 @@
       "GB": {
         "status": "none",
         "days": 30,
-        "note": "Visa-free tourism through 2026-12-31"
+        "note": "Visa-free tourism through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "CA": {
         "status": "none",
         "days": 30,
-        "note": "Visa-free tourism through 2026-12-31"
+        "note": "Visa-free tourism through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "AU": {
         "status": "none",
         "days": 30,
-        "note": "Visa-free tourism through 2026-12-31"
+        "note": "Visa-free tourism through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "DE": {
         "status": "none",
         "days": 30,
         "note": "Standing bilateral exemption"
       },
+      "checkedAt": "2026-11-10",
       "source": "https://www.gov.uk/foreign-travel-advice/mongolia/entry-requirements"
     },
     "Montenegro": {
@@ -1598,7 +1604,8 @@
         "days": 90,
         "note": "Visa required since 2025-04-01; N$1,600 on arrival or via e-services"
       },
-      "source": "https://eservices.mhaiss.gov.na/"
+      "checkedAt": "2026-11-10",
+      "source": "https://www.gov.uk/foreign-travel-advice/namibia/entry-requirements"
     },
     "Nepal": {
       "US": {
@@ -2093,28 +2100,29 @@
       "US": {
         "status": "none",
         "days": 90,
-        "note": "K-ETA exempt through 2026-12-31"
+        "note": "K-ETA exempt through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "GB": {
         "status": "none",
         "days": 90,
-        "note": "K-ETA exempt through 2026-12-31"
+        "note": "K-ETA exempt through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "CA": {
         "status": "none",
         "days": 180,
-        "note": "K-ETA exempt through 2026-12-31"
+        "note": "K-ETA exempt through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "AU": {
         "status": "none",
         "days": 90,
-        "note": "K-ETA exempt through 2026-12-31"
+        "note": "K-ETA exempt through 2026-12-31; no extension announced as of 2026-11-10"
       },
       "DE": {
         "status": "none",
         "days": 90,
-        "note": "K-ETA exempt through 2026-12-31"
+        "note": "K-ETA exempt through 2026-12-31; no extension announced as of 2026-11-10"
       },
+      "checkedAt": "2026-11-10",
       "source": "https://www.mofa.go.kr/us-hagatna-en/brd/m_5521/view.do?seq=761689"
     },
     "Spain": {

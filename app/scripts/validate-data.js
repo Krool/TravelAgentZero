@@ -156,7 +156,6 @@ const OFFICIAL_HOST = /(^|\.)(gov|gob|go|govt|gouv|gv)\.[a-z]{2}$|\.gov$|(^|\.)g
 const SOURCE_EXCEPTIONS = [
   'seychelles.govtas.com', // named by Tourism Seychelles as the only official portal
   'brazil.vfsevisa.com',   // Brazil's e-visa processor, linked from gov.br consulate pages
-  'www.evisacuba.cu',      // MINREX's e-visa portal
   'www.evisa.e-gov.kg',    // Kyrgyz government e-visa portal
   'www.cookislands.travel',
   'www.jordanpass.jo',
@@ -175,6 +174,9 @@ if (!visas.countries || typeof visas.countries !== 'object') {
       if (!rule) { err(`visas.json: ${country} has no ${p} rule`); continue; }
       if (!ENTRY_STATUSES.includes(rule.status)) err(`visas.json: ${country}.${p} status invalid: ${rule.status}`);
       if (rule.days !== null && (typeof rule.days !== 'number' || rule.days <= 0)) err(`visas.json: ${country}.${p} days invalid: ${rule.days}`);
+    }
+    if (entry.checkedAt != null && !(/^\d{4}-\d{2}-\d{2}$/.test(entry.checkedAt) && Date.parse(entry.checkedAt) <= Date.now())) {
+      err(`visas.json: ${country} checkedAt invalid: ${entry.checkedAt}`);
     }
     if (entry.source != null) {
       let url;

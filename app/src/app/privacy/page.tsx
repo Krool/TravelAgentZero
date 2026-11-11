@@ -30,8 +30,9 @@ export default function PrivacyPage() {
           stored until you choose &ldquo;Accept&rdquo; on the consent banner. The
           events we send are deliberately free of personal information: no
           traveler names, no search text, and no note content are ever
-          transmitted &mdash; only destination ids, coarse counts, and which
-          filters were used.
+          transmitted. Only destination ids, coarse counts, and which filters
+          were used. Your Accept or Decline choice is itself saved in your
+          browser&apos;s local storage so the banner is not shown again.
         </Section>
 
         <Section title="No tracking in development">
@@ -48,7 +49,12 @@ export default function PrivacyPage() {
 
         <p className="text-xs text-text-muted mt-8">
           Questions? This is a personal project in the Krool World portfolio.
+          Contact:{' '}
+          <a href="mailto:kroolworld@proton.me" className="text-retro-cyan hover:underline">
+            kroolworld@proton.me
+          </a>
         </p>
+        <p className="text-xs text-text-muted mt-2">Last updated 2026-11-10.</p>
       </div>
     </div>
   );

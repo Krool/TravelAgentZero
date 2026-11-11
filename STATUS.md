@@ -1,10 +1,27 @@
 # Status
 
-As of 2026-10-20.
+As of 2026-11-10.
 
 MVP is shipped and live on GitHub Pages: https://krool.github.io/TravelAgentZero/
 
 ## Recently done
+
+Maintenance pass (2026-11-10):
+
+- **Static HTML now carries the content.** The home page HTML links all 123
+  destinations (a server-rendered directory shown under the loading bar, then
+  replaced by the app). Detail pages render the Overview, Planning and Costs
+  panels together and hide the inactive ones, so entry rules, neighborhoods,
+  transport and costs are in the HTML. Before this only Overview was.
+- **Visa re-check**: China, South Korea and Mongolia expiries (2026-12-31) had
+  no published extension; notes say so. ETIAS is still not in operation. Dead
+  source links for Georgia, Cuba and Namibia replaced. Re-checked countries
+  carry `checkedAt`.
+- **Dependencies**: next/eslint-config-next 16.4.6, react 19.3.1, zustand 5.1.0,
+  tailwind 4.3.5, Node 22. Deferred majors: eslint 10 (eslint-plugin-react and
+  eslint-plugin-import peer ranges stop at 9), typescript 7 (typescript-eslint
+  requires <6.1).
+- Privacy page: contact address, last-updated date, consent storage stated.
 
 Follow-up pass (2026-10-20, later):
 
@@ -75,6 +92,10 @@ A review/modernization pass (2026-07-01) covering:
   generator exists.
 - **Known, deferred items**:
   - Visa rules expiring 2026-12-31 (China's visa-free list, Korea K-ETA
-    exemption, Mongolia) need a re-check in January; see `uncertain` in
-    `app/data/visas.json`.
+    exemption, Mongolia): no extension published as of 2026-11-10. Re-check in
+    the first week of January 2027; see `uncertain` in `app/data/visas.json`
+    and the Freshness notes in `app/data/CLAUDE.md`.
+  - Detail pages have no server-rendered links to other destinations (prev/next
+    appear only after the catalog loads). Adding "more in this region" links
+    would be new visible UI; not done.
   - `og-preview.png` is 243KB, larger than necessary for an OG image.
