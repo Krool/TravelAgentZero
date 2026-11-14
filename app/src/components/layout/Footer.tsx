@@ -21,12 +21,22 @@ export function Footer() {
             Travel scoring is based on your preferences. Always verify visa requirements and safety advisories before booking.
           </p>
 
-          <Link
-            href="/privacy"
-            className="text-text-muted hover:text-retro-cyan text-xs transition-colors"
-          >
-            Privacy
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacy"
+              className="text-text-muted hover:text-retro-cyan text-xs transition-colors"
+            >
+              Privacy
+            </Link>
+            <a
+              href="https://ko-fi.com/kroolworld"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted hover:text-retro-cyan text-xs transition-colors"
+            >
+              Ko-fi
+            </a>
+          </div>
 
           <div className="h-px w-16 bg-gradient-to-r from-transparent via-retro-cyan/30 to-transparent" />
 
