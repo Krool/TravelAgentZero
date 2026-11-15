@@ -34,7 +34,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-text-muted hover:text-retro-cyan text-xs transition-colors"
             >
-              Ko-fi
+              Donate
             </a>
           </div>
 
